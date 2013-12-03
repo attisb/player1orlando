@@ -1,0 +1,68 @@
+.content {
+	margin: 0 auto; padding: 0; min-width: 760px; max-width: 1000px;
+	*width: 760px;
+	*word-spacing: -0.43em;
+	text-rendering: auto;
+}
+
+.content.sizer div[class*='span'] {background: #eee;}
+
+
+div[class*='span'] {
+	border: 10px solid transparent;
+	*border-left: 0;
+	*border-right: 0;
+	display: inline-block;
+	zoom: 1; *display: inline;
+	letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align: top;
+	text-rendering: auto;
+	margin-left: -0.4%;
+}
+
+div[class*='span'] div[class*='span'] {border-left: none;}
+
+.hide {display: none !important;}
+
+.span1-5 {width: 20%;}
+.span2-5 {width: 40%;}
+.span3-5 {width: 60%;}
+.span4-5 {width: 80%;}
+.span5-5 {width: 100%;}
+
+.span1-8 {width: 12.5%;}
+.span2-8 {width: 25%;}
+.span3-8 {width: 37.5%;}
+.span4-8 {width: 50%;}
+.span5-8 {width: 62.5%;}
+.span6-8 {width: 75%;}
+.span7-8 {width: 87.5%;}
+.span8-8 {width: 100%;}
+
+.span1-12 {width: 8.33333333333%;}
+.span2-12 {width: 16.6666666667%;}
+.span3-12 {width: 25%;}
+.span4-12 {width: 33.3333333333%;}
+.span5-12 {width: 41.6666666667%;}
+.span6-12 {width: 50%;}
+.span7-12 {width: 58.3333333333%;}
+.span8-12 {width: 66.6666666666%;}
+.span9-12 {width: 75%;}
+.span10-12 {width: 83.3333333333%;}
+.span11-12 {width: 91.6666666666%;}
+.span12-12 {width: 100%;}
+
+/* -------------------------------------------------
+	Mobile Modifiers
+------------------------------------------------- */
+	/* Smartphones */
+	@media only screen and (max-width : 768px) {
+		.no-mobile {display: none;}
+		.content, div[class*='span'] {width: 100%; min-width: 100%; max-width: 100%;}
+	}
+	
+	/* Tablets */
+	@media only screen and (min-width : 768px) and (max-width : 1024px) {
+		.no-tablet {display: none;}
+	}

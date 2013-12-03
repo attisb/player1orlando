@@ -1,0 +1,53 @@
+/* -------------------------------------------------
+	Reset
+------------------------------------------------- */
+	*, *:before, *:after {
+		text-rendering: optimizeLegibility;
+		position: relative;
+		margin: 0; padding: 0;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+		-webkit-transition: background 0.3s, color 0.3s, border 0.3s, opacity 0.3s ease-in-out;
+		-moz-transition: background 0.3s, color 0.3s, border 0.3s, opacity 0.3s ease-in-out;
+		-o-transition: background 0.3s, color 0.3s, border 0.3s, opacity 0.3s ease-in-out;
+		transition: background 0.3s, color 0.3s, border 0.3s, opacity 0.3s ease-in-out;
+	}
+	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+	[hidden] { display: none; }
+
+	img {border: 0;}
+	html {font-size: 100.01%}
+	html, body {min-height: 100%;}
+	body, ul, ol, dl {margin: 0;}
+	textarea {resize: vertical;}
+	article, aside, audio, footer, header, nav, section, video {display: block;}
+	html { font-size: 100%;}
+	html, button, input, select, textarea { font-family: sans-serif; color: #000; }
+	body { margin: 0; font-size: 1em; line-height: 1.4; }
+	nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+	table {border-collapse: collapse; border-spacing: 0;}
+	td {vertical-align: top;}
+	a {color: #609190;}
+	a:hover {color: #c02942;}
+
+	form { margin: 0; }
+	fieldset { border: 0; margin: 0; padding: 0; }
+	label { cursor: pointer; }
+	legend { border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+	button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+	button, input { line-height: normal; }
+	button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+	button[disabled], input[disabled] { cursor: default; }
+
+	input[type="submit"]::-moz-focus-inner, input[type="button"]::-moz-focus-inner {border: 0px;}
+	input[type="submit"] {-webkit-appearance:none;}
+	input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+	input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+	input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+
+	button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+	textarea { overflow: auto; vertical-align: top; resize: vertical; }
+	input:valid, textarea:valid {  }
+	input:invalid, textarea:invalid { background-color: #f0dddd; }
+
+	ul     { list-style-type: disc; }
+	ol     { list-style-type: decimal; }

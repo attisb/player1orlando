@@ -1,0 +1,170 @@
+body {	background: #f6f8f8;}
+
+
+/* Forms */
+.dq-form .field1-5 {width: 20%;}
+.dq-form .field2-5 {width: 40%;}
+.dq-form .field3-5 {width: 60%;}
+.dq-form .field4-5 {width: 80%;}
+.dq-form .field5-5 {width: 100%;}
+
+.dq-form {
+	margin: 0;
+	padding: 0;
+}
+
+.dq-form div[class*='field'] {
+	padding-right: 1px;
+	float: left;
+}
+
+/* Legends, Labels, & Fieldsets */
+.dq-form fieldset {
+	margin-bottom: 10px;
+}
+
+.dq-form fieldset legend {
+	font-size: 18px;
+	margin-bottom: 10px;
+	color: #A45F41;
+}
+
+.dq-form label {
+	font: 12px/1.5 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
+	display: block;
+	text-transform: uppercase;
+	opacity: .5;
+	padding: 10px 0 0px 0;
+}
+
+/* Default Form Settings */
+.dq-form input[type=text],
+.dq-form input[type=email],
+.dq-form input[type=file],
+.dq-form input[type=number],
+.dq-form input[type=search],
+.dq-form input[type=tel],
+.dq-form input[type=time],
+.dq-form input[type=url],
+.dq-form input[type=password],
+.dq-form input[type=datetime],
+.dq-form textarea,
+.dq-form .file,
+.dq-form .select {
+	border-radius: 0px;
+	border: none;
+	border-left: 4px solid #fff;
+	padding: 16px 12px;
+	width: 100%;
+	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px;
+	margin-bottom: 1px;
+	z-index: 10;
+}
+
+/* Selects */
+.dq-form select {background-color: transparent; background-image: none; border: none; box-shadow: none; font-family: "Montserrat"; font-size: 16px; text-rendering: optimizeLegibility; width: 115%; -webkit-appearance: none; z-index: 10;}
+.dq-form select:focus {outline: 0;}
+.dq-form .select {overflow: hidden; position: relative; background: #fff; padding: 15px 12px;}
+
+/* Radios & Checkboxes */
+input[type=radio] + label,
+input[type=checkbox] + label {
+	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px;
+	display: block;
+	text-transform: none;
+	opacity: 1;
+	background: #fff;
+	padding: 14px 16px 15px 38px;
+	margin-bottom: 1px;
+	overflow: hidden;
+	z-index: 10;
+}
+input[type=radio], input[type=checkbox] {display: none;}
+input[type=radio] + label:before, input[type=checkbox] + label:before {content: ""; display: inline-block; width: 16px; height: 16px; position: absolute; left: 16px; top: 16px; border: 1px solid #7F8C8D;}
+input[type=radio] + label:before {border-radius: 8px;}
+input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before {font-family: Arial, Helvetica; color: #444; text-align: center; line-height: 14px; font-size: 30px;}
+input[type=radio]:checked + label:before {content: "\2022";}
+input[type=checkbox]:checked + label:before {content: "\2714"; font-size: 12px;}
+table input[type=checkbox] {display: inline;}
+.dq-form .has-labels {margin-top: 28px;}
+
+/* File Inputs */
+div.file {line-height: 18px; position: relative; overflow: hidden; padding: 16px; background: #fff;}
+div.file input[type=file] {height: 100%; width: 100%; position: absolute; top: 0; left: 0; border: none; opacity: 0;}
+div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size: 12px; font-weight: normal; line-height: 50px; padding: 0 22px; position: absolute; right: 0; top: 0;}
+
+/* Buttons & Submits */
+.dq-buttons {
+	text-align: right;
+}
+
+.dq-buttons input[type=button],
+.dq-buttons input[type=submit],
+.dq-buttons button,
+.dq-buttons .lnk-button {
+	border: none;
+	background: #4678a4;
+	color: #fff;
+	padding: 16px 12px;
+	margin-top: 10px;
+	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
+	text-decoration: none;
+}
+.dq-buttons .lnk-button.full {display: block; text-align: center;}
+
+.dq-buttons input[type=button].cancel {
+	background: none;
+	border: none;
+	color: #A45F41;
+	margin: 0;
+}
+.dq-buttons .cancel {
+	background: #A45F41;
+}
+
+/* Focus, Hovers & Disabled */
+.dq-form input[type=text]:focus,
+.dq-form input[type=email]:focus,
+.dq-form input[type=file]:focus,
+.dq-form input[type=number]:focus,
+.dq-form input[type=search]:focus,
+.dq-form input[type=tel]:focus,
+.dq-form input[type=time]:focus,
+.dq-form input[type=url]:focus,
+.dq-form input[type=password]:focus,
+.dq-form input[type=datetime]:focus,
+.dq-form textarea:focus,
+.dq-form .filefocus,
+.dq-form .selectfocus {
+	outline: 0;
+	border-left: 4px solid #4678a4;
+}
+.dq-form div.file:hover,
+.dq-buttons input[type=button]:hover,
+.dq-buttons input[type=submit]:hover,
+.dq-buttons button,
+.dq-buttons .lnk-button {
+	opacity: .8;
+}
+
+input[disabled=disabled], textarea[disabled=disabled], .select.disabled {opacity: .5;}
+
+#error_explanation {border: 3px solid #E16D53; background: #EAB1A7; margin-bottom: 20px; padding: 10px;}
+#error_explanation h2 {font-size: 18px; line-height: 18px;}
+#error_explanation ul {margin: 0 16px;}
+.field_with_errors {width: 100%;}
+.field_with_errors input,
+.field_with_errors textarea {background: #EAB1A7; border-left: 4px solid #EAB1A7 !important;}
+
+.dark #error_explanation,
+.dark #error_explanation h2 {color: #000;}
+
+
+@media only screen and (max-width : 768px) {
+	.dq-form .field1-5,
+	.dq-form .field2-5,
+	.dq-form .field3-5,
+	.dq-form .field4-5,
+	.dq-form .field5-5 {width: 100%;}
+}
+

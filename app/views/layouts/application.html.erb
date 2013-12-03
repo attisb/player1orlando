@@ -1,14 +1,131 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
 <head>
-  <title>Player1orlando</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
+	<!-- Designed by Attis Bijlani dequark.com -->
+	<title>Player 1 Video Game Bar</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Player 1 Orlando Video Game Bar. Beer, Games, and Music." />
+	<meta name="author" content="Attis Bijlani" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="/includes/apple-touch-icon.png" />
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+    <%= csrf_meta_tags %>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 8]><link rel="stylesheet" href="/includes/ie7.css" type="text/css" charset="utf-8" /><![endif]-->
+
 </head>
-<body>
+<% if admin_signed_in? -%>
+<body class="light">
+<% else -%>
+<body class="dark">
+<% end -%>
+	
+	<% if flash[:notice] %><div class="notice"><div class="content"><%= notice %></div></div><% end %>
+	<% if flash[:alert] %><div class="alert"><div class="content"><%= alert %></div></div><% end %>
 
+	<header>
+		<div class="content">
+			<div class="span12-12">
+				<a href="javascript:void();" id="pull"><i class="fa fa-bars"></i></a>
+				<a href="/" id="header_logo">Player 1 - Video Game Bar</a>
+				<nav>
+					<ul>
+						<% if admin_signed_in? -%>
+							<li class="small"><strong>ADMIN</strong>: <%= current_admin.email %></li>
+							<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, :class => 'small' %></li>
+							<li><%= link_to 'Drinks', root_path -%></li>
+							<li><%= link_to 'Games', root_path -%></li>
+							<li><%= link_to 'Events', root_path -%></li>
+							<li><%= link_to 'Photos', root_path -%></li>
+							<li><%= link_to "Katy's Corner", root_path -%></li>
+						<% else -%>
+							<li><%= link_to 'Drinks', root_path -%></li>
+							<li><%= link_to 'Games', root_path -%></li>
+							<li><%= link_to 'Events', root_path -%></li>
+							<li><%= link_to 'Photos', root_path -%></li>
+							<li><%= link_to "Katy's Corner", root_path -%></li>
+						<% end -%>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+	
+
+	<div class="content">
 <%= yield %>
+	</div>
 
+	<!-- Begin Footer -->
+	<footer>
+		<div class="content">
+			<div class="span6-12">
+				<h4>Like Us &amp; Keep Up to Date</h4>
+				<div class="fb-like" data-href="https://www.facebook.com/player1orlando" data-send="false" data-width="250" data-show-faces="false" data-font="verdana" data-colorscheme="dark"></div><br/>
+				<div class="g-plusone" data-size="tall" data-annotation="inline" data-width="300" data-href="http://player1orlando.com"></div>
+			</div>
+			<div class="span3-12">
+				<ul class="unstyled coins">
+					<li><a href="https://www.facebook.com/player1orlando"><i class="fa fa-facebook"></i> Facebook</a></li>
+					<li><a href="https://twitter.com/player1orlando"><i class="fa fa-twitter"></i> Twitter</a></li>
+					<li><a href="https://untappd.com/user/Player1Orlando"><i class="fa fa-beer"></i> Untapped</a></li>
+				</ul>
+			</div>
+			<div class="span3-12">
+				<ul class="unstyled coins">
+					<li><a href="https://google.com/+player1orlando" rel="publisher"><i class="fa fa-google-plus"></i> Google+</a></li>
+					<li><a href="http://instagram.com/player1orlando"><i class="fa fa-instagram"></i> Instagram</a></li>
+				</ul>
+			</div>
+	</footer>
+	<!-- End Footer -->
+
+
+	<!-- Google Tracking -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-43137120-1', 'player1orlando.com');
+	  ga('send', 'pageview');
+
+	</script>	
+
+	<!-- Begin Social Scripts -->
+		<div id="fb-root"></div>
+	    <script>(function(d, s, id) {
+	      var js, fjs = d.getElementsByTagName(s)[0];
+	      if (d.getElementById(id)) return;
+	      js = d.createElement(s); js.id = id;
+	      js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+	      fjs.parentNode.insertBefore(js, fjs);
+	    }(document, 'script', 'facebook-jssdk'));</script>
+
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/plusone.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+	<!-- End Social Scripts -->
+	
+	<script src="/assets/dequark_functions.js" type="text/javascript" charset="utf-8"></script>
+	
 </body>
 </html>
