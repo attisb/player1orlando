@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208211020) do
+ActiveRecord::Schema.define(version: 20131208214412) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -53,6 +53,20 @@ ActiveRecord::Schema.define(version: 20131208211020) do
     t.integer  "order"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "drinks", force: true do |t|
+    t.string   "name"
+    t.string   "brewery"
+    t.float    "abv"
+    t.text     "description"
+    t.float    "price"
+    t.boolean  "visible"
+    t.integer  "beer_style_id"
+    t.boolean  "call_out"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "category_id"
   end
 
   create_table "timelines", force: true do |t|

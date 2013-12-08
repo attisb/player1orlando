@@ -27,7 +27,7 @@ body {background: #f6f8f8; color: #000;}
 	
 #pull {display: none;}
 #header_logo {float: left; background: url(/includes/header_logo.png) no-repeat; display: block; width: 198px; height: 50px; white-space: nowrap; text-indent: 100%; overflow: hidden;}
-header .content {border-bottom: 2px solid #000;}
+header {background: #080d12; border-bottom: 1px solid rgba(0,0,0,.5); box-shadow: 0px 3px 3px rgba(0,0,0,.2);}
 header nav {float: right; margin-top: 16px; color: #bbb;}
 header nav li {float: left; margin-left: 20px;}
 header span {line-height: 25px;}
@@ -67,6 +67,7 @@ body.dark {background: #191e23; color: #ddd;}
 .dark footer {background: #080d12; border-top: 1px solid rgba(255,255,255,.5); box-shadow: 0px -3px 3px #000;}
 
 body.light {background: #e6e8e8;}
+.light header {border-bottom: 1px solid rgba(0,0,0,.5); box-shadow: 0px 3px 3px rgba(0,0,0,.2);}
 
 
 /* -------------------------------------------------
