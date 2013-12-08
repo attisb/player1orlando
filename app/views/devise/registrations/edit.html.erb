@@ -1,29 +1,76 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-key"></i> Create an Account <small>It's like knowing someone you know.</small></h2></div>
+	<div class="span8-12">
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+		  <%= devise_error_messages! %>
+  		<h4>You know what you got to do.<small>All fields are required.</small></h4>
+  		<div class="dq-form">
+			<div class="field3-10"><%= f.text_field :first_name, :placeholder => "First Name" %></div>
+			<div class="field4-10"><%= f.text_field :last_name, :placeholder => "Last Name" %></div>
+			<div class="field3-10"><%= f.text_field :username, :placeholder => "Username" %></div>
+			<div class="field10-10"><%= f.email_field :email, :placeholder => "Email Address" %></div>
+			<div class="field5-10"><%= f.password_field :password, :placeholder => "Password" %></div>
+			<div class="field5-10"><%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+		</div>
+  		<h4>Current Password<small>We need to know your current password to update any info.</small></h4>
+  		<div class="dq-form">
+			<div class="field5-10"><%= f.password_field :current_password, :placeholder => "Current Password" %></div>
+			<div class="dq-buttons">
+				<%= f.submit :value => "Update Your Account" %>
+			</div>
+		</div>
+		<% end %>
+		
+  		<h4>Your Activity<small>You've been busy!</small></h4>
+		<ul class="unstyled">
+			<% @user.timelines.page.each do |timeline| %>
+				<% if timeline.nature.downcase == "create" %>
+					<li><%= @user.first_name.capitalize -%> created his account with Player 1 on <%= timeline.created_at.to_s(:quick_date) -%>. We called him <strong>awesome</strong> that day!</li>
+				<% else %>
+					<li>On <%= timeline.created_at.to_s(:quick_date) -%> they <%= timeline.nature -%>.</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+	<div class="span4-12">
+		<p class="text-right">
+			<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
+			<a href="http://en.gravatar.com/">Change Your Avatar</a>
+		</p>
+		
+		<% if @user.has_membership? %>
+			<div class="callout_box">
+				<h5>Become a Player 1 Citizen.</h5>
+				<p>Becoming a citizen allows you to earn points towards free covers for friends, swag, discounts, and more! Just ask you game master at the front of Player 1 for more details.</p>
+			</div>
+		<% else %>
+			<div class="callout_box">
+				<h5>Player 1 Citizen</h5>
+				<ul class="unstyled lined">
+					<li class="large"><span class="float-right"><%= @user.lifetime_points - @user.used_points -%></span><strong>Available Points</strong></li>
+					<li><span class="float-right"><%= @user.used_points -%></span><strong>Used Points</strong></li>
+					<li><span class="float-right"><%= @user.lifetime_points -%></span><strong>Lifetime Points</strong></li>
+				</ul>
+				<div class="dq-buttons">
+					<%= link_to "How it all works?", current_user, :class => "lnk-button small secondary" %>
+					<%= link_to "Available Rewards", current_user, :class => "lnk-button small" %>
+				</div>
+			</div>
+		<% end %>
+		
+		<div class="dq-buttons pad-bottom">
+			<%= link_to "View Your Public Profile", current_user, :class => "lnk-button full grey" %>
+		</div>
+		
+		<h5>Will you share any info?</h5>
+		<p>Don't worry we will never share any info that you provide with anyone. We hate those people just as much as you do.</p>
+	
+		<h5>Unhappy?</h5>
+		<p>We are sorry to see you go, but we make it easy to delete your account. Click the button below and your account and all data will be removed from our system. :(</p>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+		<div class="dq-buttons">
+			<%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => "full cancel" %>
+		</div>
+	</div>
+</div>

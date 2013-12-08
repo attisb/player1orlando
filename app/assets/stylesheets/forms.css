@@ -1,16 +1,26 @@
-body {	background: #f6f8f8;}
-
-
 /* Forms */
-.dq-form .field1-5 {width: 20%;}
-.dq-form .field2-5 {width: 40%;}
-.dq-form .field3-5 {width: 60%;}
-.dq-form .field4-5 {width: 80%;}
-.dq-form .field5-5 {width: 100%;}
+.dq-form .field1-10 {width: 10%;}
+.dq-form .field2-10 {width: 20%;}
+.dq-form .field3-10 {width: 30%;}
+.dq-form .field4-10 {width: 40%;}
+.dq-form .field5-10 {width: 50%;}
+.dq-form .field6-10 {width: 60%;}
+.dq-form .field7-10 {width: 70%;}
+.dq-form .field8-10 {width: 80%;}
+.dq-form .field9-10 {width: 90%;}
+.dq-form .field10-10 {width: 100%;}
 
 .dq-form {
 	margin: 0;
 	padding: 0;
+}
+
+.dq-form:after { 
+   content: "."; 
+   visibility: hidden; 
+   display: block; 
+   height: 0; 
+   clear: both;
 }
 
 .dq-form div[class*='field'] {
@@ -78,6 +88,7 @@ input[type=checkbox] + label {
 	margin-bottom: 1px;
 	overflow: hidden;
 	z-index: 10;
+	color: #000;
 }
 input[type=radio], input[type=checkbox] {display: none;}
 input[type=radio] + label:before, input[type=checkbox] + label:before {content: ""; display: inline-block; width: 16px; height: 16px; position: absolute; left: 16px; top: 16px; border: 1px solid #7F8C8D;}
@@ -96,6 +107,9 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 /* Buttons & Submits */
 .dq-buttons {
 	text-align: right;
+	display: block;
+	width: 100%;
+	clear: both;
 }
 
 .dq-buttons input[type=button],
@@ -109,10 +123,36 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 	margin-top: 10px;
 	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
 	text-decoration: none;
+	position: relative;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 1px solid rgba(255,255,255,.5);
+	box-shadow: 1px 1px 3px #000;
+	display: inline-block;
 }
 .dq-buttons .lnk-button.full {display: block; text-align: center;}
+.dq-buttons .full {width: 100%;}
+.dq-buttons .cancel {background: #A4464A !important;}
+.dq-buttons .secondary {
+	float: left;
+	background: none;
+	border: none;
+	box-shadow: none;
+	padding: 16px 0;
+	font-family: 'Muli', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
+	text-decoration: underline;
+	color: #609190;
+}
+.dq-buttons .grey {
+	background: #666;
+}
+.dq-buttons .small {
+	padding: 8px 6px;
+}
+.callout_box .secondary {color: #fff;}
 
-.dq-buttons input[type=button].cancel {
+
+/*.dq-buttons input[type=button].cancel {
 	background: none;
 	border: none;
 	color: #A45F41;
@@ -120,7 +160,7 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 }
 .dq-buttons .cancel {
 	background: #A45F41;
-}
+}*/
 
 /* Focus, Hovers & Disabled */
 .dq-form input[type=text]:focus,
@@ -138,12 +178,13 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 .dq-form .selectfocus {
 	outline: 0;
 	border-left: 4px solid #4678a4;
+	background: #eee;
 }
 .dq-form div.file:hover,
 .dq-buttons input[type=button]:hover,
 .dq-buttons input[type=submit]:hover,
-.dq-buttons button,
-.dq-buttons .lnk-button {
+.dq-buttons button:hover,
+.dq-buttons .lnk-button:hover {
 	opacity: .8;
 }
 
@@ -161,10 +202,15 @@ input[disabled=disabled], textarea[disabled=disabled], .select.disabled {opacity
 
 
 @media only screen and (max-width : 768px) {
-	.dq-form .field1-5,
-	.dq-form .field2-5,
-	.dq-form .field3-5,
-	.dq-form .field4-5,
-	.dq-form .field5-5 {width: 100%;}
+	.dq-form .field1-10,
+	.dq-form .field2-10,
+	.dq-form .field3-10,
+	.dq-form .field4-10,
+	.dq-form .field5-10,
+	.dq-form .field6-10,
+	.dq-form .field7-10,
+	.dq-form .field8-10,
+	.dq-form .field9-10,
+	.dq-form .field10-10 {width: 100%;}
 }
 

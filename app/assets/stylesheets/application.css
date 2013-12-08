@@ -21,6 +21,9 @@ body {background: #f6f8f8; color: #000;}
 .full_btn:hover {background: #8F3B3D; color: #fff;}
 
 .pad-bottom {margin-bottom: 20px;}
+.callout_box {background: #E16D53; padding: 10px 10px 10px 10px; color: #fff; margin-bottom: 20px;	border: 1px solid rgba(255,255,255,.5);}
+.callout_box p {margin-bottom: 0;}
+.callout_box ul {margin-bottom: 0;}
 	
 #pull {display: none;}
 #header_logo {float: left; background: url(/includes/header_logo.png) no-repeat; display: block; width: 198px; height: 50px; white-space: nowrap; text-indent: 100%; overflow: hidden;}
@@ -37,7 +40,7 @@ header nav .small {margin-top: 1px;}
 .hero #hero_slogan h2 {font-size: 25px; line-height: 100%; padding: 0; left: 7px; padding-top: 140px;}
 .hero #hero_slogan h1 {font-size: 90px; line-height: 80%; padding: 0;}
 
-footer {margin-top: 100px;}
+footer {padding-top: 100px;}
 footer .coins li {margin-bottom: 10px; display: block;}
 footer .coins a {text-decoration: none; display: block; background: #fff; color: #080d12; line-height: 30px;}
 footer .coins a i {display: block; text-align: center; color: #fff; background: #609190; float: left; margin-right: 10px; width: 30px; height: 30px; line-height: 30px;}
@@ -49,9 +52,9 @@ footer .coins a:hover {color: #c02942;}
 
 
 /* Dark Mode */
-body.dark {background: #080d12; color: #ddd;}
+body.dark {background: #191e23; color: #ddd;}
 .dark .hero {color: #fff;}
-.dark header .content {border-color: #333;}
+.dark header {background: #080d12; border-bottom: 1px solid rgba(255,255,255,.5); box-shadow: 0px 3px 3px #000;}
 .dark header nav a {color: #fff;}
 .dark header nav a:hover {color: #fff;}
 .dark .link-black {color: #fff;}
@@ -59,7 +62,9 @@ body.dark {background: #080d12; color: #ddd;}
 .dark blockquote {border-color: #dbdbdb; color: #A5B3AD;}
 .dark strong {color: #fff;}
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {color: #fff;}
-.dark h2 {color: #9ab;}
+.dark h2 {color: #fff;}
+.dark footer {margin-top: 100px; padding-top: 20px;}
+.dark footer {background: #080d12; border-top: 1px solid rgba(255,255,255,.5); box-shadow: 0px -3px 3px #000;}
 
 /* -------------------------------------------------
 	Mobile Modifiers
