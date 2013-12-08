@@ -34,6 +34,7 @@ h6 {font-size: 12px; line-height: 12px;}
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {opacity: .5; line-height: 12px; font-size: 12px; display: block;}
 h3 i {font-size: 80%;}
 h4 ~ h4 {margin-top: 20px;}
+h4 ~ h5 {margin-top: 20px;}
 
 ul, ol {margin: 0 0 10px 24px;}
 ul ul, ol ol, ul ol, ol ul {margin-bottom: 0;}

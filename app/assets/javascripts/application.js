@@ -15,17 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(function() {
-	$("html").removeClass("nojquery");
-	$("html").removeClass("no-js");
-	
-	$('input[type=file]').dequarkFileInputs();
-	$('.numbersonly').dequarkInputLimits("numbers");
-	$('.emailonly').dequarkInputLimits("email");
-	$('select').dequarkSelects();
-
-	$("#pull").on('click', function(e) {  
-		e.preventDefault();
-		$("header nav").slideToggle('slow');  
-	});
-});

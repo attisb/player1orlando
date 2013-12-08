@@ -1,16 +1,22 @@
-<h2>Change your password</h2>
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-key"></i> Forgot My Password <small>It's okay. It happens to us all.</small></h2></div>
+	<div class="span8-12">
+		<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+		<%= devise_error_messages! %>
+		<%= f.hidden_field :reset_password_token %>
+		<h4>You know what you got to do.<small>All fields are required.</small></h4>
+		<div class="dq-form">
+			<div class="field5-10"><%= f.password_field :password, :placeholder => "New Password" %></div>
+			<div class="field5-10"><%= f.password_field :password_confirmation, :placeholder => "Confirm new password" %></div>
+			<div class="dq-buttons">
+				<%= f.submit :value => "Change Password" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+	<div class="span4-12">
+		<h5>So what does creating an account do?</h5>
+		<p>Well it helps us learn what kind of beers you like so we can work on getting more of what you like. It also helps you keep track of what you have had here at Player 1. And soon we will be adding more features.</p>
+	</div>
+</div>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
-
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>

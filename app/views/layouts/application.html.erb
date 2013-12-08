@@ -45,13 +45,8 @@
 					<ul>
 						<% if admin_signed_in? -%>
 							<li class="small"><strong>ADMIN</strong>: <%= current_admin.email %></li>
+							<li><%= link_to 'My info', edit_admin_registration_path, :class => 'small' %></li>
 							<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, :class => 'small' %></li>
-							<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, :class => 'small' %></li>
-							<li><%= link_to 'Drinks', root_path -%></li>
-							<li><%= link_to 'Games', root_path -%></li>
-							<li><%= link_to 'Events', root_path -%></li>
-							<li><%= link_to 'Photos', root_path -%></li>
-							<li><%= link_to "Katy's Corner", root_path -%></li>
 						<% else -%>
 							<% if user_signed_in? -%>
 								<li class="small">Hi, <%= current_user.first_name %></li>
@@ -62,12 +57,12 @@
 								<li><%= link_to 'Sign Up', new_user_registration_path, :class => 'small' %></li>
 								<li><%= link_to 'Sign In', new_user_session_path, :class => 'small' %></li>
 							<% end -%>
-							<li><%= link_to 'Drinks', root_path -%></li>
-							<li><%= link_to 'Games', root_path -%></li>
-							<li><%= link_to 'Events', root_path -%></li>
-							<li><%= link_to 'Photos', root_path -%></li>
-							<li><%= link_to "Katy's Corner", root_path -%></li>
 						<% end -%>
+						<li><%= link_to 'Drinks', beverages_path -%></li>
+						<li><%= link_to 'Games', play_path -%></li>
+						<li><%= link_to 'Events', root_path -%></li>
+						<li><%= link_to 'Photos', root_path -%></li>
+						<li><%= link_to "Katy's Corner", root_path -%></li>
 					</ul>
 				</nav>
 			</div>
