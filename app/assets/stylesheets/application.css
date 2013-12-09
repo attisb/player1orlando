@@ -50,6 +50,22 @@ footer .coins a:hover {color: #c02942;}
 .notice {background: #9CD5CC; color: #000;}
 .alert {background: #E16D53;}
 
+.video-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}

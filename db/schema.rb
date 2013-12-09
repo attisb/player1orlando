@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208214412) do
+ActiveRecord::Schema.define(version: 20131209064714) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -67,6 +67,29 @@ ActiveRecord::Schema.define(version: 20131208214412) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.text     "brewer_description"
+  end
+
+  create_table "games", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.date     "released_at"
+    t.string   "developer"
+    t.string   "publisher"
+    t.integer  "players"
+    t.string   "trailer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "visible"
+    t.integer  "category_id"
+  end
+
+  create_table "katy_corners", force: true do |t|
+    t.string   "title"
+    t.text     "brief"
+    t.text     "body_document"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "timelines", force: true do |t|

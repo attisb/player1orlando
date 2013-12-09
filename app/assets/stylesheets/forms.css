@@ -58,6 +58,7 @@
 .dq-form input[type=url],
 .dq-form input[type=password],
 .dq-form input[type=datetime],
+.dq-form input[type=date],
 .dq-form textarea,
 .dq-form .file,
 .dq-form .select {
@@ -69,6 +70,10 @@
 	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px;
 	margin-bottom: 1px;
 	z-index: 10;
+}
+
+.dq-form input[type=date] {
+	padding: 14px 12px 15px 12px;
 }
 
 /* Selects */
@@ -173,6 +178,7 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 .dq-form input[type=url]:focus,
 .dq-form input[type=password]:focus,
 .dq-form input[type=datetime]:focus,
+.dq-form input[type=date]:focus,
 .dq-form textarea:focus,
 .dq-form .filefocus,
 .dq-form .selectfocus {
