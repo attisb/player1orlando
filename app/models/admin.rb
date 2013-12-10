@@ -22,9 +22,6 @@ class Admin < ActiveRecord::Base
      too_long: "can have at most %{count} letters"
    }
 
-   validates :username, format: { without: /(player1|admin|help|fuck|shit|damn|crap|piss|dick|cock|pussy|ass|fag|bastard|slut|douche|bitch)/i,
-       message: "is reserved" }
-
   def to_param
    [id, username.parameterize].join("-")
   end

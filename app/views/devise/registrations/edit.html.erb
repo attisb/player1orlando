@@ -23,10 +23,14 @@
 		
 		<% if user_signed_in? %>
   		<h4>Your Activity<small>You've been busy!</small></h4>
-		<ul class="unstyled">
-			<% @user.timelines.page.each do |timeline| %>
+		<ul class="unstyled lined">
+			<% @user.timelines.order(created_at: :desc).page.each do |timeline| %>
 				<% if timeline.nature.downcase == "create" %>
 					<li><%= @user.first_name.capitalize -%> created his account with Player 1 on <%= timeline.created_at.to_s(:quick_date) -%>. We called him <strong>awesome</strong> that day!</li>
+				<% elsif timeline.nature.downcase == "drink" %>
+					<li>Just had a good drink of <%= link_to timeline.drink.name, drink_path(timeline.drink) -%> at  <%= timeline.created_at.to_s(:quick_date) -%>.</li>
+				<% elsif timeline.nature.downcase == "drink_rate" %>
+					<li>Rated the drink <%= link_to timeline.drink.name, drink_path(timeline.drink) -%> a <%= @user.ratings.where(:drink_id => timeline.drink).first.rating -%> out of 5 at <%= timeline.created_at.to_s(:quick_date) -%>.</li>
 				<% else %>
 					<li>On <%= timeline.created_at.to_s(:quick_date) -%> they <%= timeline.nature -%>.</li>
 				<% end %>
@@ -37,30 +41,11 @@
 
 	<div class="span4-12">
 		<% if user_signed_in? %>
+			<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
 			<p class="text-right">
-				<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
 				<a href="http://en.gravatar.com/">Change Your Avatar</a>
 			</p>
-		
-			<% if @user.has_membership? %>
-				<div class="callout_box">
-					<h5>Become a Player 1 Citizen.</h5>
-					<p>Becoming a citizen allows you to earn points towards free covers for friends, swag, discounts, and more! Just ask you game master at the front of Player 1 for more details.</p>
-				</div>
-			<% else %>
-				<div class="callout_box">
-					<h5>Player 1 Citizen</h5>
-					<ul class="unstyled lined">
-						<li class="large"><span class="float-right"><%= @user.lifetime_points - @user.used_points -%></span><strong>Available Points</strong></li>
-						<li><span class="float-right"><%= @user.used_points -%></span><strong>Used Points</strong></li>
-						<li><span class="float-right"><%= @user.lifetime_points -%></span><strong>Lifetime Points</strong></li>
-					</ul>
-					<div class="dq-buttons">
-						<%= link_to "How it all works?", current_user, :class => "lnk-button small secondary" %>
-						<%= link_to "Available Rewards", current_user, :class => "lnk-button small" %>
-					</div>
-				</div>
-			<% end %>
+			<%= render "shared/citizen"%>
 		<% end %>
 		
 		<div class="dq-buttons pad-bottom">

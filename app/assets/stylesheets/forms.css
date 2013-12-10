@@ -82,8 +82,8 @@
 .dq-form .select {overflow: hidden; position: relative; background: #fff; padding: 15px 12px;}
 
 /* Radios & Checkboxes */
-input[type=radio] + label,
-input[type=checkbox] + label {
+.dq-form input[type=radio] + label,
+.dq-form input[type=checkbox] + label {
 	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; font-size: 14px;
 	display: block;
 	text-transform: none;
@@ -95,13 +95,13 @@ input[type=checkbox] + label {
 	z-index: 10;
 	color: #000;
 }
-input[type=radio], input[type=checkbox] {display: none;}
-input[type=radio] + label:before, input[type=checkbox] + label:before {content: ""; display: inline-block; width: 16px; height: 16px; position: absolute; left: 16px; top: 16px; border: 1px solid #7F8C8D;}
-input[type=radio] + label:before {border-radius: 8px;}
-input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before {font-family: Arial, Helvetica; color: #444; text-align: center; line-height: 14px; font-size: 30px;}
-input[type=radio]:checked + label:before {content: "\2022";}
-input[type=checkbox]:checked + label:before {content: "\2714"; font-size: 12px;}
-table input[type=checkbox] {display: inline;}
+.dq-form input[type=radio], input[type=checkbox] {display: none;}
+.dq-form input[type=radio] + label:before, input[type=checkbox] + label:before {content: ""; display: inline-block; width: 16px; height: 16px; position: absolute; left: 16px; top: 16px; border: 1px solid #7F8C8D;}
+.dq-form input[type=radio] + label:before {border-radius: 8px;}
+.dq-form input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before {font-family: Arial, Helvetica; color: #444; text-align: center; line-height: 14px; font-size: 30px;}
+.dq-form input[type=radio]:checked + label:before {content: "\2022";}
+.dq-form input[type=checkbox]:checked + label:before {content: "\2714"; font-size: 12px;}
+.dq-form table input[type=checkbox] {display: inline;}
 .dq-form .has-labels {margin-top: 28px;}
 
 /* File Inputs */

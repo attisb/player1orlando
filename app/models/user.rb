@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
       all(:limit=> limit, :offset=>offset)
     end
   end
+  has_many :ratings, dependent: :destroy
+  has_many :trackers, dependent: :destroy
   
   before_create :set_defaults
   after_create { |timeline| Timeline.create! user_id: self.id, nature: "create" }

@@ -24,6 +24,7 @@ body {background: #f6f8f8; color: #000;}
 .callout_box {background: #E16D53; padding: 10px 10px 10px 10px; color: #fff; margin-bottom: 20px;	border: 1px solid rgba(255,255,255,.5);}
 .callout_box p {margin-bottom: 0;}
 .callout_box ul {margin-bottom: 0;}
+.callout_box a {color: #fff;}
 	
 #pull {display: none;}
 #header_logo {float: left; background: url(/includes/header_logo.png) no-repeat; display: block; width: 198px; height: 50px; white-space: nowrap; text-indent: 100%; overflow: hidden;}
@@ -66,6 +67,13 @@ footer .coins a:hover {color: #c02942;}
 	height: 100%;
 }
 
+/* Star Rating Bars */
+.rating {text-align: center; display: block; margin-bottom: 20px; color: #fff;}
+.rating a, .rating a:hover {text-decoration: none; color: #fff; display: block;}
+.rating a:hover, .rating .checked a {color: #191e23;}
+.rating .star {display: inline-block; border: 2px solid #fff; width: 30px; height: 30px; border-radius: 15px; line-height: 28px; text-align: center; margin: 0 10px;}
+.rating .checked, .rating.user .star:hover {background: #fff; color: #191e23;}
+
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}
@@ -82,8 +90,12 @@ body.dark {background: #191e23; color: #ddd;}
 .dark footer {margin-top: 100px; padding-top: 20px;}
 .dark footer {background: #080d12; border-top: 1px solid rgba(255,255,255,.5); box-shadow: 0px -3px 3px #000;}
 
+/* Light Mode */
 body.light {background: #e6e8e8;}
 .light header {border-bottom: 1px solid rgba(0,0,0,.5); box-shadow: 0px 3px 3px rgba(0,0,0,.2);}
+.light header a {font-size: 12px;}
+.light header nav a {margin-top: 1px;}
+
 
 
 /* -------------------------------------------------

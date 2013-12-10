@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131209064714) do
+ActiveRecord::Schema.define(version: 20131210091841) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -68,6 +68,23 @@ ActiveRecord::Schema.define(version: 20131209064714) do
     t.datetime "updated_at"
     t.integer  "category_id"
     t.text     "brewer_description"
+    t.boolean  "tracker"
+  end
+
+  create_table "events", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.boolean  "valid_sunday"
+    t.boolean  "valid_monday"
+    t.boolean  "valid_tuesday"
+    t.boolean  "valid_wednesday"
+    t.boolean  "valid_thursday"
+    t.boolean  "valid_friday"
+    t.boolean  "valid_saturday"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "games", force: true do |t|
@@ -92,12 +109,28 @@ ActiveRecord::Schema.define(version: 20131209064714) do
     t.datetime "updated_at"
   end
 
+  create_table "ratings", force: true do |t|
+    t.integer  "drink_id"
+    t.integer  "user_id"
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "timelines", force: true do |t|
     t.integer  "user_id"
     t.string   "nature"
     t.integer  "game_id"
     t.integer  "drink_id"
     t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "trackers", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "drink_id"
+    t.integer  "points"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
