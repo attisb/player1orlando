@@ -112,7 +112,7 @@
 						<div class="small">Every <%= Time.now.strftime('%A').capitalize -%></div>
 					<% end %>
 					<%= simple_format event.description %>
-					<div class="text-right" style="line-height: 20px;">
+					<div class="text-right">
 						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
 						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
 						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
