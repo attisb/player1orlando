@@ -82,7 +82,7 @@ footer .coins a:hover {color: #c02942;}
 .hero #hero_slogan h1 {font-size: 100px; line-height: 80%; text-shadow: 3px 3px 3px #000;}
 .hero a {color: #fff;}
 
-.fb-share-button {position: relative; top: -4px;}
+.fb-share-button {position: relative; top: -6px;}
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}
