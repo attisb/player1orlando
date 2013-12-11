@@ -78,7 +78,17 @@ Player1orlando::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
   
-  config.action_mailer.delivery_method = :postmark
-  config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_KEY'] }
+  #config.action_mailer.delivery_method = :postmark
+  #config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_KEY'] }
+  
+  config.action_mailer.default_url_options = { :host => '192.241.155.21' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'localhost',
+    port:                 25,
+    domain:               'player1orlando.com',
+    enable_starttls_auto: true
+  }
+  
   
 end
