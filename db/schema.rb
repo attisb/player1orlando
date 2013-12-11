@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131211015405) do
+ActiveRecord::Schema.define(version: 20131211031013) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20131211015405) do
     t.text     "brewer_description"
     t.boolean  "tracker"
     t.string   "drink_image"
+    t.integer  "average"
   end
 
   create_table "events", force: true do |t|

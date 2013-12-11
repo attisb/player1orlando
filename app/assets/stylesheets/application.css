@@ -36,11 +36,6 @@ header nav a {border-bottom: 2px solid transparent; color: #000; display: block;
 header nav a:hover {border-bottom-color: #c02942; color: #000;}
 header nav .small {margin-top: 1px;}
 
-.hero {color: #000;}
-.hero #hero_slogan {overflow: hidden;}
-.hero #hero_slogan h2 {font-size: 25px; line-height: 100%; padding: 0; left: 7px; padding-top: 140px;}
-.hero #hero_slogan h1 {font-size: 90px; line-height: 80%; padding: 0;}
-
 footer {padding-top: 100px;}
 footer .coins li {margin-bottom: 10px; display: block;}
 footer .coins a {text-decoration: none; display: block; background: #fff; color: #080d12; line-height: 30px;}
@@ -74,6 +69,17 @@ footer .coins a:hover {color: #c02942;}
 .rating .star {display: inline-block; border: 2px solid #fff; width: 30px; height: 30px; border-radius: 15px; line-height: 28px; text-align: center; margin: 0 10px;}
 .rating .checked, .rating.user .star:hover {background: #fff; color: #191e23;}
 
+.thegist {padding: 10px 0; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,.5);}
+.essentials h3 {margin-top: 10px;}
+.essentials {overflow: auto; margin: 0; padding: 0; width: 100%;}
+.essentials li {float: right; background: #609190; height: 100px; margin-left: 10px; text-align: center; line-height: 20px; color: #fff;}
+.essentials .title {float: left; background: none; margin-left: 0; text-align: left; line-height: 100%; color: #fff;}
+.essentials i {display: block; width: 100px; font-size: 50px; height: 60px; line-height: 60px; margin-top: 10px;}
+	
+.hero {background: #000 url(/includes/homepage_hero.jpg) no-repeat center -200px; text-shadow: 3px 3px 3px #000;}
+.hero #hero_slogan {overflow: hidden; text-align: left; width: 500px;}
+.hero #hero_slogan h2 {font-size: 28px; line-height: 100%; margin-top: 140px; text-shadow: 3px 3px 3px #000;}
+.hero #hero_slogan h1 {font-size: 100px; line-height: 80%; text-shadow: 3px 3px 3px #000;}
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}

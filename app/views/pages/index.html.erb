@@ -1,5 +1,150 @@
 <% title "Beer. Games. Music." %>
 
 <% if admin_signed_in? %>
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-tachometer"></i> Admin Interface<small>Your part of a special group.</small></h2></div>
+
+	<div class="span8-12">
+		
+		<h4><i class="fa fa-arrow-down"></i> 7 Worst Performing Drinks<small>Only displaying drinks with at least one rating.</small></h4>
+		<ul class="unstyled lined">
+			<% @drinks.where("average > ?", 0).order(average: :asc).limit(7).each do |drink| %>
+				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average %></li>
+			<% end %>
+		</ul>
+		<br/>
+		
+		<h4><i class="fa fa-arrow-up"></i> 20 Best Performing Drinks<small>Only displaying drinks with at least one rating.</small></h4>
+		<ul class="unstyled lined">
+			<% @drinks.where("average > ?", 0).order(average: :desc).limit(20).each do |drink| %>
+				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average %></li>
+			<% end %>
+		</ul>
+		<br/>
+		
+		<h4><i class="fa fa-calendar"></i> 20 Drinks Popular This Week<small>Based on drink tracker data.</small></h4>
+		<ul class="unstyled lined">
+			<% @tracked.limit(20).each do |track| %>
+				<li class="text-right"><div class="float-left"><%= track.drink.name %></div> Tracked: <%= track.drinks_count -%> | Rating: <%= track.drink.average %></li>
+			<% end %>
+		</ul>
+		
+	</div>
+
+	<div class="span4-12">
+		<h5>Basic System Stats</h5>
+		<ul class="unstyled lined text-right">
+			<li><strong class="float-left"> Accounts in System:</strong> <%= User.count -%> users</li>
+			<li><strong class="float-left"> Drinks in System:</strong> <%= Drink.count -%> drinks</li>
+			<li><strong class="float-left"> Games in System:</strong> <%= Game.count -%> games</li>
+			<li><strong class="float-left"> Ratings in System:</strong> <%= Rating.count -%> ratings</li>
+			<li><strong class="float-left"> Discounts Pending:</strong> <%= Discount.where(:used => false).count -%> discounts</li>
+			<li><strong class="float-left"> Unused Points in System:</strong> <%= Discount.where(:used => false).sum(:points) -%> points</li>
+			<li><strong class="float-left"> Used Points in System:</strong> <%= Discount.where(:used => true).sum(:points) -%> points</li>
+		</ul>
+	</div>
+</div>
 <% else %>
+<!-- Begin Generic User Homepage -->
+
+<div class="hero">
+	<div class="content">
+		<div class="span9-12">
+			<div id="hero_slogan">
+				<h2>Games. Beers. Music.</h2>
+				<h1>Done.</h1>
+		
+			</div>
+		</div>
+		<div class="span3-12">
+			<h5 class="text-center">Open Beta Hours</h5>
+			<ul class="unstyled small link-white text-right">
+				<li><span class="float-left">Sunday</span> 4pm - 2am</li>
+				<li><span class="float-left">Monday</span> 5pm - 2am</li>
+				<li><span class="float-left">Tuesday</span> 5pm - 2am</li>
+				<li><span class="float-left">Wednesday</span> 5pm - 2am</li>
+				<li><span class="float-left">Thursday</span> 5pm - 2am</li>
+				<li><span class="float-left">Friday</span> 5pm - 2am</li>
+				<li><span class="float-left">Saturday</span> 4pm - 2am</li>
+			</ul>
+	
+			<p class="bump-top small"><a href="http://maps.apple.com/?q=28.384341,-81.501673&z=20" class="link-white" style="display: block;"><i class="float-left fa fa-3x fa-map-marker"></i> 8562 Palm Pkwy<br/>Orlando, FL 32836</a></p>
+		</div>
+	</div>
+</div>
+
+<div class="no-mobile thegist">
+	<div class="content">
+		<div class="span12-12">
+			<ul class="unstyled essentials">
+				<li class="title"><h3>We've got what<br/>a gamer needs.</h3></li>
+				<li><i class="fa fa-cutlery"></i> Food</li>
+				<li><i class="fa fa-music"></i> Music</li>
+				<li><i class="fa fa-gamepad"></i> Consoles</li>
+				<li><i class="fa fa-beer"></i> Drinks</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="content">	
+	<div class="span6-12">
+
+		<% unless @drinks.nil? %>
+			<h4><i class="fa fa-beer"></i> Current Specials</h4>
+			<ul class="unstyled pad">
+				<% @drinks.each do |drink| %>
+					<strong class="large"><%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+				<% end %>
+			</ul><br/>
+		<% end %>
+
+		
+		<% unless @current_events.blank? %>
+			<h4><i class="fa fa-calendar"></i> Events</h4>
+			<ul class="unstyled pad">
+				<% @current_events.each do |event| %>
+				<li>
+					<strong class="large"><%= event.title -%></strong>
+					<% if event.starts_at >= (Time.now + 1.day) %>
+						<div class="small"><%= event.starts_at.to_s(:long) -%> to <%= event.ends_at.to_s(:short) -%></div>
+					<% elsif "event.valid_#{Time.now.strftime('%A').downcase}?" %>
+						<div class="small">Every <%= Time.now.strftime('%A').capitalize -%></div>
+					<% end %>
+					<%= simple_format event.description %>
+					<div class="text-right">
+						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+					</div>
+				</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+	
+	<div class="span6-12">
+
+		<h4>Player 1 is the ultimate video game lounge experience!</h4>
+		<p>After four decades of Video Gaming a few things are clear to us:</p>
+		<ul class="pad">
+			<li>Arcade games must be played in their original format- joysticks, buttons, and a lo-rez tv screen in a big custom cabinet!</li>
+			<li>Playing online has it’s drawbacks, nothing beats playing against opponents sitting across the room.</li>
+			<li>Video Games deserve a place to celebrate the art and history of the #1 form of entertainment in the world.</li>
+			<li>We like Beer…ales to lagers and everything in between!</li>
+		</ul><br/>
+
+
+		<% unless @katy_corner.nil? %>
+			<h4>Katy's Corner</h4>
+			<% unless @katy_corner.image1.blank? %>
+				<%= link_to (image_tag @katy_corner.image1, :class => "fullwidth_image"), katy_corner_path(@katy_corner) %>
+			<% end %>
+			<strong class="large"><%= link_to @katy_corner.title, katy_corner_path(@katy_corner) -%></strong><br/>
+			<%= simple_format @katy_corner.brief %>
+		<% end %>
+
+	</div>
+	
+</div>
 <% end %>

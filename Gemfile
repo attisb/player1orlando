@@ -25,3 +25,4 @@ end
 gem 'unicorn'
 gem 'devise'
 gem 'carrierwave'
+gem 'postmark-rails', '~> 0.5.2'
