@@ -72,7 +72,7 @@ footer .coins a:hover {color: #c02942;}
 .thegist {padding: 10px 0; margin-bottom: 20px; border-top: 1px solid rgba(255,255,255,.5);}
 .essentials h3 {margin-top: 10px;}
 .essentials {overflow: auto; margin: 0; padding: 0; width: 100%;}
-.essentials li {float: right; background: #609190; height: 100px; margin-left: 10px; text-align: center; line-height: 20px; color: #fff;}
+.essentials li {float: right; background: #60a8c0; height: 100px; margin-left: 10px; text-align: center; line-height: 20px; color: #fff;}
 .essentials .title {float: left; background: none; margin-left: 0; text-align: left; line-height: 100%; color: #fff;}
 .essentials i {display: block; width: 100px; font-size: 50px; height: 60px; line-height: 60px; margin-top: 10px;}
 	
@@ -85,6 +85,7 @@ footer .coins a:hover {color: #c02942;}
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}
+.dark a {color: #60a8c0;}
 .dark .hero {color: #fff;}
 .dark header {background: #080d12; border-bottom: 1px solid rgba(255,255,255,.5); box-shadow: 0px 3px 3px #000;}
 .dark header nav a {color: #fff;}
