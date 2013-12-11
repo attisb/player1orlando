@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   end
   has_many :ratings, dependent: :destroy
   has_many :trackers, dependent: :destroy
+  has_many :discounts, dependent: :destroy
   
   before_create :set_defaults
   after_create { |timeline| Timeline.create! user_id: self.id, nature: "create" }

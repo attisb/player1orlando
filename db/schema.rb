@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131210091841) do
+ActiveRecord::Schema.define(version: 20131211015405) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -55,6 +55,16 @@ ActiveRecord::Schema.define(version: 20131210091841) do
     t.datetime "updated_at"
   end
 
+  create_table "discounts", force: true do |t|
+    t.integer  "reward_id"
+    t.integer  "user_id"
+    t.string   "code"
+    t.boolean  "used"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "drinks", force: true do |t|
     t.string   "name"
     t.string   "brewery"
@@ -69,6 +79,7 @@ ActiveRecord::Schema.define(version: 20131210091841) do
     t.integer  "category_id"
     t.text     "brewer_description"
     t.boolean  "tracker"
+    t.string   "drink_image"
   end
 
   create_table "events", force: true do |t|
@@ -99,6 +110,7 @@ ActiveRecord::Schema.define(version: 20131210091841) do
     t.datetime "updated_at"
     t.boolean  "visible"
     t.integer  "category_id"
+    t.string   "cover_art"
   end
 
   create_table "katy_corners", force: true do |t|
@@ -107,6 +119,9 @@ ActiveRecord::Schema.define(version: 20131210091841) do
     t.text     "body_document"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image1"
+    t.string   "image2"
+    t.string   "image3"
   end
 
   create_table "ratings", force: true do |t|
@@ -115,6 +130,16 @@ ActiveRecord::Schema.define(version: 20131210091841) do
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
+  end
+
+  create_table "rewards", force: true do |t|
+    t.string   "name"
+    t.integer  "points"
+    t.boolean  "visible"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "timelines", force: true do |t|

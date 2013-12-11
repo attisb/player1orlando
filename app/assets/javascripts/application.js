@@ -15,3 +15,10 @@
 //= require turbolinks
 //= require_tree .
 
+$(document).ready(function() {
+
+	$('#track_point_btn').click(function() {
+		$('#code').hide();
+	});
+	
+});

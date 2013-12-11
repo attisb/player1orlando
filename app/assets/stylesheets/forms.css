@@ -151,6 +151,9 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 .dq-buttons .grey {
 	background: #666;
 }
+.dq-buttons .disable {
+	background: #444;
+}
 .dq-buttons .small {
 	padding: 8px 6px;
 }
@@ -207,6 +210,29 @@ input[disabled=disabled], textarea[disabled=disabled], .select.disabled {opacity
 .dark #error_explanation h2 {color: #000;}
 
 .dq-buttons .pad-space {margin-top: 40px; margin-bottom: 40px;}
+
+.dq-buttons .back:after,
+.dq-buttons .new:after,
+.dq-buttons .forward:after,
+.dq-buttons .delete:after,
+.dq-buttons .edit:after {
+	font-family: FontAwesome;
+	font-weight: normal;
+	margin-left: 10px;
+	font-size: 30px;
+	float: left;
+}
+.dq-buttons .forward:after {
+	float: right;
+}
+
+
+.dq-buttons .edit:after {content: "\f040";}
+.dq-buttons .back:after {content: "\f100";}
+.dq-buttons .new:after {content: "\f067";}
+.dq-buttons .delete:after {content: "\f014";}
+.dq-buttons .forward:after {content: "\f101";}
+
 
 
 @media only screen and (max-width : 768px) {
