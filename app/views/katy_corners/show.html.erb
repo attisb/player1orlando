@@ -1,0 +1,38 @@
+<% title @katy_corner.title %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-book"></i> Katy's Corner<small>A little slice of gaming.</small></h2></div>
+	<div class="span8-12">
+		<h4><%= @katy_corner.title -%><small><%= @katy_corner.created_at.to_s(:long) -%></small></h4>
+		<div class="text-right">
+			<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= katy_corner_url(@katy_corner) -%>"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= katy_corner_url(@katy_corner) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+			<div class="fb-share-button" data-href="<%= katy_corner_url(@katy_corner) -%>" data-type="button"></div>
+		</div>
+
+		<%= simple_format @katy_corner.body_document.gsub(/##IMAGE1/i, image_tag(@katy_corner.image1, :class => "fullwidth_image") ).gsub(/##IMAGE2/i, image_tag(@katy_corner.image2, :class => "fullwidth_image")).gsub(/##IMAGE3/i, image_tag(@katy_corner.image3, :class => "fullwidth_image")) %>
+	</div>
+	
+	
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Entry', new_katy_corner_path, :class => "lnk-button full" %>
+				<%= link_to 'Edit Entry', edit_katy_corner_path(@katy_corner), :class => "lnk-button full" %>
+			</div>
+		<% end %>
+		<%= render 'about' %>
+
+		<% if @katy_corners.offset(1).count > 0 %>
+			<h5>Past Issues<small>You know.</small></h5>
+			<ul class="unstyled pad">
+				<% @katy_corners.offset(1).each do |entry| %>
+					<li>
+						<strong><%= link_to entry.title, katy_corner_path(entry) -%></strong><br/>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>

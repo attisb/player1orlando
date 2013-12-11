@@ -1,0 +1,28 @@
+<% title "Beer Styles" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Beer Styles<small>Not visible to users.</small></h2></div>
+
+	<div class="span8-12">
+		<ul class="unstyled">
+			<% @beer_styles.each do |beer_style| %>
+				<li><strong class="large"><%= link_to beer_style.name, beer_style -%></strong><p class="small"><%= truncate beer_style.description, length: 256 -%></p>
+					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+		<h5>Admin Options</h5>
+		<div class="dq-buttons pad-bottom">
+			<%= link_to 'New Beer style', new_beer_style_path, :class => "lnk-button full" %>
+		</div>
+		<% end %>
+		<%= render 'shared/whycraft' %>
+	</div>
+	
+</div>
+

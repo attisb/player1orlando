@@ -1,0 +1,40 @@
+<%= form_for(@game) do |f| %>
+	<% if @game.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+	    <ul>
+	    <% @game.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field6-10"><%= f.text_field :name, :placeholder => "Game Name" %></div>
+		<div class="field2-10"><%= f.check_box :visible %><%= f.label :visible, "Visible?" %></div>
+		<div class="field2-10"><%= f.number_field :players, :placeholder => "Players" %></div>
+
+		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 30 %></div>
+
+		<div class="field5-10"><%= f.text_field :developer, :placeholder => "Developer" %></div>
+		<div class="field5-10"><%= f.text_field :publisher, :placeholder => "Publisher" %></div>
+
+
+		<div class="field10-10"><%= f.label :trailer, "Trailer - Only need the file name of Youtube." %><%= f.text_field :trailer, :placeholder => "Youtube Trailer URL" %></div>
+
+		<div class="field10-10"><%= f.label :cover_art, "Cover Art" %><%= f.file_field :cover_art, :placeholder => "Cover Art" %><%= f.hidden_field :cover_art_cache %></div>
+
+		<div class="field7-10"><%= f.label :game_category_id %>
+			<%= f.select( :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: false }) %>
+		</div>
+		<div class="field3-10"><%= f.label :released_at %><%= f.date_field :released_at, :placeholder => "Released At (YYYY-MM-DD)" %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Game" %>
+		</div>
+	</div>
+
+<% end %>

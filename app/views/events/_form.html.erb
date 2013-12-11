@@ -1,0 +1,37 @@
+<%= form_for(@event) do |f| %>
+	<% if @event.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+	    <ul>
+	    <% @event.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field10-10"><%= f.text_field :title, :placeholder => "Event Title" %></div>
+		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 5 %></div>
+
+
+		<div class="field5-10"><%= f.label :valid_sunday, "Generic Day Event?" %><%= f.check_box :valid_sunday %><%= f.label :valid_sunday, "Show Sunday" %></div>
+		<div class="field5-10 has-labels"><%= f.check_box :valid_monday %><%= f.label :valid_monday, "Show Monday" %></div>
+		<div class="field5-10"><%= f.check_box :valid_tuesday %><%= f.label :valid_tuesday, "Show Tuesday" %></div>
+		<div class="field5-10"><%= f.check_box :valid_wednesday %><%= f.label :valid_wednesday, "Show Wednesday" %></div>
+		<div class="field5-10"><%= f.check_box :valid_thursday %><%= f.label :valid_thursday, "Show Thursday" %></div>
+		<div class="field5-10"><%= f.check_box :valid_friday %><%= f.label :valid_friday, "Show Friday" %></div>
+		<div class="field10-10"><%= f.check_box :valid_saturday %><%= f.label :valid_saturday, "Show Saturday" %></div>
+
+
+		<div class="field5-10"><%= f.label :starts_at %><%= f.datetime_field :starts_at, :value => (f.object.starts_at.strftime('%Y-%m-%d - %H:%M') if f.object.starts_at), :placeholder => "Starts At" %></div>
+		<div class="field5-10"><%= f.label :ends_at %><%= f.datetime_field :ends_at, :value => (f.object.ends_at.strftime('%Y-%m-%d - %H:%M') if f.object.ends_at), :placeholder => "Ends At" %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Event" %>
+		</div>
+	</div>
+
+<% end %>

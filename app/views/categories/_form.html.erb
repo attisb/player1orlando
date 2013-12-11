@@ -1,0 +1,29 @@
+<%= form_for(@category) do |f| %>
+	<% if @category.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+	    <ul>
+	    <% @category.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field6-10"><%= f.text_field :name, :placeholder => "Category Name" %></div>
+		<div class="field2-10"><%= f.check_box :visible %><%= f.label :visible, "Visible?" %></div>
+		<div class="field2-10"><%= f.number_field :order, :placeholder => "Order" %></div>
+		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 7 %></div>
+
+		<div class="field5-10"><%= f.radio_button :area, "drinks" %><%= f.label :area_drinks, "Drink Category" %></div>
+		<div class="field5-10"><%= f.radio_button :area, "games" %><%= f.label :area_games, "Games Category" %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Category" %>
+		</div>
+	</div>
+
+<% end %>

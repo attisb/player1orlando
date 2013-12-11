@@ -1,0 +1,42 @@
+<%= form_for(@drink) do |f| %>
+	<% if @drink.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@drink.errors.count, "error") %> prohibited this drink from being saved:</h2>
+
+	    <ul>
+	    <% @drink.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field6-10"><%= f.text_field :name, :placeholder => "Drink Name" %></div>
+		<div class="field2-10"><%= f.check_box :visible %><%= f.label :visible, "Visible?" %></div>
+		<div class="field2-10"><%= f.check_box :call_out %><%= f.label :call_out, "Call Out?" %></div>
+
+		<div class="field6-10"><%= f.text_field :brewery, :placeholder => "Brewery Name" %></div>
+		<div class="field2-10"><%= f.number_field :abv, :placeholder => "ABV", :step => 0.1 %></div>
+		<div class="field2-10"><%= f.number_field :price, :placeholder => "Price", :step => "any" %></div>
+
+		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 5 %></div>
+
+		<div class="field10-10"><%= f.label :brewer_description %><%= f.text_area :brewer_description, :placeholder => "Brewer's Description", :rows => 9 %></div>
+
+		<div class="field10-10"><%= f.label :beer_style_id %><%= f.collection_select(:beer_style_id, BeerStyle.all, :id, :name) %></div>
+		<div class="field10-10"><%= f.label :drink_category_id %>
+			<%= f.select( :category_id, Category.all.collect {|p| [ p.name, p.id ] }, { include_blank: false }) %>
+		</div>
+
+		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
+
+		<div class="field10-10"><%= f.label "Include in Drink Tracker?" -%><%= f.check_box :tracker %><%= f.label :tracker, "Users will be able to earn points." %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Drink" %>
+		</div>
+	</div>
+
+<% end %>

@@ -1,0 +1,24 @@
+<%= form_for(@beer_style) do |f| %>
+  <% if @beer_style.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@beer_style.errors.count, "error") %> prohibited this beer_style from being saved:</h2>
+
+      <ul>
+      <% @beer_style.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h4>You know what you got to do.<small>All fields are required.</small></h4>
+<div class="dq-form">
+	<div class="field10-10"><%= f.text_field :name, :placeholder => "Category Name" %></div>
+	<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 7 %></div>
+
+	<div class="dq-buttons">
+		<%= f.submit :value => "#{params[:action].humanize} Beer Style" %>
+	</div>
+</div>
+
+<% end %>

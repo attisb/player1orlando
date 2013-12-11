@@ -1,0 +1,68 @@
+<% title "Rewards" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Rewards<small>Your part of a special group.</small></h2></div>
+
+	<div class="span8-12">
+		<% if user_signed_in? && @user_rewards.size > 0 %>
+			<h4>Your Rewards<small>These are the rewards you chose.</small></h4>		
+			<ul class="unstyled lined pad">
+				<% @user_rewards.each do |user_reward| %>
+					<li>
+						<strong class="large">
+							<div class="float-right">Code: <%= sprintf('%06d', user_reward.code) -%></div>
+							<%= user_reward.reward.name -%>
+						</strong>
+					</li>
+				<% end %>
+			</ul><br/>
+		<% end %>
+
+		<h4>Rewards<small>We are always adding more rewards.</small></h4>		
+		<ul class="unstyled">
+			<% @rewards.each do |reward| %>
+				<li>
+					<strong class="large">
+						<div class="float-right">Points: <%= reward.points -%></div>
+						<%= reward.name -%>
+					</strong>
+					<%= simple_format reward.description -%>
+					<% if user_signed_in? %>
+						<div class="dq-buttons">
+							<% if reward.points <= (@user.lifetime_points - @user.used_points) %>
+								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small" %>
+							<% else %>
+								<div class="lnk-button disable small">Not enough points.</div>
+							<% end%>
+						</div>
+					<% end %>
+
+					<% if admin_signed_in? %>
+						<div class="dq-buttons">
+							<%= link_to 'Edit Reward', edit_reward_path(reward) %>
+						</div>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Reward', new_reward_path, :class => "lnk-button full new" %>
+			</div>
+			
+			<h5>Hidden Rewards</h5>
+			<ul class="unstyled">
+				<% @inactive_rewards.each do |reward| %>
+					<li><strong><%= link_to reward.name, edit_reward_path(reward) -%></strong></li>
+				<% end %>
+			</ul>
+		<% else %>
+		<%= render 'shared/citizen' %>
+		<% end %>
+	</div>
+
+</div>

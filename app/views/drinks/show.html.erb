@@ -1,0 +1,92 @@
+<% title @drink.name %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+	<div class="span8-12">
+		<h4><%= @drink.name -%><small><%= @drink.description -%></small></h4>
+
+		<div class="text-right">
+			<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= drink_url(@drink) -%>"></div>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= drink_url(@drink) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+			<div class="fb-share-button" data-href="<%= drink_url(@drink) -%>" data-type="button"></div>
+		</div>
+
+		
+		<div class="span6-12">
+			<h5>Average Rating</h5>
+			<span class="rating">
+				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 1 -%>">1</span>
+				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 2 -%>">2</span>
+				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 3 -%>">3</span>
+				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 4 -%>">4</span>
+				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 5 -%>">5</span>
+		    </span>			
+
+			<% if user_signed_in? %>
+				<h5>Your Rating</h5>
+				<span class="rating user">
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 1 -%>"><%= link_to "1", set_rating_path(@drink, "1") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 2 -%>"><%= link_to "2", set_rating_path(@drink, "2") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 3 -%>"><%= link_to "3", set_rating_path(@drink, "3") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 4 -%>"><%= link_to "4", set_rating_path(@drink, "4") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 5 -%>"><%= link_to "5", set_rating_path(@drink, "5") -%></span>
+			    </span>			
+						
+
+				<br/>
+			<div class="dq-form">
+				<h5>You've had this <%= pluralize @user.trackers.where(:drink_id => @drink.id).size, "time" -%></h5>
+				<div class="dq-buttons pad-bottom">
+					<%= link_to "Track that I had this Drink", track_tracker_path(@drink), :class => "lnk-button full forward" %>
+				</div>
+				
+				 <% if @user.has_membership? %>
+					<%= form_tag point_track_tracker_path(@drink) do |f| %>
+						<h5>Or Wanna get points?</h5>
+						<p>Have the bartender type in the drink code below and you'll earn <strong><%= @drink.price.ceil %></strong> points.</p>
+						<div class="dq-form">
+							<div class="field10-10"><%= telephone_field_tag :code, nil, :placeholder => "Drink Code" %></div>
+						</div>
+						<div class="dq-buttons">
+							<%= submit_tag  "Get Points for having this Drink", :class => "full forward", :id => "track_point_btn" %>
+						</div>
+					<% end %>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+		
+		<div class="span6-12">
+			<h5>Drink Details</h5>
+			<ul class="unstyled pad">
+				<li><strong>Brewery</strong>: <%= @drink.brewery -%></li>
+				<%= raw "<li><strong>ABV:</strong>:  #{number_to_percentage @drink.abv, precision: 2}" unless @drink.abv.blank? %></li>
+				<li><strong>Price</strong>: <%= number_to_currency @drink.price -%></li>
+				<li><strong>Beer Style</strong>: <%= link_to @drink.beer_style.name, @drink.beer_style -%></li>
+			</ul>
+
+			<h5>Brewery's Description</h5>
+			<%= simple_format @drink.brewer_description %>
+		</div>
+
+		
+
+	</div>
+
+	<div class="span4-12">
+		<%= image_tag @drink.drink_image, :class => "fullwidth_image pad-bottom" %>
+		
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons">
+				<%= link_to 'Edit Drink', edit_drink_path(@drink), :class => "lnk-button full edit" %>
+			</div>
+		<% end %>
+		
+
+		<div class="dq-buttons pad-bottom">
+			<%= link_to "See More #{@drink.category.name}", category_path(@drink.category), :class => "lnk-button full back" %>
+		</div>
+		<%= render 'shared/whycraft' %>
+	</div>
+</div>

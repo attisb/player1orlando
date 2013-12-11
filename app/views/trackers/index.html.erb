@@ -1,0 +1,64 @@
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-check-square-o"></i> Drink Tracker <small>Keep track of what you've tried.</small></h2></div>
+	<div class="span8-12">
+		<h4>Haven't Tried Yet<small>Come on you know you want to.</small></h4>
+		<ul class="large unstyled pad lined">
+			<% empty_list = true -%>
+			<% @drinks.each do |drink| %>
+				<% if @tried_drinks.where(:drink_id => drink.id).size <= 0 %>
+					<% empty_list = false -%>
+					<% user_rating = @user.ratings.where(:drink_id => drink.id).first -%>
+					<li><strong><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></strong>
+						<div class="small">
+							<div class="float-right">Style: <%= drink.beer_style.name -%></div>
+							<% unless user_rating.nil? %>
+							Your Rating: <%= user_rating.rating -%> out of 5
+							<% else %>
+							Not rated by you yet.
+							<% end %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+
+			<% if empty_list == true %>
+				<p>You have no new drinks to try. You rebel you. Don't worry we always have new things coming in.</p>
+				<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/h7UMQTTulIc" frameborder="0" allowfullscreen></iframe></div>
+			<% end %>
+		</ul>
+
+		<br/>
+		<h4>Drinks You've Tried<small>Hopefully you liked them.</small></h4>
+		<ul class="unstyled pad lined">
+			<% empty_list = true -%>
+			<% @drinks.each do |drink| %>
+				<% if @tried_drinks.where(:drink_id => drink.id).size > 0 %>
+					<% empty_list = false -%>
+					<% user_rating = @user.ratings.where(:drink_id => drink.id).first -%>
+					<li><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div>
+						<div class="small">
+							<div class="float-right">Style: <%= drink.beer_style.name -%></div>
+							<% unless user_rating.nil? %>
+							Your Rating: <%= user_rating.rating -%> out of 5
+							<% else %>
+							Not rated by you yet.
+							<% end %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+			
+			<% if empty_list == true %>
+				<p>Go ahead and try something.</p>
+			<% end %>
+			
+		</ul>
+
+	</div>
+	
+	<div class="span4-12">
+		<% if user_signed_in? %>
+			<%= render "shared/citizen"%>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,55 @@
+<!-- Standard Content -->
+<div class="content">
+	<% if @cat_type == "drinks" %>
+		<% title "Drinks" %>
+		<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+	<% elsif @cat_type == "games" %>
+		<% title "Games" %>
+		<div class="span12-12"><h2><i class="fa fa-gamepad"></i> Games<small>Achievement Unlocked!</small></h2></div>
+	<% end %>
+
+	<div class="span8-12">
+		<h4>Choose a menu item<small>Don't worry it's not the end of the world.</small></h4>
+		
+		<ul class="unstyled">
+			<% @categories.where(:visible => true).each do |category| %>
+				<li><strong class="large"><%= link_to category.name, category_path(category) -%></strong><p class="small"><%= category.description -%></p></li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span4-12">
+		<% if @cat_type == "drinks" %>
+			<% if admin_signed_in? %>
+				<h5>Admin Options</h5>
+				<div class="dq-buttons pad-bottom">
+					<%= link_to 'New Drink Category', new_category_path(:area => "drinks"), :class => "lnk-button full new" %>
+				</div>
+				
+				<h5>Hidden Categories</h5>
+				<ul class="unstyled">
+					<% @categories.where(:visible => false).each do |category| %>
+						<li><strong><%= link_to category.name, category_path(category) -%></strong></li>
+					<% end %>
+				</ul>
+			<% else %>
+			<%= render 'shared/whycraft' %>
+			<% end %>
+		<% elsif @cat_type == "games" %>
+			<% if admin_signed_in? %>
+				<h5>Admin Options</h5>
+				<div class="dq-buttons">
+					<%= link_to 'New Games Category', new_category_path(:area => "games"), :class => "lnk-button full new" %>
+				</div>
+			<% else %>
+				<%= render 'shared/wannaplay' %>
+				<h5>Coin Op Classics</h5>
+				<p>An ever-changing selection of classic arcade and pinball machines surround the bar, showcasing the best from the coin-op era of gaming with no need for any coins, play as much as you like.</p>
+				<h5>And of course</h5>
+				<p>Atari 2600/5200, Colecovision, NES, Sega Genesis, SNES, Nintendo64, Sega Saturn, Playstation 1, Sega Dreamcast, PS2, PS3, X360, and PC. But who's counting.</p>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+</div>

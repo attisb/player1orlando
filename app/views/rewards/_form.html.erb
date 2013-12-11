@@ -1,0 +1,26 @@
+<%= form_for(@reward) do |f| %>
+	<% if @reward.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@reward.errors.count, "error") %> prohibited this reward from being saved:</h2>
+
+	    <ul>
+	    <% @reward.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field6-10 has-labels"><%= f.text_field :name, :placeholder => "Reward Name" %></div>
+		<div class="field2-10"><%= f.label :points -%><%= f.number_field :points, :placeholder => "Points" %></div>
+		<div class="field2-10 has-labels"><%= f.check_box :visible %><%= f.label :visible, "Visible?" %></div>
+		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 7 %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Reward" %>
+		</div>
+	</div>
+
+<% end %>

@@ -1,0 +1,89 @@
+<% title "Events" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-calendar"></i> Events<small>Planning your mission sometimes will help.</small></h2></div>
+
+	<div class="span8-12">
+		<!-- Current Events -->
+		<% unless @current_events.blank? %>
+			<h3>Current Event<small>Today is here.</small></h3>
+			<div class="callout_box">
+				<ul class="unstyled pad">
+					<% @current_events.each do |event| %>
+					<li>
+						<strong class="large"><%= event.title -%></strong>
+						<%= simple_format event.description %>
+						<div class="text-right">
+							<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
+							<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+							<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+						</div>
+						<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+					</li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
+
+		<!-- Upcoming Events -->
+		<% unless @upcoming_events.blank? %>
+			<h4>Upcoming Events<small>They will be here soon. Be prepared.</small></h4>
+			<ul class="unstyled pad">
+				<% @upcoming_events.each do |event| %>
+				<li>
+					<strong><%= event.title -%></strong>
+					<%= simple_format event.description %>
+					<div class="text-right">
+						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+					</div>
+					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				</li>
+				<% end %>
+		<% end %>
+		
+		
+		<!-- Generic Events -->
+		<% unless @generic_events.blank? %>
+			<h4>Everyday Events<small>Yep whenever that day is.</small></h4>
+			<ul class="unstyled pad">
+				<% @generic_events.each do |event| %>
+				<li>
+					<strong>
+						Every 
+						<% if event.valid_sunday -%>Sunday, <% end -%>
+						<% if event.valid_monday -%>Monday, <% end -%>
+						<% if event.valid_tuesday -%>Tuesday, <% end -%>
+						<% if event.valid_wednesday -%>Wednesday, <% end -%>
+						<% if event.valid_thursday -%>Thursday, <% end -%>
+						<% if event.valid_friday -%>Friday, <% end -%>
+						<% if event.valid_saturday -%>Saturday, <% end -%>
+						<%= event.title -%></strong>
+					<%= simple_format event.description %>
+					<div class="text-right">
+						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
+						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+					</div>
+					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Event', new_event_path, :class => "lnk-button full" %>
+			</div>
+		<% end %>
+
+		<%= render 'sidebar' %>
+	</div>
+
+</div>

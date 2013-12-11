@@ -1,0 +1,47 @@
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-pencil"></i> Edit User <small>Filling out forms are great.</small></h2></div>
+	<div class="span8-12">
+
+
+<%= form_for(@user) do |f| %>
+	<% if @user.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+	    <ul>
+	    <% @user.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are not required.</small></h4>
+	<div class="dq-form">
+		<div class="field3-10"><%= f.text_field :first_name, :placeholder => "First Name" %></div>
+		<div class="field4-10"><%= f.text_field :last_name, :placeholder => "Last Name" %></div>
+		<div class="field3-10"><%= f.text_field :username, :placeholder => "Username" %></div>
+		<div class="field8-10"><%= f.email_field :email, :placeholder => "Email Address" %></div>
+		<div class="field2-10"><%= f.text_field :emp_code, :placeholder => "Employee Code" %></div>
+
+		<div class="field6-10"><%= f.label "Is a Player 1 Citizen?" -%><%= f.check_box :has_membership %><%= f.label :has_membership, "User has membership?" %></div>
+		<div class="field2-10"><%= f.label "Lifetime Points" -%><%= f.text_field :lifetime_points, :placeholder => "Lifetime" %></div>
+		<div class="field2-10"><%= f.label "Used Points" -%><%= f.text_field :used_points, :placeholder => "Used", :disabled => true %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "Update User" %>
+		</div>
+	</div>
+
+<% end %>
+
+	</div>
+
+	<div class="span4-12">
+		<h5>Admin Options</h5>
+		<div class="dq-buttons">
+			<%= link_to 'Go Back to User List', users_path, :class => "lnk-button full" %>
+			<%= link_to 'Destroy User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lnk-button full cancel" %>
+		</div>
+	</div>
+</div>

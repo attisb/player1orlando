@@ -1,0 +1,29 @@
+<%= form_for(@katy_corner) do |f| %>
+	<% if @katy_corner.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@katy_corner.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+	    <ul>
+	    <% @katy_corner.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field10-10"><%= f.text_field :title, :placeholder => "Title of Document" %></div>
+		<div class="field10-10"><%= f.label :brief -%><%= f.text_area :brief, :placeholder => "Brief", :rows => 10 %></div>
+		<div class="field10-10"><%= f.label :body_document, "Acutal Document" -%><%= f.text_area :body_document, :placeholder => "Actual Entry", :rows => 40 %></div>
+
+		<div class="field10-10"><%= f.label :image1, "Image 1 - In document put ##IMAGE1" -%><%= f.file_field :image1 %><%= f.hidden_field :image1_cache %></div>
+		<div class="field10-10"><%= f.label :image2, "Image 2 - In document put ##IMAGE2" -%><%= f.file_field :image2 %><%= f.hidden_field :image2_cache %></div>
+		<div class="field10-10"><%= f.label :image3, "Image 3 - In document put ##IMAGE3" -%><%= f.file_field :image3 %><%= f.hidden_field :image3_cache %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Entry" %>
+		</div>
+	</div>
+
+<% end %>

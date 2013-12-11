@@ -1,0 +1,37 @@
+<% title "Katy's Corner" %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-book"></i> Katy's Corner<small>A little slice of gaming.</small></h2></div>
+	<div class="span8-12">
+		<h4>Current Issue<small>Latest entry from Katy.</small></h4>
+
+		<% unless @katy_corners.first.image1.blank? %>
+			<%= link_to (image_tag @katy_corners.first.image1, :class => "fullwidth_image"), katy_corner_path(@katy_corners.first) %>
+		<% end %>
+		<strong class="large"><%= link_to @katy_corners.first.title, katy_corner_path(@katy_corners.first) -%></strong><br/>
+		<%= simple_format @katy_corners.first.brief %>
+
+		<% if @katy_corners.count > 0 %>
+			<h5>Past Issues<small>You know.</small></h5>
+			<ul class="unstyled pad">
+				<% @katy_corners.offset(1).each do |entry| %>
+					<li>
+						<strong><%= link_to entry.title, katy_corner_path(entry) -%></strong><br/>
+						<%= simple_format entry.brief %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+	
+	
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Entry', new_katy_corner_path, :class => "lnk-button full" %>
+			</div>
+		<% end %>
+		<%= render 'about' %>
+	</div>
+</div>

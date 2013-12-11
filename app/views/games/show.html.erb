@@ -1,0 +1,63 @@
+<% title @game.name %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Games<small>Achievement Unlocked!</small></h2></div>
+	<div class="span8-12">
+		<h4><%= @game.name -%><small><%= @game.category.name -%></small></h4>
+		
+		<%= simple_format @game.description %>
+		
+		<div class="span6-12">
+			<ul class="unstyled pad">
+				<li class="text-right"><strong class="float-left">Publisher:</strong> <%= @game.publisher -%></li>
+				<li class="text-right"><strong class="float-left">Developer:</strong> <%= @game.developer -%></li>
+			</ul>
+		</div>
+		<div class="span6-12">
+			<ul class="unstyled pad">
+				<li class="text-right"><strong class="float-left">Released Date:</strong> <%= @game.released_at -%></li>
+				<li class="text-right"><strong class="float-left">Players:</strong> <%= @game.players -%></li>
+			</ul>
+		</div>
+		
+		<h5>Trailer</h5>
+		<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/<%= @game.trailer -%>" frameborder="0" allowfullscreen></iframe></div>
+	</div>
+
+	<div class="span4-12">
+		<%= image_tag @game.cover_art, :class => "fullwidth_image pad-bottom" %>
+		
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'Edit Game', edit_game_path(@game), :class => "lnk-button full" %>
+			</div>
+		<% end %>
+
+		<h5>Average Rating</h5>
+		<span class="rating">
+			<span class="star <%= "checked" if !@game_rating.nil? && @game.average_rating > 0 && @game.average_rating == 1 -%>">1</span>
+			<span class="star <%= "checked" if !@game_rating.nil? && @game.average_rating > 0 && @game.average_rating == 2 -%>">2</span>
+			<span class="star <%= "checked" if !@game_rating.nil? && @game.average_rating > 0 && @game.average_rating == 3 -%>">3</span>
+			<span class="star <%= "checked" if !@game_rating.nil? && @game.average_rating > 0 && @game.average_rating == 4 -%>">4</span>
+			<span class="star <%= "checked" if !@game_rating.nil? && @game.average_rating > 0 && @game.average_rating == 5 -%>">5</span>
+	    </span>			
+
+		<% if user_signed_in? %>
+			<h5>Your Rating</h5>
+			<span class="rating user">
+				<span class="star <%= "checked" if !@game_rating.nil? && @game_rating.rating == 1 -%>"><%= link_to "1", set_game_rating_path(@game, "1") -%></span>
+				<span class="star <%= "checked" if !@game_rating.nil? && @game_rating.rating == 2 -%>"><%= link_to "2", set_game_rating_path(@game, "2") -%></span>
+				<span class="star <%= "checked" if !@game_rating.nil? && @game_rating.rating == 3 -%>"><%= link_to "3", set_game_rating_path(@game, "3") -%></span>
+				<span class="star <%= "checked" if !@game_rating.nil? && @game_rating.rating == 4 -%>"><%= link_to "4", set_game_rating_path(@game, "4") -%></span>
+				<span class="star <%= "checked" if !@game_rating.nil? && @game_rating.rating == 5 -%>"><%= link_to "5", set_game_rating_path(@game, "5") -%></span>
+		    </span>			
+		<% end %>
+
+		<%= render 'shared/wannaplay' %>
+
+		<div class="dq-buttons pad-bottom">
+			<%= link_to "See More #{@game.category.name}", category_path(@game.category), :class => "lnk-button full" %>
+		</div>
+	</div>
+</div>
