@@ -5,7 +5,7 @@
 	<div class="span12-12"><h2><i class="fa fa-beer"></i> Beer Styles<small>Not visible to users.</small></h2></div>
 
 	<div class="span8-12">
-		<ul class="unstyled">
+		<ul class="unstyled lined">
 			<% @beer_styles.each do |beer_style| %>
 				<li>
 					<% if admin_signed_in? -%><div class="float-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
