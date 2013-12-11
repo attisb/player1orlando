@@ -80,6 +80,7 @@ footer .coins a:hover {color: #c02942;}
 .hero #hero_slogan {overflow: hidden; text-align: left; width: 500px;}
 .hero #hero_slogan h2 {font-size: 28px; line-height: 100%; margin-top: 140px; text-shadow: 3px 3px 3px #000;}
 .hero #hero_slogan h1 {font-size: 100px; line-height: 80%; text-shadow: 3px 3px 3px #000;}
+.hero a {color: #fff;}
 
 .fb-share-button {margin-top: -4px;}
 
