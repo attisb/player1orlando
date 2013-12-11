@@ -3,7 +3,7 @@ class BeerStylesController < ApplicationController
   before_action :set_beer_style, only: [:show, :edit, :update, :destroy]
 
   def index
-    @beer_styles = BeerStyle.all
+    @beer_styles = BeerStyle.order(name: :desc).all
   end
 
   def show

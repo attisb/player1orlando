@@ -7,8 +7,9 @@
 	<div class="span8-12">
 		<ul class="unstyled">
 			<% @beer_styles.each do |beer_style| %>
-				<li><strong class="large"><%= link_to beer_style.name, beer_style -%></strong><p class="small"><%= truncate beer_style.description, length: 256 -%></p>
-					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				<li>
+					<% if admin_signed_in? -%><div class="float-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+					<strong class="large"><%= link_to beer_style.name, beer_style -%></strong>
 				</li>
 			<% end %>
 		</ul>
