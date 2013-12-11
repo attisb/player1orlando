@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     @cat_type = params[:area]
-    @categories = Category.where(:area => params[:area]).order(order: :desc, name: :asc)
+    @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
   end
 
   def show
