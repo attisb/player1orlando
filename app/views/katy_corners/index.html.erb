@@ -5,9 +5,6 @@
 	<div class="span8-12">
 		<h4>Current Issue<small>Latest entry from Katy.</small></h4>
 
-		<% unless @katy_corners.first.image1_url.blank? %>
-			<%= link_to (image_tag @katy_corners.first.image1, :class => "fullwidth_image"), katy_corner_path(@katy_corners.first) %>
-		<% end %>
 		<strong class="large"><%= link_to @katy_corners.first.title, katy_corner_path(@katy_corners.first) -%></strong><br/>
 		<%= simple_format @katy_corners.first.brief %>
 
