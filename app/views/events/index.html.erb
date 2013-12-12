@@ -15,9 +15,16 @@
 						<strong class="large"><%= event.title -%></strong>
 						<%= simple_format event.description %>
 						<div class="text-right">
-							<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
-							<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
-							<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+							<!-- AddThis Button BEGIN -->
+							<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= event_url(event) -%>" addthis:title="<%= event.title -%>">
+							<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+							<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+							<a class="addthis_button_tweet"></a>
+							<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
+							</div>
+							<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+							<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a9e7305b09648a"></script>
+							<!-- AddThis Button END -->
 						</div>
 						<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
@@ -36,9 +43,16 @@
 					<strong><%= event.title -%></strong>
 					<%= simple_format event.description %>
 					<div class="text-right">
-						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
-						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+						<!-- AddThis Button BEGIN -->
+						<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= event_url(event) -%>" addthis:title="<%= event.title -%>">
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
+						</div>
+						<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+						<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a9e7305b09648a"></script>
+						<!-- AddThis Button END -->
 					</div>
 					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 				</li>
@@ -64,9 +78,16 @@
 						<%= event.title -%></strong>
 					<%= simple_format event.description %>
 					<div class="text-right">
-						<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= event_url(event) -%>"></div>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= event_url(event) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
-						<div class="fb-share-button" data-href="<%= event_url(event) -%>" data-type="button"></div>
+						<!-- AddThis Button BEGIN -->
+						<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= event_url(event) -%>" addthis:title="<%= event.title -%>">
+						<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+						<a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+						<a class="addthis_button_tweet"></a>
+						<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
+						</div>
+						<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+						<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a9e7305b09648a"></script>
+						<!-- AddThis Button END -->
 					</div>
 					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 				</li>
