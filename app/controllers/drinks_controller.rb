@@ -14,6 +14,7 @@ class DrinksController < ApplicationController
   end
 
   def new
+    @categories = Category.order(name: :asc).all
     @drink = Drink.new(:category_id => params[:category_id], :visible => true)
   end
   
