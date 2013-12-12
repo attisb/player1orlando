@@ -27,7 +27,7 @@
 
 		<div class="field10-10"><%= f.label :beer_style_id %><%= f.collection_select(:beer_style_id, BeerStyle.all, :id, :name) %></div>
 		<div class="field10-10"><%= f.label :drink_category_id %>
-			<%= f.collection_select :category_id, Category.order('name ASC'), :id, :name %>
+			<%= f.collection_select :category_id, Category.all, :id, :name %>
 		</div>
 
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
