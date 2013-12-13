@@ -120,7 +120,9 @@ body.light {background: #e6e8e8;}
 	content: "\f015";
 	text-decoration: none;
 }
-
+.addthis_toolbox {
+	float:right;
+}
 
 
 
