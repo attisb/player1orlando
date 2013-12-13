@@ -7,16 +7,7 @@
 	<div class="span8-12">
 		<strong class="large"><%= @event.title -%></strong>
 		<%= simple_format @event.description %>
-		<div class="text-right">
-			<!-- AddThis Button BEGIN -->
-			<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= event_url(@event) -%>" addthis:title="<%= @event.title -%>">
-				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-				<a class="addthis_button_google_plusone" g:plusone:size="medium" g:plusone:count="false"></a>
-				<a class="addthis_button_tweet" tw:count="none"></a>
-				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
-			</div>
-			<!-- AddThis Button END -->
-		</div>
+		<%= render 'shared/social', url_pass: event_url(event), title_page: event.title %>
 	</div>
 
 	<div class="span4-12">
