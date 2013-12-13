@@ -11,6 +11,7 @@ set :use_sudo, false
 set :scm, "git"
 set :repository, "git@github.com:attisb/#{application}.git"
 set :branch, "master"
+#set :shared_children, shared_children + %w{public/uploads}
 
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
@@ -48,4 +49,10 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
+  
+  task :symlink_uploads do
+    run "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+  end
+  after 'deploy:update_code', 'deploy:symlink_uploads'
+  
 end
