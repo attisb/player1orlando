@@ -26,7 +26,7 @@
 		<div class="field10-10"><%= f.label :brewer_description %><%= f.text_area :brewer_description, :placeholder => "Brewer's Description", :rows => 9 %></div>
 
 		<div class="field10-10"><%= f.label :beer_style_id %>
-			<%= f.select :beer_style_id, options_from_collection_for_select(BeerStyle.order("name"), "id",   "name", :beer_style_id) %>
+			<%= f.select :beer_style_id, options_from_collection_for_select(BeerStyle.order("name"), "id",   "name", @drink.beer_style_id) %>
 		</div>
 		<div class="field10-10"><%= f.label :drink_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
