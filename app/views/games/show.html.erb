@@ -10,7 +10,7 @@
 		<div class="span6-12">
 			<ul class="unstyled pad">
 				<li class="text-right"><strong class="float-left">Publisher:</strong> <%= @game.publisher -%></li>
-				<li class="text-right"><strong class="float-left">Developer:</strong> <%= @game.developer -%></li>
+				<% unless @game.developer.blank? %><li class="text-right"><strong class="float-left">Developer:</strong> <%= @game.developer -%></li><% end %>
 			</ul>
 		</div>
 		<div class="span6-12">
