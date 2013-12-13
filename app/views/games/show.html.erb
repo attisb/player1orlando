@@ -20,8 +20,10 @@
 			</ul>
 		</div>
 		
+		<% unless @game.trailer.blank? %>
 		<h5>Trailer</h5>
 		<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/<%= @game.trailer -%>" frameborder="0" allowfullscreen></iframe></div>
+		<% end %>
 	</div>
 
 	<div class="span4-12">
