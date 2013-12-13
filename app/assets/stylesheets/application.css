@@ -118,6 +118,7 @@ body.light {background: #e6e8e8;}
 }
 .light #header_logo:before {
 	content: "\f015";
+	text-decoration: none;
 }
 
 

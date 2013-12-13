@@ -2,7 +2,7 @@ class Drink < ActiveRecord::Base
   belongs_to :category
   belongs_to :beer_style
   has_many :ratings, dependent: :destroy
-  has_many :trackers
+  has_many :trackers, dependent: :destroy
   
   validates :name, :brewery, :description, :price, :beer_style_id, :category_id, presence: true
   

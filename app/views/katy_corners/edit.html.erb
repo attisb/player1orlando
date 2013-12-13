@@ -9,7 +9,9 @@
 		<div class="dq-buttons">
 			<%= link_to 'View Entry', katy_corner_path(@katy_corner), :class => "lnk-button full" %>
 			<%= link_to 'Go Back to Katy\'s Corner', katy_corners_path, :class => "lnk-button full" %>
+			<% unless @katy_corner.id == 1 %>
 			<%= link_to 'Destroy Entry', @katy_corner, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lnk-button full cancel" %>
+			<% end %>
 		</div>
 	</div>
 </div>
