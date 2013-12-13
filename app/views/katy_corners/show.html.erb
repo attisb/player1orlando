@@ -5,9 +5,14 @@
 	<div class="span8-12">
 		<h4><%= @katy_corner.title -%><small><%= @katy_corner.created_at.to_s(:long) -%></small></h4>
 		<div class="text-right">
-			<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= katy_corner_url(@katy_corner) -%>"></div>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= katy_corner_url(@katy_corner) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
-			<div class="fb-share-button" data-href="<%= katy_corner_url(@katy_corner) -%>" data-type="button"></div>
+			<!-- AddThis Button BEGIN -->
+			<div class="addthis_toolbox addthis_default_style"  addthis:url="<%= katy_corner_url(@katy_corner) -%>" addthis:title="<%= @katy_corner.title -%>">
+				<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+				<a class="addthis_button_google_plusone" g:plusone:size="medium" g:plusone:count="false"></a>
+				<a class="addthis_button_tweet" tw:count="none"></a>
+				<a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal" pi:pinit:url="http://www.addthis.com/features/pinterest" pi:pinit:media="http://www.addthis.com/cms-content/images/features/pinterest-lg.png"></a>
+			</div>
+			<!-- AddThis Button END -->
 		</div>
 
 		<%= simple_format @katy_corner.body_document.gsub(/##IMAGE1/i, image_tag(@katy_corner.image1, :class => "fullwidth_image") ).gsub(/##IMAGE2/i, image_tag(@katy_corner.image2, :class => "fullwidth_image")).gsub(/##IMAGE3/i, image_tag(@katy_corner.image3, :class => "fullwidth_image")) %>
