@@ -26,6 +26,7 @@ Player1orlando::Application.routes.draw do
   get '/play/', to: 'categories#index', as: 'play', :defaults => { :area => 'games' }
   
   get '/manual/rewards', to: 'pages#rewards', as: 'rewards_page'
+  get '/manual/rules', to: 'pages#rules', as: 'rules_page'
   
   root 'pages#index'
 end

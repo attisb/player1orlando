@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       order('drinks_count desc').limit(20)
     else
       # Event Gathering
-      @current_events = Event.where(starts_at: Time.now.midnight..(Time.now.midnight + 1.day)).limit(1)
+      @current_events = Event.where(starts_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).limit(1)
     
       @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.now).where(
         "valid_sunday = ? OR valid_monday = ? OR valid_tuesday = ? OR valid_wednesday = ? OR valid_thursday = ? OR valid_friday = ? OR valid_saturday = ?",
