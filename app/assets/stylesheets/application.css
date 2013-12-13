@@ -121,6 +121,11 @@ body.light {background: #e6e8e8;}
 	text-decoration: none;
 }
 
+.addthis_button_facebook_like {
+        overflow:hidden;
+        width: 45px !important;
+}
+
 
 
 
