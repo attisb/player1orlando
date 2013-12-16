@@ -5,6 +5,8 @@
 	</div>
 
 	<div class="span4-12">
+		<%= image_tag @game.cover_art, :class => "fullwidth_image pad-bottom" %>
+
 		<h5>Admin Options</h5>
 		<div class="dq-buttons">
 			<%= link_to 'Go Back to Categories', category_path(@game.category), :class => "lnk-button full" %>

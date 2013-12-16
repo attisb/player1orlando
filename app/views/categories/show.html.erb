@@ -26,7 +26,7 @@
 			<% elsif @category.area == "games" %>
 				<% @category.games.where(:visible => true).order(name: :asc).each do |game| %>
 					<li>
-						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 256 -%>
+						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%>
 						<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
 				<% end %>
