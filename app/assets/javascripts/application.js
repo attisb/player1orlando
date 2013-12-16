@@ -20,5 +20,8 @@ $(document).ready(function() {
 	$('#track_point_btn').click(function() {
 		$('#code').hide();
 	});
+
+	$('.notice, .alert').delay(5000).slideUp('slow')
+
 	
 });

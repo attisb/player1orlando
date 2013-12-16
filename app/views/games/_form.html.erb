@@ -26,6 +26,7 @@
 		<div class="field10-10"><%= f.label :trailer, "Trailer - Only need the file name of Youtube." %><%= f.text_field :trailer, :placeholder => "Youtube Trailer URL" %></div>
 
 		<div class="field10-10"><%= f.label :cover_art, "Cover Art" %><%= f.file_field :cover_art, :placeholder => "Cover Art" %><%= f.hidden_field :cover_art_cache %></div>
+		<div class="field10-10"><%= f.text_field :remote_cover_art_url, :placeholder => "Or image by remote URL" %></div>
 
 		<div class="field7-10"><%= f.label :game_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "games").order("name"), "id",   "name", @game.category_id) %>
