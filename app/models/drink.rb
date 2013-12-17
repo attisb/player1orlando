@@ -1,6 +1,7 @@
 class Drink < ActiveRecord::Base
   belongs_to :category
   belongs_to :beer_style
+  belongs_to :timeline
   has_many :ratings, dependent: :destroy
   has_many :trackers, dependent: :destroy
   
