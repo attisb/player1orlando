@@ -43,7 +43,7 @@ class KatyCornersController < ApplicationController
   def destroy
     @katy_corner.destroy
     respond_to do |format|
-      format.html { redirect_to katy_corner_path }
+      format.html { redirect_to katy_corners_path }
     end
   end
   
