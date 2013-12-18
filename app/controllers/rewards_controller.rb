@@ -74,9 +74,9 @@ class RewardsController < ApplicationController
         @user.update(:used_points => new_point_balance)
       
         redirect_to rewards_path, notice: "Cool you were issed this reward. To use it just tell us the code (#{sprintf('%06d', discount.code)})"
+      else
+        redirect_to rewards_path, alert: 'Sorry you don\'t have enough points for that reward or your not a citizen yet.'
       end
-    else
-      redirect_to rewards_path, alert: 'Sorry you don\'t have enough points for that reward or your not a citizen yet.'
     end
     
   end
