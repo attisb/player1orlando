@@ -59,7 +59,7 @@ class RewardsController < ApplicationController
   def issue
     @user = current_user
     
-    if Time.zone.now.strftime('%A').downcase == "friday" || Time.zone.now.strftime('%A').downcase == "saturday"
+    if citizen_allowed?
       redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
     else
       if (@user.lifetime_points - @user.used_points) >= @reward.points && @user.has_membership?
