@@ -59,9 +59,9 @@ class RewardsController < ApplicationController
   def issue
     @user = current_user
     
-    unless citizen_allowed?
-      redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
-    else
+    # unless citizen_allowed?
+      # redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
+    # else
       if (@user.lifetime_points - @user.used_points) >= @reward.points && @user.has_membership?
         discount = Discount.create(
           :reward_id => @reward.id,
@@ -77,7 +77,7 @@ class RewardsController < ApplicationController
       else
         redirect_to rewards_path, alert: 'Sorry you don\'t have enough points for that reward or your not a citizen yet.'
       end
-    end
+    # end
     
   end
   

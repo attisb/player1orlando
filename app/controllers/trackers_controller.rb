@@ -32,27 +32,31 @@ class TrackersController < ApplicationController
     @emp_user = User.where(:emp_code => params[:code]).first
     @drink = Drink.find(params[:id])
     
-    unless @emp_user.nil? && @drink.tracker?
-      @tracker = Tracker.new
-      @tracker.user_id = @user.id
-      @tracker.drink_id = @drink.id
-      @tracker.points = @drink.price
-      if @tracker.save
-        new_point_balance = @user.lifetime_points + @drink.price
-        @user.update(:lifetime_points => new_point_balance)
+    unless citizen_allowed?
+      redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
+    else
+      unless @emp_user.nil? && @drink.tracker?
+        @tracker = Tracker.new
+        @tracker.user_id = @user.id
+        @tracker.drink_id = @drink.id
+        @tracker.points = @drink.price
+        if @tracker.save
+          new_point_balance = @user.lifetime_points + @drink.price
+          @user.update(:lifetime_points => new_point_balance)
 
-        timeline = Timeline.create(
-          :user_id => @user.id,
-          :nature => "drink",
-          :drink_id => @drink.id
-        )
+          timeline = Timeline.create(
+            :user_id => @user.id,
+            :nature => "drink",
+            :drink_id => @drink.id
+          )
 
-        redirect_to trackers_path, notice: "WHAT!!!!! Drink was successfully tracked and you earned #{@drink.price} points for it too!"
+          redirect_to trackers_path, notice: "WHAT!!!!! Drink was successfully tracked and you earned #{@drink.price} points for it too!"
+        else
+          redirect_to drink_path(params[:id]), alert: "Something went wrong. :("
+        end
       else
         redirect_to drink_path(params[:id]), alert: "Something went wrong. :("
       end
-    else
-      redirect_to drink_path(params[:id]), alert: "Something went wrong. :("
     end
     
   end
