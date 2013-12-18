@@ -8,7 +8,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @all_hidden = Drinks.where(:visible => false).order(name: :asc)
+    if admin_signed_in?
+      @all_hidden = Drink.where(:visible => false).order(name: :asc)
+    end
   end
 
   def new
