@@ -6,7 +6,9 @@
 <html class="no-js">
 <!--<![endif]-->
 <head>
-	<!-- Designed by Attis Bijlani dequark.com -->
+	<!-- Designed by Attis Bijlani (dequark.com) -->
+	<!-- Server Time: <%= Time.now -%> -->
+	<!-- Server Day Name: <%= Time.now.strftime('%A') -%> -->
 	<title><%= yield(:title) %>Player 1 Video Game Bar</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,6 +34,39 @@
 <% else -%>
 <body class="dark">
 <% end -%>
+
+<!-- Begin Social Scripts -->
+	<div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+	<script type="text/javascript">
+	  (function() {
+	    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+	    po.src = 'https://apis.google.com/js/plusone.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	  })();
+	</script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+	<script>
+	var addthis_share = {
+	    templates : {
+	        twitter : "{{title}} {{url}} (via @player1orlando)"
+	    }
+	}
+	</script>
+	<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a9e7305b09648a"></script>
+<!-- End Social Scripts -->
+
+
 	
 	<% if flash[:notice] %><div class="notice"><div class="content"><%= notice %></div></div><% end %>
 	<% if flash[:alert] %><div class="alert"><div class="content"><%= alert %></div></div><% end %>
@@ -115,37 +150,6 @@
 
 	</script>	
 
-	<!-- Begin Social Scripts -->
-		<div id="fb-root"></div>
-	    <script>(function(d, s, id) {
-	      var js, fjs = d.getElementsByTagName(s)[0];
-	      if (d.getElementById(id)) return;
-	      js = d.createElement(s); js.id = id;
-	      js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
-	      fjs.parentNode.insertBefore(js, fjs);
-	    }(document, 'script', 'facebook-jssdk'));</script>
-
-		<script type="text/javascript">
-		  (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		    po.src = 'https://apis.google.com/js/plusone.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
-
-		<script>
-		var addthis_share = {
-		    templates : {
-		        twitter : "{{title}} {{url}} (via @player1orlando)"
-		    }
-		}
-		</script>
-		<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52a9e7305b09648a"></script>
-	<!-- End Social Scripts -->
-	
 	<script src="/includes/dequark_functions.js" type="text/javascript" charset="utf-8"></script>
 	
 </body>

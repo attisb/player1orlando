@@ -26,7 +26,7 @@ class PagesController < ApplicationController
       @katy_corner = KatyCorner.order(created_at: :desc).first
       
       # Drink Call Outs
-      @drinks = Drink.where(:visible => true, :call_out => true).limit(3)
+      @drinks = Drink.where(:visible => true, :call_out => true).limit(10)
       
     end
     
