@@ -17,11 +17,11 @@
 		<div class="field2-10"><%= f.check_box :visible %><%= f.label :visible, "Visible?" %></div>
 		<div class="field2-10"><%= f.check_box :call_out %><%= f.label :call_out, "Call Out?" %></div>
 
-		<div class="field6-10"><%= f.text_field :brewery, :placeholder => "Brewery Name" %></div>
-		<div class="field2-10"><%= f.number_field :abv, :placeholder => "ABV", :step => 0.1 %></div>
-		<div class="field2-10"><%= f.number_field :price, :placeholder => "Price", :step => "any" %></div>
+		<div class="field6-10"><%= f.label :brewery %><%= f.text_field :brewery, :placeholder => "Brewery Name" %></div>
+		<div class="field2-10"><%= f.label :abv %><%= f.number_field :abv, :placeholder => "ABV", :step => 0.1 %></div>
+		<div class="field2-10"><%= f.label :price %><%= f.number_field :price, :placeholder => "Price", :step => "any" %></div>
 
-		<div class="field10-10"><%= f.text_area :description, :placeholder => "Description", :rows => 5 %></div>
+		<div class="field10-10"><%= f.label :description %><%= f.text_area :description, :placeholder => "Description", :rows => 5 %></div>
 
 		<div class="field10-10"><%= f.label :brewer_description %><%= f.text_area :brewer_description, :placeholder => "Brewer's Description", :rows => 9 %></div>
 
@@ -33,6 +33,7 @@
 		</div>
 
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
+		<div class="field10-10"><%= f.text_field :remote_drink_image_url, :placeholder => "Or image by remote URL" %></div>
 
 		<div class="field10-10"><%= f.label "Include in Drink Tracker?" -%><%= f.check_box :tracker %><%= f.label :tracker, "Users will be able to earn points." %></div>
 
