@@ -7,8 +7,8 @@
 <!--<![endif]-->
 <head>
 	<!-- Designed by Attis Bijlani (dequark.com) -->
-	<!-- Server Time: <%= Time.now -%> -->
-	<!-- Server Day Name: <%= Time.now.strftime('%A') -%> -->
+	<!-- Server Time: <%= Time.now.local -%> -->
+	<!-- Server Day Name: <%= Time.zone.local.strftime('%A') -%> -->
 	<title><%= yield(:title) %>Player 1 Video Game Bar</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
