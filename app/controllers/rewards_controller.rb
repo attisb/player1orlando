@@ -59,18 +59,22 @@ class RewardsController < ApplicationController
   def issue
     @user = current_user
     
-    if (@user.lifetime_points - @user.used_points) >= @reward.points && @user.has_membership?
-      discount = Discount.create(
-        :reward_id => @reward.id,
-        :used => false,
-        :user_id => @user.id,
-        :points => @reward.points
-      )
-      new_point_balance = @user.used_points + @reward.points
+    if Time.zone.now.strftime('%A').downcase == "friday" || Time.zone.now.strftime('%A').downcase == "saturday"
+      redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
+    else
+      if (@user.lifetime_points - @user.used_points) >= @reward.points && @user.has_membership?
+        discount = Discount.create(
+          :reward_id => @reward.id,
+          :used => false,
+          :user_id => @user.id,
+          :points => @reward.points
+        )
+        new_point_balance = @user.used_points + @reward.points
       
-      @user.update(:used_points => new_point_balance)
+        @user.update(:used_points => new_point_balance)
       
-      redirect_to rewards_path, notice: "Cool you were issed this reward. To use it just tell us the code (#{sprintf('%06d', discount.code)})"
+        redirect_to rewards_path, notice: "Cool you were issed this reward. To use it just tell us the code (#{sprintf('%06d', discount.code)})"
+      end
     else
       redirect_to rewards_path, alert: 'Sorry you don\'t have enough points for that reward or your not a citizen yet.'
     end
