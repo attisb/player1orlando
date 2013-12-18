@@ -5,21 +5,21 @@ class PagesController < ApplicationController
       @drinks = Drink.includes(:ratings).where(:visible => true)
       
       # @tracked = Tracker.where("created_at >= :start_date AND created_at <= :end_date", {start_date: Time.now.beginning_of_week, end_date: Time.now.end_of_week}).select(:drink_id).distinct.limit(20)
-      @tracked = Tracker.where("created_at >= :start_date AND created_at <= :end_date", {start_date: Time.now.beginning_of_week, end_date: Time.now.end_of_week}).select('drink_id, count(drink_id) as drinks_count').
+      @tracked = Tracker.where("created_at >= :start_date AND created_at <= :end_date", {start_date: Time.zone.now.beginning_of_week, end_date: Time.now.end_of_week}).select('drink_id, count(drink_id) as drinks_count').
       group('drink_id').
       order('drinks_count desc').limit(20)
     else
       # Event Gathering
-      @current_events = Event.where(starts_at: (Time.now.midnight - 1.day)..(Time.now.midnight + 1.day)).limit(1)
+      @current_events = Event.where(starts_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).limit(1)
     
-      @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.now).where(
+      @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.zone.now).where(
         "valid_sunday = ? OR valid_monday = ? OR valid_tuesday = ? OR valid_wednesday = ? OR valid_thursday = ? OR valid_friday = ? OR valid_saturday = ?",
         true, true, true, true, true, true, true
       ).limit(1)
 
-      @upcoming_events = Event.where(starts_at: (Time.now.midnight + 1.day)..(Time.now.midnight + 7.days)).order(starts_at: :desc).limit(2)
+      @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 7.days)).order(starts_at: :desc).limit(2)
     
-      @day_generic_events = @generic_events.where("valid_#{Time.now.strftime('%A').downcase}" => true)
+      @day_generic_events = @generic_events.where("valid_#{Time.zone.now.strftime('%A').downcase}" => true)
       @current_events = @current_events + @day_generic_events + @upcoming_events
       
       # Katy's Corner

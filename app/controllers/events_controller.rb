@@ -3,16 +3,16 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @current_events = Event.where(starts_at: Time.now.midnight..(Time.now.midnight + 1.day))
+    @current_events = Event.where(starts_at: Time.zone.now.midnight..(Time.zone.now.midnight + 1.day))
     
-    @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.now).where(
+    @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.zone.now).where(
       "valid_sunday = ? OR valid_monday = ? OR valid_tuesday = ? OR valid_wednesday = ? OR valid_thursday = ? OR valid_friday = ? OR valid_saturday = ?",
       true, true, true, true, true, true, true
     )
 
-    @upcoming_events = Event.where(starts_at: (Time.now.midnight + 1.day)..(Time.now.midnight + 7.days))
+    @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 7.days))
     
-    @day_generic_events = @generic_events.where("valid_#{Time.now.strftime('%A').downcase}" => true)
+    @day_generic_events = @generic_events.where("valid_#{Time.zone.now.strftime('%A').downcase}" => true)
     @current_events = @current_events + @day_generic_events
   end
   
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new(:starts_at => Time.now, :ends_at => Time.now + 1.hour)
+    @event = Event.new(:starts_at => Time.zone.now, :ends_at => Time.zone.now + 1.hour)
   end
 
   def create

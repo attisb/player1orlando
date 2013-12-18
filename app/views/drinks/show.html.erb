@@ -40,7 +40,7 @@
 					<%= link_to "Track that I had this Drink", track_tracker_path(@drink), :class => "lnk-button full forward" %>
 				</div>
 				
-				 <% if @user.has_membership? %>
+				 <% if @user.has_membership? && (Time.zone.now.strftime('%A').downcase != "wednesday" || Time.zone.now.strftime('%A').downcase != "thursday") %>
 					<%= form_tag point_track_tracker_path(@drink) do |f| %>
 						<h5>Or Wanna get points?</h5>
 						<p>Have the bartender type in the drink code below and you'll earn <strong><%= @drink.price.ceil %></strong> points.</p>
