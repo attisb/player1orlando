@@ -32,6 +32,13 @@
 						<li><strong><%= link_to category.name, category_path(category) -%></strong></li>
 					<% end %>
 				</ul>
+
+				<h5>All Hidden Drinks</h5>
+				<ul class="unstyled lined">
+					<% @all_hidden.each do |drink| %>
+						<li><strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
+					<% end %>
+				</ul>
 			<% else %>
 			<%= render 'shared/whycraft' %>
 			<% end %>

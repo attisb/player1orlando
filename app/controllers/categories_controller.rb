@@ -5,6 +5,9 @@ class CategoriesController < ApplicationController
   def index
     @cat_type = params[:area]
     @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
+    if admin_signed_in?
+      @all_hidden = Drink.where(:visible => false).order(name: :asc)
+    end
   end
 
   def show
