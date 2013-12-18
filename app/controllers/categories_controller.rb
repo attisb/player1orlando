@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @all_hidden = Drinks.where(:visible => false).order(name: :asc)
   end
 
   def new
