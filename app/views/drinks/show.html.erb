@@ -41,8 +41,8 @@
 				</div>
 				
 				 <% if @user.has_membership? && @drink.price > 0 %>
-					 <% if citizen_allowed? %>
-						 <p>Remember point earning is not allowed on certain days for Player 1 Citizens. Today <strong><%= Time.zone.now.strftime('%A') -%></strong> is one of those days. If you would like to earn everyday your here consider joining the Player 1 Membership system.
+					 <% if Time.zone.now.strftime('%A').downcase == "wednesday" || Time.zone.now.strftime('%A').downcase == "thursday" %>
+					 <p>Remember point earning is not allowed on certain days for Player 1 Citizens. Today <strong><%= Time.zone.now.strftime('%A') -%></strong> is one of those days. If you would like to earn everyday your here consider joining the Player 1 Membership system.
 					 <% else %>
 						<%= form_tag point_track_tracker_path(@drink) do |f| %>
 							<h5>Or Wanna get points?</h5>
