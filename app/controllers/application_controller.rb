@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     end
     
   def citizen_allowed?
-    if Time.zone.now.strftime('%A').downcase == "wednesday" || Time.zone.now.strftime('%A').downcase == "saturday"
+    if Time.zone.now.strftime('%A').downcase == "friday" || Time.zone.now.strftime('%A').downcase == "saturday"
       false
     else
       true

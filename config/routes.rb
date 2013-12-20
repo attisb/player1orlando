@@ -1,6 +1,6 @@
 Player1orlando::Application.routes.draw do
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'users/registrations' }
   resources :users, :only => [:show, :index, :edit, :update, :destroy]
   resources :katy_corners, :path => "katys"
   resources :trackers, :path => "drink_tracker" do

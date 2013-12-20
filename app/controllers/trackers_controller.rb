@@ -4,7 +4,7 @@ class TrackersController < ApplicationController
 
   def index
     @drinks = Drink.where(:visible => true, :tracker => true).includes(:ratings)
-    @tried_drinks = Tracker.where(:user_id => @user.id).includes(:ratings, :beer_styles, :trackers)
+    @tried_drinks = Tracker.where(:user_id => @user.id).where("created_at >= ?", (Time.zone.now - 3.months) ).includes(:ratings, :beer_styles, :trackers)
   end
   
   def track
