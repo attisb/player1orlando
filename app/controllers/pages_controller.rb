@@ -34,4 +34,10 @@ class PagesController < ApplicationController
   
   def rewards
   end
+  
+  def rules
+  end
+  
+  def citizen_checkin
+  end
 end

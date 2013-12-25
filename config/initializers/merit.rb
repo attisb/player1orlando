@@ -16,35 +16,35 @@ end
 # Create application badges (uses https://github.com/norman/ambry)
 Merit::Badge.create!({
   id: 1,
-  name: 'tracked-5',
+  name: 'tracker-5',
   description: "Marked that you have tried 5 drinks.",
   image: '/includes/badges/tracked-5.png'
 })
 
 Merit::Badge.create!({
   id: 2,
-  name: 'tracked-10',
+  name: 'tracker-10',
   description: "Marked that you have tried 10 drinks.",
   image: '/includes/badges/tracked-10.png'
 })
 
 Merit::Badge.create!({
   id: 3,
-  name: 'tracked-25',
+  name: 'tracker-25',
   description: "Marked that you have tried 25 drinks.",
   image: '/includes/badges/tracked-25.png'
 })
 
 Merit::Badge.create!({
   id: 4,
-  name: 'tracked-50',
+  name: 'tracker-50',
   description: "Marked that you have tried 50 drinks.",
   image: '/includes/badges/tracked-50.png'
 })
 
 Merit::Badge.create!({
   id: 5,
-  name: 'tracked-100',
+  name: 'tracker-100',
   description: "Marked that you have tried 100 drinks.",
   image: '/includes/badges/tracked-100.png'
 })
@@ -53,7 +53,8 @@ Merit::Badge.create!({
   id: 6,
   name: 'citizen',
   description: "That's right I'm a Player 1 Citizen!",
-  image: '/includes/badges/citizen.png'
+  image: '/includes/badges/citizen.png',
+  custom_fields: { title: 'Player 1 Citizen' }
 })
 
 #   id: 2,

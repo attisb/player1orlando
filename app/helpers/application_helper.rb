@@ -26,5 +26,5 @@ module ApplicationHelper
       "<i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i>"
     end
   end
-  
+
 end

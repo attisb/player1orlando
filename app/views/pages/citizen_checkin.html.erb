@@ -1,0 +1,18 @@
+<% title "Beer. Games. Music." %>
+
+<% if user_signed_in? && current_user.has_membership? %>
+<div class="content">
+	<div class="span12-12 text-center">
+		<%= image_tag "/includes/citizen_badge_checkin.png", :class => "fullwidth_image", :style => "border: none;" -%>
+		<h3>Valid Citizen <i class="fa fa-thumbs-up"></i> <small>Email: <%= current_user.email -%></small></h3>
+		<p class="small">Show this to the game master to receive your discount cover.</p>
+	</div>
+</div>
+<% else %>
+<div class="content">
+	<div class="span12-12 text-center">
+		<h1 style="font-size: 250px;"><i class="fa fa-thumbs-down"></i></h1>
+		<h3>Sorry not valid.</h3>
+	</div>
+</div>
+<% end %>

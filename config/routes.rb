@@ -11,7 +11,8 @@ Player1orlando::Application.routes.draw do
   end
   resources :categories, :beer_styles, :drinks, :games, :events
   
-  resources :rewards do
+  get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
+  resources :rewards, :path => "citizen" do
     member do
       get 'redeem'
       post 'post_redeem'
@@ -27,6 +28,7 @@ Player1orlando::Application.routes.draw do
   
   get '/manual/rewards', to: 'pages#rewards', as: 'rewards_page'
   get '/manual/rules', to: 'pages#rules', as: 'rules_page'
+  
   
   root 'pages#index'
 end

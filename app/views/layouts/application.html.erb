@@ -90,7 +90,7 @@
 								<li><%= link_to 'My info', edit_user_registration_path, :class => 'small' %></li>
 								<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, :class => 'small' %></li>
 								<% if current_user.has_membership? %>
-									<li><%= link_to 'Rewards', rewards_path -%></li>
+									<li><%= link_to 'Citizen', rewards_path -%></li>
 								<% end %>
 							<% else -%>
 								<li><%= link_to 'Sign Up', new_user_registration_path, :class => 'small' %></li>
@@ -112,6 +112,7 @@
 <%= yield %>
 	</div>
 
+	<% unless action_name == "citizen_checkin" %>
 	<!-- Begin Footer -->
 	<footer>
 		<div class="content">
@@ -136,7 +137,8 @@
 			</div>
 	</footer>
 	<!-- End Footer -->
-
+	<% end %>
+	
 
 	<!-- Google Tracking -->
 	<script>

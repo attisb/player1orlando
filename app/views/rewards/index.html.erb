@@ -1,7 +1,7 @@
 <% title "Rewards" %>
 <!-- Standard Content -->
 <div class="content">
-	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Rewards<small>Your part of a special group.</small></h2></div>
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
 
 	<div class="span8-12">
 		<% if user_signed_in? && @user_rewards.size > 0 %>
@@ -18,7 +18,7 @@
 			</ul><br/>
 		<% end %>
 
-		<h4>Rewards<small>We are always adding more rewards.</small></h4>		
+		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
 		<ul class="unstyled">
 			<% @rewards.each do |reward| %>
 				<li>
