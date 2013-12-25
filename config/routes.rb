@@ -18,8 +18,8 @@ Player1orlando::Application.routes.draw do
     end
   end
   
-  get '/set_rating/:id/:rating', to: 'ratings#set_rating', as: 'set_rating'
-  get '/set_game_rating/:id/:rating', to: 'ratings#set_game_rating', as: 'set_game_rating'
+  get '/rate/drink/:id/:rating', to: 'ratings#set_rating', as: 'set_rating'
+  get '/rate/game/:id/:rating', to: 'ratings#set_game_rating', as: 'set_game_rating'
   get '/rewards/issue/:id', to: 'rewards#issue', as: 'issue_reward'
   
   get '/beverages/', to: 'categories#index', as: 'beverages', :defaults => { :area => 'drinks' }

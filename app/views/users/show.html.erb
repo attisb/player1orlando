@@ -1,10 +1,20 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-user"></i> <%= "#{@user.first_name} #{@user.last_name}" -%> <small>aka <%= @user.username -%></small></h2></div>
 	<div class="span8-12">
+		<% if @user.badges.count > 0 %>
+			<h4>What I've Earned<small>You know, these are my badges bro!</small></h4>
+			<div class="pad-bottom">
+			<% @user.badges.each do |badge| %>
+				<div class="span3-12"><%= image_tag badge.image, :alt => badge.description, :title => badge.description, :class => "fullwidth_image", :style => "border: none;" -%></div>
+			<% end %>
+			</div>
+		<% end %>
+
 		<%= render 'shared/activity' %>
 	</div>
 
 	<div class="span4-12">
+		<%= image_tag "/includes/member_levels/#{(@user.points / 1000) + 1}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
 		<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
 	</div>
 </div>

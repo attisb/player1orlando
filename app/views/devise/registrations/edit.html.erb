@@ -21,12 +21,23 @@
 		</div>
 		<% end %>
 		
+		<% if current_user.badges.count > 0 %>
+			<h4>What I've Earned<small>You know, these are my badges bro!</small></h4>
+			<div class="pad-bottom">
+			<% current_user.badges.each do |badge| %>
+				<div class="span2-12"><%= image_tag badge.image, :alt => badge.description, :title => badge.description, :class => "fullwidth_image", :style => "border: none;" -%></div>
+			<% end %>
+			</div>
+		<% end %>
+				
 		<% if user_signed_in? %>
 			<%= render 'shared/activity' %>
 		<% end %>
 	</div>
 
-	<div class="span4-12">
+	<div class="span4-12">		
+		<%= image_tag "/includes/member_levels/#{(current_user.points / 1000) + 1}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
+		
 		<% if user_signed_in? %>
 			<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
 			<p class="text-right">
@@ -34,6 +45,7 @@
 			</p>
 			<%= render "shared/citizen"%>
 		<% end %>
+				
 		
 		<div class="dq-buttons pad-bottom">
 			<%= link_to "View Your Public Profile", current_user, :class => "lnk-button full grey" %>

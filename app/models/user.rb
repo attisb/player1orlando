@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_merit
+
   has_many :timelines, dependent: :destroy do
     def page(limit=20, offset=0)
       all(:limit=> limit, :offset=>offset)
