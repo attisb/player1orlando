@@ -9,6 +9,8 @@
 			<li>Rated the drink <%= link_to timeline.drink.name, drink_path(timeline.drink) -%> a <%= @user.ratings.where(:drink_id => timeline.drink).first.rating -%> out of 5 at <%= timeline.created_at.to_s(:quick_date) -%>.</li>
 		<% elsif timeline.nature.downcase == "game_rate" %>
 			<li>Rated the game <%= link_to timeline.game.name, game_path(timeline.game) -%> a <%= @user.ratings.where(:drink_id => timeline.drink).first.rating -%> out of 5 at <%= timeline.created_at.to_s(:quick_date) -%>.</li>
+		<% elsif timeline.nature.downcase == "checkin" %>
+			<li><%= @user.first_name.capitalize -%> checked in at Player 1 on <%= timeline.created_at.to_s(:quick_date) -%>.</li>
 		<% else %>
 			<li>On <%= timeline.created_at.to_s(:quick_date) -%> they <%= timeline.nature -%>.</li>
 		<% end %>

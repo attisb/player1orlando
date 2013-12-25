@@ -16,6 +16,7 @@ Player1orlando::Application.routes.draw do
     member do
       get 'redeem'
       post 'post_redeem'
+      post 'post_citizen_checkin'
     end
   end
   

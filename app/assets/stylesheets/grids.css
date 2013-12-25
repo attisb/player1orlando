@@ -53,12 +53,15 @@ div[class*='span'] div[class*='span'] {border-left: none;}
 .span11-12 {width: 91.6666666666%;}
 .span12-12 {width: 100%;}
 
+.only-mobile {display: none;}
+
 /* -------------------------------------------------
 	Mobile Modifiers
 ------------------------------------------------- */
 	/* Smartphones */
 	@media only screen and (max-width : 768px) {
 		.no-mobile {display: none;}
+		.only-mobile {display: inline;}
 		.content, div[class*='span'] {width: 100%; min-width: 100%; max-width: 100%;}
 	}
 	

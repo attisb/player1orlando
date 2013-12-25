@@ -102,6 +102,27 @@ class RewardsController < ApplicationController
     end
   end
   
+  def post_citizen_checkin
+    unless current_user.emp_code.blank?
+      @user = User.find(params[:code])
+      if @user.nil?
+        redirect_to redeem_reward_path, alert: "Not a valid user code."
+      else
+        if @user.has_membership?
+          timeline = Timeline.create(
+            :user_id => @user.id,
+            :nature => "checkin"
+          )
+          redirect_to redeem_reward_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+        else
+          redirect_to redeem_reward_path, alert: "Not a valid citizen."
+        end
+      end
+    else
+      redirect_to rewards_path
+    end
+  end
+  
   private
     def set_reward
       @reward = Reward.find(params[:id])

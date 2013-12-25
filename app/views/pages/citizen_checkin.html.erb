@@ -1,18 +1,28 @@
 <% title "Beer. Games. Music." %>
 
 <% if user_signed_in? && current_user.has_membership? %>
-<div class="content">
-	<div class="span12-12 text-center">
-		<%= image_tag "/includes/citizen_badge_checkin.png", :class => "fullwidth_image", :style => "border: none;" -%>
-		<h3>Valid Citizen <i class="fa fa-thumbs-up"></i> <small>Email: <%= current_user.email -%></small></h3>
-		<p class="small">Show this to the game master to receive your discount cover.</p>
+	<% if current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count > 0 %>
+		<div class="content">
+			<div class="span12-12 text-center">
+				<h1 style="font-size: 250px;"><i class="fa fa-exclamation"></i></h1>
+				<h4>Already used today to check in.<br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h4>
+				<p class="small">You already used this to check in today for Player 1. This code was used <strong><%= Time.zone.now.to_date -%></strong>.</p>
+			</div>
+		</div>
+	<% else %>
+	<div class="content">
+		<div class="span12-12 text-center">
+			<%= image_tag "/includes/citizen_badge_checkin.png", :class => "fullwidth_image", :style => "width: 60%; border: none;" -%>
+			<h5>Valid Citizen  <i class="fa fa-thumbs-up"></i><br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h5>
+			<p class="small">Show this to the game master to receive your discount cover. Valid once per day.</p>
+		</div>
 	</div>
-</div>
+	<% end %>
 <% else %>
 <div class="content">
 	<div class="span12-12 text-center">
 		<h1 style="font-size: 250px;"><i class="fa fa-thumbs-down"></i></h1>
-		<h3>Sorry not valid.</h3>
+		<h4>Sorry not valid.</h4>
 	</div>
 </div>
 <% end %>

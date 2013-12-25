@@ -45,6 +45,18 @@
 	</div>
 </div>
 <% else %>
+
+
+<% if user_signed_in? && current_user.has_membership? %>
+<div class="content only-mobile">
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+		</div>
+	</div>
+</div>
+<% end %>
+
 <!-- Begin Generic User Homepage -->
 
 <div class="hero">
