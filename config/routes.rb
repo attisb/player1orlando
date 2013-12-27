@@ -14,11 +14,14 @@ Player1orlando::Application.routes.draw do
   get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
   resources :rewards, :path => "citizen" do
     member do
-      get 'redeem'
-      post 'post_redeem'
-      post 'post_citizen_checkin'
+      # get 'redeem'
+      # post 'post_redeem'
+      # post 'post_citizen_checkin'
     end
   end
+  get '/rewards/redemption', to: 'rewards#redeem', as: 'redeem_reward'
+  post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
+  post '/citizen/checkin/process', to: 'rewards#post_citizen_checkin', as: 'post_citizen_checkin_reward'
   
   get '/rate/drink/:id/:rating', to: 'ratings#set_rating', as: 'set_rating'
   get '/rate/game/:id/:rating', to: 'ratings#set_game_rating', as: 'set_game_rating'
