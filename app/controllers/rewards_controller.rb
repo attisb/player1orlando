@@ -11,13 +11,12 @@ class RewardsController < ApplicationController
       if @user.nil?
         redirect_to new_user_session_path
       else
-        @rewards = Reward.where(:visible => true).order(points: :asc)
-        @inactive_rewards = Reward.where(:visible => false).order(points: :asc)
         @user_rewards = Discount.where(:used => false, :user_id => @user)
       end
-    else
-      redirect_to root_path
     end
+
+    @rewards = Reward.where(:visible => true).order(points: :asc)
+    @inactive_rewards = Reward.where(:visible => false).order(points: :asc)
   end
 
   def new
