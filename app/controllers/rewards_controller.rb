@@ -6,6 +6,8 @@ class RewardsController < ApplicationController
   layout :resolve_layout
 
   def index
+    @user_rewards = nil
+    
     unless admin_signed_in?
       @user = current_user
       if @user.nil?
