@@ -4,7 +4,8 @@
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
 
 	<div class="span8-12">
-		<% if user_signed_in? && @user_rewards.size > 0 %>
+		<% if user_signed_in? %>
+		<% if @user_rewards.size > 0 %>
 			<h4>Your Rewards<small>These are the rewards you chose.</small></h4>		
 			<ul class="unstyled lined pad">
 				<% @user_rewards.each do |user_reward| %>
@@ -16,6 +17,7 @@
 					</li>
 				<% end %>
 			</ul><br/>
+		<% end %>
 		<% end %>
 
 		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
