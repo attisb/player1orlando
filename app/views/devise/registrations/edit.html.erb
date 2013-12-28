@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="span4-12">		
-		<%= image_tag "/includes/member_levels/#{(current_user.points / 1000) + 1}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
+		<%= image_tag "/includes/member_levels/#{get_user_rating(current_user)}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
 		
 		<% if user_signed_in? %>
 			<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>

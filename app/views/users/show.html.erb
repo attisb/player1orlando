@@ -14,7 +14,7 @@
 	</div>
 
 	<div class="span4-12">
-		<%= image_tag "/includes/member_levels/#{(@user.points / 1000) + 1}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
+		<%= image_tag "/includes/member_levels/#{get_user_rating(@user)}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
 		<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
 	</div>
 </div>
