@@ -29,7 +29,7 @@
 						<%= reward.name -%>
 					</strong>
 					<%= simple_format reward.description -%>
-					<% if user_signed_in? %>
+					<% if user_signed_in? && !admin_signed_in? %>
 						<div class="dq-buttons">
 							<% if reward.points <= (@user.lifetime_points - @user.used_points) %>
 								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small" %>
