@@ -2,7 +2,7 @@ class Category < ActiveRecord::Base
   has_many :drinks, dependent: :destroy
   has_many :games, dependent: :destroy
   
-  validates :name, :description, :visible, :area, presence: true
+  validates :name, :description, :area, presence: true
   
 
   def to_param
