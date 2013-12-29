@@ -41,10 +41,22 @@ module Merit
         track.user.trackers.count == 100
       end
             
+      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-500', :to => :user do |track|
+        track.user.trackers.count == 500
+      end
+            
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'citizen', :temporary => true, :to => :user do |user|
         user.user.has_membership == true
       end
 
+      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'five-drink-5', :to => :user do |track|
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).count == 5
+      end
+            
+      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'five-drink-10', :to => :user do |track|
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).count == 10
+      end
+            
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # grant_on 'users#create', :badge => 'just-registered', :to => :itself

@@ -119,15 +119,17 @@ class RewardsController < ApplicationController
           user_visit_count = @user.timelines.where(:nature => "checkin").count
           
           if user_visit_count == 10
-            @user.add_badge(7)
-          elsif user_visit_count == 20
             @user.add_badge(8)
-          elsif user_visit_count == 50
+          elsif user_visit_count == 20
             @user.add_badge(9)
-          elsif user_visit_count == 100
+          elsif user_visit_count == 50
             @user.add_badge(10)
-          elsif user_visit_count == 200
+          elsif user_visit_count == 100
             @user.add_badge(11)
+          elsif user_visit_count == 200
+            @user.add_badge(12)
+          elsif user_visit_count == 500
+            @user.add_badge(13)
           end
           
           redirect_to redeem_reward_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "

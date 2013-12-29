@@ -46,45 +46,72 @@ badges = [
   },
   {
     id: 6,
+    name: 'tracker-500',
+    description: "Marked that you have tried 500 drinks.",
+    image: '/includes/badges/tracked-500.png'
+  },
+  {
+    id: 7,
     name: 'citizen',
     description: "That's right I'm a Player 1 Citizen!",
     image: '/includes/badges/citizen.png',
     custom_fields: { title: 'Player 1 Citizen' }
   },
   {
-    id: 7,
+    id: 8,
     name: 'checkin-10',
     description: "Checked in to Player 1 10 times.",
     image: '/includes/badges/checkin-10.png',
     custom_fields: { title: 'Player 1 - 10 Visits' }
   },
   {
-    id: 8,
+    id: 9,
     name: 'checkin-20',
     description: "Checked in to Player 1 20 times.",
     image: '/includes/badges/checkin-20.png',
     custom_fields: { title: 'Player 1 - 20 Visits' }
   },
   {
-    id: 9,
+    id: 10,
     name: 'checkin-50',
     description: "Checked in to Player 1 50 times.",
     image: '/includes/badges/checkin-50.png',
     custom_fields: { title: 'Player 1 - 50 Visits' }
   },
   {
-    id: 10,
+    id: 11,
     name: 'checkin-100',
     description: "Checked in to Player 1 100 times.",
     image: '/includes/badges/checkin-100.png',
     custom_fields: { title: 'Player 1 - 100 Visits' }
   },
   {
-    id: 11,
+    id: 12,
     name: 'checkin-200',
     description: "Checked in to Player 1 200 times.",
     image: '/includes/badges/checkin-200.png',
     custom_fields: { title: 'Player 1 - 200 Visits' }
+  },
+  {
+    id: 13,
+    name: 'checkin-500',
+    description: "Checked in to Player 1 500 times.",
+    image: '/includes/badges/checkin-500.png',
+    custom_fields: { title: 'Player 1 - 500 Visits' }
+  },
+  {
+    id: 14,
+    name: 'five-drink-5',
+    description: "Had 5 awesome drinks at Player 1 in a day.",
+    image: '/includes/badges/five-drink-5.png',
+    custom_fields: { title: 'Five Drinks in a Day' }
+  },
+  {
+    id: 15,
+    name: 'ten-drink-10',
+    description: "Had 10 awesome drinks at Player 1 in a day.",
+    image: '/includes/badges/ten-drink-10.png',
+    custom_fields: { title: 'Ten Drinks in a Day' }
   }
 ]
 
