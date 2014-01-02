@@ -79,7 +79,7 @@
 /* Selects */
 .dq-form select {background-color: transparent; background-image: none; border: none; box-shadow: none; font-family: "Montserrat"; font-size: 16px; text-rendering: optimizeLegibility; width: 115%; -webkit-appearance: none; z-index: 10;}
 .dq-form select:focus {outline: 0;}
-.dq-form .select {overflow: hidden; position: relative; background: #fff; padding: 15px 12px;}
+.dq-form .select {overflow: hidden; position: relative; background: #fff url(/includes/forms_select_arrow.png) no-repeat center right; padding: 15px 12px;}
 
 /* Radios & Checkboxes */
 .dq-form input[type=radio] + label,
@@ -187,7 +187,7 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 .dq-form .selectfocus {
 	outline: 0;
 	border-left: 4px solid #4678a4;
-	background: #D0E0EB;
+	background-color: #D0E0EB;
 }
 .dq-form div.file:hover,
 .dq-buttons input[type=button]:hover,
