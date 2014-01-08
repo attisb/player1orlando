@@ -11,9 +11,15 @@
 	<div class="span8-12">
 		<h4>Hidden Items<small>Don't worry it's not the end of the world.</small></h4>
 		
-		<ul class="unstyled lined pad">
-			<% @all_hidden.each do |drink| %>
-				<li><div class="float-right">In <%= drink.category.name -%></div> <strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
+		<ul class="unstyled lined">
+			<% if @cat_type == "drinks" %>
+				<% @all_hidden.each do |drink| %>
+					<li><div class="float-right">In <%= drink.category.name -%></div> <strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
+				<% end %>
+			<% elsif @cat_type == "games" %>
+				<% @all_hidden.each do |game| %>
+					<li><div class="float-right">In <%= game.category.name -%></div> <strong><%= link_to game.name, edit_game_path(game) -%></strong></li>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>
@@ -23,7 +29,7 @@
 			<% if admin_signed_in? %>
 				<h5>Admin Options</h5>
 				<div class="dq-buttons pad-bottom">
-					<%= link_to 'New Drink Category', new_category_path(:area => "drinks"), :class => "lnk-button full new" %>
+					<%= link_to 'Back', beverages_path, :class => "lnk-button full new" %>
 				</div>
 			<% else %>
 				<%= render 'shared/whycraft' %>
@@ -32,7 +38,7 @@
 			<% if admin_signed_in? %>
 				<h5>Admin Options</h5>
 				<div class="dq-buttons">
-					<%= link_to 'New Games Category', new_category_path(:area => "games"), :class => "lnk-button full new" %>
+					<%= link_to 'Back', play_path, :class => "lnk-button full new" %>
 				</div>
 			<% else %>
 				<%= render 'shared/wannaplay' %>

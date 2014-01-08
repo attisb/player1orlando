@@ -27,7 +27,11 @@ class CategoriesController < ApplicationController
 
   def show
     if admin_signed_in?
-      @all_hidden = Drink.where(:visible => false).order(name: :asc)
+      if @cat_type == "drinks"
+        @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
+      else
+        @all_hidden = Game.where(:visible => false).order(name: :asc).limit(10)
+      end
     end
   end
 
