@@ -2,7 +2,7 @@ class Game < ActiveRecord::Base
   belongs_to :category
   has_many :ratings, dependent: :destroy
   
-  validates :name, :description, :released_at, :publisher, :players, :visible, :category_id, presence: true
+  validates :name, :description, :released_at, :publisher, :players, :category_id, presence: true
   
   mount_uploader :cover_art, CoverArtUploader
   
