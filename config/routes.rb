@@ -28,7 +28,9 @@ Player1orlando::Application.routes.draw do
   get '/rewards/issue/:id', to: 'rewards#issue', as: 'issue_reward'
   
   get '/beverages/', to: 'categories#index', as: 'beverages', :defaults => { :area => 'drinks' }
+  get '/beverages/hidden', to: 'categories#allhidden', as: 'hidden_beverages', :defaults => { :area => 'drinks' }
   get '/play/', to: 'categories#index', as: 'play', :defaults => { :area => 'games' }
+  get '/play/hidden', to: 'categories#allhidden', as: 'hidden_play', :defaults => { :area => 'games' }
   
   get '/manual/rewards', to: 'pages#rewards', as: 'rewards_page'
   get '/manual/rules', to: 'pages#rules', as: 'rules_page'

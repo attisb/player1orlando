@@ -1,12 +1,27 @@
 class CategoriesController < ApplicationController
-  before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy, :allhidden]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
     @cat_type = params[:area]
     @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
     if admin_signed_in?
-      @all_hidden = Drink.where(:visible => false).order(name: :asc)
+      if @cat_type = "drinks"
+        @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
+      else
+        @all_hidden = Game.where(:visible => false).order(name: :asc).limit(10)
+      end
+    end
+  end
+
+  def allhidden
+    @cat_type = params[:area]
+    if admin_signed_in?
+      if @cat_type = "drinks"
+        @all_hidden = Drink.where(:visible => false).order(name: :asc)
+      else
+        @all_hidden = Game.where(:visible => false).order(name: :asc)
+      end
     end
   end
 
