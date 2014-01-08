@@ -75,7 +75,7 @@ footer .coins a:hover {color: #c02942;}
 .essentials li {float: right; background: #60a8c0; height: 100px; margin-left: 10px; text-align: center; line-height: 20px; color: #fff;}
 .essentials .title {float: left; background: none; margin-left: 0; text-align: left; line-height: 100%; color: #fff;}
 .essentials i {display: block; width: 100px; font-size: 50px; height: 60px; line-height: 60px; margin-top: 10px;}
-.essentials a, .essentials a:hover, .essentials a i, .essentials a:hover i {color: #fff; text-decoration: none;}
+.essentials a, .essentials a:hover, .essentials a i, .essentials a:hover i {color: #fff !important; text-decoration: none;}
 	
 .hero {background: #000 url(/includes/homepage_hero.jpg) no-repeat center -200px; text-shadow: 3px 3px 3px #000;}
 .hero #hero_slogan {overflow: hidden; text-align: left; width: 500px;}
