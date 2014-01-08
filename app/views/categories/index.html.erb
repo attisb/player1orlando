@@ -46,7 +46,7 @@
 		<% elsif @cat_type == "games" %>
 			<% if admin_signed_in? %>
 				<h5>Admin Options</h5>
-				<div class="dq-buttons">
+				<div class="dq-buttons pad-bottom">
 					<%= link_to 'New Games Category', new_category_path(:area => "games"), :class => "lnk-button full new" %>
 				</div>
 
