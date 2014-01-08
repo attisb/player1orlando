@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
     @cat_type = params[:area]
     @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
     if admin_signed_in?
-      if @cat_type = "drinks"
+      if @cat_type == "drinks"
         @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
       else
         @all_hidden = Game.where(:visible => false).order(name: :asc).limit(10)
@@ -17,7 +17,7 @@ class CategoriesController < ApplicationController
   def allhidden
     @cat_type = params[:area]
     if admin_signed_in?
-      if @cat_type = "drinks"
+      if @cat_type == "drinks"
         @all_hidden = Drink.where(:visible => false).order(name: :asc)
       else
         @all_hidden = Game.where(:visible => false).order(name: :asc)
