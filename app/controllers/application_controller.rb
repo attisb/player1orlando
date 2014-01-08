@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
   
   def get_user_rating(user)
-    (user.points / 1000) + 1
+    (user.points / 500) + 1
   end
 
 end

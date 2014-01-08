@@ -39,8 +39,6 @@
 			<li><strong class="float-left"> Games in System:</strong> <%= Game.count -%> games</li>
 			<li><strong class="float-left"> Ratings in System:</strong> <%= Rating.count -%> ratings</li>
 			<li><strong class="float-left"> Discounts Pending:</strong> <%= Discount.where(:used => false).count -%> discounts</li>
-			<li><strong class="float-left"> Unused Points in System:</strong> <%= Discount.where(:used => false).sum(:points) -%> points</li>
-			<li><strong class="float-left"> Used Points in System:</strong> <%= Discount.where(:used => true).sum(:points) -%> points</li>
 		</ul>
 	</div>
 </div>
