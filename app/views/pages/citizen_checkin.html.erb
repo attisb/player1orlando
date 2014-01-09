@@ -22,7 +22,7 @@
 		<% end %>
 	<% else %>
 	<script type="text/javascript" charset="utf-8">
-		window.setTimeout(function(){location.reload()},10000)
+		//window.setTimeout(function(){location.reload()},10000)
 	</script>
 	<div class="content">
 		<div class="span12-12 text-center">
@@ -30,6 +30,15 @@
 			<h5>Valid Citizen  <i class="fa fa-thumbs-up"></i><br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h5>
 			<p class="small">Show this to the game master to receive your discount cover. Valid once per day.</p>
 		</div>
+		
+		<%= form_tag post_citizen_checkin_reward_path do |f| %>
+			<%= hidden_field_tag :code, current_user.id %>
+			<%= hidden_field_tag :from_user, true %>
+			<div class="dq-buttons">
+				<%= submit_tag "Game Master Check In", :class => "full" %>
+			</div>
+		<% end %>
+		
 	</div>
 	<% end %>
 <% else %>

@@ -105,7 +105,9 @@ class RewardsController < ApplicationController
   end
   
   def post_citizen_checkin
-    unless current_user.emp_code.blank?
+    if current_user.emp_code.blank? || !params[:from_user].present?
+      redirect_to rewards_path
+    else
       @user = User.find(params[:code])
       if @user.nil?
         redirect_to redeem_reward_path, alert: "Not a valid user code."
@@ -132,13 +134,15 @@ class RewardsController < ApplicationController
             @user.add_badge(13)
           end
           
-          redirect_to redeem_reward_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+          if params[:from_user].present?
+            redirect_to citizen_checkin_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+          else
+            redirect_to redeem_reward_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+          end
         else
           redirect_to redeem_reward_path, alert: "Not a valid citizen."
         end
       end
-    else
-      redirect_to rewards_path
     end
   end
   
