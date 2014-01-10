@@ -4,7 +4,7 @@
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Reward<small>Your part of a special group.</small></h2></div>
 	<div class="span12-12">
 		<h4><%= @discount.reward.name -%></h4>
-		<%= simple_format @discount.reward.name, :class => "small" -%>
+		<%= simple_format @discount.reward.description, :class => "small" -%>
 		<p class="small"><strong>Reward Code</strong>: <%= @discount.code -%></p>
 		
 		<%= form_tag post_user_redeem_reward_path do |f| %>
