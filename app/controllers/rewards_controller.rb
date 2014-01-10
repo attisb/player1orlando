@@ -94,7 +94,7 @@ class RewardsController < ApplicationController
     if current_user.emp_code.blank?
       redirect_to rewards_path
     else
-      @discount = Discount.where(:code => params[:code].to_i).first
+      @discount = Discount.where(:code => params[:code]).first
       if @discount.nil?
         redirect_to redeem_reward_path, alert: "Not a valid code."
       else
@@ -105,7 +105,7 @@ class RewardsController < ApplicationController
   end
   
   def post_user_redeem
-    @discount = Discount.where(:code => params[:code].to_i, :user_id => params[:user_id].to_i).first
+    @discount = Discount.where(:code => params[:code], :user_id => params[:user_id]).first
     if @discount.nil?
       redirect_to user_redeem_path(params[:code], params[:user_id]), alert: "Not a valid code."
     else
@@ -115,7 +115,7 @@ class RewardsController < ApplicationController
   end
   
   def user_redeem
-    @discount = Discount.where(:code => params[:code].to_i, :user_id => params[:user_id].to_i).first
+    @discount = Discount.where(:code => params[:code], :user_id => params[:user_id]).first
     if @discount.nil?
       redirect_to redeem_reward_path, alert: "Not a valid code."
     end
