@@ -13,7 +13,8 @@
 						<strong class="large">
 							<div class="float-right">Code: <%= sprintf('%06d', user_reward.code) -%></div>
 							<%= user_reward.reward.name -%>
-						</strong>
+						</strong><br/>
+						Copy link to share: <%= link_to user_redeem_url(user_reward.code, user_reward.user_id), user_redeem_url(user_reward.code, user_reward.user_id) -%>
 					</li>
 				<% end %>
 			</ul><br/>

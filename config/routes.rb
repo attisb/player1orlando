@@ -21,11 +21,13 @@ Player1orlando::Application.routes.draw do
   end
   get '/rewards/redemption', to: 'rewards#redeem', as: 'redeem_reward'
   post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
+  post '/rewards/post_user_redeem', to: 'rewards#post_user_redeem', as: 'post_user_redeem_reward'
   post '/citizen/checkin/process', to: 'rewards#post_citizen_checkin', as: 'post_citizen_checkin_reward'
   
   get '/rate/drink/:id/:rating', to: 'ratings#set_rating', as: 'set_rating'
   get '/rate/game/:id/:rating', to: 'ratings#set_game_rating', as: 'set_game_rating'
   get '/rewards/issue/:id', to: 'rewards#issue', as: 'issue_reward'
+  get '/d/:code/:user_id', to: 'rewards#user_redeem', as: 'user_redeem'
   
   get '/beverages/', to: 'categories#index', as: 'beverages', :defaults => { :area => 'drinks' }
   get '/beverages/hidden', to: 'categories#allhidden', as: 'hidden_beverages', :defaults => { :area => 'drinks' }

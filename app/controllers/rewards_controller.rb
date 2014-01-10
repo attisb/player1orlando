@@ -62,7 +62,7 @@ class RewardsController < ApplicationController
     @user = current_user
     
     # unless citizen_allowed?
-      # redirect_to rewards_path, alert: "Sorry can't earn points on Friday or Saturdays."
+    #   redirect_to rewards_path, alert: "Sorry can't earn points on select days. This is one of them"
     # else
       if (@user.lifetime_points - @user.used_points) >= @reward.points && @user.has_membership?
         discount = Discount.create(
@@ -91,16 +91,33 @@ class RewardsController < ApplicationController
   end
   
   def post_redeem
-    unless current_user.emp_code.blank?
-      @discount = Discount.where(:code => params[:code]).first
+    if current_user.emp_code.blank?
+      redirect_to rewards_path
+    else
+      @discount = Discount.where(:code => params[:code].to_i).first
       if @discount.nil?
         redirect_to redeem_reward_path, alert: "Not a valid code."
       else
         @discount.update(:used => true)
         redirect_to redeem_reward_path, notice: "Success: Redeemed '#{@discount.reward.name}'. "
       end
+    end
+  end
+  
+  def post_user_redeem
+    @discount = Discount.where(:code => params[:code].to_i, :user_id => params[:user_id].to_i).first
+    if @discount.nil?
+      redirect_to user_redeem_path(params[:code], params[:user_id]), alert: "Not a valid code."
     else
-      redirect_to rewards_path
+      @discount.update(:used => true)
+      redirect_to root_path, notice: "Success: Redeemed '#{@discount.reward.name}'. "
+    end
+  end
+  
+  def user_redeem
+    @discount = Discount.where(:code => params[:code].to_i, :user_id => params[:user_id].to_i).first
+    if @discount.nil?
+      redirect_to redeem_reward_path, alert: "Not a valid code."
     end
   end
   

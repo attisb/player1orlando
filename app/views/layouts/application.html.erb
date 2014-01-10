@@ -112,7 +112,7 @@
 <%= yield %>
 	</div>
 
-	<% unless action_name == "citizen_checkin" %>
+	<% unless action_name == "citizen_checkin" || action_name == "user_redeem" || admin_signed_in? %>
 	<!-- Begin Footer -->
 	<footer>
 		<div class="content">
