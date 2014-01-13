@@ -9,7 +9,7 @@
 		<h4><i class="fa fa-arrow-down"></i> 7 Worst Performing Drinks<small>Only displaying drinks with at least one rating.</small></h4>
 		<ul class="unstyled lined">
 			<% @drinks.where("average > ?", 0).order(average: :asc).limit(7).each do |drink| %>
-				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average %></li>
+				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average_rating %></li>
 			<% end %>
 		</ul>
 		<br/>
@@ -25,7 +25,7 @@
 		<h4><i class="fa fa-calendar"></i> 20 Drinks Popular This Week<small>Based on drink tracker data.</small></h4>
 		<ul class="unstyled lined">
 			<% @tracked.limit(20).each do |track| %>
-				<li class="text-right"><div class="float-left"><%= track.drink.name %></div> Tracked: <%= track.drinks_count -%> | Rating: <%= track.drink.average %></li>
+				<li class="text-right"><div class="float-left"><%= track.drink.name %></div> Tracked: <%= track.drinks_count -%> | Rating: <%= track.drink.average_rating %></li>
 			<% end %>
 		</ul>
 		
