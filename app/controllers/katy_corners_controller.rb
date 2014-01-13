@@ -5,17 +5,11 @@ class KatyCornersController < ApplicationController
   def index
     @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
   end
-  
-  def feed
-    @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
-    render :template => 'feed.rss.builder', :layout => false
-  end
-  
+    
   def show
     @katy_corners = KatyCorner.offset(1).order(created_at: :desc).limit(10)
   end
   
-
   def new
     @katy_corner = KatyCorner.new
   end

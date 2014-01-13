@@ -3,7 +3,7 @@ xml.rss :version => "2.0" do
   xml.channel do
     xml.title "Katy's Corner at Player 1 Orlando"
     xml.description "A little peek at the gaming world from the eyes of Katy at Player 1 Orlando."
-    xml.link posts_url
+    xml.link katy_corners_url
 
     for post in @katy_corners
       xml.item do

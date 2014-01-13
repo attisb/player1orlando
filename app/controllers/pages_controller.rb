@@ -40,4 +40,11 @@ class PagesController < ApplicationController
   
   def citizen_checkin
   end
+  
+  def feed
+    @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
+    respond_to do |format|
+        format.rss { render :layout => false }
+      end
+  end
 end
