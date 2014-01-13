@@ -85,9 +85,8 @@
 							<li><%= link_to 'Rewards', rewards_path -%></li>
 						<% else -%>
 							<% if user_signed_in? -%>
-								<li class="small">Hi, <%= current_user.first_name %> (LVL <%= (current_user.points / 1000) + 1 -%>)</li>
+								<li><%= link_to "Hi, #{current_user.first_name} (LVL #{get_user_rating(current_user)})", edit_user_registration_path, :class => 'small nav-membername' %></li>
 								<li><%= link_to 'Drink Tracker', trackers_path, :class => 'small' %></li>
-								<li><%= link_to 'My info', edit_user_registration_path, :class => 'small' %></li>
 								<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, :class => 'small' %></li>
 								<% if current_user.has_membership? %>
 									<li><%= link_to 'Citizen', rewards_path -%></li>
