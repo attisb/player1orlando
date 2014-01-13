@@ -17,7 +17,7 @@
 		<h4><i class="fa fa-arrow-up"></i> 20 Best Performing Drinks<small>Only displaying drinks with at least one rating.</small></h4>
 		<ul class="unstyled lined">
 			<% @drinks.where("average > ?", 0).order(average: :desc).limit(20).each do |drink| %>
-				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average %></li>
+				<li class="text-right"><div class="float-left"><%= drink.name %></div> Average User Rating: <%= drink.average_rating %></li>
 			<% end %>
 		</ul>
 		<br/>
