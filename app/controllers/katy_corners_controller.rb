@@ -4,11 +4,11 @@ class KatyCornersController < ApplicationController
 
   def index
     @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
-    
-    respond_to do |format|
-      format.html
-      format.rss { render :layout => false } #index.rss.builder
-    end
+  end
+  
+  def feed
+    @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
+    render :template => 'feed.rss.builder', :layout => false
   end
   
   def show
