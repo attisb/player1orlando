@@ -136,6 +136,7 @@ body.light {background: #e6e8e8;}
 		.header h1.oneline {line-height: 48px;}
 		#pull {display: block; width: 40px; height: 50px; line-height: 50px; font-size: 40px; text-align: right; float: right; color: #fff; text-decoration: none;}
 		
+		.hero #hero_slogan {width: auto !important;}
 		.hero #hero_slogan h2 {font-size: 24px; line-height: 100%;}
 		.hero #hero_slogan h1 {font-size: 90px; line-height: 80%;}
 		
