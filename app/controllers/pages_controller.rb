@@ -42,7 +42,7 @@ class PagesController < ApplicationController
   end
   
   def leaderboard
-    @members = User.where("membership_number <> ''").order(lifetime_points: :desc).limit(20)
+    @members = User.where("membership_number <> ''").order(vip_membership_points: :desc).limit(20)
     @citizens = User.where("has_membership" => true).order(lifetime_points: :desc).limit(20)
   end
   

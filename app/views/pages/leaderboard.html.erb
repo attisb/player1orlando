@@ -8,7 +8,7 @@
 		<ul class="unstyled lined">
 			<li><div class="float-right">Points</div>Name</li>
 			<% @members.each do |member| %>
-				<li style="line-height: 32px; clear: both;"><div class="float-right">TBD</div><%= image_tag mini_avatar_url(member), :width => 32, :class => "float-left" %> <%= link_to member.username, user_path(member), :title => member.first_name -%></li>
+				<li style="line-height: 32px; clear: both;"><div class="float-right"><%= member.vip_membership_points -%></div><%= image_tag mini_avatar_url(member), :width => 32, :class => "float-left" %> <%= link_to member.username, user_path(member), :title => member.first_name -%></li>
 			<% end %>
 		</ul>
 	</div>
