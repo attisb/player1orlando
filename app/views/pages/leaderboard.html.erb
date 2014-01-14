@@ -1,0 +1,21 @@
+<% title "Leaderboard" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Leaderboard<small>Number 1 is who...</small></h2></div>
+
+	<div class="span6-12">
+		<h4>Player 1 Citizens<small>The web only membership.</small></h4>
+		<ul class="lined">
+			<li><div class="float-right">Points</div>Name</li>
+			<% @citizens.each do |citizen| %>
+				<li><div class="float-right"><%= citizen.lifetime_points -%></div><%= image_tag mini_avatar_url(citizen), :class => "float-left" %> <%= link_to citizen.username, user_path(citizen) -%></li>
+			<% end %>
+		</ul>
+	</div>
+
+	<div class="span6-12">
+		<h4>VIP Members<small>You got a special card to show for it!</small></h4>
+		<p>Placeholder</p>
+	</div>
+	
+</div>

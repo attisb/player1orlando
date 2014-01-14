@@ -5,6 +5,12 @@ module ApplicationHelper
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=256&d=#{CGI.escape(default_url)}"
   end
   
+  def mini_avatar_url(user)
+    default_url = "#{root_url}includes/default_avatar.png"
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=32&d=#{CGI.escape(default_url)}"
+  end
+  
   def title(page_title)
     unless page_title.blank?
       content_for :title, "#{page_title.to_s} - "

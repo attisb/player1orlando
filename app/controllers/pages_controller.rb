@@ -41,6 +41,10 @@ class PagesController < ApplicationController
   def citizen_checkin
   end
   
+  def leaderboard
+    @citizens = User.where("has_membership" => true).order(lifetime_points: :desc).limit(20)
+  end
+  
   def feed
     @katy_corners = KatyCorner.order(created_at: :desc).limit(10)
     respond_to do |format|
