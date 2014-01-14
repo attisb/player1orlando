@@ -42,7 +42,7 @@ class UsersController < ApplicationController
 
     def user_params
       if admin_signed_in?
-        params.require(:user).permit(:first_name, :last_name, :email, :username, :emp_code, :has_membership, :lifetime_points, :used_points)
+        params.require(:user).permit(:first_name, :last_name, :email, :username, :emp_code, :has_membership, :lifetime_points, :used_points, :membership_number)
       else
         params.require(:user).permit(:first_name, :last_name, :email, :username, :membership_number)
       end
