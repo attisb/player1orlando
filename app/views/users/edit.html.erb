@@ -23,7 +23,15 @@
 		<div class="field3-10"><%= f.text_field :username, :placeholder => "Username" %></div>
 		<div class="field8-10"><%= f.email_field :email, :placeholder => "Email Address" %></div>
 		<div class="field2-10"><%= f.text_field :emp_code, :placeholder => "Employee Code" %></div>
-
+	</div>
+	
+	<h4>Have a Player 1 Membership?</h4>
+	<div class="dq-form">
+		<div class="field10-10"><%= f.text_field :membership_number, :placeholder => "Your Membership Number" %></div>
+	</div>
+		
+	<h4>Have a Player 1 Citizen?</h4>
+	<div class="dq-form">
 		<div class="field6-10"><%= f.label "Is a Player 1 Citizen?" -%><%= f.check_box :has_membership %><%= f.label :has_membership, "User has membership?" %></div>
 		<div class="field2-10"><%= f.label "Lifetime Points" -%><%= f.text_field :lifetime_points, :placeholder => "Lifetime" %></div>
 		<div class="field2-10"><%= f.label "Used Points" -%><%= f.text_field :used_points, :placeholder => "Used", :disabled => true %></div>
