@@ -5,10 +5,10 @@
 
 	<div class="span6-12">
 		<h4>Player 1 Citizens<small>The web only membership.</small></h4>
-		<ul class="lined">
+		<ul class="unstyled lined">
 			<li><div class="float-right">Points</div>Name</li>
 			<% @citizens.each do |citizen| %>
-				<li><div class="float-right"><%= citizen.lifetime_points -%></div><%= image_tag mini_avatar_url(citizen), :class => "float-left" %> <%= link_to citizen.username, user_path(citizen) -%></li>
+				<li><div class="float-right"><%= citizen.lifetime_points -%></div><%= image_tag mini_avatar_url(citizen), :width => 32, :class => "float-left" %> <%= link_to citizen.username, user_path(citizen), :title => citizen.first_name -%></li>
 			<% end %>
 		</ul>
 	</div>
