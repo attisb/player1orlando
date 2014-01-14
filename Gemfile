@@ -20,9 +20,9 @@ end
 
 group :production do
   gem 'pg'
-  gem 'mini_magick'
 end
 
+gem 'mini_magick'
 gem 'unicorn'
 gem 'devise'
 gem 'carrierwave'
