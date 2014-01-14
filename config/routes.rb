@@ -36,6 +36,8 @@ Player1orlando::Application.routes.draw do
   
   get '/manual/rewards', to: 'pages#rewards', as: 'rewards_page'
   get '/manual/rules', to: 'pages#rules', as: 'rules_page'
+  get '/manual/terms', to: 'pages#terms', as: 'terms_page'
+  get '/manual/privacy', to: 'pages#privacy', as: 'privacy_page'
   get '/feed', to: 'pages#feed', as: 'feed_rss'
   get '/food', to: 'pages#food', as: 'food_page'
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
