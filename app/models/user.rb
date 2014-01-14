@@ -37,7 +37,6 @@ class User < ActiveRecord::Base
   def set_defaults
     self.has_membership = false if self.has_membership.blank?
     self.lifetime_points = 0 if self.lifetime_points.blank?
-    self.vip_membership_points = 0 if self.vip_membership_points.blank?
     self.used_points = 0 if self.used_points.blank?
   end
 end
