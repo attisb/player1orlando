@@ -22,6 +22,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'mini_magick'
 gem 'unicorn'
 gem 'devise'
 gem 'carrierwave'
