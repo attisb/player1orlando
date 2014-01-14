@@ -13,7 +13,7 @@
 
 		
 		<div class="span6-12">
-			<h5>Average Rating</h5>
+			<h5>Average Rating <%= @drink.average -%></h5>
 			<span class="rating">
 				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 1 -%>">1</span>
 				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.average > 0 && @drink.average == 2 -%>">2</span>
