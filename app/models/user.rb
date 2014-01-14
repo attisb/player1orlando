@@ -17,7 +17,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
   validates :first_name, :last_name, :username, :email, presence: true
-  validates_uniqueness_of :username, :membership_number
+  validates_uniqueness_of :username
+  validates_uniqueness_of :membership_number, :allow_blank => true
   validates :username, format: { with: /\A[a-zA-Z\d\w-]+\z/, message: "Only letters, numbers, underscores, and dashes allowed" }
   validates :username, length: {
       minimum: 3,
