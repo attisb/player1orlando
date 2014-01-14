@@ -15,10 +15,15 @@ class UsersController < ApplicationController
   
   def update
     respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
+      find_membership = User.where(membership_number: params[:user][:membership_number]).count
+      if find_membership > 1
+        format.html { render action: 'edit', alert: "Sorry, Membership Card has already been claimed." }
       else
-        format.html { render action: 'edit' }
+        if @user.update(user_params)
+          format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
+        else
+          format.html { render action: 'edit' }
+        end
       end
     end
   end
@@ -39,7 +44,7 @@ class UsersController < ApplicationController
       if admin_signed_in?
         params.require(:user).permit(:first_name, :last_name, :email, :username, :emp_code, :has_membership, :lifetime_points, :used_points)
       else
-        params.require(:user).permit(:first_name, :last_name, :email, :username)
+        params.require(:user).permit(:first_name, :last_name, :email, :username, :membership_number)
       end
     end
   
