@@ -15,15 +15,10 @@ class UsersController < ApplicationController
   
   def update
     respond_to do |format|
-      find_membership = User.where(membership_number: params[:user][:membership_number]).count
-      if find_membership > 1
-        format.html { render action: 'edit', alert: "Sorry, Membership Card has already been claimed." }
+      if @user.update(user_params)
+        format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
       else
-        if @user.update(user_params)
-          format.html { redirect_to edit_user_path(@user), notice: 'User was successfully updated.' }
-        else
-          format.html { render action: 'edit' }
-        end
+        format.html { render action: 'edit' }
       end
     end
   end
