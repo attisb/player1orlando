@@ -108,7 +108,10 @@
 				<li><strong>Brewery</strong>: <%= @drink.brewery -%></li>
 				<%= raw "<li><strong>ABV:</strong>:  #{number_to_percentage @drink.abv, precision: 2}" unless @drink.abv.blank? %></li>
 				<% if @drink.price > 0 -%><li><strong>Price</strong>: <%= number_to_currency @drink.price -%></li><% end -%>
+				
+				<% unless @drink.category.name.downcase == "NON ALCOHOLIC".downcase %>
 				<li><strong>Beer Style</strong>: <%= link_to @drink.beer_style.name, @drink.beer_style -%></li>
+				<% end %>
 			</ul>
 
 			<h5>Brewery's Description</h5>
