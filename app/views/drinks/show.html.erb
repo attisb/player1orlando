@@ -15,11 +15,11 @@
 		<div class="span6-12">
 			<h5>Average Rating</h5>
 			<span class="rating">
-				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.rating > 0 && @drink.average_rating == 1 -%>">1</span>
-				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.rating > 0 && @drink.average_rating == 2 -%>">2</span>
-				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.rating > 0 && @drink.average_rating == 3 -%>">3</span>
-				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.rating > 0 && @drink.average_rating == 4 -%>">4</span>
-				<span class="star <%= "checked" if !@drink_rating.nil? && @drink.rating > 0 && @drink.average_rating == 5 -%>">5</span>
+				<span class="star <%= "checked" if @drink.rating > 0 && @drink.average_rating == 1 -%>">1</span>
+				<span class="star <%= "checked" if @drink.rating > 0 && @drink.average_rating == 2 -%>">2</span>
+				<span class="star <%= "checked" if @drink.rating > 0 && @drink.average_rating == 3 -%>">3</span>
+				<span class="star <%= "checked" if @drink.rating > 0 && @drink.average_rating == 4 -%>">4</span>
+				<span class="star <%= "checked" if @drink.rating > 0 && @drink.average_rating == 5 -%>">5</span>
 		    </span>			
 
 			<% if user_signed_in? %>
