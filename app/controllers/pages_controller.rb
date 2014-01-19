@@ -58,9 +58,13 @@ class PagesController < ApplicationController
     
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
-    # lines.each do |l|
-        #Book.create(:content => l)
-    # end
+    @lines.each do |l|
+      each_line = l.split(",")
+      vip_user_account = User.where(:membership_number => each_line[0])
+      if vip_user_account.blank?
+        vip_user_account.update_attributes(:vip_membership_points => each_line[1])
+      end
+    end
     
   end
 end
