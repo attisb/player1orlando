@@ -57,13 +57,17 @@ class PagesController < ApplicationController
   def process_memberships
     #25250000000024,30
     
+    @test_string = "Empty"
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
     @lines.each do |l|
       each_line = l.split(",")
-      vip_user_account = User.where(:membership_number => "25250000000024")
+      vip_user_account = User.find_by_membership_number("25250000000024")
       if vip_user_account.nil?
+        @test_string = "Found"
         vip_user_account.update_attributes(:vip_membership_points => 30)
+      else
+        @test_string = "Not Found"
       end
     end
     
