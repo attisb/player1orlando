@@ -44,6 +44,9 @@ class PagesController < ApplicationController
   def leaderboard
     @members = User.where("membership_number <> ''").order(vip_membership_points: :desc).limit(20)
     @citizens = User.where("has_membership" => true).order(lifetime_points: :desc).limit(20)
+    
+    if admin_signed_in?
+    end
   end
   
   def feed

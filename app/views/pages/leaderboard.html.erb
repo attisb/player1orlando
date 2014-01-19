@@ -22,5 +22,20 @@
 			<% end %>
 		</ul>
 	</div>
+	
+	<% if admin_signed_in? -%>
+	<div class="span12-12">
+		<h4>Import Membership Details<small>Format: Number,Point Balance</small></h4>
+		
+		<%= form_tag process_memberships_path do |f| %>
+		<div class="dq-form">
+			<div class="field10-10"><%= text_area_tag :raw_data, :placeholder => "Format must be in Membership Number,Point Balance", :rows => 30 %></div>
+		</div>
+		<div class="dq-buttons">
+			<%= submit_tag "Import Data" %>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
 
 </div>

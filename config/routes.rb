@@ -23,6 +23,7 @@ Player1orlando::Application.routes.draw do
   post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
   post '/rewards/post_user_redeem', to: 'rewards#post_user_redeem', as: 'post_user_redeem_reward'
   post '/citizen/checkin/process', to: 'rewards#post_citizen_checkin', as: 'post_citizen_checkin_reward'
+  post '/membership/process', to: 'pages#process_memberships', as: 'process_memberships'
   
   get '/rate/drink/:id/:rating', to: 'ratings#set_rating', as: 'set_rating'
   get '/rate/game/:id/:rating', to: 'ratings#set_game_rating', as: 'set_game_rating'
