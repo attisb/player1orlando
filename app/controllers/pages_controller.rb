@@ -62,7 +62,7 @@ class PagesController < ApplicationController
       each_line = l.split(",")
       vip_user_account = User.where(:membership_number => each_line[0])
       if vip_user_account.blank?
-        vip_user_account.update_attributes(:vip_membership_points => each_line[1])
+        vip_user_account.update_attributes(:vip_membership_points => each_line[1].to_i)
       end
     end
     
