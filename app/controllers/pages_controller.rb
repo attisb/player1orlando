@@ -63,9 +63,9 @@ class PagesController < ApplicationController
     @lines.each do |l|
       each_line = l.split(",")
       vip_user_account = User.find_by_membership_number("25250000000024")
-      if vip_user_account.nil?
+      unless vip_user_account.nil?
         @test_string = "Found"
-        vip_user_account.update_attributes(:vip_membership_points => 30)
+        vip_user_account.update_attributes(:vip_membership_points => 80)
       else
         @test_string = "Not Found"
       end
