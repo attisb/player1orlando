@@ -61,9 +61,9 @@ class PagesController < ApplicationController
     @lines=inputString.split("\n")
     @lines.each do |l|
       each_line = l.split(",")
-      vip_user_account = User.where(:membership_number => each_line[0])
+      vip_user_account = User.where(:membership_number => "25250000000024")
       if vip_user_account.nil?
-        vip_user_account.update_attributes(:vip_membership_points => each_line[1].to_i)
+        vip_user_account.update_attributes(:vip_membership_points => 30)
       end
     end
     
