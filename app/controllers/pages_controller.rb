@@ -67,5 +67,8 @@ class PagesController < ApplicationController
       end
     end
     
+    redirect_to leaderboard_path, notice: "Successfully imported membership data."
+    
+    
   end
 end
