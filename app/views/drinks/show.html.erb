@@ -6,7 +6,7 @@
 		<h4><%= @drink.name -%><small><%= @drink.description -%></small></h4>
 
 		<div class="text-right">
-			<%= render 'shared/social', url_pass: drink_url(@drink), title_page: @drink.name %>
+			<%= render 'shared/social', url_pass: drink_url(@drink.id), title_page: @drink.name %>
 		</div>
 
 		
