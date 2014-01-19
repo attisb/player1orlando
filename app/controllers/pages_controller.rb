@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_admin!, only: [:process_memberships]
   def index
     
     if admin_signed_in?
@@ -44,9 +45,6 @@ class PagesController < ApplicationController
   def leaderboard
     @members = User.where("membership_number <> ''").order(vip_membership_points: :desc).limit(20)
     @citizens = User.where("has_membership" => true).order(lifetime_points: :desc).limit(20)
-    
-    if admin_signed_in?
-    end
   end
   
   def feed
@@ -54,5 +52,15 @@ class PagesController < ApplicationController
     respond_to do |format|
         format.rss { render :layout => false }
       end
+  end
+  
+  def process_memberships
+    
+    inputString=params["raw_data"]
+    @lines=inputString.split("\n")
+    # lines.each do |l|
+        #Book.create(:content => l)
+    # end
+    
   end
 end
