@@ -6,9 +6,7 @@
 		<h4><%= @drink.name -%><small><%= @drink.description -%></small></h4>
 
 		<div class="text-right">
-			<div class="g-plus" data-action="share" data-annotation="none" data-href="<%= drink_url(@drink) -%>"></div>
-			<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= drink_url(@drink) -%>" data-via="player1orlando" data-count="none" data-hashtags="player1orlando">Tweet</a>
-			<div class="fb-share-button" data-href="<%= drink_url(@drink) -%>" data-type="button"></div>
+			<%= render 'shared/social', url_pass: drink_url(@drink), title_page: @drink.name %>
 		</div>
 
 		
