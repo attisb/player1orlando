@@ -21,7 +21,8 @@ div[class*='span'] {
 	margin-left: -0.4%;
 }
 
-div[class*='span'] div[class*='span'] {border-left: none;}
+div[class*='span'] div[class*='span'] {border-right: none;}
+div[class*='span'] div[class*='span']:first-child {margin-left: -10px;}
 
 .hide {display: none !important;}
 
