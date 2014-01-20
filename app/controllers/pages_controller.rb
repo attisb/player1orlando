@@ -61,15 +61,20 @@ class PagesController < ApplicationController
   end
   
   def process_memberships
-    #25250000000024,30
+    #252500000 00024,30
     
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
     @lines.each do |l|
       each_line = l.split(",")
-      vip_user_account = User.find_by_membership_number(each_line[0])
+      
+      id_number = each_line[0]
+      point_amount = each_line[1].to_i
+      id_number = id_number[id_number.length-5..-1]
+      
+      vip_user_account = User.find_by_membership_number("252500000#{id_number}")
       unless vip_user_account.nil?
-        vip_user_account.update_attributes(:vip_membership_points => each_line[1].to_i)
+        vip_user_account.update_attributes(:vip_membership_points => point_amount)
       end
     end
     
