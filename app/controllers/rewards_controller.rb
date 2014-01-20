@@ -7,18 +7,18 @@ class RewardsController < ApplicationController
 
   def index
     @user_rewards = nil
-    
-    if current_user.membership_number.blank?    
-      unless admin_signed_in?
+
+    unless admin_signed_in?
+      if current_user.membership_number.blank?    
         @user = current_user
         if @user.nil?
           redirect_to new_user_session_path
         else
           @user_rewards = Discount.where(:used => false, :user_id => @user)
         end
+      else
+        redirect_to root_path
       end
-    else
-      redirect_to root_path
     end
 
     @rewards = Reward.where(:visible => true).order(points: :asc)
