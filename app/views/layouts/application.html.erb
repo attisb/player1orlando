@@ -76,7 +76,7 @@
 							<li><%= link_to 'Drinks', beverages_path -%></li>
 							<li><%= link_to 'Games', play_path -%></li>
 							<li><%= link_to 'Events', events_path -%></li>
-							<li><%= link_to "Katy's Corner", katy_corners_path -%></li>
+							<li><%= link_to "Katy's Corner", katy_corners_path, :class => 'small nav-membername' -%></li>
 						<% else -%>
 							<% if user_signed_in? -%>
 								<li><%= link_to "Hi, #{current_user.first_name} (LVL #{get_user_rating(current_user)})", edit_user_registration_path, :class => 'small nav-membername' %></li>
@@ -94,7 +94,7 @@
 							<li><%= link_to 'Games', play_path -%></li>
 							<li><%= link_to 'Events', events_path -%></li>
 							<li><%= link_to 'Membership', leaderboard_page_path -%></li>
-							<li><%= link_to "Katy's Corner", katy_corners_path -%></li>
+							<li><%= link_to "Katy's Corner", katy_corners_path, :class => 'nav-membername' -%></li>
 						<% end -%>
 					</ul>
 				</nav>
