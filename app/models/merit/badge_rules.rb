@@ -49,7 +49,7 @@ module Merit
         user.user.has_membership == true
       end
 
-      grant_on ['users#update'], :badge => 'vipmember', :temporary => true, :to => :user do |user|
+      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'vipmember', :temporary => true, :to => :user do |user|
         user.user.membership_number.blank? == false
       end
 
