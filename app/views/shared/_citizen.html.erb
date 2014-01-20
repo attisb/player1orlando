@@ -1,4 +1,4 @@
-<% if !@user.membership_number.nil? %>
+<% if !@user.membership_number.blank? %>
 	<% unless admin_signed_in? %>
 		<div class="callout_box">
 			<h5>Player 1 VIP Membership</h5>
