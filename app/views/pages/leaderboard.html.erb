@@ -5,7 +5,7 @@
 
 	<div class="span6-12">
 		<h4>VIP Members<small>You got a special card to show for it!</small></h4>
-		<div class="text-right"><%= "What is a VIP?", rewards_page_path -%></div>
+		<div class="text-right"><%= link_to "What is a VIP?", rewards_page_path -%></div>
 		<ul class="unstyled lined">
 			<li><div class="float-right">Points</div>Name</li>
 			<% @members.each do |member| %>
@@ -16,7 +16,7 @@
 	
 	<div class="span6-12">
 		<h4>Player 1 Citizens<small>The web only membership.</small></h4>
-		<div class="text-right"><%= "What is a Citizen?", rewards_page_path -%></div>
+		<div class="text-right"><%= link_to "What is a Citizen?", rewards_page_path -%></div>
 		<ul class="unstyled lined">
 			<li><div class="float-right">Points</div>Name</li>
 			<% @citizens.each do |citizen| %>
