@@ -21,28 +21,28 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-5', :to => :user do |track|
-        track.user.trackers.count >= 5
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-5', :to => :user do |track|
+        track.user.trackers.count == 5
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-10', :to => :user do |track|
-        track.user.trackers.count >= 10
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-10', :to => :user do |track|
+        track.user.trackers.count == 10
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-25', :to => :user do |track|
-        track.user.trackers.count >= 25
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-25', :to => :user do |track|
+        track.user.trackers.count == 25
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-50', :to => :user do |track|
-        track.user.trackers.count >= 50
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-50', :to => :user do |track|
+        track.user.trackers.count == 50
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-100', :to => :user do |track|
-        track.user.trackers.count >= 100
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-100', :to => :user do |track|
+        track.user.trackers.count == 100
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-500', :to => :user do |track|
-        track.user.trackers.count >= 500
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'tracked-500', :to => :user do |track|
+        track.user.trackers.count == 500
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'citizen', :temporary => true, :to => :user do |user|
@@ -53,11 +53,11 @@ module Merit
         user.user.membership_number.blank? == false
       end
 
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'five-drink-5', :to => :user do |track|
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'five-drink-5', :to => :user do |track|
         track.user.trackers.where(created_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).count == 5
       end
             
-      grant_on ['trackers#track', 'trackers#point_track'], :badge => 'five-drink-10', :to => :user do |track|
+      grant_on ['trackers#track', 'trackers#point_track', 'pages#index'], :badge => 'five-drink-10', :to => :user do |track|
         track.user.trackers.where(created_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).count == 10
       end
             
