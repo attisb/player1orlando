@@ -1,9 +1,16 @@
-<% unless @user.has_membership? %>
-	<div class="callout_box">
-		<h5>Become a Player 1 Citizen.</h5>
-		<p>Becoming a citizen allows you to earn points towards free covers for friends, swag, discounts, and more! Just ask you game master at the front of Player 1 for more details. Remember one of the limitations is you can't earn points on Fridays and Saturdays.</p>
-	</div>
-<% else %>
+<% if !@user.membership_number.nil? %>
+	<% unless admin_signed_in? %>
+		<div class="callout_box">
+			<h5>Player 1 VIP Membership</h5>
+			<ul class="unstyled lined">
+				<li class="large"><span class="float-right"><%= @user.vip_membership_points  -%></span><strong>Total Points</strong></li>
+			</ul>
+			<div class="dq-buttons">
+				<%= link_to "See levels", vip_page_path, :class => "lnk-button small secondary" %>
+			</div>
+		</div>
+	<% end %>
+<% elsif @user.has_membership? %>
 	<% unless admin_signed_in? %>
 		<div class="callout_box">
 			<h5>Player 1 Citizen</h5>
@@ -18,4 +25,9 @@
 			</div>
 		</div>
 	<% end %>
+<% else %>
+	<div class="callout_box">
+		<h5>Become a Player 1 Citizen.</h5>
+		<p>Becoming a citizen allows you to earn points towards free covers for friends, swag, discounts, and more! Just ask you game master at the front of Player 1 for more details. Remember one of the limitations is you can't earn points on Fridays and Saturdays.</p>
+	</div>
 <% end %>
