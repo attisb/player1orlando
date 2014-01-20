@@ -61,7 +61,7 @@ class PagesController < ApplicationController
   end
   
   def process_memberships
-    #25250 0000 00024,30
+    #25250000000024,30
     
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
@@ -72,13 +72,13 @@ class PagesController < ApplicationController
       point_amount = each_line[1].to_i
       id_number_last = "252500000".to_s + id_number[id_number.length-5..-1].to_s
       
-      vip_user_account = User.find_by_membership_number(id_number)
+      vip_user_account = User.find_by_membership_number(id_number_last)
       unless vip_user_account.nil?
         vip_user_account.update_attributes(:vip_membership_points => point_amount)
       end
     end
     
-    redirect_to leaderboard_path, notice: "Successfully imported membership data."
+    redirect_to leaderboard_page_path, notice: "Successfully imported membership data."
     
     
   end
