@@ -49,6 +49,10 @@ module Merit
         user.user.has_membership == true
       end
 
+      grant_on ['users#update'], :badge => 'vipmember', :temporary => true, :to => :user do |user|
+        user.user.membership_number.blank? == false
+      end
+
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'five-drink-5', :to => :user do |track|
         track.user.trackers.where(created_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).count == 5
       end

@@ -112,6 +112,13 @@ badges = [
     description: "Had 10 awesome drinks at Player 1 in a day.",
     image: '/includes/badges/ten-drink-10.png',
     custom_fields: { title: 'Ten Drinks in a Day' }
+  },
+  {
+    id: 16,
+    name: 'vipmember',
+    description: "VIP Member",
+    image: '/includes/badges/vipmember.png',
+    custom_fields: { title: 'Is a Player 1 VIP Member' }
   }
 ]
 
