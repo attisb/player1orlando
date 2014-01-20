@@ -35,7 +35,8 @@ Player1orlando::Application.routes.draw do
   get '/play/', to: 'categories#index', as: 'play', :defaults => { :area => 'games' }
   get '/play/hidden', to: 'categories#allhidden', as: 'hidden_play', :defaults => { :area => 'games' }
   
-  get '/manual/rewards', to: 'pages#rewards', as: 'rewards_page'
+  get '/manual/vips', to: 'pages#vips', as: 'vips_page'
+  get '/manual/citizens', to: 'pages#rewards', as: 'rewards_page'
   get '/manual/rules', to: 'pages#rules', as: 'rules_page'
   get '/manual/terms', to: 'pages#terms', as: 'terms_page'
   get '/manual/privacy', to: 'pages#privacy', as: 'privacy_page'

@@ -33,9 +33,15 @@ class PagesController < ApplicationController
     
   end
   
+  # /manual/citizens
   def rewards
   end
   
+  # /manual/vips
+  def vips
+  end
+  
+  # /manual/rules
   def rules
   end
   
