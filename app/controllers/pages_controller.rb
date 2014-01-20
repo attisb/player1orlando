@@ -70,9 +70,9 @@ class PagesController < ApplicationController
       
       id_number = each_line[0]
       point_amount = each_line[1].to_i
-      id_number = id_number[id_number.length-5..-1]
+      id_number_last = id_number[id_number.length-5..-1]
       
-      vip_user_account = User.find_by_membership_number("252500000#{id_number}")
+      vip_user_account = User.find_by_membership_number("252500000#{id_number_last}")
       unless vip_user_account.nil?
         vip_user_account.update_attributes(:vip_membership_points => point_amount)
       end
