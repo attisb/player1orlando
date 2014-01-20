@@ -22,27 +22,27 @@ module Merit
 
     def initialize
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-5', :to => :user do |track|
-        track.user.trackers.count == 5
+        track.user.trackers.count >= 5
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-10', :to => :user do |track|
-        track.user.trackers.count == 10
+        track.user.trackers.count >= 10
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-25', :to => :user do |track|
-        track.user.trackers.count == 25
+        track.user.trackers.count >= 25
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-50', :to => :user do |track|
-        track.user.trackers.count == 50
+        track.user.trackers.count >= 50
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-100', :to => :user do |track|
-        track.user.trackers.count == 100
+        track.user.trackers.count >= 100
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-500', :to => :user do |track|
-        track.user.trackers.count == 500
+        track.user.trackers.count >= 500
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'citizen', :temporary => true, :to => :user do |user|
