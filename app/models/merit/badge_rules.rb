@@ -30,19 +30,19 @@ module Merit
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-25', :to => :user do |track|
-        track.user.trackers.count == 25
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 25
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-50', :to => :user do |track|
-        track.user.trackers.count == 50
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 50
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-100', :to => :user do |track|
-        track.user.trackers.count == 100
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 100
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-500', :to => :user do |track|
-        track.user.trackers.count == 500
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 500
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'citizen', :temporary => true, :to => :user do |user|
