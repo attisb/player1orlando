@@ -22,11 +22,11 @@ module Merit
 
     def initialize
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-5', :to => :user do |track|
-        track.user.trackers.count == 5
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 5
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-10', :to => :user do |track|
-        track.user.trackers.count == 10
+        track.user.trackers.where(created_at: (Time.zone.now.midnight - 100.days)..(Time.zone.now.midnight + 24.days)).count == 10
       end
             
       grant_on ['trackers#track', 'trackers#point_track'], :badge => 'tracked-25', :to => :user do |track|
