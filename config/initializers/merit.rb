@@ -16,37 +16,37 @@ end
 badges = [
   {
     id: 1,
-    name: 'tracker-5',
+    name: 'tracked-5',
     description: "Marked that you have tried 5 drinks.",
     image: '/includes/badges/tracked-5.png'
   },
   {
     id: 2,
-    name: 'tracker-10',
+    name: 'tracked-10',
     description: "Marked that you have tried 10 drinks.",
     image: '/includes/badges/tracked-10.png'
   },
   {
     id: 3,
-    name: 'tracker-25',
+    name: 'tracked-25',
     description: "Marked that you have tried 25 drinks.",
     image: '/includes/badges/tracked-25.png'
   },
   {
     id: 4,
-    name: 'tracker-50',
+    name: 'tracked-50',
     description: "Marked that you have tried 50 drinks.",
     image: '/includes/badges/tracked-50.png'
   },
   {
     id: 5,
-    name: 'tracker-100',
+    name: 'tracked-100',
     description: "Marked that you have tried 100 drinks.",
     image: '/includes/badges/tracked-100.png'
   },
   {
     id: 6,
-    name: 'tracker-500',
+    name: 'tracked-500',
     description: "Marked that you have tried 500 drinks.",
     image: '/includes/badges/tracked-500.png'
   },
