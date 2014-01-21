@@ -19,16 +19,26 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :username, :email, presence: true
   validates_uniqueness_of :username
   validates_uniqueness_of :membership_number, :allow_blank => true
-  validates :username, format: { with: /\A[a-zA-Z\d\w-]+\z/, message: "Only letters, numbers, underscores, and dashes allowed" }
+  validates :first_name, :last_name, :username, format: { with: /\A[a-zA-Z\d\w-]+\z/, message: "Only letters, numbers, underscores, and dashes allowed" }
   validates :username, length: {
-      minimum: 3,
-      maximum: 30,
-      too_short: "must have at least %{count} letters",
-      too_long: "can have at most %{count} letters"
-    }
+    minimum: 3,
+    maximum: 30,
+    too_short: "must have at least %{count} letters",
+    too_long: "can have at most %{count} letters"
+  }
     
-    validates :username, format: { without: /(player1|admin|help|fuck|shit|damn|crap|piss|dick|cock|pussy|ass|fag|bastard|slut|douche|bitch)/i,
-        message: "is reserved" }
+  validates :username, format: { without: /(player1|admin|help|fuck|shit|damn|crap|piss|dick|cock|pussy|ass|fag|bastard|slut|douche|bitch)/i,
+      message: "is reserved"
+  }
+  validates :first_name, :last_name, :username, length: {
+      minimum: 2,
+      maximum: 30
+  }
+    
+  validates :email, length: {
+      minimum: 10,
+      maximum: 60
+  }
         
   def to_param
     [id, username.parameterize].join("-")
