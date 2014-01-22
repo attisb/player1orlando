@@ -66,11 +66,12 @@ class PagesController < ApplicationController
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
     @lines.each do |l|
+      each_line.gsub('"', '')
       each_line = l.split(",")
       
-      id_number = each_line[0]
-      point_amount = each_line[1].to_i
-      id_number_last = "252500000".to_s + id_number[id_number.length-5..-1].to_s
+      id_number = each_line[1]
+      point_amount = each_line[6].to_i
+      id_number_last = "2525000000".to_s + id_number[id_number.length-4..-1].to_s
       
       vip_user_account = User.find_by_membership_number(id_number_last)
       unless vip_user_account.nil?
