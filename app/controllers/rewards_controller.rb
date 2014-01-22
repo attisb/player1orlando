@@ -128,7 +128,7 @@ class RewardsController < ApplicationController
   def post_citizen_checkin
     if current_user.emp_code.blank? || !params[:from_user].present?
       redirect_to rewards_path
-    elsif !current_user.membership_number.blank?
+    elsif current_user.membership_number.blank? != false
       @user = current_user
 
   		last_entry = @user.timelines.where(:nature => "checkin").last
