@@ -53,7 +53,7 @@
 		</div>
 	</div>
 </div>
-<% elsif user_signed_in? && !current_user.membership_number.blank? && current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count < 0 %>
+<% elsif user_signed_in? && !current_user.membership_number.blank? && current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count > 0 %>
 <div class="content only-mobile">
 	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
