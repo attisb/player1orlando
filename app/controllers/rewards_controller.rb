@@ -131,20 +131,18 @@ class RewardsController < ApplicationController
     elsif !current_user.membership_number.blank?
       @user = current_user
 
-      if @user.membership_number.blank?
-    		last_entry = @user.timelines.where(:nature => "checkin").last
-    		if last_entry.created_at >= 2.minutes.ago        
-          timeline = Timeline.create(
-            :user_id => @user.id,
-            :nature => "checkin"
-          )
-        end
-        
-        user_visit_count = @user.timelines.where(:nature => "checkin").count
-        process_badge(user_visit_count)
-
-        redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+  		last_entry = @user.timelines.where(:nature => "checkin").last
+  		if last_entry.created_at >= 2.minutes.ago        
+        timeline = Timeline.create(
+          :user_id => @user.id,
+          :nature => "checkin"
+        )
       end
+      
+      user_visit_count = @user.timelines.where(:nature => "checkin").count
+      process_badge(user_visit_count)
+
+      redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
     else
       @user = User.find(params[:code])
       if @user.nil?
