@@ -56,11 +56,14 @@
 <% elsif user_signed_in? && !current_user.membership_number.blank? %>
 <div class="content only-mobile">
 	<div class="span12-12">
-		<div class="dq-buttons pad-bottom">
-			<%= link_to 'VIP Member Checkin', post_citizen_checkin_reward_path, method: :post, :class => "lnk-button full" %>
-		</div>
+		<%= form_tag post_citizen_checkin_reward_path do |f| %>
+			<div class="dq-buttons">
+				<%= submit_tag "VIP Member Checkin", :class => "full" %>
+			</div>
+		<% end %>
 	</div>
 </div>
+
 <% end %>
 
 <!-- Begin Generic User Homepage -->
