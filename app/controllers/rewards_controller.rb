@@ -128,21 +128,6 @@ class RewardsController < ApplicationController
   def post_citizen_checkin
     if current_user.emp_code.blank? || !params[:from_user].present?
       redirect_to rewards_path
-    elsif !current_user.membership_number.blank?
-      @user = current_user
-
-  		last_entry = @user.timelines.where(:nature => "checkin").last
-  		if last_entry.created_at >= 2.minutes.ago        
-        timeline = Timeline.create(
-          :user_id => @user.id,
-          :nature => "checkin"
-        )
-      end
-      
-      user_visit_count = @user.timelines.where(:nature => "checkin").count
-      process_badge(user_visit_count)
-
-      redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
     else
       @user = User.find(params[:code])
       if @user.nil?
@@ -155,7 +140,19 @@ class RewardsController < ApplicationController
           )
           
           user_visit_count = @user.timelines.where(:nature => "checkin").count
-          process_badge(user_visit_count)
+          if user_visit_count == 10
+            @user.add_badge(8)
+          elsif user_visit_count == 20
+            @user.add_badge(9)
+          elsif user_visit_count == 50
+            @user.add_badge(10)
+          elsif user_visit_count == 100
+            @user.add_badge(11)
+          elsif user_visit_count == 200
+            @user.add_badge(12)
+          elsif user_visit_count == 500
+            @user.add_badge(13)
+          end
           
           if params[:from_user].present?
             redirect_to citizen_checkin_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
@@ -184,22 +181,6 @@ class RewardsController < ApplicationController
         "redeem_app"
       else
         "application"
-      end
-    end
-  
-    def process_badge(user_visit_count)
-      if user_visit_count == 10
-        @user.add_badge(8)
-      elsif user_visit_count == 20
-        @user.add_badge(9)
-      elsif user_visit_count == 50
-        @user.add_badge(10)
-      elsif user_visit_count == 100
-        @user.add_badge(11)
-      elsif user_visit_count == 200
-        @user.add_badge(12)
-      elsif user_visit_count == 500
-        @user.add_badge(13)
       end
     end
   

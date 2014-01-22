@@ -80,6 +80,42 @@ class PagesController < ApplicationController
     
     redirect_to leaderboard_page_path, notice: "Successfully imported membership data."
     
+  end
+  
+  def process_vip_checkin
+    if !current_user.membership_number.blank?
+      if current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count > 0
+        redirect_to root_path, alert: "Already check in for today."
+      else
+        @user = current_user
+
+    		last_entry = @user.timelines.where(:nature => "checkin").last
+    		if last_entry.created_at >= 2.minutes.ago        
+          timeline = Timeline.create(
+            :user_id => @user.id,
+            :nature => "checkin"
+          )
+        end
     
+        user_visit_count = @user.timelines.where(:nature => "checkin").count
+        if user_visit_count == 10
+          @user.add_badge(8)
+        elsif user_visit_count == 20
+          @user.add_badge(9)
+        elsif user_visit_count == 50
+          @user.add_badge(10)
+        elsif user_visit_count == 100
+          @user.add_badge(11)
+        elsif user_visit_count == 200
+          @user.add_badge(12)
+        elsif user_visit_count == 500
+          @user.add_badge(13)
+        end
+
+        redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+      end
+    else
+      redirect_to root_path, alert: "Can not check you in. Sorry!"
+    end
   end
 end

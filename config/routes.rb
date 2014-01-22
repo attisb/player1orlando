@@ -20,6 +20,7 @@ Player1orlando::Application.routes.draw do
     end
   end
   get '/rewards/redemption', to: 'rewards#redeem', as: 'redeem_reward'
+  post '/vip/checkin/process', to: 'pages#process_vip_checkin', as: 'process_vip_checkin'
   post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
   post '/rewards/post_user_redeem', to: 'rewards#post_user_redeem', as: 'post_user_redeem_reward'
   post '/citizen/checkin/process', to: 'rewards#post_citizen_checkin', as: 'post_citizen_checkin_reward'
