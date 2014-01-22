@@ -57,6 +57,7 @@
 <div class="content only-mobile">
 	<div class="span12-12">
 		<%= form_tag post_citizen_checkin_reward_path do |f| %>
+		<%= hidden_field_tag :from_user, true %>
 			<div class="dq-buttons">
 				<%= submit_tag "VIP Member Checkin", :class => "full" %>
 			</div>
