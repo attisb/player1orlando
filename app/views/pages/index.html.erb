@@ -53,10 +53,14 @@
 		</div>
 	</div>
 </div>
-<% else %>
-<code>
-	<%= current_user.to_yaml %>
-</code>
+<% elsif user_signed_in? && current_user.membership_number.blank? == false %>
+<div class="content only-mobile">
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<%= link_to 'VIP Member Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+		</div>
+	</div>
+</div>
 <% end %>
 
 <!-- Begin Generic User Homepage -->
