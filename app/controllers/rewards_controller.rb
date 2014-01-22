@@ -132,10 +132,13 @@ class RewardsController < ApplicationController
       @user = current_user
 
       if @user.membership_number.blank?
-        timeline = Timeline.create(
-          :user_id => @user.id,
-          :nature => "checkin"
-        )
+    		last_entry = @user.timelines.where(:nature => "checkin").last
+    		if last_entry.created_at >= 2.minutes.ago        
+          timeline = Timeline.create(
+            :user_id => @user.id,
+            :nature => "checkin"
+          )
+        end
         
         user_visit_count = @user.timelines.where(:nature => "checkin").count
         process_badge(user_visit_count)
