@@ -66,7 +66,7 @@ class PagesController < ApplicationController
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
     @lines.each do |l|
-      each_line.gsub('"', '')
+      l = l.gsub('"', '')
       each_line = l.split(",")
       
       id_number = each_line[1]
