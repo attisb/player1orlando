@@ -54,16 +54,13 @@
 	</div>
 </div>
 <% elsif user_signed_in? && !current_user.membership_number.blank? %>
-	<% last_entry = current_user.timelines.where(:nature => "checkin").last %>
-	<% if last_entry.created_at <= 2.minutes.ago %>
-	<div class="content only-mobile">
-		<div class="span12-12">
-			<div class="dq-buttons pad-bottom">
-				<%= link_to 'VIP Member Checkin', post_citizen_checkin_reward_path, method: :post, :class => "lnk-button full" %>
-			</div>
+<div class="content only-mobile">
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<%= link_to 'VIP Member Checkin', post_citizen_checkin_reward_path, method: :post, :class => "lnk-button full" %>
 		</div>
 	</div>
-	<% end %>
+</div>
 <% end %>
 
 <!-- Begin Generic User Homepage -->
