@@ -138,7 +138,7 @@ class RewardsController < ApplicationController
         )
         
         user_visit_count = @user.timelines.where(:nature => "checkin").count
-        process_badge
+        process_badge(user_visit_count)
 
         redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
     else
@@ -153,7 +153,7 @@ class RewardsController < ApplicationController
           )
           
           user_visit_count = @user.timelines.where(:nature => "checkin").count
-          process_badge
+          process_badge(user_visit_count)
           
           if params[:from_user].present?
             redirect_to citizen_checkin_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
@@ -185,7 +185,7 @@ class RewardsController < ApplicationController
       end
     end
   
-    def process_badge
+    def process_badge(user_visit_count)
       if user_visit_count == 10
         @user.add_badge(8)
       elsif user_visit_count == 20
