@@ -131,7 +131,7 @@ class RewardsController < ApplicationController
     elsif !current_user.membership_number.blank?
       @user = current_user
 
-      if @user.has_membership?
+      if @user.membership_number.blank?
         timeline = Timeline.create(
           :user_id => @user.id,
           :nature => "checkin"
@@ -141,6 +141,7 @@ class RewardsController < ApplicationController
         process_badge(user_visit_count)
 
         redirect_to trackers_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
+      end
     else
       @user = User.find(params[:code])
       if @user.nil?
