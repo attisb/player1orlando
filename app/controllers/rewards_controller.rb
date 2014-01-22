@@ -131,7 +131,7 @@ class RewardsController < ApplicationController
     elsif !current_user.membership_number.blank?
       @user = current_user
 
-      if @user.membership_number.blank? && @user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count < 0
+      if @user.membership_number.blank?
         timeline = Timeline.create(
           :user_id => @user.id,
           :nature => "checkin"
