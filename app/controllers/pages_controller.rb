@@ -89,13 +89,10 @@ class PagesController < ApplicationController
       else
         @user = current_user
 
-    		last_entry = @user.timelines.where(:nature => "checkin").last
-    		if last_entry.created_at >= 2.minutes.ago        
-          timeline = Timeline.create(
-            :user_id => @user.id,
-            :nature => "checkin"
-          )
-        end
+        timeline = Timeline.create(
+          :user_id => @user.id,
+          :nature => "checkin"
+        )
     
         user_visit_count = @user.timelines.where(:nature => "checkin").count
         if user_visit_count == 10
