@@ -31,7 +31,7 @@
 		
 		<%= form_tag process_memberships_path do |f| %>
 		<div class="dq-form">
-			<div class="field10-10"><%= text_area_tag :raw_data, nil, :placeholder => "Format must be in Membership Number,Point Balance", :rows => 30 %></div>
+			<div class="field10-10"><%= text_area_tag :raw_data, nil, :placeholder => "Remove lines from top and bottom that are headers.", :rows => 30 %></div>
 		</div>
 		<div class="dq-buttons">
 			<%= submit_tag "Import Data" %>
