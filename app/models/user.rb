@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
   validates_uniqueness_of :membership_number, :allow_blank => true
   validates :first_name, :last_name, :username, format: { with: /\A[a-zA-Z\d\w-]+\z/, message: "Only letters, numbers, underscores, and dashes allowed" }
+  validates :membership_number, format: { with: /\A[\d]+\z/, message: "Only numbers are allowed" }
   validates :username, length: {
     minimum: 3,
     maximum: 30,
