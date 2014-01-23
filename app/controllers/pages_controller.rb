@@ -66,8 +66,10 @@ class PagesController < ApplicationController
     inputString=params["raw_data"]
     @lines=inputString.split("\n")
     @lines.each do |l|
+      l = l.gsub('",', '"//')
       l = l.gsub('"', '')
-      each_line = l.split(",")
+      l = l.gsub(',', '')
+      each_line = l.split("//")
       
       id_number = each_line[1]
       point_amount = each_line[6].to_i
