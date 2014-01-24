@@ -25,7 +25,7 @@ class CoverArtUploader < CarrierWave::Uploader::Base
   end
 
   # Process files as they are uploaded:
-  process :resize_to_fit => [400, 600]
+  process :resize_to_fit => [480, 683]
   #
   # def scale(width, height)
   #   # do something
@@ -44,8 +44,8 @@ class CoverArtUploader < CarrierWave::Uploader::Base
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "front_cover.jpg" if original_filename
-  # end
+  def filename
+    "front_cover.#{file.extension}" if original_filename
+  end
 
 end
