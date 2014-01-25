@@ -3,7 +3,11 @@ class DrinksController < ApplicationController
   before_action :set_drink, only: [:show, :edit, :update, :destroy]
 
   def index
-    redirect_to beverages_path
+    if params[:query].present?
+      @drinks = Drinks.text_search(params[:query])
+    else
+      redirect_to beverages_path
+    end
   end
   
   def show
