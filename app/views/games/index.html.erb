@@ -9,15 +9,28 @@
 
 		<%= render 'shared/game_search_form' %>
 		
-		<ul class="unstyled">
+		<ul class="lined unstyled">
 			<% if @games.count == 0 %>
 			<li>Sorry nothing found.</li>
 			<% else %>
-				<% @games.where(:visible => true).each do |game| %>
-					<li>
-						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%><div class="text-right">In Category: <%= game.category.name %></div>
-						<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
-					</li>
+				<% if admin_signed_in? %>
+					<% @games.each do |game| %>
+						<% if game.visible == true %>
+						<li>
+						<% else %>
+						<li style="opacity: .5">
+						<% end %>
+							<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%><div class="text-right">In Category: <%= game.category.name %></div>
+							<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+						</li>
+					<% end %>
+				<% else %>
+					<% @games.where(:visible => true).each do |game| %>
+						<li>
+							<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%><div class="text-right">In Category: <%= game.category.name %></div>
+							<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+						</li>
+					<% end %>
 				<% end %>
 			<% end %>
 		</ul>
