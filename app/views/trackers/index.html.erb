@@ -2,7 +2,9 @@
 	<div class="span12-12"><h2><i class="fa fa-check-square-o"></i> Drink Tracker <small>Keep track of what you've tried.</small></h2></div>
 	<div class="span8-12">
 		<h4>Haven't Tried Yet<small>Come on you know you want to.</small></h4>
+
 		<%= render 'shared/drink_search_form' %>
+		
 		<ul class="large unstyled pad lined">
 			<% empty_list = true -%>
 			<% @drinks.each do |drink| %>
