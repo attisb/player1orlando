@@ -1,8 +1,8 @@
 <%= form_tag drinks_path, method: :get do %>
 <div class="dq-form">
-	<div class="field10-10"><%= f.text_field :query, :placeholder => "Search for a Drink" %></div>
+	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Drink" %></div>
 	<div class="dq-buttons">
-		<%= f.submit :value => "Search Drink" %>
+		<%= submit_tag "Search Drinks", name: nil %>
 	</div>
 </div>
 <% end %>
