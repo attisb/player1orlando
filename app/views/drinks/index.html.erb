@@ -1,0 +1,26 @@
+<% title "Drink Search" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+
+	<div class="span8-12">
+		<h4>Drink Search<small>I just don't remember</small></h4>
+
+		<%= render 'shared/drink_search_form' %>
+		
+		<ul class="unstyled">
+			<% @drinks.where(:visible => true).each do |drink| %>
+				<li>
+					<strong class="large"><%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+					<% if admin_signed_in? -%><div class="text-right">Image: <%= drink.drink_image? -%> | Average Rating: <%= raw star_view drink.average_rating -%> | <%= link_to 'Edit', edit_drink_path(drink) %> | <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div class="span4-12">
+		<%= render 'shared/whycraft' %>
+	</div>
+	
+</div>

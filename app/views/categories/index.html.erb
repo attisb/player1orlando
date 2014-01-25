@@ -11,6 +11,10 @@
 	<div class="span8-12">
 		<h4>Choose a menu item<small>Don't worry it's not the end of the world.</small></h4>
 		
+		<% if @cat_type == "drinks" %>
+			<%= render 'shared/drink_search_form' %>
+		<% end %>
+		
 		<ul class="unstyled">
 			<% @categories.where(:visible => true).each do |category| %>
 				<li><strong class="large"><%= link_to category.name, category_path(category) -%></strong><p class="small"><%= category.description -%></p></li>
