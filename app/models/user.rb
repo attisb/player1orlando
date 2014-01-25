@@ -50,4 +50,15 @@ class User < ActiveRecord::Base
     self.vip_membership_points = 0 if self.vip_membership_points.blank?
     self.used_points = 0 if self.used_points.blank?
   end
+  
+  def self.text_search(query)
+    if query.present?
+      where("username @@ :q or last_name @@ :q or first_name @@ :q or email @@ :q", q: query)
+    else
+      scoped
+    end
+  end
+  
+  
+  
 end

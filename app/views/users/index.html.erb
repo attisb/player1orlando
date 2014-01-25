@@ -3,6 +3,8 @@
 	<div class="span12-12"><h2><i class="fa fa-pencil"></i> Users<small>Not visible to users.</small></h2></div>
 
 	<div class="span8-12">
+		<%= render 'shared/user_search_form' %>
+
 		<ul class="unstyled lined">
 			<% @users.each do |user| %>
 				<li class="text-right">

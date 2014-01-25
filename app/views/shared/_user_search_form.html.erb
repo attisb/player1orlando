@@ -1,0 +1,10 @@
+<h5>Search Users</h5>
+
+<%= form_tag users_path, method: :get do %>
+<div class="dq-form pad-bottom">
+	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a User" %></div>
+	<div class="dq-buttons">
+		<%= submit_tag "Search Users", name: nil, :class => "full" %>
+	</div>
+</div>
+<% end %>
