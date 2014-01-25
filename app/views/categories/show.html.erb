@@ -68,7 +68,7 @@
 				<%= render 'shared/whycraft' %>
 			<% end %>
 		<% elsif @category.area == "games" %>
-			<%= render 'shared/game_search_form', is_sidebar?: true %>
+			<%= render 'shared/game_search_form' %>
 			<% if admin_signed_in? %>
 				<h5>Admin Options</h5>
 				<div class="dq-buttons pad-bottom">

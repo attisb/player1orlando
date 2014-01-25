@@ -1,16 +1,10 @@
-<% if is_sidebar == true %>
-	<h5>Search Games</h5>
-<% end %>
+<h5>Search Games</h5>
 
 <%= form_tag games_path, method: :get do %>
 <div class="dq-form pad-bottom">
 	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Game" %></div>
 	<div class="dq-buttons">
-		<% if is_sidebar = true %>
-			<%= submit_tag "Search Game", name: nil, :class => "full" %>
-		<% else %>
-			<%= submit_tag "Search Game", name: nil %>
-		<% end %>
+		<%= submit_tag "Search Game", name: nil, :class => "full" %>
 	</div>
 </div>
 <% end %>
