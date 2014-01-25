@@ -16,6 +16,8 @@
 	overflow: auto;
 }
 
+.dq-form.pad-bottom {padding-bottom: 20px;}
+
 .dq-form:after { 
    content: "."; 
    visibility: hidden; 
