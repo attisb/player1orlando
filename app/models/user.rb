@@ -30,9 +30,14 @@ class User < ActiveRecord::Base
   validates :username, format: { without: /(player1|admin|help|fuck|shit|damn|crap|piss|dick|cock|pussy|ass|fag|bastard|slut|douche|bitch)/i,
       message: "is reserved"
   }
-  validates :first_name, :last_name, :username, length: {
+  validates :last_name, length: {
       minimum: 2,
       maximum: 30
+  }
+    
+  validates :first_name, :username, length: {
+      minimum: 2,
+      maximum: 20
   }
     
   validates :email, length: {
