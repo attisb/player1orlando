@@ -4,7 +4,7 @@ class DrinksController < ApplicationController
 
   def index
     if params[:query].present?
-      @drinks = Drinks.where("name @@ :q", q: params[:query])
+      @drinks = Drinks.text_search(params[:query])
     else
       redirect_to beverages_path
     end

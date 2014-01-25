@@ -23,7 +23,7 @@ class Drink < ActiveRecord::Base
   
   def self.text_search(query)
     if query.present?
-      where("name @@ :q", q: query)
+      where("name ilike :q", q: query)
     else
       scoped
     end
