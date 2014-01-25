@@ -3,7 +3,11 @@ class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
 
   def index
-    redirect_to play_path
+    if params[:query].present?
+      @games = Game.text_search(params[:query])
+    else
+      redirect_to play_path
+    end
   end
   
   def show

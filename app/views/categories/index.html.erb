@@ -13,6 +13,8 @@
 		
 		<% if @cat_type == "drinks" %>
 			<%= render 'shared/drink_search_form' %>
+		<% elsif @cat_type == "games" %>
+			<%= render 'shared/game_search_form' %>
 		<% end %>
 		
 		<ul class="unstyled">

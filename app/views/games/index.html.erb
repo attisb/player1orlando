@@ -1,0 +1,30 @@
+<% title "Game Search" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Games<small>Achievement Unlocked!</small></h2></div>
+
+	<div class="span8-12">
+		<h4>Game Search<small>I just don't remember</small></h4>
+
+		<%= render 'shared/game_search_form' %>
+		
+		<ul class="unstyled">
+			<% if @games.count == 0 %>
+			<li>Sorry nothing found.</li>
+			<% else %>
+				<% @games.where(:visible => true).each do |game| %>
+					<li>
+						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%>
+						<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div class="span4-12">
+		<%= render 'shared/wannaplay' %>				
+	</div>
+	
+</div>
