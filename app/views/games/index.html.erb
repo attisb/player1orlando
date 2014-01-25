@@ -15,7 +15,7 @@
 			<% else %>
 				<% @games.where(:visible => true).each do |game| %>
 					<li>
-						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%>
+						<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%><br/>In Category: <%= game.category.name %>
 						<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
 				<% end %>
