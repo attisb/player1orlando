@@ -19,14 +19,14 @@
 					<% else %>
 					<li>
 					<% end %>
-						<strong class="large"><%= image_tag drink.drink_image.thumb, :height => "50", :class => "float-left" -%>  <%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+						<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
 						<% if admin_signed_in? -%><div class="text-right">Image: <%= drink.drink_image? -%> | Average Rating: <%= raw star_view drink.average_rating -%> | <%= link_to 'Edit', edit_drink_path(drink) %> | <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
 				<% end %>
 			<% elsif @category.area == "games" %>
 				<% @category.games.where(:visible => true).order(name: :asc).each do |game| %>
 					<li>
-						<strong class="large"><%= image_tag game.cover_art.thumb, :height => "50", :class => "float-left" -%>  <%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%>
+						<strong class="large"><div class="thumbnail-image"><%= image_tag game.cover_art.thumb -%></div>  <%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%>
 						<% if admin_signed_in? -%><div class="text-right">Image: <%= game.cover_art? -%> | <%= link_to 'Edit', edit_game_path(game) %> | <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
 				<% end %>
