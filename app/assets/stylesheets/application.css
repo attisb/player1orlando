@@ -25,7 +25,7 @@ body {background: #f6f8f8; color: #000;}
 .callout_box p {margin-bottom: 0;}
 .callout_box ul {margin-bottom: 0;}
 .callout_box a {color: #fff;}
-.thumbnail-image {float: left; width: 70px;}
+.thumbnail-image {float: left; width: 70px; margin-right: 5px;}
 .thumbnail-image img {max-width: 70px; max-height: 50px;}
 	
 #pull {display: none;}
