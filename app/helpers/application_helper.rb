@@ -51,9 +51,9 @@ module ApplicationHelper
     the_list = find_untried_drinks(user)
     
     if list_length.present?
-      the_list.sample
-    else
       the_list.sample(list_length.to_i)
+    else
+      the_list.sample
     end
   end
 
