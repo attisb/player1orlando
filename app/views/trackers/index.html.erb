@@ -59,9 +59,9 @@
 		<ul class="unstyled pad lined">
 			<% empty_list = true -%>
 
-			<% @tried_drinks.each do |drink| %>
+			<% @tried_drinks.each do |track| %>
 				<% empty_list = false -%>
-				<li><%= link_to drink.name, drink_path(drink) -%></li>
+				<li><%= link_to track.drink.name, drink_path(track.drink) -%></li>
 			<% end %>
 
 
