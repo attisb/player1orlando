@@ -45,6 +45,10 @@ class PagesController < ApplicationController
   def rules
   end
   
+  # /music
+  def music
+  end
+  
   def citizen_checkin
   end
   
