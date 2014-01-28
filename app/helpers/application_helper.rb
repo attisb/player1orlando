@@ -34,9 +34,17 @@ module ApplicationHelper
   end
   
   def find_untried_drinks(user)
+    untried = Array.new
     fud_drinks = Drink.where(:visible => true)
     fud_tried = Tracker.where(:user_id => user.id)
-    fud_drinks - fud_tried
+    
+    fud_drinks.each do |drink|
+      unless fud_tried.where(:drink_id => drink.id).size > 0
+        untried.push(drink)
+      end
+    end
+    
+    untried
   end
   
   def find_random_drink(current_user)
