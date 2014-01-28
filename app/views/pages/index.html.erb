@@ -50,6 +50,7 @@
 	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
 			<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
 		</div>
 	</div>
 </div>
@@ -58,6 +59,15 @@
 	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
 			<%= link_to 'VIP Member Checkin', process_vip_checkin_path, :class => "lnk-button full" %>
+			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+		</div>
+	</div>
+</div>
+<% elsif user_signed_in? %>
+<div class="content only-mobile">
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
 		</div>
 	</div>
 </div>
