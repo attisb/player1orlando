@@ -47,10 +47,14 @@ module ApplicationHelper
     untried
   end
   
-  def find_random_drink(user)
+  def find_random_drink(user, list_length)
     the_list = find_untried_drinks(user)
     
-    the_list.sample
+    if list_length.nil?
+      the_list.sample
+    else
+      the_list.sample(list_length.to_i)
+    end
   end
 
 end

@@ -17,12 +17,6 @@
 			<%= render 'shared/game_search_form' %>
 		<% end %>
 		
-		<% if user_signed_in? %>
-		<h5>Something You Haven't Tried</h5>
-		<% random_drink = find_random_drink(current_user)%>
-			<strong class="large"><div class="thumbnail-image"><%= image_tag random_drink.drink_image.thumb -%></div> <%= link_to random_drink.name, drink_path(random_drink) -%></strong><%= simple_format random_drink.description -%>
-		<% end %>
-				
 		<ul class="unstyled">
 			<% @categories.where(:visible => true).each do |category| %>
 				<li><strong class="large"><%= link_to category.name, category_path(category) -%></strong><p class="small"><%= category.description -%></p></li>
@@ -53,6 +47,12 @@
 				</ul>
 				<div class="text-right"><%= link_to "See All Hidden Items", hidden_beverages_path %></div>
 			<% else %>
+				<% if user_signed_in? %>
+				<h5>Not Tried Yet</h5>
+				<% random_drink = find_random_drink(current_user, 3)%>
+					<strong class="large"><div class="thumbnail-image"><%= image_tag random_drink.drink_image.thumb -%></div> <%= link_to random_drink.name, drink_path(random_drink) -%></strong><%= simple_format random_drink.description -%>
+				<% end %>
+				
 				<%= render 'shared/whycraft' %>
 			<% end %>
 		<% elsif @cat_type == "games" %>
