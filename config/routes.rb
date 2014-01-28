@@ -43,6 +43,7 @@ Player1orlando::Application.routes.draw do
   get '/manual/privacy', to: 'pages#privacy', as: 'privacy_page'
   get '/feed', to: 'pages#feed', as: 'feed_rss'
   get '/food', to: 'pages#food', as: 'food_page'
+  get '/bartender_choice', to: 'pages#bartender_choice', as: 'bartender_choice_page'
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
   
   

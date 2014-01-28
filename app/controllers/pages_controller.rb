@@ -118,4 +118,13 @@ class PagesController < ApplicationController
       redirect_to root_path, alert: "Can not check you in. Sorry!"
     end
   end
+  
+  def bartender_choice
+    if user_signed_in?
+      @drink = find_random_drink(current_user)
+    else
+      redirect_to root_path
+    end
+  end
+  
 end
