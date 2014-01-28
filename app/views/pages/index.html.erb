@@ -111,8 +111,12 @@
 		<% unless @drinks.blank? %>
 			<h4><i class="fa fa-beer"></i> Recommended Drinks</h4>
 			<ul class="unstyled pad">
+				<% if user_signed_in? %>
+				<% random_drink = find_random_drink(current_user)%>
+					<li><strong class="large"><div class="thumbnail-image"><%= image_tag random_drink.drink_image.thumb -%></div> <%= link_to random_drink.name, drink_path(random_drink) -%></strong><%= simple_format random_drink.description -%></li>
+				<% end %>
 				<% @drinks.each do |drink| %>
-					<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div> <%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+					<li><strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div> <%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%></li>
 				<% end %>
 			</ul>
 			<p class="small">Subject to availability.</p><br/>

@@ -65,9 +65,9 @@
 		<% end %>
 		
 		<h5>All Untried Drinks</h5>
-		<ul>
+		<ul class="small">
 			<% find_untried_drinks(current_user).each do |drink| %>
-				<li><%= drink.name -%></li>
+				<li><%= link_to drink.name, drink_path(drink) -%></li>
 			<% end %>
 		</ul>
 	</div>

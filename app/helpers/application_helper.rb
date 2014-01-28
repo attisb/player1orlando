@@ -47,8 +47,10 @@ module ApplicationHelper
     untried
   end
   
-  def find_random_drink(current_user)
-    @drinks = Drink.where(:visible => true, :tracker => true).includes(:ratings)
+  def find_random_drink(user)
+    the_list = find_untried_drinks(user)
+    
+    the_list.sample
   end
 
 end
