@@ -65,24 +65,6 @@
 					<li><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></li>
 				<% end %>
 			<% end %>
-
-
-			<!-- <% @drinks.each do |drink| %>
-				<% if @tried_drinks.where(:drink_id => drink.id).size > 0 %>
-					<% empty_list = false -%>
-					<% user_rating = @user.ratings.where(:drink_id => drink.id).first -%>
-					<li><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div>
-						<div class="small">
-							<div class="float-right">Style: <%= drink.beer_style.name -%></div>
-							<% unless user_rating.nil? %>
-							Your Rating: <%= user_rating.rating -%> out of 5
-							<% else %>
-							Not rated by you yet.
-							<% end %>
-						</div>
-					</li>
-				<% end %>
-			<% end %> -->
 			
 			<% if empty_list == true %>
 				<p>Go ahead and try something.</p>
