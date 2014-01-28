@@ -63,5 +63,12 @@
 		<% if user_signed_in? %>
 			<%= render "shared/citizen"%>
 		<% end %>
+		
+		<h5>All Untried Drinks</h5>
+		<ul>
+			<% find_untried_drinks(current_user).each do |drink| %>
+				<li><%= drink.name -%></li>
+			<% end %>
+		</ul>
 	</div>
 </div>

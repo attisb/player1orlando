@@ -32,5 +32,15 @@ module ApplicationHelper
       "<i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i><i class=\"fa fa-star-o\"></i>"
     end
   end
+  
+  def find_untried_drinks(user)
+    fud_drinks = Drink.where(:visible => true)
+    fud_tried = Tracker.where(:user_id => user.id)
+    fud_untried = fud_drinks - fud_tried
+  end
+  
+  def find_random_drink(current_user)
+    @drinks = Drink.where(:visible => true, :tracker => true).includes(:ratings)
+  end
 
 end
