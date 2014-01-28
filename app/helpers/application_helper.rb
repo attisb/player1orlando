@@ -1,5 +1,5 @@
 module ApplicationHelper
-  # helper_method :find_random_drink
+  helper_method :find_random_drink
   
   def avatar_url(user)
     default_url = "#{root_url}includes/default_avatar.png"
