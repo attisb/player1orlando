@@ -44,6 +44,11 @@ module ApplicationHelper
       end
     end
     
+    if untried.size == 0
+      fud_drink = Drink.where(:visible => true).first
+      untried.push(fud_drink)
+    end
+    
     untried
   end
   
