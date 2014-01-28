@@ -59,9 +59,11 @@
 		<ul class="unstyled pad lined">
 			<% empty_list = true -%>
 
-			<% @tried_drinks.each do |track| %>
-				<% empty_list = false -%>
-				<li><%= link_to track.drink.name, drink_path(track.drink) -%></li>
+			<% @all_drinks.each do |drink| %>
+				<% if @tried_drinks.where(:drink_id => drink.id).size > 0 %>
+					<% empty_list = false -%>
+					<li><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></li>
+				<% end %>
 			<% end %>
 
 
