@@ -50,10 +50,10 @@ module ApplicationHelper
   def find_random_drink(user, list_length)
     the_list = find_untried_drinks(user)
     
-    if list_length.present?
-      the_list.sample(list_length.to_i)
-    else
+    if list_length.empty?
       the_list.sample
+    else
+      the_list.sample(list_length.to_i)
     end
   end
 
