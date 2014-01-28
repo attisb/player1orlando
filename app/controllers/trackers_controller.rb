@@ -14,18 +14,12 @@ class TrackersController < ApplicationController
     @tracker.drink_id = params[:id]
     @tracker.points = 0
     if @tracker.save
-      timeline = Timeline.create(
-        :user_id => @user.id,
-        :nature => "drink",
-        :drink_id => @drink.id
-      )
+      update_timeline(@user.id, @drink.id)
 
       redirect_to trackers_path, notice: 'Drink was successfully tracked. Your awesome!'
     else
       redirect_to drink_path(params[:id]), alert: "Something went wrong. :("
     end
-      
-    # redirect_to drink_path(params[:id])
   end
   
   def point_track
@@ -44,11 +38,7 @@ class TrackersController < ApplicationController
           new_point_balance = @user.lifetime_points + @drink.price
           @user.update(:lifetime_points => new_point_balance)
 
-          timeline = Timeline.create(
-            :user_id => @user.id,
-            :nature => "drink",
-            :drink_id => @drink.id
-          )
+          update_timeline(@user.id, @drink.id)
 
           redirect_to trackers_path, notice: "WHAT!!!!! Drink was successfully tracked and you earned #{@drink.price} points for it too!"
         else
@@ -68,6 +58,14 @@ class TrackersController < ApplicationController
     
     def track_params
       params.require(:tracker).permit()
+    end
+    
+    def update_timeline(user, drink)
+      Timeline.create(
+        :user_id => @user.id,
+        :nature => "drink",
+        :drink_id => @drink.id
+      )
     end
     
 

@@ -25,7 +25,25 @@
 			<% end %>
 
 			<% if empty_list == true %>
-				<p>You have no new drinks to try. You rebel you. Don't worry we always have new things coming in.</p>
+				<p>You've tried everything that we wanted you to try. You rebel you. Don't worry we always have new things coming in. Below is a list of other things that we have that you haven't tried. Chosen at random.</p>
+				
+				<% random_drinks = find_random_drinks(current_user, 5)%>
+				<ul class="large unstyled pad lined">
+					<% random_drinks.each do |drink| %>
+						<li><strong><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></strong>
+							<div class="small">
+								<div class="float-right">Style: <%= drink.beer_style.name -%></div>
+								<% unless user_rating.nil? %>
+								Your Rating: <%= user_rating.rating -%> out of 5
+								<% else %>
+								Not rated by you yet.
+								<% end %>
+							</div>
+						</li>
+					<% end %>
+				</ul>
+				
+				
 				<div class="span12-12">
 					<div class="dq-buttons pad-bottom">
 						<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
