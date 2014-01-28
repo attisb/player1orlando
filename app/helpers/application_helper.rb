@@ -37,6 +37,7 @@ module ApplicationHelper
     fud_drinks = Drink.where(:visible => true)
     fud_tried = Tracker.where(:user_id => user.id)
     fud_untried = fud_drinks - fud_tried
+    return fed_untried
   end
   
   def find_random_drink(current_user)
