@@ -27,5 +27,34 @@ class ApplicationController < ActionController::Base
   def get_user_rating(user)
     (user.points / 500) + 1
   end
+  
+  def find_untried_drinks(user)
+    untried = Array.new
+    fud_drinks = Drink.where(:visible => true)
+    fud_tried = Tracker.where(:user_id => user.id)
+    
+    fud_drinks.each do |drink|
+      unless fud_tried.where(:drink_id => drink.id).size > 0
+        untried.push(drink)
+      end
+    end
+    
+    if untried.size == 0
+      fud_drink = Drink.where(:visible => true).first
+      untried.push(fud_drink)
+    end
+    
+    untried
+  end
+  
+  def find_random_drink(user)
+    the_list = find_untried_drinks(user)    
+    the_list.sample
+  end
+
+  def find_random_drinks(user, list_length)
+    the_list = find_untried_drinks(user)    
+    the_list.sample(list_length.to_i)
+  end
 
 end
