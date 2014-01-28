@@ -48,13 +48,13 @@ module ApplicationHelper
   end
   
   def find_random_drink(user, list_length)
-    the_list = find_untried_drinks(user)
-    
-    if list_length.empty?
-      the_list.sample
-    else
-      the_list.sample(list_length.to_i)
-    end
+    the_list = find_untried_drinks(user)    
+    the_list.sample
+  end
+
+  def find_random_drinks(user, list_length)
+    the_list = find_untried_drinks(user)    
+    the_list.sample(list_length.to_i)
   end
 
 end
