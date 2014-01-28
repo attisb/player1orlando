@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   helper_method :citizen_allowed?, :get_user_rating
+  helper_method :find_random_drink, :find_random_drinks, :find_untried_drinks
+  
     
   before_filter :configure_devise_params, if: :devise_controller?
     def configure_devise_params
