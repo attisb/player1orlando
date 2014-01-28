@@ -119,11 +119,11 @@ class PagesController < ApplicationController
     end
   end
   
-  # def bartender_choice
-  #   if user_signed_in?
-  #   else
-  #     redirect_to root_path
-  #   end
-  # end
+  def bartender_choice
+    if user_signed_in?
+    else
+      redirect_to root_path
+    end
+  end
   
 end
