@@ -40,8 +40,7 @@ class ApplicationController < ActionController::Base
     end
     
     if untried.size == 0
-      fud_drink = Drink.where(:visible => true).first
-      untried.push(fud_drink)
+      untried.push(fud_drink.sample)
     end
     
     untried

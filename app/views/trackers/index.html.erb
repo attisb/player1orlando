@@ -26,6 +26,11 @@
 
 			<% if empty_list == true %>
 				<p>You have no new drinks to try. You rebel you. Don't worry we always have new things coming in.</p>
+				<div class="span12-12">
+					<div class="dq-buttons pad-bottom">
+						<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+					</div>
+				</div>
 				<div class="video-container"><iframe width="560" height="315" src="//www.youtube.com/embed/h7UMQTTulIc" frameborder="0" allowfullscreen></iframe></div>
 			<% end %>
 		</ul>
