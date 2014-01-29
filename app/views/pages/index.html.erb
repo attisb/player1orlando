@@ -49,7 +49,9 @@
 <div class="content only-mobile">
 	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
-			<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+				<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+			<% end %>
 			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
 		</div>
 	</div>
@@ -58,7 +60,9 @@
 <div class="content only-mobile">
 	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
-			<%= link_to 'VIP Member Checkin', process_vip_checkin_path, :class => "lnk-button full" %>
+			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+				<%= link_to 'VIP Member Checkin', process_vip_checkin_path, :class => "lnk-button full" %>
+			<% end %>
 			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
 		</div>
 	</div>
