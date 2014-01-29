@@ -134,7 +134,7 @@ class RewardsController < ApplicationController
         redirect_to redeem_reward_path, alert: "Not a valid user code."
       else
         if @user.has_membership?
-          if @user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date).count > 0
+          if @user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0
             redirect_to root_path, alert: "Alert: Already checked in."
           else
             timeline = Timeline.create(

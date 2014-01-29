@@ -91,7 +91,7 @@ class PagesController < ApplicationController
   
   def process_vip_checkin
     if !current_user.membership_number.blank?
-      if current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date).count > 0
+      if current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0
         redirect_to root_path, alert: "Already check in for today."
       else
         @user = current_user
