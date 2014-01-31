@@ -87,7 +87,7 @@ footer .coins a:hover {color: #c02942;}
 
 .fb-share-button {position: relative; top: -6px;}
 
-.musicbar li {float: left; margin: 10px;}
+.musicbar li {float: left; margin: 1px;}
 
 /* Dark Mode */
 body.dark {background: #191e23; color: #ddd;}
