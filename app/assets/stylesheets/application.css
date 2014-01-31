@@ -89,7 +89,7 @@ footer .coins a:hover {color: #c02942;}
 
 .musicbar li {float: left; margin: 1px;}
 
-.badgebar {
+.badgebar li {
 	border: 10px solid transparent;
 	*border-left: 0;
 	*border-right: 0;
