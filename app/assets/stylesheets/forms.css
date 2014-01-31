@@ -125,17 +125,18 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 .dq-buttons button,
 .dq-buttons .lnk-button {
 	border: none;
-	background: #4678a4;
+	background: #2980B9;/*#4678a4;*/
 	color: #fff;
 	padding: 16px 12px;
 	margin-top: 10px;
 	font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
 	text-decoration: none;
 	position: relative;
-	border-bottom-left-radius: 10px;
-	border-top-right-radius: 10px;
-	border: 1px solid rgba(255,255,255,.5);
-	box-shadow: 1px 1px 3px #000;
+/*	border-bottom-left-radius: 10px;*/
+/*	border-top-right-radius: 10px;*/
+/*	border: 1px solid rgba(255,255,255,.5);*/
+/*	box-shadow: 1px 1px 3px #000;*/
+	text-transform: uppercase;
 	display: inline-block;
 }
 .dq-buttons .lnk-button.full {display: block; text-align: center;}
