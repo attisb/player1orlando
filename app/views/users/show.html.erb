@@ -1,5 +1,5 @@
 <div class="content">
-	<div class="span12-12"><h2><i class="fa fa-user"></i> <%= "#{@user.first_name} #{@user.last_name}" -%> <small>aka <%= @user.username -%></small></h2></div>
+	<div class="span12-12"><h2><i class="fa fa-user"></i> <%= "#{@user.first_name} #{@user.last_name[0,1]}" -%> <small>aka <%= @user.username -%></small></h2></div>
 	<div class="span8-12">
 		
 		<div class="span4-12 text-center">

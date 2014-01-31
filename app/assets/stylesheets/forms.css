@@ -13,7 +13,7 @@
 .dq-form {
 	margin: 0;
 	padding: 0;
-	overflow: auto;
+/*	overflow: auto;*/
 }
 
 .dq-form.pad-bottom {padding-bottom: 20px;}
