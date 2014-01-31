@@ -64,4 +64,6 @@ fieldset
 	margin-bottom: 18px;
 }
 
+.mini-bottom-margin {margin-bottom: 5px;}
+
 header a {font-family: 'Muli', 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;}
