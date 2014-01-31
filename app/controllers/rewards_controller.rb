@@ -126,7 +126,7 @@ class RewardsController < ApplicationController
   end
   
   def post_citizen_checkin
-    if current_user.emp_code.blank?
+    if current_user.emp_code.blank? || params[:from_user] == "true"
       redirect_to rewards_path
     else
       @user = User.find(params[:code])
@@ -137,25 +137,25 @@ class RewardsController < ApplicationController
           if @user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0
             redirect_to root_path, alert: "Alert: Already checked in."
           else
-            timeline = Timeline.create(
-              :user_id => @user.id,
-              :nature => "checkin"
-            )
-          
-            user_visit_count = @user.timelines.where(:nature => "checkin").count
-            if user_visit_count == 10
-              @user.add_badge(8)
-            elsif user_visit_count == 20
-              @user.add_badge(9)
-            elsif user_visit_count == 50
-              @user.add_badge(10)
-            elsif user_visit_count == 100
-              @user.add_badge(11)
-            elsif user_visit_count == 200
-              @user.add_badge(12)
-            elsif user_visit_count == 500
-              @user.add_badge(13)
-            end
+            # timeline = Timeline.create(
+            #   :user_id => @user.id,
+            #   :nature => "checkin"
+            # )
+            #           
+            # user_visit_count = @user.timelines.where(:nature => "checkin").count
+            # if user_visit_count == 10
+            #   @user.add_badge(8)
+            # elsif user_visit_count == 20
+            #   @user.add_badge(9)
+            # elsif user_visit_count == 50
+            #   @user.add_badge(10)
+            # elsif user_visit_count == 100
+            #   @user.add_badge(11)
+            # elsif user_visit_count == 200
+            #   @user.add_badge(12)
+            # elsif user_visit_count == 500
+            #   @user.add_badge(13)
+            # end
           
             if params[:from_user].present?
               redirect_to citizen_checkin_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
