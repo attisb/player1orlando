@@ -164,6 +164,8 @@ body.light {background: #e6e8e8;}
 		header nav .small {width: 50%;}
 		header nav li.small {display: inline-block; float: left; text-align: center; padding: 10px 0; margin-bottom: 2px;}
 		header nav .nav-membername {width: 100% !important;}
+		
+		.badgebar li {width: 33%;}
 	}
 	
 	/* Tablets */
