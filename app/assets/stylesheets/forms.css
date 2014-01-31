@@ -137,6 +137,7 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 /*	border: 1px solid rgba(255,255,255,.5);*/
 /*	box-shadow: 1px 1px 3px #000;*/
 	text-transform: uppercase;
+	outline: 0;
 	display: inline-block;
 }
 .dq-buttons .lnk-button.full {display: block; text-align: center;}
@@ -151,6 +152,7 @@ div.file:before {background: #4678a4; color: #fff; content: "Choose"; font-size:
 	font-family: 'Muli', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;
 	text-decoration: underline;
 	color: #609190;
+	text-transform: none;
 }
 .dq-buttons .grey {
 	background: #666;
