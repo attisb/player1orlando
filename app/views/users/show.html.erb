@@ -19,11 +19,11 @@
 
 		<% if @user.badges.count > 0 %>
 			<h4>What I've Earned<small>You know, these are my badges bro!</small></h4>
-			<div class="pad-bottom">
+			<ul class="unstyled badgebar pad-bottom">
 			<% @user.badges.each do |badge| %>
-				<div class="span3-12"><%= image_tag badge.image, :alt => badge.description, :title => badge.description, :class => "fullwidth_image", :style => "border: none;" -%></div>
+				<li><%= image_tag badge.image, :alt => badge.description, :title => badge.description, :class => "fullwidth_image", :style => "border: none;" -%></li>
 			<% end %>
-			</div>
+			</ul>
 		<% end %>
 
 		<%= render 'shared/activity' %>
