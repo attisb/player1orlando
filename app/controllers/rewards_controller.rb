@@ -126,7 +126,7 @@ class RewardsController < ApplicationController
   end
   
   def post_citizen_checkin
-    if current_user.emp_code.blank? || !params[:from_user].present?
+    if current_user.emp_code.blank?
       redirect_to rewards_path
     else
       @user = User.find(params[:code])
