@@ -40,7 +40,7 @@ Player1orlando::Application.routes.draw do
     end
   end
   resources :categories, :beer_styles, :drinks, :games, :events
-  resources :taps, :path => "/drinks/taps"
+  resources :taps
   
   
   get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
