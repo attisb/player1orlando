@@ -11,7 +11,9 @@
 					<% if @drinks.where(:tab_index => i).count > 0 %>
 						<% drink = @drinks.where(:id => i) %>
 						<strong><%= drink.name -%></strong>
-						<%= simple_format drink.description %>
+						<pre>
+							<%= drink.to_yaml %>
+						</pre>
 						<% if admin_signed_in? %>
 						<div class="dq-buttons">
 							<%= link_to 'Remove Drink from Tap', taps_path(drink.id), method: :delete, data: { confirm: 'Are you sure?' } %>
