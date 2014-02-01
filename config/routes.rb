@@ -1,25 +1,9 @@
 Player1orlando::Application.routes.draw do
-  get "taps/index"
+  
   devise_for :admins
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
-  resources :users, :only => [:show, :index, :edit, :update, :destroy]
-  resources :katy_corners, :path => "katys"
-  resources :trackers, :path => "drink_tracker" do
-    member do
-      get 'track'
-      post 'point_track'
-    end
-  end
-  resources :categories, :beer_styles, :drinks, :games, :events
   
-  get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
-  resources :rewards, :path => "citizen" do
-    member do
-      # get 'redeem'
-      # post 'post_redeem'
-      # post 'post_citizen_checkin'
-    end
-  end
+  get '/drinks/taps', to: 'taps#index', as: 'taps'
   get '/rewards/redemption', to: 'rewards#redeem', as: 'redeem_reward'
   get '/vip/checkin/process', to: 'pages#process_vip_checkin', as: 'process_vip_checkin'
   post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
@@ -47,6 +31,26 @@ Player1orlando::Application.routes.draw do
   get '/music', to: 'pages#music', as: 'music_page'
   get '/bartender_choice', to: 'pages#bartender_choice', as: 'bartender_choice_page'
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
+  
+  resources :users, :only => [:show, :index, :edit, :update, :destroy]
+  resources :katy_corners, :path => "katys"
+  resources :trackers, :path => "drink_tracker" do
+    member do
+      get 'track'
+      post 'point_track'
+    end
+  end
+  resources :categories, :beer_styles, :drinks, :games, :events
+  
+  get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
+  resources :rewards, :path => "citizen" do
+    member do
+      # get 'redeem'
+      # post 'post_redeem'
+      # post 'post_citizen_checkin'
+    end
+  end
+
   
   
   root 'pages#index'
