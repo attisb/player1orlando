@@ -1,1 +1,5 @@
-<%= @total_taps %>
+<ul>
+	<% (1..@total_taps.to_i).each do |i| %>
+		<li>Tap <%= i -%></li>
+	<% end %>
+</ul>
