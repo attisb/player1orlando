@@ -45,41 +45,9 @@
 <% else %>
 
 
-<% if user_signed_in? && current_user.has_membership? %>
-<div class="content only-mobile">
-	<div class="span12-12">
-		<div class="dq-buttons pad-bottom">
-			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
-				<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
-			<% end %>
-			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
-		</div>
-	</div>
-</div>
-<% elsif user_signed_in? && !current_user.membership_number.blank? %>
-<div class="content only-mobile">
-	<div class="span12-12">
-		<div class="dq-buttons pad-bottom">
-			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
-				<%= link_to 'VIP Member Checkin', process_vip_checkin_path, :class => "lnk-button full" %>
-			<% end %>
-			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
-		</div>
-	</div>
-</div>
-<% elsif user_signed_in? %>
-<div class="content only-mobile">
-	<div class="span12-12">
-		<div class="dq-buttons pad-bottom">
-			<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
-		</div>
-	</div>
-</div>
-<% end %>
-
 <!-- Begin Generic User Homepage -->
 
-<div class="hero">
+<div class="no-mobile hero">
 	<div class="content">
 		<div class="span9-12">
 			<div id="hero_slogan">
@@ -122,6 +90,45 @@
 <div class="content">	
 	<div class="span6-12">
 
+
+		<!-- Mobile Only Buttons -->
+		<% if user_signed_in? && current_user.has_membership? %>
+		<div class="content only-mobile">
+			<div class="span12-12">
+				<div class="dq-buttons pad-bottom">
+					<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+						<%= link_to 'Citizen Checkin', citizen_checkin_path, :class => "lnk-button full" %>
+					<% end %>
+					<%= link_to "View the Tap List", taps_path, :class => "lnk-button full grey" %>
+					<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+				</div>
+			</div>
+		</div>
+		<% elsif user_signed_in? && !current_user.membership_number.blank? %>
+		<div class="content only-mobile">
+			<div class="span12-12">
+				<div class="dq-buttons pad-bottom">
+					<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+						<%= link_to 'VIP Member Checkin', process_vip_checkin_path, :class => "lnk-button full" %>
+					<% end %>
+					<%= link_to "View the Tap List", taps_path, :class => "lnk-button full grey" %>
+					<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+				</div>
+			</div>
+		</div>
+		<% elsif user_signed_in? %>
+		<div class="content only-mobile">
+			<div class="span12-12">
+				<div class="dq-buttons pad-bottom">
+					<%= link_to "View the Tap List", taps_path, :class => "lnk-button full grey" %>
+					<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+		<!-- End Mobile Only Buttons -->
+		
+		
 		<% unless @drinks.blank? %>
 			<h4><i class="fa fa-beer"></i> Recommended Drinks</h4>
 			<ul class="unstyled pad">
