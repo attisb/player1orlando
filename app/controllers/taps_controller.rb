@@ -18,6 +18,14 @@ class TapsController < ApplicationController
   end
   
   def destroy
+    @drink = Drink.where(:tap_index => params[:tap_line])
+    @drink.tab_index = 0
+    
+    if @drink.save
+      redirect_to taps_path, notice: "Drink on tap line #{params[:tap_line]} removed."
+    else
+      redirect_to taps_path, alert: "Something went wrong."
+    end
   end
   
   private
