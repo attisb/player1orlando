@@ -9,15 +9,9 @@
 				<li>
 					<strong class="large">Tap #<%= i -%></strong><br/>
 					<% if @drinks.where(:tab_index => i).count > 0 %>
-						<% drink = @drinks.where(:id => i).first %>
-						<pre>
-							<%= drink.to_yaml %>
-						</pre>
-						<% if admin_signed_in? %>
-						<div class="dq-buttons">
-							<%= link_to 'Remove Drink from Tap', taps_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-						</div>
-						<% end %>
+						<% drink = @drinks.where(:tab_index => i).first %>
+						<strong><%= drink.name -%></strong>
+						<%= simple_format drink.description %>
 					<% else %>
 						<% if admin_signed_in? %>
 							<%= form_tag taps_path, method: :post do %>
