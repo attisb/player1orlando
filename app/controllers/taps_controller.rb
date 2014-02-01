@@ -1,10 +1,13 @@
 class TapsController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
-
-  total_taps = 5
+  before_action :set_defaults
 
   def index
-    @total_taps = total_taps
   end
+  
+  private
+    def set_defaults
+      @total_taps = total_taps
+    end
   
 end
