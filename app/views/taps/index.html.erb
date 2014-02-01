@@ -1,11 +1,11 @@
 <ul>
 	<% (1..@total_taps.to_i).each do |i| %>
 		<li>
-			<h5>Tap <%= i -%></h5>
+			<strong>Tap #<%= i -%></strong><br/>
 			<% if @drinks.where(:tab_index => i).count > 0 %>
 				<p>Found Drink on this tap.</p>
 			<% else %>
-				<p>No drink on this tap.</p>
+				<p>Nothing on this tap. Check back.</p>
 			<% end %>
 		</li>
 	<% end %>
