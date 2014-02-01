@@ -7,7 +7,7 @@ class TapsController < ApplicationController
   end
   
   def create
-    @drink = Drink.find(params[:drink_id])
+    @drink = Drink.find(params[:drink_id].to_i)
     @drink.tab_index = params[:tab_index].to_i
     
     if @drink.save
