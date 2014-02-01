@@ -8,7 +8,7 @@ class TapsController < ApplicationController
   
   def create
     @drink = Drink.find(params[:drink_id].to_i)
-    @drink.tab_index = params[:tab_index].to_i
+    @drink.tab_index = params[:tap_index].to_i
     
     if @drink.save
       redirect_to taps_path, notice: "Tap updated"
