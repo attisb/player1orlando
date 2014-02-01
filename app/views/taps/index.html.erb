@@ -9,7 +9,7 @@
 				<li>
 					<strong class="large">Tap #<%= i -%></strong><br/>
 					<% if @drinks.where(:tab_index => i).count > 0 %>
-						<% drink = @drinks.where(:id => i) %>
+						<% drink = @drinks.find(i) %>
 						<strong><%= drink.name -%></strong>
 						<pre>
 							<%= drink.to_yaml %>

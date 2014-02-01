@@ -3,7 +3,7 @@ class TapsController < ApplicationController
   before_action :set_defaults
 
   def index
-    @drinks = Drink.where(:visible => true)
+    @drinks = Drink.where(:visible => true).all
   end
   
   def create
