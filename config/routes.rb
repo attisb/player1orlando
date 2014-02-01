@@ -3,7 +3,6 @@ Player1orlando::Application.routes.draw do
   devise_for :admins
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   
-  get '/drinks/taps', to: 'taps#index', as: 'taps'
   get '/rewards/redemption', to: 'rewards#redeem', as: 'redeem_reward'
   get '/vip/checkin/process', to: 'pages#process_vip_checkin', as: 'process_vip_checkin'
   post '/rewards/redeem', to: 'rewards#post_redeem', as: 'post_redeem_reward'
@@ -41,6 +40,8 @@ Player1orlando::Application.routes.draw do
     end
   end
   resources :categories, :beer_styles, :drinks, :games, :events
+  resources :taps, :path => "drinks/taps" do
+  
   
   get '/citizen/checkin', to: 'pages#citizen_checkin', as: 'citizen_checkin'
   resources :rewards, :path => "citizen" do
