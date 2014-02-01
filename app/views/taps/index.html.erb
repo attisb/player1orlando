@@ -1,12 +1,37 @@
-<ul>
-	<% (1..@total_taps.to_i).each do |i| %>
-		<li>
-			<strong>Tap #<%= i -%></strong><br/>
-			<% if @drinks.where(:tab_index => i).count > 0 %>
-				<p>Found Drink on this tap.</p>
-			<% else %>
-				<p>Nothing on this tap. Check back.</p>
+<% title "What's on Tap" %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> On Tap<small>Let's go right down the line.</small></h2></div>
+	<div class="span8-12">
+
+		<ul>
+			<% (1..@total_taps.to_i).each do |i| %>
+				<li>
+					<strong>Tap #<%= i -%></strong><br/>
+					<% if @drinks.where(:tab_index => i).count > 0 %>
+						<p>Found Drink on this tap.</p>
+					<% else %>
+						<% if admin_signed_in? %>
+							<%= form_tag drinks_path, method: :post do %>
+							<div class="dq-form pad-bottom">
+								<div class="field10-10"><%= select_tag :drink_id, options_from_collection_for_select(@drinks.order("name"), "id",   "name"), prompt: "Select a drink" %></div>
+								<div class="dq-buttons">
+									<%= submit_tag "Place Drink on This Line", name: nil %>
+								</div>
+							</div>
+							<% end %>
+						<% else %>
+							<p>Nothing on this tap. Check back.</p>
+						<% end %>
+					<% end %>
+				</li>
 			<% end %>
-		</li>
-	<% end %>
-</ul>
+		</ul>
+		
+	</div>
+
+	<div class="span4-12">
+		<%= render 'shared/whycraft' %>
+	</div>
+</div>
+		
