@@ -12,7 +12,7 @@
 						<p>Found Drink on this tap.</p>
 					<% else %>
 						<% if admin_signed_in? %>
-							<%= form_tag drinks_path, method: :post do %>
+							<%= form_tag taps_path, method: :post do %>
 							<%= hidden_field_tag :tap_index, i %>
 							<div class="dq-form pad-bottom">
 								<div class="field10-10"><%= select_tag :drink_id, options_from_collection_for_select(@drinks.order("name"), "id",   "name"), prompt: "Select a drink" %></div>
