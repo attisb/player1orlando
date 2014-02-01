@@ -9,12 +9,12 @@
 				<li>
 					<strong class="large">Tap #<%= i -%></strong><br/>
 					<% if @drinks.where(:tab_index => i).count > 0 %>
-						<% drink = @drinks.find(i) %>
+						<% drink = @drinks.where(:id => i) %>
 						<strong><%= drink.name -%></strong>
 						<%= simple_format drink.description %>
 						<% if admin_signed_in? %>
 						<div class="dq-buttons">
-							<%= link_to 'Remove Drink from Tap', drink, method: :delete, data: { confirm: 'Are you sure?' } %>
+							<%= link_to 'Remove Drink from Tap', drink.id, method: :delete, data: { confirm: 'Are you sure?' } %>
 						</div>
 						<% end %>
 					<% else %>
