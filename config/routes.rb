@@ -1,4 +1,5 @@
 Player1orlando::Application.routes.draw do
+  get "taps/index"
   devise_for :admins
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   resources :users, :only => [:show, :index, :edit, :update, :destroy]
