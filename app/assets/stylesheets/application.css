@@ -88,6 +88,8 @@ footer .coins a:hover {color: #c02942;}
 .fb-share-button {position: relative; top: -6px;}
 
 .musicbar li {float: left; margin: 1px;}
+.taplist li {display: inline-block; width: 100%;}
+
 
 .badgebar li {
 	border: 10px solid transparent;

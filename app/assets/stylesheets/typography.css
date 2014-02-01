@@ -37,7 +37,6 @@ h4 ~ h4 {margin-top: 20px;}
 h4 ~ h5 {margin-top: 20px;}
 
 ul, ol {margin: 0 0 10px 24px;}
-ul li, ol, li {display: inline-block; width: 100%;}
 ul ul, ol ol, ul ol, ol ul {margin-bottom: 0;}
 ul.unstyled {list-style: none; margin-left: 0px;}
 ul.pad li {margin-bottom: 20px;}
