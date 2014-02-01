@@ -7,7 +7,7 @@ class TapsController < ApplicationController
   
   private
     def set_defaults
-      @total_taps = total_taps
+      @total_taps = 5
     end
   
 end
