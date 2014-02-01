@@ -14,7 +14,7 @@
 						<%= simple_format drink.description %>
 						<% if admin_signed_in? %>
 						<div class="dq-buttons">
-							<%= link_to 'Remove Drink from Tap', drink.id, method: :delete, data: { confirm: 'Are you sure?' } %>
+							<%= link_to 'Remove Drink from Tap', taps_path(drink.id), method: :delete, data: { confirm: 'Are you sure?' } %>
 						</div>
 						<% end %>
 					<% else %>
