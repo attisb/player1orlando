@@ -12,6 +12,12 @@
 						<% drink = @drinks.where(:tab_index => i).first %>
 						<strong><%= drink.name -%></strong>
 						<%= simple_format drink.description %>
+						
+						<% if admin_signed_in? %>
+							<div class="dq-buttons">
+								<%= link_to 'Remove Drink from This Tap', taps_path(drink.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+							</div>
+						<% end %>
 					<% else %>
 						<% if admin_signed_in? %>
 							<%= form_tag taps_path, method: :post do %>
