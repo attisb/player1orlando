@@ -18,7 +18,7 @@ class TapsController < ApplicationController
   end
   
   def destroy
-    @drink = Drink.where(:tab_index => params[:id])
+    @drink = Drink.find(params[:id])
     @drink.tab_index = 0
     
     if @drink.save
