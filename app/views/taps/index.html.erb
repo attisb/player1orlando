@@ -7,9 +7,16 @@
 		<ul class="unstyled lined">
 			<% (1..@total_taps.to_i).each do |i| %>
 				<li>
-					<strong>Tap #<%= i -%></strong><br/>
+					<strong class="large">Tap #<%= i -%></strong><br/>
 					<% if @drinks.where(:tab_index => i).count > 0 %>
-						<p>Found Drink on this tap.</p>
+						<% drink = @drinks.find(i) %>
+						<strong><%= drink.name -%></strong>
+						<%= simple_format drink.description %>
+						<% if admin_signed_in? %>
+						<div class="dq-buttons">
+							<%= link_to 'Remove Drink from Tap', drink, method: :delete, data: { confirm: 'Are you sure?' } %>
+						</div>
+						<% end %>
 					<% else %>
 						<% if admin_signed_in? %>
 							<%= form_tag taps_path, method: :post do %>

@@ -17,6 +17,9 @@ class TapsController < ApplicationController
     end
   end
   
+  def destroy
+  end
+  
   private
     def set_defaults
       @total_taps = 5
