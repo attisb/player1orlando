@@ -4,6 +4,7 @@
 <div class="dq-form pad-bottom">
 	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Drink" %></div>
 	<div class="dq-buttons">
+		<%= link_to "Tap List", taps_path, :class => "lnk-button grey" %>
 		<%= submit_tag "Search Drinks", name: nil %>
 	</div>
 </div>
