@@ -7,7 +7,7 @@
 		<ul class="unstyled lined">
 			<% (1..@total_taps.to_i).each do |i| %>
 				<li>
-					<strong class="large">Tap #<%= i -%></strong><br/>
+					<h4 class="thumbnail-image">#<%= i -%></h4>
 					<% if @drinks.where(:tab_index => i).count > 0 %>
 						<% drink = @drinks.where(:tab_index => i).first %>
 						<strong><%= drink.name -%></strong>
