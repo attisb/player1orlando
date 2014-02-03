@@ -37,6 +37,7 @@
 			</ul>
 
 			<h5>Employees</h5>
+			<ul class="unstyled lined">
 			<% @users.each do |user| %>
 				<% unless user.emp_code.blank? %>
 					<li class="text-right">
@@ -48,8 +49,10 @@
 					</li>
 				<% end %>
 			<% end %>
+			</ul>
 
 			<h5>VIP Members</h5>
+			<ul class="unstyled lined">
 			<% @users.each do |user| %>
 				<% unless user.membership_number.blank? %>
 					<li class="text-right">
@@ -61,6 +64,7 @@
 					</li>
 				<% end %>
 			<% end %>
+			</ul>
 
 
 		<% end %>
