@@ -36,6 +36,18 @@
 			<% end %>
 			</ul>
 
+			<h5>Employees</h5>
+			<% @users.each do |user| %>
+				<% unless user.emp_code.blank? %>
+					<li class="text-right">
+						<%= link_to "Profile", user_path(user) -%> |
+						ID:&nbsp;<%= user.id -%>
+						<div class="float-left">
+							<%= link_to "#{user.first_name} #{user.last_name}", edit_user_path(user) -%>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
 
 			<h5>VIP Members</h5>
 			<% @users.each do |user| %>
@@ -44,11 +56,12 @@
 						<%= link_to "Profile", user_path(user) -%> |
 						ID:&nbsp;<%= user.id -%>
 						<div class="float-left">
-							<%= link_to "#{user.first_name} #{user.last_name} (#{user.email})", edit_user_path(user) -%>
+							<%= link_to "#{user.first_name} #{user.last_name}", edit_user_path(user) -%>
 						</div>
 					</li>
 				<% end %>
 			<% end %>
+
 
 		<% end %>
 	</div>
