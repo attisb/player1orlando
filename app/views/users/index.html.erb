@@ -7,7 +7,7 @@
 
 		<ul class="unstyled lined">
 			<% @users.each do |user| %>
-				<% unless user.membership_number.blank? || user.emp_code.blank? %>
+				<% if user.membership_number.blank? || user.emp_code.blank? %>
 					<li class="text-right">
 						<%= "VIP: #{user.membership_number} |" unless user.membership_number.blank? -%>
 						<%= "Emp: #{user.emp_code} |" unless user.emp_code.blank? -%>
