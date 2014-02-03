@@ -24,43 +24,21 @@
 
 	<div class="span4-12">
 		<% if admin_signed_in? %>
-		<h5>Admins</h5>
-		<ul class="unstyled">
+			<h5>Admins</h5>
+			<ul class="unstyled">
 			<% @admins.each do |admin| %>
 				<li class="text-right">
-					ID:&nbsp;<%= admin.id -%>
-					<div class="float-left">
-						<%= "#{admin.first_name} #{admin.last_name}" -%>
-					</div>
+				ID:&nbsp;<%= admin.id -%>
+				<div class="float-left">
+				<%= "#{admin.first_name} #{admin.last_name}" -%>
+				</div>
 				</li>
 			<% end %>
-		</ul>
-		
-		
-		<h5>VIP Members</h5>
-			<% @users.each do |user| %>
-				<% unless user.membership_number.blank? %>
-					<li class="text-right">
-						ID:&nbsp;<%= user.id -%>
-						<div class="float-left">
-							<%= "#{user.first_name} #{user.last_name}" -%>
-						</div>
-					</li>
-				<% end %>
-			<% end %>
-		<% end %>
+			</ul>
 
-		<h5>Citizens</h5>
-			<% @users.each do |user| %>
-				<% unless user.emp_code.blank? %>
-					<li class="text-right">
-						ID:&nbsp;<%= user.id -%>
-						<div class="float-left">
-							<%= "#{user.first_name} #{user.last_name}" -%>
-						</div>
-					</li>
-				<% end %>
-			<% end %>
+
+			<h5>VIP Members</h5>
+
 		<% end %>
 	</div>
 	
