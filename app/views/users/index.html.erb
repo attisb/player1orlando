@@ -7,7 +7,7 @@
 
 		<ul class="unstyled lined">
 			<% @users.each do |user| %>
-				<% if user.membership_number.blank? || user.emp_code.blank? %>
+				<% if user.membership_number.blank? && user.emp_code.blank? %>
 					<li class="text-right">
 						<%= "VIP: #{user.membership_number} |" unless user.membership_number.blank? -%>
 						<%= "Emp: #{user.emp_code} |" unless user.emp_code.blank? -%>
@@ -38,6 +38,17 @@
 
 
 			<h5>VIP Members</h5>
+			<% @users.each do |user| %>
+				<% unless user.membership_number.blank? %>
+					<li class="text-right">
+						<%= link_to "Profile", user_path(user) -%> |
+						ID:&nbsp;<%= user.id -%>
+						<div class="float-left">
+							<%= link_to "#{user.first_name} #{user.last_name} (#{user.email})", edit_user_path(user) -%>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
 
 		<% end %>
 	</div>
