@@ -30,7 +30,7 @@ class TapsController < ApplicationController
   
   private
     def set_defaults
-      @total_taps = 30
+      @total_taps = 36
     end
   
 end
