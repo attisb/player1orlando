@@ -29,7 +29,7 @@
 
 
 <div class="dq-buttons small">
-	<%= link_to '<i class="fa fa-bullhorn"></i> Try Something New'.html_safe, bartender_choice_page_path, :class => "lnk-button full" %>
+	<%= link_to '<i class="fa fa-bullhorn"></i> Try Something New'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
 	<% if user_signed_in? -%>
 		<%= link_to '<i class="fa fa-beer"></i> Your Drink Tracker'.html_safe, trackers_path, :class => "lnk-button" -%>
 	<% else %>
