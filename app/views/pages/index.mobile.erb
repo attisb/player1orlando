@@ -1,1 +1,17 @@
-MOBILE SITE
+<% if user_signed_in? && current_user.has_membership? %>
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+				<%= link_to '<i class="fa fa-check-square-o"></i> Citizen Checkin'.html_safe, citizen_checkin_path, :class => "lnk-button full grey" %>
+			<% end %>
+		</div>
+	</div>
+<% elsif user_signed_in? && !current_user.membership_number.blank? %>
+	<div class="span12-12">
+		<div class="dq-buttons pad-bottom">
+			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
+				<%= link_to '<i class="fa fa-check-square-o"></i> VIP Member Checkin'.html_safe, process_vip_checkin_path, :class => "lnk-button full grey" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
