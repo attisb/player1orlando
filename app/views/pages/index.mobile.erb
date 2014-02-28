@@ -15,3 +15,29 @@
 		</div>
 	</div>
 <% end %>
+
+
+<%= form_tag drinks_path, method: :get do %>
+<div class="dq-form pad-bottom">
+	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Drink" %></div>
+	<div class="dq-buttons">
+		<%= link_to '<i class="fa fa-list"></i> Tap List'.html_safe, taps_path, :class => "lnk-button" %>
+		<button><i class="fa fa-search"></i> Search Drinks</button>
+	</div>
+</div>
+<% end %>
+
+
+<div class="dq-buttons small">
+	<%= link_to '<i class="fa fa-bullhorn"></i> Try Something New'.html_safe, bartender_choice_page_path, :class => "lnk-button full" %>
+	<% if user_signed_in? -%>
+		<%= link_to '<i class="fa fa-beer"></i> Your Drink Tracker'.html_safe, trackers_path, :class => "lnk-button" -%>
+	<% else %>
+		<%= link_to '<i class="fa fa-user"></i> Sign In'.html_safe, new_user_session_path, :class => "lnk-button" -%>
+	<% end %>
+	<a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a>
+	<%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%>
+
+
+	<%= link_to 'View Full Site Instead', root_path, :mobile => 0, :class => "lnk-button full transparent" -%>
+</div>
