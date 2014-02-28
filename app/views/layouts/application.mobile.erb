@@ -64,41 +64,7 @@
 	<header>
 		<div class="content">
 			<div class="span12-12">
-				<a href="javascript:void();" id="pull"><i class="fa fa-bars"></i></a>
 				<a href="/" id="header_logo">Player 1 - Video Game Bar</a>
-				<nav>
-					<ul>
-						<% if admin_signed_in? -%>
-							<li class="small"><%= current_admin.email %></li>
-							<li><%= link_to 'Sign out', destroy_admin_session_path, method: :delete, :class => 'small' %></li>
-							<li><%= link_to 'Users', users_path -%></li>
-							<li><%= link_to 'Rewards', rewards_path -%></li>
-							<li><%= link_to 'Membership', leaderboard_page_path -%></li>
-							<li><%= link_to 'Drinks', beverages_path -%></li>
-							<li><%= link_to 'Games', play_path -%></li>
-							<li><%= link_to 'Events', events_path -%></li>
-							<li><%= link_to "Katy's Corner", katy_corners_path, :class => 'small nav-membername' -%></li>
-						<% else -%>
-							<% if user_signed_in? -%>
-								<li><%= link_to "Hi, #{current_user.first_name} (LVL #{get_user_rating(current_user)})", edit_user_registration_path, :class => 'small nav-membername' %></li>
-								<li><%= link_to 'Drink Tracker', trackers_path, :class => 'small' %></li>
-								<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, :class => 'small' %></li>
-							<% else -%>
-								<li><%= link_to 'Sign Up', new_user_registration_path, :class => 'small' %></li>
-								<li><%= link_to 'Sign In', new_user_session_path, :class => 'small' %></li>
-							<% end -%>
-							<li><%= link_to 'Drinks', beverages_path -%></li>
-							<li><%= link_to 'Food', food_page_path -%></li>
-							<li><%= link_to 'Games', play_path -%></li>
-							<li><%= link_to 'Events', events_path -%></li>
-							<% if user_signed_in? && current_user.has_membership? && current_user.membership_number.blank? %>
-								<li><%= link_to 'Citizen', rewards_path -%></li>
-							<% end %>
-							<li><%= link_to 'Membership', leaderboard_page_path -%></li>
-							<li><%= link_to "Katy's Corner", katy_corners_path -%></li>
-						<% end -%>
-					</ul>
-				</nav>
 			</div>
 		</div>
 	</header>
@@ -107,42 +73,6 @@
 	<div class="page_content">
 <%= yield %>
 	</div>
-
-	<% unless action_name == "citizen_checkin" || action_name == "user_redeem" || admin_signed_in? %>
-	<!-- Begin Footer -->
-	<footer>
-		<div class="content">
-			<div class="span6-12">
-				<h4>Like Us &amp; Keep Up to Date</h4>
-				<div class="fb-like" data-href="https://www.facebook.com/player1orlando" data-send="false" data-width="250" data-show-faces="false" data-font="verdana" data-colorscheme="dark"></div><br/>
-				<div class="g-plusone" data-size="tall" data-annotation="inline" data-width="300" data-href="http://player1orlando.com"></div>
-			</div>
-			<div class="span3-12">
-				<ul class="unstyled coins">
-					<li><a href="https://www.facebook.com/player1orlando"><i class="fa fa-facebook"></i> Facebook</a></li>
-					<li><a href="https://twitter.com/player1orlando"><i class="fa fa-twitter"></i> Twitter</a></li>
-					<li><a href="https://untappd.com/user/Player1Orlando"><i class="fa fa-beer"></i> Untapped</a></li>
-				</ul>
-			</div>
-			<div class="span3-12">
-				<ul class="unstyled coins">
-					<li><a href="https://google.com/+player1orlando" rel="publisher"><i class="fa fa-google-plus"></i> Google+</a></li>
-					<li><a href="http://instagram.com/player1orlando"><i class="fa fa-instagram"></i> Instagram</a></li>
-					<li><a href="http://4sq.com/115vBAj"><i class="fa fa-foursquare"></i> Foursquare</a></li>
-				</ul>
-			</div>
-			<div class="span12-12">
-				<strong>Navigation</strong>
-				<%= link_to 'Drinks', beverages_path -%> |
-				<%= link_to 'Games', play_path -%> |
-				<%= link_to 'Events', events_path -%> |
-				<%= link_to "Katy's Corner", katy_corners_path -%> |
-				<%= link_to 'Terms of Service', terms_page_path -%> |
-				<%= link_to 'Privacy Policy', privacy_page_path -%>
-			</div>
-	</footer>
-	<!-- End Footer -->
-	<% end %>
 	
 
 	<!-- Google Tracking -->

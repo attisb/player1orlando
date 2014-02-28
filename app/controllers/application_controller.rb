@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+  
   protect_from_forgery with: :exception
   helper_method :citizen_allowed?, :get_user_rating
   helper_method :find_random_drink, :find_random_drinks, :find_untried_drinks
-  
+  before_filter :prepare_for_mobile
     
   before_filter :configure_devise_params, if: :devise_controller?
     def configure_devise_params
@@ -54,6 +55,21 @@ class ApplicationController < ActionController::Base
   def find_random_drinks(user, list_length)
     the_list = find_untried_drinks(user)    
     the_list.sample(list_length.to_i)
+  end
+  
+  private
+  def mobile_device?
+    if session[:mobile_param]
+      session[:mobile_param] == "1"
+    else
+      request.user_agent =~ /Mobile|webOS/
+    end
+  end
+  helper_method :mobile_device?
+
+  def prepare_for_mobile
+    session[:mobile_param] = params[:mobile] if params[:mobile]
+    request.format = :mobile if mobile_device?
   end
 
 end
