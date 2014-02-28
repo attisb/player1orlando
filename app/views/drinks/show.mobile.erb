@@ -1,0 +1,117 @@
+<% title @drink.name %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+	<div class="span12-12">
+		<h4><%= @drink.name -%><small><%= @drink.description -%></small></h4>
+
+		<div class="span12-12">
+			<h5>Average Rating <%= @drink.average_rating -%></h5>
+			<% if @drink.average_rating == 1 %>
+				<span class="rating">
+					<span class="star checked">1</span>
+					<span class="star">2</span>
+					<span class="star">3</span>
+					<span class="star">4</span>
+					<span class="star">5</span>
+			    </span>
+			<% elsif @drink.average_rating == 2 %>
+				<span class="rating">
+					<span class="star">1</span>
+					<span class="star checked">2</span>
+					<span class="star">3</span>
+					<span class="star">4</span>
+					<span class="star">5</span>
+			    </span>
+			<% elsif @drink.average_rating == 3 %>
+				<span class="rating">
+					<span class="star">1</span>
+					<span class="star">2</span>
+					<span class="star checked">3</span>
+					<span class="star">4</span>
+					<span class="star">5</span>
+			    </span>
+			<% elsif @drink.average_rating == 4 %>
+				<span class="rating">
+					<span class="star">1</span>
+					<span class="star">2</span>
+					<span class="star">3</span>
+					<span class="star checked">4</span>
+					<span class="star">5</span>
+			    </span>
+			<% elsif @drink.average_rating == 5 %>
+				<span class="rating">
+					<span class="star">1</span>
+					<span class="star">2</span>
+					<span class="star">3</span>
+					<span class="star">4</span>
+					<span class="star checked">5</span>
+			    </span>
+			<% else %>
+				<span class="rating">
+					<span class="star">1</span>
+					<span class="star">2</span>
+					<span class="star">3</span>
+					<span class="star">4</span>
+					<span class="star">5</span>
+			    </span>
+			<% end %>
+
+			<% if user_signed_in? %>
+				<h5>Your Rating</h5>
+				<span class="rating user">
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 1 -%>"><%= link_to "1", set_rating_path(@drink, "1") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 2 -%>"><%= link_to "2", set_rating_path(@drink, "2") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 3 -%>"><%= link_to "3", set_rating_path(@drink, "3") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 4 -%>"><%= link_to "4", set_rating_path(@drink, "4") -%></span>
+					<span class="star <%= "checked" if !@drink_rating.nil? && @drink_rating.rating == 5 -%>"><%= link_to "5", set_rating_path(@drink, "5") -%></span>
+			    </span>			
+						
+
+				<br/>
+			<div class="dq-form">
+				<h5>You've had this <%= pluralize @user.trackers.where(:drink_id => @drink.id).size, "time" -%></h5>
+				<div class="dq-buttons pad-bottom">
+					<%= link_to "Track that I had this Drink", track_tracker_path(@drink), :class => "lnk-button full forward" %>
+				</div>
+				
+				 <% if @user.has_membership? && @drink.price > 0 %>
+					 <% unless citizen_allowed? %>
+					 <p>Remember point earning is not allowed on certain days for Player 1 Citizens. Today, <strong><%= Time.zone.now.strftime('%A') -%></strong>, is one of those days. If you would like to earn everyday your here, consider joining the Player 1 Membership system.
+					 <% else %>
+						<%= form_tag point_track_tracker_path(@drink) do |f| %>
+							<h5>Or Wanna get points?</h5>
+							<p>Have the bartender type in the drink code below and you'll earn <strong><%= @drink.price.ceil %></strong> points.</p>
+							<div class="dq-form">
+								<div class="field10-10"><%= telephone_field_tag :code, nil, :placeholder => "Drink Code" %></div>
+							</div>
+							<div class="dq-buttons">
+								<%= submit_tag  "Get Points for having this Drink", :class => "full forward", :id => "track_point_btn" %>
+							</div>
+						<% end %>
+					<% end %>
+				<% end %>
+			</div>
+			<% end %>
+		</div>
+		
+		<div class="span12-12">
+			<h5>Drink Details</h5>
+			<ul class="unstyled pad">
+				<li><strong>Brewery</strong>: <%= @drink.brewery -%></li>
+				<%= raw "<li><strong>ABV:</strong>:  #{number_to_percentage @drink.abv, precision: 2}" unless @drink.abv.blank? %></li>
+				<% if @drink.price > 0 -%><li><strong>Price</strong>: <%= number_to_currency @drink.price -%></li><% end -%>
+				
+				<% unless @drink.category.name.downcase == "NON ALCOHOLIC".downcase %>
+				<li><strong>Beer Style</strong>: <%= link_to @drink.beer_style.name, @drink.beer_style -%></li>
+				<% end %>
+			</ul>
+
+			<h5>Brewery's Description</h5>
+			<%= simple_format @drink.brewer_description %>
+		</div>
+
+		
+
+	</div>
+</div>
