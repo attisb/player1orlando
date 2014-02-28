@@ -1,0 +1,9 @@
+<%= form_tag drinks_path, method: :get do %>
+<div class="dq-form">
+	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Drink" %></div>
+	<div class="dq-buttons">
+		<%= link_to 'Tap List', taps_path, :class => "lnk-button" %>
+		<button>Search Drinks</button>
+	</div>
+</div>
+<% end %>

@@ -1,0 +1,25 @@
+<% title "Drink Search" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+
+	<div class="span12-12">
+		<h4>Drink Search<small>I just don't remember</small></h4>
+
+		<%= render 'shared/drink_search_form' %>
+		
+		<ul class="lined unstyled">
+			<% if @drinks.count == 0 %>
+			<li>Sorry nothing found.</li>
+			<% else %>
+				<% @drinks.where(:visible => true).each do |drink| %>
+					<li>
+						<strong class="large"><%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+	
+</div>
