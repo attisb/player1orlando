@@ -18,7 +18,7 @@
 
 
 <%= form_tag drinks_path, method: :get do %>
-<div class="dq-form">
+<div class="dq-form"><!-- see75qwt5period$ -->
 	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Drink" %></div>
 	<div class="dq-buttons">
 		<%= link_to '<i class="fa fa-list"></i> Tap List'.html_safe, taps_path, :class => "lnk-button" %>
@@ -29,7 +29,7 @@
 
 
 <div class="dq-buttons small">
-	<%= link_to '<i class="fa fa-bullhorn"></i> Try Something New'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
+	<%= link_to '<i class="fa fa-bullhorn"></i> Try A New Drink'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
 	<% if user_signed_in? -%>
 		<%= link_to '<i class="fa fa-beer"></i> Your Drink Tracker'.html_safe, trackers_path, :class => "lnk-button" -%>
 	<% else %>
