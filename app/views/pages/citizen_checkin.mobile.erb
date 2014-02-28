@@ -1,0 +1,51 @@
+<% title "Beer. Games. Music." %>
+
+<% if user_signed_in? && current_user.has_membership? %>
+	<% if current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.to_date...Time.zone.now.to_date+1).count > 0 %>
+		<% last_entry = current_user.timelines.where(:nature => "checkin").last %>
+		<% if last_entry.created_at <= 2.minutes.ago %>
+			<div class="content">
+				<div class="span12-12 text-center">
+					<h1 style="font-size: 250px;"><i class="fa fa-exclamation"></i></h1>
+					<h4>Already used today to check in.<br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h4>
+					<p class="small">You already used this to check in today for Player 1. This code was used <strong><%= Time.zone.now.to_date -%></strong>.</p>
+				</div>
+			</div>
+		<% else %>
+			<div class="content">
+				<div class="span12-12 text-center">
+					<h1 style="font-size: 250px;"><i class="fa fa-thumbs-up"></i></h1>
+					<h4>Welcome <%= current_user.first_name -%>!<br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h4>
+					<p class="small">Your check in was validated. Please pay your reduced cover and proceed in.</p>
+				</div>
+			</div>
+		<% end %>
+	<% else %>
+	<script type="text/javascript" charset="utf-8">
+		window.setTimeout(function(){location.reload()},10000)
+	</script>
+	<div class="content">
+		<div class="span12-12 text-center">
+			<%= image_tag "/includes/citizen_badge_checkin.png", :class => "fullwidth_image", :style => "width: 60%; border: none;" -%>
+			<h5>Valid Citizen  <i class="fa fa-thumbs-up"></i><br/>Citizen ID: <%= current_user.id -%> <small>Email: <%= current_user.email -%></small></h5>
+			<p class="small">Show this to the game master to receive your discount cover. Valid once per day.</p>
+		</div>
+		
+		<%= form_tag post_citizen_checkin_reward_path do |f| %>
+			<%= hidden_field_tag :code, current_user.id %>
+			<%= hidden_field_tag :from_user, true %>
+			<div class="dq-buttons">
+				<%= submit_tag "Game Master Check In", :class => "full" %>
+			</div>
+		<% end %>
+		
+	</div>
+	<% end %>
+<% else %>
+<div class="content">
+	<div class="span12-12 text-center">
+		<h1 style="font-size: 250px;"><i class="fa fa-thumbs-down"></i></h1>
+		<h4>Sorry not valid.</h4>
+	</div>
+</div>
+<% end %>
