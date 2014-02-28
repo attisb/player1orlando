@@ -1,0 +1,41 @@
+<% title "Bartender Choice" %>
+
+<% if user_signed_in? %>
+<div class="content">
+	<div class="span12-12">
+		<h4>Hey, Drink Master!<small>A random request...</small></h4>
+		
+		<h5><%= @drink.name -%></h5>
+		<%= simple_format @drink.description -%>
+		<ul class="unstyled">
+			<% if @drink.price > 0 %>
+				<li><strong>Price: </strong><%= number_to_currency @drink.price -%></li>
+			<% end %>
+			<%= raw "<li><strong>ABV:</strong>:  #{number_to_percentage @drink.abv, precision: 2}" unless @drink.abv.blank? %></li>
+		</ul>
+		
+		<div class="dq-buttons pad-bottom">
+			<%= link_to "Choose Another Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+			<%= link_to "Track that I had this Drink", track_tracker_path(@drink), :class => "lnk-button full forward" %>
+		</div>
+
+		<% if current_user.has_membership? && @drink.price > 0 %>
+			<% unless citizen_allowed? %>
+				<p>Remember point earning is not allowed on certain days for Player 1 Citizens. Today, <strong><%= Time.zone.now.strftime('%A') -%></strong>, is one of those days. If you would like to earn everyday your here, consider joining the Player 1 Membership system.
+			<% else %>
+				<%= form_tag point_track_tracker_path(@drink) do |f| %>
+					<h5>Or Wanna get points?</h5>
+					<p>Have the bartender type in the drink code below and you'll earn <strong><%= @drink.price.ceil %></strong> points.</p>
+					<div class="dq-form">
+					<div class="field10-10"><%= telephone_field_tag :code, nil, :placeholder => "Drink Code" %></div>
+					</div>
+					<div class="dq-buttons">
+					<%= submit_tag  "Get Points for having this Drink", :class => "full forward", :id => "track_point_btn" %>
+					</div>
+				<% end %>
+			<% end %>
+		<% end %>
+		
+	</div>
+</div>
+<% end %>
