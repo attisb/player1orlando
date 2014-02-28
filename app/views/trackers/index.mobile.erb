@@ -1,6 +1,6 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-check-square-o"></i> Drink Tracker <small>Keep track of what you've tried.</small></h2></div>
-	<div class="span8-12">
+	<div class="span12-12">
 		<h4>Haven't Tried Yet<small>Come on you know you want to.</small></h4>
 
 		<%= render 'shared/drink_search_form' %>
@@ -55,7 +55,7 @@
 		<br/>
 		
 		<h5>All Untried Drinks</h5>
-		<ul class="small">
+		<ul class="unstyled pad lined">
 			<% find_untried_drinks(current_user).each do |drink| %>
 				<li><%= link_to drink.name, drink_path(drink) -%></li>
 			<% end %>
