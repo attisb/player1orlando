@@ -39,5 +39,10 @@
 	<%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%>
 
 
-	<%= link_to 'View Full Site Instead', root_path(:mobile => 0), :class => "lnk-button full transparent" -%>
+	<% if user_signed_in? -%>
+		<%= link_to 'View Full Site Instead', root_path(:mobile => 0), :class => "lnk-button full transparent" -%>
+	<% else %>
+		<%= link_to 'View Full Site', root_path(:mobile => 0), :class => "lnk-button transparent" -%>
+		<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :class => "lnk-button transparent" -%>
+	<% end %>
 </div>

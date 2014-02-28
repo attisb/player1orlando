@@ -57,6 +57,10 @@ class ApplicationController < ActionController::Base
     the_list.sample(list_length.to_i)
   end
   
+  def after_sign_in_path_for(resource)
+    root_path
+  end
+  
   private
   def mobile_device?
     if session[:mobile_param]
