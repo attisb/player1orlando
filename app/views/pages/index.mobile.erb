@@ -29,11 +29,11 @@
 
 
 <div class="dq-buttons small">
-	<%= link_to '<i class="fa fa-bullhorn"></i> Try A New Drink'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
 	<% if user_signed_in? -%>
+		<%= link_to '<i class="fa fa-bullhorn"></i> Try A New Drink'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
 		<%= link_to '<i class="fa fa-beer"></i> Your Drink Tracker'.html_safe, trackers_path, :class => "lnk-button" -%>
 	<% else %>
-		<%= link_to '<i class="fa fa-user"></i> Sign In'.html_safe, new_user_session_path, :class => "lnk-button" -%>
+		<%= link_to '<i class="fa fa-user"></i> Sign In'.html_safe, new_user_session_path, :class => "lnk-button full" -%>
 	<% end %>
 	<a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a>
 	<%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%>
