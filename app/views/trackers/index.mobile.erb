@@ -1,0 +1,83 @@
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-check-square-o"></i> Drink Tracker <small>Keep track of what you've tried.</small></h2></div>
+	<div class="span8-12">
+		<h4>Haven't Tried Yet<small>Come on you know you want to.</small></h4>
+
+		<%= render 'shared/drink_search_form' %>
+		
+		<ul class="large unstyled pad lined">
+			<% empty_list = true -%>
+			<% @drinks.each do |drink| %>
+				<% if @tried_drinks.where(:drink_id => drink.id).size <= 0 %>
+					<% empty_list = false -%>
+					<% user_rating = @user.ratings.where(:drink_id => drink.id).first -%>
+					<li><strong><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></strong>
+						<div class="small">
+							<div class="float-right">Style: <%= drink.beer_style.name -%></div>
+							<% unless user_rating.nil? %>
+							Your Rating: <%= user_rating.rating -%> out of 5
+							<% else %>
+							Not rated by you yet.
+							<% end %>
+						</div>
+					</li>
+				<% end %>
+			<% end %>
+
+			<% if empty_list == true %>
+				<p>You've tried everything that we wanted you to try. You rebel you. Don't worry we always have new things coming in. Below is a list of other things that we have that you haven't tried. Chosen at random.</p>
+				
+				<% random_drinks = find_random_drinks(current_user, 5) %>
+				<ul class="large unstyled pad lined">
+					<% random_drinks.each do |drink| %>
+					<% user_rating = @user.ratings.where(:drink_id => drink.id).first -%>
+						<li><strong><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had 0 times</div></strong>
+							<div class="small">
+								<div class="float-right">Style: <%= drink.beer_style.name -%></div>
+								<% unless user_rating.nil? %>
+								Your Rating: <%= user_rating.rating -%> out of 5
+								<% else %>
+								Not rated by you yet.
+								<% end %>
+							</div>
+						</li>
+					<% end %>
+				</ul>
+				
+				
+				<div class="span12-12">
+					<div class="dq-buttons pad-bottom">
+						<%= link_to "Bartender Choice of Drink", bartender_choice_page_path, :class => "lnk-button full" %>
+					</div>
+				</div>
+			<% end %>
+		</ul>
+		<br/>
+		
+		<h5>All Untried Drinks</h5>
+		<ul class="small">
+			<% find_untried_drinks(current_user).each do |drink| %>
+				<li><%= link_to drink.name, drink_path(drink) -%></li>
+			<% end %>
+		</ul>
+
+		<br/>
+		<h4>Drinks You've Tried<small>Hopefully you liked them.</small></h4>
+		<ul class="unstyled lined small">
+			<% empty_list = true -%>
+
+			<% @all_drinks.each do |drink| %>
+				<% if @tried_drinks.where(:drink_id => drink.id).size > 0 %>
+					<% empty_list = false -%>
+					<li><%= link_to drink.name, drink_path(drink) -%> <div class="float-right">Had <%= pluralize @tried_drinks.where(:drink_id => drink.id).count, "time" -%></div></li>
+				<% end %>
+			<% end %>
+			
+			<% if empty_list == true %>
+				<p>Go ahead and try something.</p>
+			<% end %>
+			
+		</ul>
+
+	</div>
+</div>
