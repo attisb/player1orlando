@@ -57,7 +57,7 @@
 
 
 	<% unless mobile_device? %>
-  		<div class="mobile-notice only-mobile"><div class="content">Switch to the <%= link_to "Mobile Site", :mobile => 1 %>.</div></div>
+  		<div class="mobile-notice only-mobile">Switch to the <%= link_to "Mobile Site", root_path(:mobile => 1) %>.</div>
 	<% end %>
 
 
