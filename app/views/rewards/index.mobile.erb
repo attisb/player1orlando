@@ -1,7 +1,7 @@
 <% title "Rewards" %>
 <!-- Standard Content -->
 <div class="content">
-	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
+	<div class="span12-12"><h3><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h3></div>
 
 	<% if @user.has_membership? %>
 		<div class="span12-12 text-center"><h5>You have <u><%= @user.lifetime_points - @user.used_points -%></u> points available.</h5></div>
