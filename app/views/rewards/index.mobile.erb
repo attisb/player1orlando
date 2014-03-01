@@ -27,20 +27,19 @@
 		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
 		<ul class="unstyled pad">
 			<% @rewards.each do |reward| %>
-				<li style="clear: both; display: block;">
+				<li style="clear: both; display: block;" class="pad-bottom">
 					<strong class="large">
 						<div class="float-right">Points: <%= reward.points -%></div>
 						<%= reward.name -%>
 					</strong>
 					<%= simple_format reward.description -%>
 					<% if user_signed_in? && !admin_signed_in? %>
-						<div class="dq-buttons pad-bottom">
+						<div class="dq-buttons">
 							<% if reward.points <= (@user.lifetime_points - @user.used_points) %>
 								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small full" %>
 							<% else %>
 								<div class="lnk-button full disable small">Not enough points.</div>
 							<% end%>
-							<br/>
 						</div>
 					<% end %>
 				</li>
