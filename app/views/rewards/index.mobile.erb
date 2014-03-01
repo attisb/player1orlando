@@ -4,7 +4,7 @@
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
 
 	<% if @user.has_membership? %>
-		<div class="span12-12 text-center"><h5>You have <%= @user.lifetime_points - @user.used_points -%> points available.</h5></div>
+		<div class="span12-12 text-center"><h5>You have <u><%= @user.lifetime_points - @user.used_points -%></u> points available.</h5></div>
 	<% end %>
 
 	<div class="span12-12">
@@ -13,7 +13,7 @@
 			<h4>Your Rewards<small>These are the rewards you chose.</small></h4>		
 			<ul class="unstyled lined pad">
 				<% @user_rewards.each do |user_reward| %>
-					<li>
+					<li style="clear: both; display: block;">
 						<strong class="large">
 							<div class="float-right">Code: <%= sprintf('%06d', user_reward.code) -%></div>
 							<%= user_reward.reward.name -%>
@@ -27,7 +27,7 @@
 		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
 		<ul class="unstyled pad">
 			<% @rewards.each do |reward| %>
-				<li style="clear: both; display: inline-block;">
+				<li style="clear: both; display: block;">
 					<strong class="large">
 						<div class="float-right">Points: <%= reward.points -%></div>
 						<%= reward.name -%>
