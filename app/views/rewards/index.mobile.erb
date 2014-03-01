@@ -17,7 +17,11 @@
 						<strong class="large">
 							<div class="float-right">Code: <%= sprintf('%06d', user_reward.code) -%></div>
 							<%= user_reward.reward.name -%>
-						</strong><br/>
+						</strong>
+						<div class="dq-buttons">
+							<%= link_to "Use This Reward", user_redeem_url(user_reward.code, user_reward.user_id), :class => "lnk-button small full" -%>
+						</div>
+						<br/><br/>
 					</li>
 				<% end %>
 			</ul><br/>
