@@ -21,7 +21,6 @@
 						<div class="dq-buttons">
 							<%= link_to "Use This Reward", user_redeem_url(user_reward.code, user_reward.user_id), :class => "lnk-button small full" -%>
 						</div>
-						<br/><br/>
 					</li>
 				<% end %>
 			</ul><br/>
@@ -44,7 +43,7 @@
 							<% else %>
 								<div class="lnk-button full disable small">Not enough points.</div>
 							<% end%>
-						</div><br/><br/>
+						</div>
 					<% end %>
 				</li>
 			<% end %>
