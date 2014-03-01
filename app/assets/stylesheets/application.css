@@ -20,6 +20,7 @@ body {background: #f6f8f8; color: #000;}
 .full_btn {display: block; margin: 0; text-align: center; color: #fff; background: #E16D53; padding: 10px 5px; border: 1px solid #999; text-decoration: none;}
 .full_btn:hover {background: #8F3B3D; color: #fff;}
 
+.pad-top {margin-top: 20px;}
 .pad-bottom {margin-bottom: 20px;}
 .callout_box {background: #E16D53; padding: 10px 10px 10px 10px; color: #fff; margin-bottom: 20px;	border: 1px solid rgba(255,255,255,.5);}
 .callout_box p {margin-bottom: 0;}
