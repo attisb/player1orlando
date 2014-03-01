@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+	<!-- Designed by Attis Bijlani dequark.com -->
+	<title><%= yield(:title) %>Player 1 Video Game Bar</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Player 1 Orlando Video Game Bar. Beer, Games, and Music." />
+	<meta name="author" content="Attis Bijlani" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="/includes/apple-touch-icon.png" />
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => false %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+    <%= csrf_meta_tags %>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 8]><link rel="stylesheet" href="/includes/ie7.css" type="text/css" charset="utf-8" /><![endif]-->
+
+</head>
+<% if admin_signed_in? -%>
+<body class="light">
+<% else -%>
+<body class="dark">
+<% end -%>
+	
+	<header>
+		<div class="content">
+			<div class="span12-12">
+				<a href="javascript:void();" id="pull"><i class="fa fa-bars"></i></a>
+				<a href="/" id="header_logo">Player 1 - Video Game Bar</a>
+				<nav>
+					<ul>
+						<% if user_signed_in? -%>
+							<li class="small">Hi, <%= current_user.first_name %></li>
+							<li><%= link_to 'Sign out', destroy_user_session_path, method: :delete, :class => 'small' %></li>
+							<li><%= link_to 'Code Redeem', redeem_reward_path -%></li>
+						<% else -%>
+							<li><%= link_to 'Sign Up', new_user_registration_path, :class => 'small' %></li>
+							<li><%= link_to 'Sign In', new_user_session_path, :class => 'small' %></li>
+						<% end -%>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
+
+	<% if flash[:notice] %><div class="notice"><div class="content"><%= notice %></div></div><% end %>
+	<% if flash[:alert] %><div class="alert"><div class="content"><%= alert %></div></div><% end %>
+
+	<div class="page_content">
+<%= yield %>
+	</div>
+	
+	<script src="/includes/dequark_functions.js" type="text/javascript" charset="utf-8"></script>
+	
+</body>
+</html>
