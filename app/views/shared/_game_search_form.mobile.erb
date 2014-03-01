@@ -1,0 +1,11 @@
+<h5>Search Games</h5>
+
+<%= form_tag games_path, method: :get do %>
+<div class="dq-form pad-bottom">
+	<div class="field10-10"><%= text_field_tag :query, params[:query], :placeholder => "Search for a Game" %></div>
+	<div class="dq-buttons">
+		<%= link_to 'Game Categories', play_path, :class => "lnk-button" %>
+		<button>Search Game</button>
+	</div>
+</div>
+<% end %>
