@@ -29,8 +29,8 @@
 			<% @rewards.each do |reward| %>
 				<li>
 					<strong class="large">
-						<div class="float-right">Points: <%= reward.points -%></div>
 						<%= reward.name -%>
+						<span class="small">(<%= reward.points -%> points)</span>
 					</strong>
 					<%= simple_format reward.description -%>
 					<% if user_signed_in? && !admin_signed_in? %>
