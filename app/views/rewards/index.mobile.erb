@@ -4,7 +4,7 @@
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
 
 	<% if @user.has_membership? %>
-		<div class="span12-12"><h5>You have <%= @user.lifetime_points - @user.used_points -%> points available.</h5></div>
+		<div class="span12-12 text-center"><h5>You have <%= @user.lifetime_points - @user.used_points -%> points available.</h5></div>
 	<% end %>
 
 	<div class="span12-12">
@@ -36,9 +36,9 @@
 					<% if user_signed_in? && !admin_signed_in? %>
 						<div class="dq-buttons">
 							<% if reward.points <= (@user.lifetime_points - @user.used_points) %>
-								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small" %>
+								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small full" %>
 							<% else %>
-								<div class="lnk-button disable small">Not enough points.</div>
+								<div class="lnk-button full disable small">Not enough points.</div>
 							<% end%>
 						</div>
 					<% end %>
