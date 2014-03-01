@@ -2,7 +2,7 @@
 
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-beer"></i> Beer Styles<small>What means what?</small></h2></div>
-	<div class="span8-12">
+	<div class="span12-12">
 		<h4><%= @beer_style.name -%><small>This is what is all means.</small></h4>
 		<%= simple_format @beer_style.description -%>
 
@@ -18,7 +18,7 @@
 
 	</div>
 
-	<div class="span4-12">
+	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
 			<%= link_to 'Go Back to Beer Styles', beer_styles_path, :class => "lnk-button full" %>
 			<%= link_to 'Go Back to Beverages', beverages_path, :class => "lnk-button full" %>
