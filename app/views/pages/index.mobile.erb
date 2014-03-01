@@ -1,5 +1,5 @@
+<div class="span12-12">
 <% if user_signed_in? && current_user.has_membership? %>
-	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
 			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
 				<%= link_to '<i class="fa fa-check-square-o"></i> Citizen Checkin'.html_safe, citizen_checkin_path, :class => "lnk-button full grey" %>
@@ -8,15 +8,12 @@
 				<%= link_to "Citizen Rewards (#{current_user.lifetime_points - current_user.used_points} points)", rewards_path, :class => "lnk-button full grey" -%>
 			<% end %>
 		</div>
-	</div>
 <% elsif user_signed_in? && !current_user.membership_number.blank? %>
-	<div class="span12-12">
 		<div class="dq-buttons pad-bottom">
 			<% unless current_user.timelines.where(:nature => "checkin").where(:created_at => Time.zone.now.beginning_of_day...Time.zone.now.end_of_day).count > 0 %>
 				<%= link_to '<i class="fa fa-check-square-o"></i> VIP Member Checkin'.html_safe, process_vip_checkin_path, :class => "lnk-button full grey" %>
 			<% end %>
 		</div>
-	</div>
 <% end %>
 
 
@@ -48,4 +45,6 @@
 	<% else %>
 		<%= link_to 'View Full Site Instead', root_path(:mobile => 0), :class => "lnk-button full transparent" -%>
 	<% end %>
+</div>
+
 </div>
