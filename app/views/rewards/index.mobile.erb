@@ -27,10 +27,10 @@
 		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
 		<ul class="unstyled pad">
 			<% @rewards.each do |reward| %>
-				<li>
+				<li style="clear: both; display: inline-block;">
 					<strong class="large">
+						<div class="float-right">Points: <%= reward.points -%></div>
 						<%= reward.name -%>
-						<span class="small">(<%= reward.points -%> points)</span>
 					</strong>
 					<%= simple_format reward.description -%>
 					<% if user_signed_in? && !admin_signed_in? %>
