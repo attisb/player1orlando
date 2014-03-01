@@ -3,6 +3,10 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
 
+	<% if @user.has_membership? %>
+		<div class="span12-12"><h5>You have <%= @user.lifetime_points - @user.used_points -%> points available.</h5></div>
+	<% end %>
+
 	<div class="span12-12">
 		<% unless admin_signed_in? %>
 		<% if user_signed_in? && @user_rewards.size > 0 %>
