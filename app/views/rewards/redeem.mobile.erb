@@ -1,0 +1,31 @@
+<div class="content">
+	<div class="span12-12"><h4><i class="fa fa-barcode"></i> Code Redeem <small>For redemption of discounts.</small></h4></div>
+	<div class="span12-12">
+
+		<%= form_tag post_redeem_reward_path do |f| %>
+			<div class="dq-form">
+				<div class="field10-10"><%= telephone_field_tag :code, nil, :placeholder => "Redemption Code", :autofocus => true, :maxlength => 6 %></div>
+				<div class="dq-buttons">
+					<%= submit_tag "Use Reward", :class => "full" %>
+				</div>
+			</div>
+
+		<% end %>
+
+	</div>
+
+	<div class="span12-12"><h4><i class="fa fa-barcode"></i> Citizen Checkin <small>Disable for the day.</small></h4></div>
+	<div class="span12-12">
+
+		<%= form_tag post_citizen_checkin_reward_path do |f| %>
+			<div class="dq-form">
+				<div class="field10-10"><%= telephone_field_tag :code, nil, :placeholder => "Citizen Code", :autofocus => false, :maxlength => 8 %></div>
+				<div class="dq-buttons">
+					<%= submit_tag "Check In", :class => "full" %>
+				</div>
+			</div>
+
+		<% end %>
+
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<% title "Rewards" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Reward<small>Your part of a special group.</small></h2></div>
+	<div class="span12-12">
+		<h4><%= @discount.reward.name -%></h4>
+		<%= simple_format @discount.reward.description, :class => "small" -%>
+		<p class="small"><strong>Reward Code</strong>: <%= @discount.code -%></p>
+		
+		<%= form_tag post_user_redeem_reward_path do |f| %>
+			<%= hidden_field_tag :code, @discount.code %>
+			<%= hidden_field_tag :user_id, @discount.user_id %>
+			<%= hidden_field_tag :from_user, true %>
+			<div class="dq-buttons">
+				<%= submit_tag "Game Master Button", data: { confirm: "The Player 1 staff should be the one who hit this button for you to use this or else you lose this reward FOREVER!" }, :class => "full" %>
+			</div>
+		<% end %>
+		
+	</div>
+</div>

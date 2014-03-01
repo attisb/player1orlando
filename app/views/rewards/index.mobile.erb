@@ -1,0 +1,45 @@
+<% title "Rewards" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Player 1 Citizen<small>Your part of a special group.</small></h2></div>
+
+	<div class="span12-12">
+		<% unless admin_signed_in? %>
+		<% if user_signed_in? && @user_rewards.size > 0 %>
+			<h4>Your Rewards<small>These are the rewards you chose.</small></h4>		
+			<ul class="unstyled lined pad">
+				<% @user_rewards.each do |user_reward| %>
+					<li>
+						<strong class="large">
+							<div class="float-right">Code: <%= sprintf('%06d', user_reward.code) -%></div>
+							<%= user_reward.reward.name -%>
+						</strong><br/>
+					</li>
+				<% end %>
+			</ul><br/>
+		<% end %>
+		<% end %>
+
+		<h4>Rewards to Choose From<small>We are always adding more rewards.</small></h4>		
+		<ul class="unstyled pad">
+			<% @rewards.each do |reward| %>
+				<li>
+					<strong class="large">
+						<div class="float-right">Points: <%= reward.points -%></div>
+						<%= reward.name -%>
+					</strong>
+					<%= simple_format reward.description -%>
+					<% if user_signed_in? && !admin_signed_in? %>
+						<div class="dq-buttons">
+							<% if reward.points <= (@user.lifetime_points - @user.used_points) %>
+								<%= link_to 'Get This Reward', issue_reward_path(reward), data: { confirm: "By choosing okay you will use up #{reward.points} from your account. This can not be undone." }, :class => "lnk-button small" %>
+							<% else %>
+								<div class="lnk-button disable small">Not enough points.</div>
+							<% end%>
+						</div>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>

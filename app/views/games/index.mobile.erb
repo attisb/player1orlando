@@ -1,0 +1,25 @@
+<% title "Game Search" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Games<small>Achievement Unlocked!</small></h2></div>
+
+	<div class="span12-12">
+		<h4>Game Search<small>I just don't remember</small></h4>
+
+		<%= render 'shared/game_search_form' %>
+		
+		<ul class="lined unstyled">
+			<% if @games.count == 0 %>
+			<li>Sorry nothing found.</li>
+			<% else %>
+					<% @games.where(:visible => true).each do |game| %>
+						<li>
+							<strong class="large"><%= link_to game.name, game_path(game) -%></strong><%= simple_format truncate game.description, length: 128 -%><div class="text-right">In Category: <%= game.category.name %></div>
+						</li>
+					<% end %>
+			<% end %>
+		</ul>
+	</div>
+	
+</div>
