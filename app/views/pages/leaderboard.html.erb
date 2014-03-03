@@ -3,7 +3,7 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Leaders<small>Number 1 is who...</small></h2></div>
 
-	<div class="span6-12">
+	<div class="span12-12">
 		<h4>VIP Members<small>You got a special card to show for it!</small></h4>
 		<div class="text-right"><%= link_to "Learn more about VIP Memberships", vips_page_path -%></div>
 		<ul class="unstyled lined">
@@ -14,7 +14,7 @@
 		</ul>
 	</div>
 	
-	<div class="span6-12">
+	<!-- <div class="span6-12">
 		<h4>Player 1 Citizens<small>The web only membership.</small></h4>
 		<div class="text-right"><%= link_to "Learn more about Player 1 Citizens", rewards_page_path -%></div>
 		<ul class="unstyled lined">
@@ -23,7 +23,7 @@
 				<li style="line-height: 32px; clear: both;"><div class="float-right"><%= citizen.lifetime_points -%></div><%= image_tag mini_avatar_url(citizen), :width => 32, :class => "float-left" %> <%= link_to citizen.username, user_path(citizen), :title => citizen.first_name -%></li>
 			<% end %>
 		</ul>
-	</div>
+	</div> -->
 	
 	<% if admin_signed_in? -%>
 	<div class="span12-12">
