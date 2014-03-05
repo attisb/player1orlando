@@ -189,6 +189,22 @@
 			<%= simple_format @katy_corner.brief %>
 		<% end %>
 
+
+		<script src="jquery.rss.js"></script></head>
+		<script>
+			jQuery(function($) {
+				$("#rss-feeds").rss(
+					"https://www.facebook.com/feeds/page.php?format=rss20&id=197099333702416",
+					{
+						limit: 1,
+						entryTemplate: '<p>{body}<br/>Posted {date}</p>'
+					}
+				)
+			})
+		</script>
+		<h4>Latest from Facebook</h4>
+	    <div id="rss-feeds"></div>
+
 	</div>
 	
 </div>
