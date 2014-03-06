@@ -6,6 +6,8 @@
 		<h4><%= @drink.name -%><small><%= @drink.description -%></small></h4>
 
 		<div class="span12-12">
+			<p class="small">Subject to availability.</p>
+
 			<h5>Average Rating <%= @drink.average_rating -%></h5>
 			<% if @drink.average_rating == 1 %>
 				<span class="rating">
