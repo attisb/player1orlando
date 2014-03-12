@@ -30,8 +30,8 @@
 				<h5>Admin Options</h5>
 				<div class="dq-buttons pad-bottom">
 					<%= link_to 'New Drink Category', new_category_path(:area => "drinks"), :class => "lnk-button full new" %>
-					<%= link_to 'Show Call Out Drinks', beverages_path(:area => "drinks", :call_out => true), :class => "lnk-button full" %>
-					<%= link_to 'Show Tracker Drinks', beverages_path(:area => "drinks", :tracker => true), :class => "lnk-button full" %>
+					<%= link_to 'Show Call Out Drinks', hidden_beverages_path(:call_out => true), :class => "lnk-button full" %>
+					<%= link_to 'Show Tracker Drinks', hidden_beverages_path(:tracker => true), :class => "lnk-button full" %>
 				</div>
 				
 				<h5>Hidden Categories</h5>

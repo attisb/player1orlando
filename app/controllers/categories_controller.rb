@@ -5,13 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @cat_type = params[:area]
     
-    if params[:callout] == true && params[:area] == "drinks"
-      @categories = Category.where(:area => params[:area]).where(:call_out => true).order(order: :asc, name: :asc)
-    elsif params[:tracker] == true && params[:area] == "drinks"
-      @categories = Category.where(:area => params[:area]).where(:tracker => true).order(order: :asc, name: :asc)
-    else
-      @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
-    end
+    @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
     if admin_signed_in?
       if @cat_type == "drinks"
         @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
@@ -25,7 +19,14 @@ class CategoriesController < ApplicationController
     @cat_type = params[:area]
     if admin_signed_in?
       if @cat_type == "drinks"
-        @all_hidden = Drink.where(:visible => false).order(name: :asc)
+        if params[:callout] == true
+          @all_hidden = Drink.where(:call_out => true).order(name: :asc)
+        elsif params[:tracker] == true
+          @all_hidden = Drink.where(:tracker => true).order(name: :asc)
+        else
+          @all_hidden = Drink.where(:visible => false).order(name: :asc)
+        end
+
       else
         @all_hidden = Game.where(:visible => false).order(name: :asc)
       end
