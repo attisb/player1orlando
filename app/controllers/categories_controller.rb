@@ -4,7 +4,14 @@ class CategoriesController < ApplicationController
 
   def index
     @cat_type = params[:area]
-    @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
+    
+    if params[:callout] == true && params[:area] == "drinks"
+      @categories = Category.where(:area => params[:area]).where(:call_out => true).order(order: :asc, name: :asc)
+    elsif params[:tracker] == true && params[:area] == "drinks"
+      @categories = Category.where(:area => params[:area]).where(:tracker => true).order(order: :asc, name: :asc)
+    else
+      @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
+    end
     if admin_signed_in?
       if @cat_type == "drinks"
         @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
