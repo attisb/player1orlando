@@ -101,6 +101,8 @@ class RewardsController < ApplicationController
       @discount = Discount.where(:code => params[:code]).first
       if @discount.nil?
         redirect_to redeem_reward_path, alert: "Not a valid code."
+      elsif @discount.used == true
+        redirect_to redeem_reward_path, alert: "Code already used."
       else
         @discount.update(:used => true)
         redirect_to redeem_reward_path, notice: "Success: Redeemed '#{@discount.reward.name}'. "
