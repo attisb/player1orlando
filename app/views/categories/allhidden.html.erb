@@ -30,6 +30,7 @@
 				<h5>Admin Options</h5>
 				<div class="dq-buttons pad-bottom">
 					<%= link_to 'Back', beverages_path, :class => "lnk-button full new" %>
+					<%= params[:call_out] %>
 				</div>
 			<% else %>
 				<%= render 'shared/whycraft' %>
