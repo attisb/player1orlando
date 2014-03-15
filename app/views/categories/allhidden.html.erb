@@ -9,7 +9,13 @@
 	<% end %>
 
 	<div class="span8-12">
-		<h4>Hidden Items<small>Don't worry it's not the end of the world.</small></h4>
+        <% if params[:call_out].to_s == "true" %>
+			<h4>Called Out Items<small>These appear on the homepage.</small></h4>
+        <% elsif params[:tracker].to_s == "true" %>
+			<h4>Tracker Items<small>These appear on the larger on the drink tracker.</small></h4>
+		<% else %>
+			<h4>Hidden Items<small>Don't worry it's not the end of the world.</small></h4>
+		<% end %>
 		
 		<ul class="unstyled lined">
 			<% if @cat_type == "drinks" %>
