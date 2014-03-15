@@ -19,7 +19,7 @@
 					<% else %>
 					<li>
 					<% end %>
-						<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%></strong><%= simple_format drink.description -%>
+						<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><%= simple_format drink.description -%>
 						<% if admin_signed_in? -%><div class="text-right">Image: <%= drink.drink_image? -%> | Average Rating: <%= raw star_view drink.average_rating -%> | <%= link_to 'Edit', edit_drink_path(drink) %> | <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 					</li>
 				<% end %>

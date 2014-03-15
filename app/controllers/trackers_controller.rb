@@ -35,6 +35,8 @@ class TrackersController < ApplicationController
         @tracker.user_id = @user.id
         @tracker.drink_id = @drink.id
         @tracker.points = @drink.price
+        @tracker.issued_by = @emp_user.emp_code
+        @tracker.issued_at = Time.now
         if @tracker.save
           new_point_balance = @user.lifetime_points + @drink.price
           @user.update(:lifetime_points => new_point_balance)
