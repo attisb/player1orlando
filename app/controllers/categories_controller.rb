@@ -20,9 +20,9 @@ class CategoriesController < ApplicationController
     if admin_signed_in?
       if @cat_type == "drinks"
         if params[:call_out].to_s == "true"
-          @all_hidden = Drink.where(:call_out => true).order(name: :asc)
+          @all_hidden = Drink.where(:call_out => true).where(:visible => true).order(name: :asc)
         elsif params[:tracker].to_s == "true"
-          @all_hidden = Drink.where(:tracker => true).order(name: :asc)
+          @all_hidden = Drink.where(:tracker => true).where(:visible => true).order(name: :asc)
         else
           @all_hidden = Drink.where(:visible => false).order(name: :asc)
         end
