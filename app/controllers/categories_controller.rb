@@ -19,7 +19,11 @@ class CategoriesController < ApplicationController
     @cat_type = params[:area]
     if admin_signed_in?
       if @cat_type == "drinks"
-        @all_hidden = Drink.where(:visible => false).order(name: :asc)
+        if params[:call_out].to_s == "true"
+          @all_hidden = Drink.where(:call_out => true).order(name: :asc)
+        else
+          @all_hidden = Drink.where(:visible => false).order(name: :asc)
+        end
       else
         @all_hidden = Game.where(:visible => false).order(name: :asc)
       end
