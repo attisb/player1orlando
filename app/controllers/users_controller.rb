@@ -15,6 +15,11 @@ class UsersController < ApplicationController
   end
   
   def edit
+    
+    unless @user.emp_code.blank?
+      @employee_issued = Tracker.where(issued_by: @user.emp_code).where("date(created_at) > ?", 15.days.ago).group("date(created_at)").count
+    end
+    
   end
   
   def update

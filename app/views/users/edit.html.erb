@@ -52,5 +52,16 @@
 			<%= link_to 'Go Back to User List', users_path, :class => "lnk-button full" %>
 			<%= link_to 'Destroy User', @user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lnk-button full cancel" %>
 		</div>
+		
+		<% unless @user.emp_code.blank? %>
+		<h5>Citizen Issue Counts</h5>
+		<ul class="unstyled lined">
+		<% @employee_issued.each do |item|%>
+		<li class="text-right">
+			<%= item[0] %>
+			<div class="float-left"><%= item[1] %></div>
+		</li>
+		<% end %>
+		</ul>
 	</div>
 </div>
