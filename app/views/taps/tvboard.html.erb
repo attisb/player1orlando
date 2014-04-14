@@ -38,3 +38,21 @@
 
 </div>
 
+
+<script>
+		$(function() {
+		
+			$("#screen_liner > .slide:gt(0)").hide();
+	
+			setInterval(function() { 
+			  $('#screen_liner > .slide:first')
+			    .hide()
+			    .next()
+			    .show()
+			    .end()
+			    .appendTo('#screen_liner');
+			},  6000);
+			
+		});
+	</script>
+
