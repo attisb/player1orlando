@@ -1,6 +1,6 @@
 class DrinksController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
-  before_action :set_drink, only: [:show, :edit, :update, :destroy]
+  before_action :set_drink, only: [:show, :tvscreen, :edit, :update, :destroy]
 
   def index
     if params[:query].present?
@@ -15,6 +15,9 @@ class DrinksController < ApplicationController
       @user = User.find(current_user)
       @drink_rating = @user.ratings.where(:drink_id => @drink).first
     end
+  end
+
+  def tvscreen
   end
 
   def new

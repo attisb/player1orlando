@@ -31,7 +31,8 @@ Player1orlando::Application.routes.draw do
   get '/bartender_choice', to: 'pages#bartender_choice', as: 'bartender_choice_page'
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
 
-  get '/taps/tvboard', to: 'taps#tvboard', as: 'tvboard_page'
+  get '/tvboards/draft', to: 'taps#tvboard', as: 'tvboard_draft_page'
+  get '/tvboards/bottle/:id', to: 'drinks#tvscreen', as: 'tvboard_bottle_page'
 
   
   resources :users, :only => [:show, :index, :edit, :update, :destroy]
