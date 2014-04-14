@@ -1,6 +1,9 @@
 class DrinksController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_drink, only: [:show, :tvscreen, :edit, :update, :destroy]
+  
+  layout :resolve_layout
+  
 
   def index
     if params[:query].present?
@@ -65,6 +68,17 @@ class DrinksController < ApplicationController
     def drink_params
       params.require(:drink).permit(:name, :brewery, :abv, :description, :brewer_description, :price, :visible, :beer_style_id, :category_id, :call_out, :tracker, :drink_image, :image_tv, :remote_drink_image_url)
     end
+    
+    def resolve_layout
+      case action_name
+      when "tvscreen"
+        "tvscreen"
+      else
+        "application"
+      end
+    end
+    
+    
   
   
 end
