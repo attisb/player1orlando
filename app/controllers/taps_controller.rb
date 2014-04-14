@@ -2,7 +2,13 @@ class TapsController < ApplicationController
   before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
   before_action :set_defaults
 
+  layout :resolve_layout
+
   def index
+    @drinks = Drink.where(:visible => true)
+  end
+  
+  def tvboard
     @drinks = Drink.where(:visible => true)
   end
   
@@ -32,5 +38,15 @@ class TapsController < ApplicationController
     def set_defaults
       @total_taps = 36
     end
+    
+    def resolve_layout
+      case action_name
+      when "tvboard"
+        "tvscreen"
+      else
+        "application"
+      end
+    end
+    
   
 end

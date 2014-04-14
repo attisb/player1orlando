@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+<head>
+	<!-- Designed by Attis Bijlani dequark.com -->
+	<title><%= yield(:title) %>Player 1 Video Game Bar</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="description" content="Player 1 Orlando Video Game Bar. Beer, Games, and Music." />
+	<meta name="author" content="Attis Bijlani" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="/includes/apple-touch-icon.png" />
+
+    <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+    <%= csrf_meta_tags %>
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	
+	
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<!--[if lt IE 8]><link rel="stylesheet" href="/includes/ie7.css" type="text/css" charset="utf-8" /><![endif]-->
+
+<style type="text/css" media="screen">
+
+/* -------------------------------------------------
+	Reset
+------------------------------------------------- */
+*, *:before, *:after {
+	text-rendering: optimizeLegibility;
+	margin: 0; padding: 0;
+	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+	[hidden] { display: none; }
+
+	img {border: 0;}
+	html {font-size: 100.01%}
+	html, body {min-height: 100%;}
+	body, ul, ol, dl {margin: 0;}
+	textarea {resize: vertical;}
+	article, aside, audio, footer, header, nav, section, video {display: block;}
+	html { font-size: 100%;}
+	html, button, input, select, textarea { font-family: sans-serif; color: #000; }
+	body { margin: 0; font-size: 1em; line-height: 1.4; }
+	
+	/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
+	@import url(http://fonts.googleapis.com/css?family=Muli|Montserrat);
+
+	body, input, button {color: #000; font-family: 'Muli', Helvetica, Arial, sans-serif;}
+	body {font-size: 14px; line-height: 20px;}
+
+	p + p {margin-top: 10px;}
+	p.lead {font-size: 18px; line-height: 24px;}
+
+	strong, b {font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;}
+
+	.tiny {font-size: 10px;}
+	small, .small {font-size: 12px;}
+	.large {font-size: 18px;}
+	.float-left {float: left; margin-right: 20px;}
+	.float-right {float: right; margin-left: 20px;}
+	.text-left {text-align: left;}
+	.text-center {text-align: center;}
+	.text-right {text-align: right;}
+
+	h1, h2, h3, h4, h5, h6 {font: 16px/1.5 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; margin: 0; margin-bottom: 5px; text-transform: uppercase;}
+	h1 {font-size: 60px; line-height: 60px;}
+	h2 {font-size: 48px; line-height: 48px;}
+	h3 {font-size: 36px; line-height: 36px;}
+	h4 {font-size: 24px; line-height: 24px;}
+	h5 {font-size: 18px; line-height: 18px;}
+	h6 {font-size: 12px; line-height: 12px;}
+	h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {opacity: .5; line-height: 12px; font-size: 12px; display: block;}
+	h3 i {font-size: 80%;}
+
+	
+	body {background: #f6f8f8; color: #000;}
+	body.dark {background: #191e23; color: #ddd;}
+	.dark a {color: #60a8c0;}
+	.dark .hero {color: #fff;}
+	.dark header {background: #080d12; border-bottom: 1px solid rgba(255,255,255,.5); box-shadow: 0px 3px 3px #000;}
+	.dark header nav a {color: #fff;}
+	.dark header nav a:hover {color: #fff;}
+	.dark .link-black {color: #fff;}
+	.dark .full_btn {background: #CF532D; border-color: #dbdbdb}
+	.dark blockquote {border-color: #dbdbdb; color: #A5B3AD;}
+	.dark strong {color: #fff;}
+	.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {color: #fff;}
+	.dark h2 {color: #fff;}
+	.dark footer {margin-top: 100px; padding-top: 20px;}
+	.dark footer {background: #080d12; border-top: 1px solid rgba(255,255,255,.5); box-shadow: 0px -3px 3px #000;}
+	
+	
+
+#screen_liner {margin: auto; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+	width: 640px; height: 1200px;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+	
+.screen_header h1 {font-size: 140px; position: absolute; top: 0; left: 0; width: 200px; height: 200px; line-height: 170px; text-align: center; padding: 20px; background: #60a8c0;}
+.screen_header h2 {font-size: 80px; position: absolute; top: 0; right: 0px; width: 440px; height: 200px; line-height: 170px; text-align: right; padding: 20px;}
+#screen_liner img {position: absolute; top: 200px; left: 0;}
+.screen_brewery, .screen_style, .screen_abv, .screen_price, .screen_description h4 {font-size: 24px; position: absolute; line-height: 48px; text-align: center; padding: 0 12px;}
+.screen_description h4 {border: none; width: 640px; bottom: 120px; font-size: 36px; text-align: left;}
+.screen_brewery {display: block; overflow: hidden; white-space: nowrap; width: 640px; bottom: 48px; left: 0; text-align: left; font-size: 36px; line-height: 72px; border: none;}
+.screen_style {width: 420px; overflow: hidden; white-space: nowrap; bottom: 0; left: 0;}
+.screen_abv {width: 110px; bottom: 0; left: 420px; border-left: 1px solid rgba(255, 255,255,.5);}
+.screen_price {width: 110px; bottom: 0; left: 530px; border-left: 1px solid rgba(255, 255,255,.5);}
+	
+</style>
+
+<script>
+		$(function() {
+		
+			$("#screen_liner > .slide:gt(0)").hide();
+	
+			setInterval(function() { 
+			  $('#screen_liner > .slide:first')
+			    .hide()
+			    .next()
+			    .show()
+			    .end()
+			    .appendTo('#screen_liner');
+			},  6000);
+			
+		});
+	</script>
+
+</head>
+<body class="dark" id="screen_view">	
+
+<%= yield %>
+
+
+</body>
+</html>

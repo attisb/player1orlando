@@ -1,0 +1,40 @@
+<% title "What's on Tap" %>
+
+
+<div id="screen_liner">
+
+
+<% (1..@total_taps.to_i).each do |i| %>
+	<div class="slide">
+		<div class="screen_header">
+			<h1><%= i -%></h1>
+			<h2>draft</h2>
+		</div>
+
+		<% if @drinks.where(:tab_index => i).count > 0 %>
+			<% drink = @drinks.where(:tab_index => i).first %>
+
+			<%= image_tag drink.image_tv %>
+
+			<div class="screen_description">
+				<h4><%= drink.name -%></h4>
+				<div class="screen_brewery"><%= drink.brewery -%></div>
+				<div class="screen_style"><%= drink.beer_style.name -%></div>
+				<%= raw "<div class=\"screen_abv\">#{number_to_percentage drink.abv, precision: 2}</div>" unless drink.abv.blank? %>
+				<% if drink.price > 0 -%><div class="screen_price"><%= number_to_currency drink.price -%></div><% end -%>
+			</div>
+		<% else %>
+			<%= image_tag "/includes/tvboard_emptyline.png" %>
+			<div class="screen_description">
+				<h4>Sad Day</h4>
+				<div class="screen_brewery">Nothing on here today.</div>
+			</div>
+		<% end %>
+	</div>
+<% end %>
+			
+			
+
+
+</div>
+

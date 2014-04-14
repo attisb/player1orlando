@@ -30,6 +30,9 @@ Player1orlando::Application.routes.draw do
   get '/music', to: 'pages#music', as: 'music_page'
   get '/bartender_choice', to: 'pages#bartender_choice', as: 'bartender_choice_page'
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
+
+  get '/taps/tvboard', to: 'taps#tvboard', as: 'tvboard_page'
+
   
   resources :users, :only => [:show, :index, :edit, :update, :destroy]
   resources :katy_corners, :path => "katys"

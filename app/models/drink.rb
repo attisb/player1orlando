@@ -8,6 +8,7 @@ class Drink < ActiveRecord::Base
   validates :name, :brewery, :description, :price, :beer_style_id, :category_id, presence: true
   
   mount_uploader :drink_image, DrinkImageUploader
+  mount_uploader :image_tv, TvgraphicUploader
 
   def to_param
     [id, name.parameterize].join("-")
