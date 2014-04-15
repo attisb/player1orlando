@@ -18,6 +18,7 @@
 
 			<div class="screen_description">
 				<h4><%= drink.name -%></h4>
+				<div class="screen_notice">Subject to Availability</div>
 				<div class="screen_brewery"><%= drink.brewery -%></div>
 				<div class="screen_style"><%= drink.beer_style.name -%></div>
 				<%= raw "<div class=\"screen_abv\">#{number_to_percentage drink.abv, precision: 2}</div>" unless drink.abv.blank? %>
