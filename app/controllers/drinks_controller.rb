@@ -67,7 +67,7 @@ class DrinksController < ApplicationController
   def update_all
     params['drink'].keys.each do |id|
       @drink = Drink.find(id.to_i)
-      @drink.update_attributes(params['drink'][id])
+      @drink.update_attributes(drink_params(id))
     end
     redirect_to beverages_path
   end
