@@ -6,10 +6,38 @@ class Drink < ActiveRecord::Base
   has_many :trackers, dependent: :destroy
   
   validates :name, :brewery, :description, :price, :beer_style_id, :category_id, presence: true
+  validates :quick_style, :inclusion => BEER_STYLES
+  validates :dispense_type, :inclusion => DISPENSE_TYPE
   
   mount_uploader :drink_image, DrinkImageUploader
   mount_uploader :image_tv, TvgraphicUploader
 
+  BEER_STYLES = [
+    "amber ale",
+    "barleywine",
+    "belgian dark ale",
+    "belgian dubbel",
+    "belgian pale ale",
+    "belgian strong dark",
+    "belgian strong pale",
+    "belgian trippel",
+    "brown ale",
+    "hefeweizen",
+    "ipa",
+    "lambic",
+    "pale ale",
+    "pilsner-lager",
+    "porter-stout",
+    "saison-farmhouse ale",
+    "wheat beer-witbier-witte"
+  ]
+  
+  DISPENSE_TYPE = [
+    "can",
+    "bottle",
+    "draft"
+  ]
+  
   def to_param
     [id, name.parameterize].join("-")
   end
