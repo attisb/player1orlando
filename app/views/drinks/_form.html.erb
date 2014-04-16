@@ -32,12 +32,12 @@
 		<div class="field5-10"><%= f.label :drink_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
-		<div class="field4-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, options_for_select(Drink::BEER_STYLES, @drink.quick_style) %>
+		<div class="field3-10"><%= f.label :quick_style %>
+			<%= f.select :quick_style, options_for_select(Drink::BEER_STYLES, @drink.quick_style), :include_blank => true %>
 		</div>
 		
-		<div class="field1-10"><%= f.label :dispense_type %>
-			<%= f.select :quick_style, options_for_select(Drink::DISPENSE_TYPE, @drink.dispense_type) %>
+		<div class="field2-10"><%= f.label :dispense_type %>
+			<%= f.select :quick_style, options_for_select(Drink::DISPENSE_TYPE, @drink.dispense_type), :include_blank => true %>
 		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
