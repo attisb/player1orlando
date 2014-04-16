@@ -6,10 +6,10 @@
 <div class="dq-form">
     <% @drinks.each do |drink| %>
       <%= fields_for "drink[]", drink do |drink_fields| %>
-		<div class="field7-10"><%= drink_fields.text_field :name, :disabled => true %></div>
+		<div class="field6-10"><%= drink_fields.text_field :name, :disabled => true %></div>
 		<div class="field1-10"><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
-		<div class="field1-10"><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
-		<div class="field1-10"><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Tracker?" %></div>
+		<div class="field2-10"><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
+		<div class="field1-10"><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
       <% end %>
     <% end %>
 	<div class="dq-buttons">

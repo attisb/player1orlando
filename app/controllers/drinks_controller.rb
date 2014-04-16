@@ -1,5 +1,5 @@
 class DrinksController < ApplicationController
-  before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy]
+  before_filter :authenticate_admin!, only: [:new, :edit, :create, :update, :destroy, :update_all, :edit_all]
   before_action :set_drink, only: [:show, :tvscreen, :edit, :update, :destroy]
   
   layout :resolve_layout
