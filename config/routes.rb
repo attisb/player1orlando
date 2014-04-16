@@ -34,6 +34,9 @@ Player1orlando::Application.routes.draw do
   get '/tvboards/draft', to: 'taps#tvboard', as: 'tvboard_draft_page'
   get '/tvboards/bottle/:id', to: 'drinks#tvscreen', as: 'tvboard_bottle_page'
 
+  get '/drinks/all/edit', to: 'drinks#edit_all', as: 'edit_all_drinks'
+  put '/drinks/all', to: 'drinks#update_all', as: 'update_all_drinks'
+
   
   resources :users, :only => [:show, :index, :edit, :update, :destroy]
   resources :katy_corners, :path => "katys"

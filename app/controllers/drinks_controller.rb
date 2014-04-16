@@ -60,6 +60,10 @@ class DrinksController < ApplicationController
     end
   end
   
+  def edit_all
+    @drinks = Drink.all
+  end
+  
   private
     def set_drink
       @drink = Drink.find(params[:id])
