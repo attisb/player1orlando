@@ -32,7 +32,26 @@
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
 		<div class="field10-10"><%= f.label :quick_style %>
-			<%= f.collection_select(:quick_style, Drink::BEER_STYLES, :to_s) %>
+			<%= f.select :quick_style, [
+			    ["", 0],
+			    ["amber ale", 1],
+			    ["barleywine", 2],
+			    ["belgian dark ale", 3],
+			    ["belgian dubbel", 4],
+			    ["belgian pale ale", 5],
+			    ["belgian strong dark", 6],
+			    ["belgian strong pale", 7],
+			    ["belgian trippel", 8],
+			    ["brown ale", 9],
+			    ["hefeweizen", 10],
+			    ["ipa", 11],
+			    ["lambic", 12],
+			    ["pale ale", 13],
+			    ["pilsner-lager", 14],
+			    ["porter-stout", 15],
+			    ["saison-farmhouse ale", 16],
+			    ["wheat beer-witbier-witte" 17]
+			] %>
 		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
