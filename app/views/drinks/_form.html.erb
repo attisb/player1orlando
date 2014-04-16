@@ -28,29 +28,16 @@
 		<div class="field10-10"><%= f.label :beer_style_id %>
 			<%= f.select :beer_style_id, options_from_collection_for_select(BeerStyle.order("name"), "id",   "name", @drink.beer_style_id) %>
 		</div>
-		<div class="field10-10"><%= f.label :drink_category_id %>
+
+		<div class="field5-10"><%= f.label :drink_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
-		<div class="field10-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, options_for_select([
-			    "amber ale",
-			    "barleywine",
-			    "belgian dark ale",
-			    "belgian dubbel",
-			    "belgian pale ale",
-			    "belgian strong dark",
-			    "belgian strong pale",
-			    "belgian trippel",
-			    "brown ale",
-			    "hefeweizen", 
-			    "ipa", 
-			    "lambic", 
-			    "pale ale", 
-			    "pilsner-lager", 
-			    "porter-stout", 
-			    "saison-farmhouse ale", 
-			    "wheat beer-witbier-witte"
-			], @drink.quick_style) %>
+		<div class="field4-10"><%= f.label :quick_style %>
+			<%= f.select :quick_style, options_for_select(Drink.BEER_STYLES, @drink.quick_style) %>
+		</div>
+		
+		<div class="field1-10"><%= f.label :dispense_type %>
+			<%= f.select :quick_style, options_for_select(Drink.DISPENSE_TYPE, @drink.dispense_type) %>
 		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
