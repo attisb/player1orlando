@@ -81,6 +81,10 @@ class DrinksController < ApplicationController
       params.require(:drink).permit(:name, :brewery, :abv, :description, :brewer_description, :price, :visible, :beer_style_id, :category_id, :call_out, :tracker, :drink_image, :image_tv, :remote_drink_image_url)
     end
     
+    def drink_params(id)
+      params.require(:drink).fetch(id).permit(:name, :visible, :call_out, :tracker )
+    end
+    
     def resolve_layout
       case action_name
       when "tvscreen"
