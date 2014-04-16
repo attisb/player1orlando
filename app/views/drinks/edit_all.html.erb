@@ -6,14 +6,14 @@
 <div class="dq-form">
     <% @drinks.each do |drink| %>
       <%= fields_for "drink[]", drink do |drink_fields| %>
-		<div class="field10-10"><%= drink.name %> (<%= drink.dispense_type %>)</div>
+		<div class="field10-10"><h4><%= drink.name %> (<%= drink.dispense_type %>)</h4></div>
 
 		<div class="field5-10"><%= drink_fields.label :beer_style_id %>
 			<%= drink_fields.select :beer_style_id, options_from_collection_for_select(BeerStyle.order("name"), "id",   "name", drink.beer_style_id) %>
 		</div>
-		<div class="field2-10"><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
-		<div class="field2-10"><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
-		<div class="field1-10"><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
+		<div class="field2-10"><%= drink_fields.label :visible %><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
+		<div class="field2-10"><%= drink_fields.label :call_out %><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
+		<div class="field1-10"><%= drink_fields.label :tracker %><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
 		<br/>
       <% end %>
     <% end %>
