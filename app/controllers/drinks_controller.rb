@@ -64,6 +64,14 @@ class DrinksController < ApplicationController
     @drinks = Drink.all
   end
   
+  def update_all
+    params['drink'].keys.each do |id|
+      @drink = Drink.find(id.to_i)
+      @drink.update_attributes(params['drink'][id])
+    end
+    redirect_to(beverages_path), notice: 'All drinks was successfully updated.'
+  end
+  
   private
     def set_drink
       @drink = Drink.find(params[:id])
