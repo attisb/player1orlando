@@ -82,7 +82,7 @@ class DrinksController < ApplicationController
     end
     
     def drink_params_multi(id)
-      params.require(:drink).fetch(id).permit(:name, :visible, :call_out, :tracker )
+      params.require(:drink).fetch(id).permit(:name, :visible, :call_out, :tracker, :category_id )
     end
     
     def resolve_layout
