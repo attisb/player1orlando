@@ -6,7 +6,7 @@
 <div class="dq-form">
     <% @drinks.each do |drink| %>
       <%= fields_for "drink[]", drink do |drink_fields| %>
-		<div class="field10-10"><h4 class="mini-bottom-margin"><%= drink.name %> (<%= drink.dispense_type %>)</h4></div>
+		<div class="field10-10"><h4 class="mini-bottom-margin"><%= link_to drink.name, drink_path(drink) %> (<%= drink.dispense_type %>)</h4></div>
 
 		<div class="field5-10"><%= drink_fields.label :beer_style_id %>
 			<%= drink_fields.select :beer_style_id, options_from_collection_for_select(BeerStyle.order("name"), "id",   "name", drink.beer_style_id) %>
