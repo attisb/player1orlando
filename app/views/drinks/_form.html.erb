@@ -33,7 +33,7 @@
 		</div>
 		
 		<div class="field10-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, collection_select(:drink, :quick_style, Drink::BEER_STYLES, :to_s) %>
+			<%= f.collection_select(:drink, :quick_style, Drink::BEER_STYLES, :to_s) %>
 		</div>
 
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
