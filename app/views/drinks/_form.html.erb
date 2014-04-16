@@ -31,27 +31,6 @@
 		<div class="field10-10"><%= f.label :drink_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
-		<div class="field10-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, options_for_select([
-			    "amber ale",
-			    "barleywine",
-			    "belgian dark ale",
-			    "belgian dubbel",
-			    "belgian pale ale",
-			    "belgian strong dark",
-			    "belgian strong pale",
-			    "belgian trippel",
-			    "brown ale",
-			    "hefeweizen", 
-			    "ipa", 
-			    "lambic", 
-			    "pale ale", 
-			    "pilsner-lager", 
-			    "porter-stout", 
-			    "saison-farmhouse ale", 
-			    "wheat beer-witbier-witte"
-			]) %>
-		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
 		<div class="field10-10"><%= f.text_field :remote_drink_image_url, :placeholder => "Or image by remote URL" %></div>
