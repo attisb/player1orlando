@@ -67,7 +67,7 @@ class DrinksController < ApplicationController
   def update_all
     params['drink'].keys.each do |id|
       @drink = Drink.find(id.to_i)
-      @drink.update_attributes(drink_params(id))
+      @drink.update_attributes(drink_params_multi(id))
     end
     redirect_to beverages_path
   end
@@ -81,7 +81,7 @@ class DrinksController < ApplicationController
       params.require(:drink).permit(:name, :brewery, :abv, :description, :brewer_description, :price, :visible, :beer_style_id, :category_id, :call_out, :tracker, :drink_image, :image_tv, :remote_drink_image_url, :quick_style, :dispense_type)
     end
     
-    def drink_params(id)
+    def drink_params_multi(id)
       params.require(:drink).fetch(id).permit(:name, :visible, :call_out, :tracker )
     end
     
