@@ -32,7 +32,7 @@
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
 		<div class="field10-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, [
+			<%= f.select :quick_style, options_for_select([
 			    ["", 0],
 			    ["amber ale", 1],
 			    ["barleywine", 2],
@@ -51,7 +51,7 @@
 			    ["porter-stout", 15],
 			    ["saison-farmhouse ale", 16],
 			    ["wheat beer-witbier-witte" 17]
-			] %>
+			]) %>
 		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
