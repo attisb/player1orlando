@@ -61,7 +61,7 @@ class DrinksController < ApplicationController
   end
   
   def edit_all
-    @drinks = Drink.all
+    @drinks = Drink.order(:name).all
   end
   
   def update_all
