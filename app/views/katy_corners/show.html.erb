@@ -3,6 +3,8 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-book"></i> Katy's Corner<small>A little slice of gaming.</small></h2></div>
 	<div class="span8-12">
+		<p><%= link_to "Back to Katy's Corner", katy_corners_path -%></p>
+		
 		<h4><%= @katy_corner.title -%><small><%= @katy_corner.created_at.to_s(:long) -%></small></h4>
 		<%= render 'shared/social', url_pass: katy_corner_url(@katy_corner), title_page: @katy_corner.title %>
 
