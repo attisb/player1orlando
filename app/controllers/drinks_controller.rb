@@ -44,8 +44,6 @@ class DrinksController < ApplicationController
   end
   
   def update
-    @drink.quick_style.to_s
-    
     respond_to do |format|
       if @drink.update(drink_params)
         format.html { redirect_to edit_drink_path(@drink), notice: 'Drink was successfully updated.' }
