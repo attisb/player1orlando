@@ -78,7 +78,7 @@ class DrinksController < ApplicationController
     end
 
     def drink_params
-      params.require(:drink).permit(:name, :brewery, :abv, :description, :brewer_description, :price, :visible, :beer_style_id, :category_id, :call_out, :tracker, :drink_image, :image_tv, :remote_drink_image_url, :quick_style, :dispense_type)
+      params.require(:drink).permit(:name, :brewery, :abv, :description, :brewer_description, :quick_style, :dispense_type, :price, :visible, :beer_style_id, :category_id, :call_out, :tracker, :drink_image, :image_tv, :remote_drink_image_url)
     end
     
     def drink_params_multi(id)
