@@ -160,8 +160,12 @@ class RewardsController < ApplicationController
             end
           
             if params[:from_user].present?
+              new_point_balance = @user.lifetime_points + 3
+              @user.update(:lifetime_points => new_point_balance)
               redirect_to citizen_checkin_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
             else
+              new_point_balance = @user.lifetime_points + 3
+              @user.update(:lifetime_points => new_point_balance)
               redirect_to redeem_reward_path, notice: "Success: Valid Checkin '#{@user.first_name}'. "
             end
           end
