@@ -46,6 +46,7 @@
 					<%= link_to 'Show Call Out Drinks', hidden_beverages_path(:call_out => true), :class => "lnk-button full" %>
 					<%= link_to 'Show Tracker Drinks', hidden_beverages_path(:tracker => true), :class => "lnk-button full" %>
 					<%= link_to 'Edit All Drinks', edit_all_drinks_path, :class => "lnk-button full" %>
+					<%= link_to 'See All Hidden Items', hidden_beverages_path, :class => "lnk-button full" %>
 				</div>
 				
 				<!-- <h5>Hidden Categories</h5>
@@ -61,7 +62,7 @@
 						<li><strong><%= link_to drink.name, edit_drink_path(drink) -%></strong><br/>In <%= drink.category.name -%></li>
 					<% end %>
 				</ul> -->
-				<div class="text-right"><%= link_to "See All Hidden Items", hidden_beverages_path %></div>
+				<!-- <div class="text-right"><%= link_to "See All Hidden Items", hidden_beverages_path %></div> -->
 			<% else %>
 				<% if user_signed_in? %>
 				<h5>Not Tried Yet</h5>
