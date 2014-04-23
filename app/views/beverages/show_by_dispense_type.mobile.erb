@@ -7,7 +7,7 @@
 	<div class="span8-12">
 		<h4><%= @dispense_type_name[params[:dispense_type]] -%><small>Here is what we got.</small></h4>
 		
-		<ul class="unstyled lined pad">
+		<ul class="unstyled pad">
 			<% @drinks.where(:visible => true).order(name: :asc).each do |drink| %>
 				<% if drink.call_out? %>
 				<li class="callout_box">

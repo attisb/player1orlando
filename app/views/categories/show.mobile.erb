@@ -11,7 +11,7 @@
 	<div class="span12-12">
 		<h4><%= @category.name -%><small><%= @category.description -%></small></h4>
 		
-		<ul class="unstyled lined pad">
+		<ul class="unstyled pad">
 			<% if @category.area == "drinks" %>
 				<% @category.drinks.where(:visible => true).order(name: :asc).each do |drink| %>
 					<% if drink.call_out? %>
