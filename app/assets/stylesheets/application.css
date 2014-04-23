@@ -22,7 +22,7 @@ body {background: #f6f8f8; color: #000;}
 
 .pad-top {margin-top: 20px;}
 .pad-bottom {margin-bottom: 20px;}
-.callout_box {color: #fff; border-right: 5px solid #c02942;}
+.callout_box {color: #fff; border-right: 5px solid #c02942; padding-right: 5px;}
 .callout_box a {color: #fff !important;}
 .thumbnail-image {float: left; width: 70px; margin-right: 5px;}
 .thumbnail-image img {max-width: 70px; max-height: 50px;}
