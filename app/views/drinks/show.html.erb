@@ -133,7 +133,8 @@
 		
 
 		<div class="dq-buttons pad-bottom">
-			<%= link_to "See More #{@drink.category.name}", category_path(@drink.category), :class => "lnk-button full back" %>
+			<!-- <%= link_to "See More #{@drink.category.name}", category_path(@drink.category), :class => "lnk-button full back" %> -->
+			<%= link_to "See More Drinks", dispense_beverages_path(:dispense_type => @drink.dispense_type), :class => "lnk-button full back" %>
 		</div>
 		<%= render 'shared/whycraft' %>
 	</div>

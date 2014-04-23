@@ -13,15 +13,25 @@
 		
 		<% if @cat_type == "drinks" %>
 			<%= render 'shared/drink_search_form' %>
+
+			<ul class="unstyled pad">
+				<% @drink_update_styles.each do |name, value| %>
+					<li><strong class="large"><%= link_to name, update_beverages_path(:update_style => value) -%></strong></li>
+				<% end %>
+
+				<% @drink_dispense_styles.each do |name, value| %>
+					<li><strong class="large"><%= link_to name, dispense_beverages_path(:dispense_type => value) -%></strong></li>
+				<% end %>
+			</ul>
 		<% elsif @cat_type == "games" %>
 			<%= render 'shared/game_search_form' %>
+			<ul class="unstyled pad-top">
+				<% @categories.where(:visible => true).each do |category| %>
+					<li><strong class="large"><%= link_to category.name, category_path(category) -%></strong><p class="small"><%= category.description -%></p></li>
+				<% end %>
+			</ul>
 		<% end %>
 		
-		<ul class="unstyled pad-top">
-			<% @categories.where(:visible => true).each do |category| %>
-				<li><strong class="large"><%= link_to category.name, category_path(category) -%></strong><p class="small"><%= category.description -%></p></li>
-			<% end %>
-		</ul>
 	</div>
 
 </div>

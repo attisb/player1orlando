@@ -16,7 +16,7 @@
 		
 		<h5>Admin Options</h5>
 		<div class="dq-buttons">
-			<%= link_to 'Go Back to Categories', category_path(@drink.category), :class => "lnk-button full" %>
+			<!-- <%= link_to 'Go Back to Categories', category_path(@drink.category), :class => "lnk-button full" %> -->
 			<%= link_to 'Back to Update Group', dispense_beverages_path(@drink.quick_style), :class => "lnk-button full" %>
 			<%= link_to 'Back to Dispense Group', update_beverages_path(@drink.dispense_type), :class => "lnk-button full" %>
 			<%= link_to 'Destroy Drink', @drink, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lnk-button full cancel" %>
