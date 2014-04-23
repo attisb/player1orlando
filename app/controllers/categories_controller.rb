@@ -48,8 +48,7 @@ class CategoriesController < ApplicationController
   end
   
   def show_by_dispense_type
-    @dispense_type_name = Drink::DISPENSE_TYPE
-    @dispense_type_name.invert
+    @dispense_type_name = Drink::DISPENSE_TYPE.invert
     @drinks = Drink.where(:dispense_type => params[:dispense_type]).order(name: :asc)
     if admin_signed_in?
       if @cat_type == "drinks"
