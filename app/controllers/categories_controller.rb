@@ -5,6 +5,11 @@ class CategoriesController < ApplicationController
   def index
     @cat_type = params[:area]
     
+    if params[:area] == "drinks"
+      @drink_dispense_styles = Drink::DISPENSE_TYPE
+      @drink_update_styles = Drink::UPDATE_STYLES
+    end
+    
     @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
     if admin_signed_in?
       if @cat_type == "drinks"

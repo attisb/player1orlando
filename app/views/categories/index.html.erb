@@ -13,6 +13,16 @@
 		
 		<% if @cat_type == "drinks" %>
 			<%= render 'shared/drink_search_form' %>
+
+			
+			<% if admin_signed_in? %>
+			<ul class="unstyled">
+				<% @drink_dispense_styles.each do |name, value| %>
+					<li><strong class="large"><%= link_to name, beverages_path(:dispense_type => value) -%></strong></li>
+				<% end %>
+			</ul>
+			<% end %>
+
 		<% elsif @cat_type == "games" %>
 			<%= render 'shared/game_search_form' %>
 		<% end %>

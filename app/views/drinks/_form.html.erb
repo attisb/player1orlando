@@ -32,8 +32,8 @@
 		<div class="field5-10"><%= f.label :drink_category_id %>
 			<%= f.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", @drink.category_id) %>
 		</div>
-		<div class="field3-10"><%= f.label :quick_style %>
-			<%= f.select :quick_style, options_for_select(Drink::BEER_STYLES, @drink.quick_style), :include_blank => true %>
+		<div class="field3-10"><%= f.label :quick_style, "Update Style" %>
+			<%= f.select :quick_style, options_for_select(Drink::UPDATE_STYLES, @drink.quick_style), :include_blank => true %>
 		</div>
 		
 		<div class="field2-10"><%= f.label :dispense_type %>

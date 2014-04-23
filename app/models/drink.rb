@@ -10,30 +10,21 @@ class Drink < ActiveRecord::Base
   mount_uploader :drink_image, DrinkImageUploader
   mount_uploader :image_tv, TvgraphicUploader
 
-  BEER_STYLES = [
-    "amber ale",
-    "barleywine",
-    "belgian dark ale",
-    "belgian dubbel",
-    "belgian pale ale",
-    "belgian strong dark",
-    "belgian strong pale",
-    "belgian trippel",
-    "brown ale",
-    "hefeweizen",
-    "ipa",
-    "lambic",
-    "pale ale",
-    "pilsner-lager",
-    "porter-stout",
-    "saison-farmhouse ale",
-    "wheat beer-witbier-witte"
-  ]
+  UPDATE_STYLES = {
+    "New Draft Drink" => "1",
+    "New Craft Bottle & Can Drink" => "2",
+    "New Other Type of Drink" => "3",
+    "Existing Drink" => "4"
+  }
   
   DISPENSE_TYPE = {
-    "Can" => "1",
-    "Bottle" => "2",
-    "Draft" => "3"
+    "Draft" => "1",
+    "Craft Bottle & Cans" => "2",
+    "Mixed Drink" => "3",
+    "Non-Alcoholic" => "4",
+    "Energy Drinks" => "5",
+    "Meads & Sake" => "6",
+    "Wines & Ciders" => "7"
   }
   
   def to_param
