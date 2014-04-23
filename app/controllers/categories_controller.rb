@@ -47,18 +47,6 @@ class CategoriesController < ApplicationController
     end
   end
   
-  def show_by_dispense_type
-    @dispense_type_name = Drink::DISPENSE_TYPE.invert
-    @drinks = Drink.where(:dispense_type => params[:dispense_type]).order(name: :asc)
-    if admin_signed_in?
-      if @cat_type == "drinks"
-        @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
-      else
-        @all_hidden = Game.where(:visible => false).order(name: :asc).limit(10)
-      end
-    end
-  end
-
   def new
     @category = Category.new(:area => params[:area], :visible => true)
   end
