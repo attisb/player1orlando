@@ -11,7 +11,7 @@
 	<div class="span12-12">
 		<h4><%= @category.name -%><small><%= @category.description -%></small></h4>
 		
-		<ul class="unstyled lined">
+		<ul class="unstyled lined pad">
 			<% if @category.area == "drinks" %>
 				<% @category.drinks.where(:visible => true).order(name: :asc).each do |drink| %>
 					<% if drink.call_out? %>
@@ -19,7 +19,7 @@
 					<% else %>
 					<li>
 					<% end %>
-						<strong class="large"><div class="thumbnail-image text-center"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%></strong><p><div class="float-right"><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div><%= drink.beer_style.name -%></p>
+						<strong class="large"><div class="thumbnail-image text-center"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%></strong><div><div class="float-right"><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div><%= drink.beer_style.name -%></div>
 					</li>
 				<% end %>
 			<% elsif @category.area == "games" %>
