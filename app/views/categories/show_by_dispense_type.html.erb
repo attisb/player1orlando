@@ -1,0 +1,59 @@
+<% title @category.name %>
+
+<!-- Standard Content -->
+<div class="content">
+	<% if @category.area == "drinks" %>
+		<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
+	<% elsif @category.area == "games" %>
+		<div class="span12-12"><h2><i class="fa fa-gamepad"></i> Games<small>Achievement Unlocked!</small></h2></div>
+	<% end %>
+	
+	<div class="span8-12">
+		<h4><%= @dispense_type_name[params[:dispense_type]] -%><small>Here is what we got.</small></h4>
+		
+		<ul class="unstyled">
+			<% @drinks.where(:visible => true).order(name: :asc).each do |drink| %>
+				<% if drink.call_out? %>
+				<li class="callout_box">
+				<% else %>
+				<li>
+				<% end %>
+					<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><%= simple_format drink.description -%>
+					<% if admin_signed_in? -%><div class="text-right">Image: <%= drink.drink_image? -%> | Average Rating: <%= raw star_view drink.average_rating -%> | <%= link_to 'Edit', edit_drink_path(drink) %> | <%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div class="span4-12">
+		<%= render 'shared/drink_search_form' %>
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'Go Back to Categories', beverages_path, :class => "lnk-button full back" %>
+
+				<%= link_to 'Add New Drink to this Category', new_drink_path(:category_id => 3), :class => "lnk-button full pad-space new" %>
+			</div>
+			<h5>Hidden Drinks</h5>
+			<ul class="unstyled lined">
+				<% @drinks.where(:visible => false).each do |drink| %>
+					<li><strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
+				<% end %>
+			</ul>
+			
+			<h5>All Hidden Drinks</h5>
+			<ul class="unstyled lined">
+				<% @all_hidden.each do |drink| %>
+					<li><strong><%= link_to drink.name, edit_drink_path(drink) -%></strong><br/>In <%= drink.category.name -%></li>
+				<% end %>
+			</ul>
+			<div class="text-right"><%= link_to "See All Hidden Items", hidden_beverages_path %></div>
+		<% else %>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'Go Back', beverages_path, :class => "lnk-button full" %>
+			</div>
+			<%= render 'shared/whycraft' %>
+		<% end %>
+	</div>
+	
+</div>
