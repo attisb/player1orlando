@@ -14,7 +14,7 @@
 				<% else %>
 				<li>
 				<% end %>
-					<strong class="large"><div class="thumbnail-image text-center"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><p><div class="float-right"><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div><%= drink.beer_style.name -%></p>
+					<strong class="large"><div class="thumbnail-image text-center"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><div><div class="float-right"><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div><%= drink.beer_style.name -%></div>
 				</li>
 			<% end %>
 		</ul>
