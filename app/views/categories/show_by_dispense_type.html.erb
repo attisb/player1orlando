@@ -5,7 +5,7 @@
 	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
 	
 	<div class="span8-12">
-		<h4><%= params[:dispense_type] -%><small>Here is what we got.</small></h4>
+		<h4><%= @dispense_type_name[params[:dispense_type].to_i] -%><small>Here is what we got.</small></h4>
 		
 		<%= @dispense_type_name %>
 		
