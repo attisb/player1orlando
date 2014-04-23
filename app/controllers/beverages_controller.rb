@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class BeveragesController < ApplicationController
   
   def index
     @drink_dispense_styles = Drink::DISPENSE_TYPE
