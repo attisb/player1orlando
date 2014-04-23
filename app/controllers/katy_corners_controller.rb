@@ -52,7 +52,7 @@ class KatyCornersController < ApplicationController
     end
 
     def katy_corner_params
-      params.require(:katy_corner).permit(:title, :brief, :body_document, :image1, :image2, :image3, :image4, :image5, :image6, :image7)
+      params.require(:katy_corner).permit(:title, :brief, :body_document, :image1, :image2, :image3, :image4, :image5, :image6, :image7, :game_score)
     end
 
 end
