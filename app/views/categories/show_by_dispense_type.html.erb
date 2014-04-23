@@ -2,11 +2,7 @@
 
 <!-- Standard Content -->
 <div class="content">
-	<% if @category.area == "drinks" %>
-		<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
-	<% elsif @category.area == "games" %>
-		<div class="span12-12"><h2><i class="fa fa-gamepad"></i> Games<small>Achievement Unlocked!</small></h2></div>
-	<% end %>
+	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
 	
 	<div class="span8-12">
 		<h4><%= @dispense_type_name[params[:dispense_type]] -%><small>Here is what we got.</small></h4>
