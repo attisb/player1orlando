@@ -20,6 +20,7 @@ class Drink < ActiveRecord::Base
   DISPENSE_TYPE = {
     "Draft" => "draft",
     "Craft Bottle & Cans" => "bottles-cans",
+    "Bombers" => "bombers",
     "Mixed Drink" => "mixed-drinks",
     "Non-Alcoholic" => "non-alcoholic",
     "Energy Drinks" => "energy-drinks",
