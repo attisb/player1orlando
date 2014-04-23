@@ -8,12 +8,12 @@
       <%= fields_for "drink[]", drink do |drink_fields| %>
 		<div class="field10-10"><h4 class="mini-bottom-margin"><%= link_to drink.name, edit_drink_path(drink) %> (<%= drink.dispense_type %>)</h4></div>
 
-		<div class="field5-10"><%= drink_fields.label :drink_category_id %>
-			<%= drink_fields.select :category_id, options_from_collection_for_select(Category.where(:area => "drinks").order("name"), "id",   "name", drink.category_id) %>
+		<div class="field4-10"><%= drink_fields.label :drink_quick_style %>
+			<%= drink_fields.select :quick_style, options_for_select(Drink::UPDATE_STYLES, drink.quick_style) %>
 		</div>
 		<div class="field2-10"><%= drink_fields.label :visible %><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
 		<div class="field2-10"><%= drink_fields.label :call_out %><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
-		<div class="field1-10"><%= drink_fields.label :tracker %><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
+		<div class="field2-10"><%= drink_fields.label :tracker %><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
 		<div class="field10-10">&nbsp;</div>
       <% end %>
     <% end %>
