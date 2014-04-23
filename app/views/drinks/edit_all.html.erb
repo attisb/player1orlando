@@ -7,17 +7,18 @@
     <% @drinks.each do |drink| %>
       <%= fields_for "drink[]", drink do |drink_fields| %>
 
-		<div class="field6-10"><%= drink_fields.text_field :name, :placeholder => "Drink Name" %></div>
-		<div class="field2-10"><%= drink_fields.number_field :price, :placeholder => "Price", :step => "any" %></div>
-		<div class="field2-10"><%= link_to "Edit", edit_drink_path(drink) %></div>
+		<div class="field8-10"><%= drink_fields.text_field :name, :placeholder => "Drink Name" %></div>
+		<div class="field2-10 text-right large"><strong><%= link_to "Edit This Drink", edit_drink_path(drink) %></strong></div>
 
-		<div class="field5-10">
+		<div class="field6-10">
 			<%= drink_fields.select :quick_style, options_for_select(Drink::UPDATE_STYLES, drink.quick_style), :include_blank => true %>
 		</div>
-		<div class="field5-10">
+		<div class="field2-10"><%= drink_fields.number_field :price, :placeholder => "Price", :step => "any" %></div>
+		<div class="field2-10"><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
+
+		<div class="field6-10">
 			<%= drink_fields.select :dispense_type, options_for_select(Drink::DISPENSE_TYPE, drink.dispense_type), :include_blank => true %>
 		</div>
-		<div class="field2-10"><%= drink_fields.check_box :visible %><%= drink_fields.label :visible, "Visible?" %></div>
 		<div class="field2-10"><%= drink_fields.check_box :call_out %><%= drink_fields.label :call_out, "Call Out?" %></div>
 		<div class="field2-10"><%= drink_fields.check_box :tracker %><%= drink_fields.label :tracker, "Track?" %></div>
 		<div class="field10-10">&nbsp;</div>
