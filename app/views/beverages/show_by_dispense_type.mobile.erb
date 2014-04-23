@@ -14,7 +14,7 @@
 				<% else %>
 				<li>
 				<% end %>
-					<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><%= simple_format drink.description -%>
+					<strong class="large"><div class="thumbnail-image"><%= image_tag drink.drink_image.thumb -%></div>  <%= link_to drink.name, drink_path(drink) -%><div class="small"><%= drink.brewery -%></div></strong><%= simple_format drink.beer_style.name -%>
 				</li>
 			<% end %>
 		</ul>
