@@ -37,7 +37,7 @@
 		</div>
 		
 		<div class="field2-10"><%= f.label :dispense_type %>
-			<%= f.select :dispense_type, options_for_select(Drink::DISPENSE_TYPE, @drink.dispense_type.to_s), :include_blank => true %>
+			<%= f.select :dispense_type, options_for_select(Drink::DISPENSE_TYPE, @drink.dispense_type), :include_blank => true %>
 		</div>
 		
 		<div class="field10-10"><%= f.label :drink_image -%><%= f.file_field :drink_image, :placeholder => "Drink Image" %></div>
