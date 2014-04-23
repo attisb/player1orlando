@@ -16,7 +16,9 @@ Player1orlando::Application.routes.draw do
   get '/d/:code/:user_id', to: 'rewards#user_redeem', as: 'user_redeem'
   
   get '/beverages/', to: 'categories#index', as: 'beverages', :defaults => { :area => 'drinks' }
-  get '/beverages/dispense/:dispense_type', to: 'categories#show_by_dispense_type', as: 'dispense_beverages', :defaults => { :area => 'drinks' }
+
+  get '/beverages/dispense/:dispense_type', to: 'beverages#show_by_dispense_type', as: 'dispense_beverages'
+
   get '/beverages/hidden', to: 'categories#allhidden', as: 'hidden_beverages', :defaults => { :area => 'drinks' }
   get '/play/', to: 'categories#index', as: 'play', :defaults => { :area => 'games' }
   get '/play/hidden', to: 'categories#allhidden', as: 'hidden_play', :defaults => { :area => 'games' }
