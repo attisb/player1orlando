@@ -23,8 +23,6 @@ body {background: #f6f8f8; color: #000;}
 .pad-top {margin-top: 20px;}
 .pad-bottom {margin-bottom: 20px;}
 .callout_box {background: #000; color: #fff;}
-.callout_box p {margin-bottom: 0;}
-.callout_box ul {margin-bottom: 0;}
 .callout_box a {color: #fff !important;}
 .thumbnail-image {float: left; width: 70px; margin-right: 5px;}
 .thumbnail-image img {max-width: 70px; max-height: 50px;}
