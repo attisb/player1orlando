@@ -7,8 +7,8 @@
     <% @drinks.each do |drink| %>
       <%= fields_for "drink[]", drink do |drink_fields| %>
 
-		<div class="field6-10"><%= f.text_field :name, :placeholder => "Drink Name" %></div>
-		<div class="field2-10"><%= f.label :price %><%= f.number_field :price, :placeholder => "Price", :step => "any" %></div>
+		<div class="field6-10"><%= drink_fields.text_field :name, :placeholder => "Drink Name" %></div>
+		<div class="field2-10"><%= drink_fields.number_field :price, :placeholder => "Price", :step => "any" %></div>
 		<div class="field2-10"><%= link_to "Edit", edit_drink_path(drink) %></div>
 
 		<div class="field5-10">
