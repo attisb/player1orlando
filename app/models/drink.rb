@@ -11,20 +11,20 @@ class Drink < ActiveRecord::Base
   mount_uploader :image_tv, TvgraphicUploader
 
   UPDATE_STYLES = {
-    "New Draft Drink" => "1",
-    "New Craft Bottle & Can Drink" => "2",
-    "New Other Type of Drink" => "3",
+    "New Draft Drink" => "new-draft",
+    "New Craft Bottle & Can Drink" => "new-bottle",
+    "New Other Type of Drink" => "new-other",
     "Existing Drink" => "4"
   }
   
   DISPENSE_TYPE = {
-    "Draft" => "1",
-    "Craft Bottle & Cans" => "2",
-    "Mixed Drink" => "3",
-    "Non-Alcoholic" => "4",
-    "Energy Drinks" => "5",
-    "Meads & Sake" => "6",
-    "Wines & Ciders" => "7"
+    "Draft" => "draft",
+    "Craft Bottle & Cans" => "bottles-cans",
+    "Mixed Drink" => "mixed-drinks",
+    "Non-Alcoholic" => "non-alcoholic",
+    "Energy Drinks" => "energy-drinks",
+    "Meads & Sake" => "meads-sakes",
+    "Wines & Ciders" => "wines-ciders"
   }
   
   def to_param
