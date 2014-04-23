@@ -1,11 +1,11 @@
-<% title @dispense_type_name[params[:dispense_type]] %>
+<% title @update_style_name[params[:update_style]] %>
 
 <!-- Standard Content -->
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
 	
 	<div class="span8-12">
-		<h4><%= @dispense_type_name[params[:dispense_type]] -%><small>Here is what we got.</small></h4>
+		<h4><%= @update_style_name[params[:update_style]] -%><small>Here is what we got.</small></h4>
 		
 		<ul class="unstyled">
 			<% @drinks.where(:visible => true).order(name: :asc).each do |drink| %>
@@ -28,7 +28,7 @@
 			<div class="dq-buttons pad-bottom">
 				<%= link_to 'Go Back to Categories', beverages_path, :class => "lnk-button full back" %>
 
-				<%= link_to 'Add New Drink', new_drink_path(:dispense_type => params[:dispense_type]), :class => "lnk-button full pad-space new" %>
+				<%= link_to 'Add New Drink', new_drink_path(:update_style => params[:update_style]), :class => "lnk-button full pad-space new" %>
 			</div>
 			<h5>Hidden Drinks</h5>
 			<ul class="unstyled lined">
