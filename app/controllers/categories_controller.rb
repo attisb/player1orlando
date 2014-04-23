@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
     
     if params[:area] == "drinks"
       @drink_dispense_styles = Drink::DISPENSE_TYPE
-      @drink_update_styles = Drink::UPDATE_STYLES.except("4")
+      @drink_update_styles = Drink::UPDATE_STYLES.except!("4")
     end
     
     @categories = Category.where(:area => params[:area]).order(order: :asc, name: :asc)
