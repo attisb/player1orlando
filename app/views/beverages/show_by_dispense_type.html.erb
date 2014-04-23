@@ -30,7 +30,7 @@
 			<div class="dq-buttons pad-bottom">
 				<%= link_to 'Go Back to Categories', beverages_path, :class => "lnk-button full back" %>
 
-				<%= link_to 'Add New Drink to this Category', new_drink_path(:category_id => 3), :class => "lnk-button full pad-space new" %>
+				<%= link_to 'Add New Drink to this Category', new_drink_path(:dispense_type => params[:dispense_type]), :class => "lnk-button full pad-space new" %>
 			</div>
 			<h5>Hidden Drinks</h5>
 			<ul class="unstyled lined">
