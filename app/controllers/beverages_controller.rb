@@ -15,7 +15,7 @@ class BeveragesController < ApplicationController
   
   def show_by_update_style
     @update_style_name = Drink::UPDATE_STYLES.invert
-    @drinks = Drink.where(:dispense_type => params[:dispense_type]).order(name: :asc)
+    @drinks = Drink.where(:update_style => params[:update_style]).order(name: :asc)
     if admin_signed_in?
       @all_hidden = Drink.where(:visible => false).order(name: :asc).limit(10)
     end
