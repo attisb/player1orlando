@@ -11,55 +11,17 @@
 		<%= simple_format @katy_corner.body_document.gsub(/##IMAGE1/i, image_tag(@katy_corner.image1, :class => "fullwidth_image") ).gsub(/##IMAGE2/i, image_tag(@katy_corner.image2, :class => "fullwidth_image")).gsub(/##IMAGE3/i, image_tag(@katy_corner.image3, :class => "fullwidth_image")).gsub(/##IMAGE4/i, image_tag(@katy_corner.image4, :class => "fullwidth_image")).gsub(/##IMAGE5/i, image_tag(@katy_corner.image5, :class => "fullwidth_image")).gsub(/##IMAGE6/i, image_tag(@katy_corner.image6, :class => "fullwidth_image")).gsub(/##IMAGE7/i, image_tag(@katy_corner.image7, :class => "fullwidth_image")) %>
 		
 		<% unless @katy_corner.game_score.blank? %>
-			<% if @katy_corner.game_score == 0 %>
-			<h4>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-			</h4>
-			<% elsif @katy_corner.game_score == 1 %>
-			<h4>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-			</h4>
-			<% elsif @katy_corner.game_score == 2 %>
-			<h4>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-			</h4>
-			<% elsif @katy_corner.game_score == 3 %>
-			<h4>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-			</h4>
-			<% elsif @katy_corner.game_score == 4 %>
-			<h4>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer" style="opacity: 0.5;"></i>
-			</h4>
-			<% elsif @katy_corner.game_score == 5 %>
-			<h4>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-				<i class="fa fa-beer"></i>
-			</h4>
+			<h3>
+				Beer Tap Rating: 
+				<% 5.times do |i| %>
+					<% if i <= @katy_corner.game_score %>
+						<i class="fa fa-beer"></i>
+					<% else %>
+						<i class="fa fa-minus"></i>
+					<% end %>
+				<% end %>
 			<% end %>
+			</h3>
 		<% end %>
 	</div>
 	
