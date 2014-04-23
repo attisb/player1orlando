@@ -17,6 +17,10 @@
 			
 			<% if admin_signed_in? %>
 			<ul class="unstyled pad">
+				<% @drink_update_styles.each do |name, value| %>
+					<li><strong class="large"><%= link_to name, update_beverages_path(:update_style => value) -%></strong></li>
+				<% end %>
+
 				<% @drink_dispense_styles.each do |name, value| %>
 					<li><strong class="large"><%= link_to name, dispense_beverages_path(:dispense_type => value) -%></strong></li>
 				<% end %>
