@@ -30,11 +30,11 @@ class Drink < ActiveRecord::Base
     "wheat beer-witbier-witte"
   ]
   
-  DISPENSE_TYPE = [{
+  DISPENSE_TYPE = {
     "Can" => "1",
     "Bottle" => "2",
     "Draft" => "3"
-  }]
+  }
   
   def to_param
     [id, name.parameterize].join("-")
