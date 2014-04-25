@@ -1,9 +1,8 @@
-<div class="span12-12"><h2><i class="fa fa-beer"></i> Drinks<small>Gaming without poitions...wrong.</small></h2></div>
-<div class="span12-12"><h4><%= @dispense_type_name[params[:dispense_type]] -%></h4></div>
+<div class="span12-12"><h2><i class="fa fa-beer"></i> INSERT LOGO</h2></div>
+<div class="span12-12"><h2><%= @dispense_type_name[params[:dispense_type]] -%><small>Subject to Availability</small></h2></div>
+<div class="span12-12"><h4>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried.</h4></div>
 
 <div class="span12-12">
-	<h4><%= @dispense_type_name[params[:dispense_type]] -%><small>Here is what we got.</small></h4>
-	
 	<ul class="unstyled pad pad-top showlines">
 		<% @drinks.order(name: :asc).each do |drink| %>
 			<li>
