@@ -4,7 +4,7 @@
 	header, footer, nav {display: none !important;}
 	.showlines li {border-top: 1px solid #000 !important;}
 	.pad.showlines {padding: 0 5px !important;}
-	li {page-break-inside: avoid !important;}
+	li, .nobreak {page-break-inside: avoid !important;}
 </style>
 
 <div class="span12-12"><h2><i class="fa fa-beer"></i> INSERT LOGO</h2></div>
@@ -12,10 +12,11 @@
 <div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried.</h5></div>
 
 <div class="span12-12">
-	<ul class="unstyled pad pad-top showlines">
+	<ul class="unstyled pad pad-top">
 		<% if @drinks.count >= 40 %>
 			<% @drinks.order(name: :asc).each do |drink| %>
 				<li>
+					<div class="nobreak">
 					<strong>
 						<div class="float-right">ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 						<%= drink.name -%>
@@ -24,11 +25,13 @@
 						<div class="float-right"><%= drink.beer_style.name -%></div>
 						<%= drink.brewery -%>
 					</div>
+					</div>
 				</li>
 			<% end %>
 		<% else %>
 			<% @drinks.order(name: :asc).each do |drink| %>
 				<li>
+					<div class="nobreak">
 					<strong class="large">
 						<div class="float-right">ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 						<%= drink.name -%>
@@ -36,6 +39,7 @@
 					<div>
 						<div class="float-right"><%= drink.beer_style.name -%></div>
 						<%= drink.brewery -%>
+					</div>
 					</div>
 				</li>
 			<% end %>
