@@ -198,6 +198,7 @@ body.light {background: #e6e8e8;}
 	}
 	
 	@media print {
+		body.dark {background: #fff !important; color: #000 !important;}
 		body {color: #000 !important;}
 		header, footer, nav {display: none !important;}
 		.showlines li {border-top: 1px solid #000 !important;}
