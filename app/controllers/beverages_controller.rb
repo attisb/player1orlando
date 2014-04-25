@@ -1,4 +1,5 @@
 class BeveragesController < ApplicationController
+  layout "print", :only => [ :show_by_printable ]
   
   def index
     @drink_dispense_styles = Drink::DISPENSE_TYPE
