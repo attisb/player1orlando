@@ -4,7 +4,7 @@
 
 <div class="span12-12">
 	<ul class="unstyled pad pad-top showlines">
-		<% if @drink.count >= 40 %>
+		<% if @drinks.count >= 40 %>
 			<% @drinks.order(name: :asc).each do |drink| %>
 				<li>
 					<strong>
