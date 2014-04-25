@@ -31,4 +31,13 @@ class BeveragesController < ApplicationController
     end
   end
   
+  def show_by_printable
+    @dispense_type_name = Drink::DISPENSE_TYPE.invert
+    if @dispense_type_name[params[:dispense_type]].blank?
+      redirect_to beverages_path
+    else    
+      @drinks = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type]).order(name: :asc)
+    end    
+  end
+  
 end

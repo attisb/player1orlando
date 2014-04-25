@@ -24,7 +24,7 @@ class DrinksController < ApplicationController
   end
 
   def new
-    @drink = Drink.new(:category_id => params[:category_id], :dispense_type => params[:dispense_type], :visible => true)
+    @drink = Drink.new(:category_id => params[:category_id], :dispense_type => params[:dispense_type], :quick_style => params[:update_style], :visible => true)
   end
   
   def create
