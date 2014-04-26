@@ -25,145 +25,162 @@
 	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<!--[if lt IE 8]><link rel="stylesheet" href="/includes/ie7.css" type="text/css" charset="utf-8" /><![endif]-->
 
-<style type="text/css" media="screen, print">
+	<style type="text/css" media="screen, print">
 
-/* -------------------------------------------------
-	Reset
-------------------------------------------------- */
-*, *:before, *:after {
-	text-rendering: optimizeLegibility;
-	margin: 0; padding: 0;
-	-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
-}
-
-	html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
-	[hidden] { display: none; }
-
-	img {border: 0;}
-	html {font-size: 100.01%}
-	html, body {min-height: 100%;}
-	body, ul, ol, dl {margin: 0;}
-	textarea {resize: vertical;}
-	article, aside, audio, footer, header, nav, section, video {display: block;}
-	html { font-size: 100%;}
-	html, button, input, select, textarea { font-family: sans-serif; color: #000; }
-	body { margin: 0; font-size: 1em; line-height: 1.4; }
-	
-	/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
-	@import url(http://fonts.googleapis.com/css?family=Muli|Montserrat);
-
-	body, input, button {color: #000; font-family: 'Muli', Helvetica, Arial, sans-serif;}
-	body {font-size: 14px; line-height: 20px;}
-
-	p + p {margin-top: 10px;}
-	p.lead {font-size: 18px; line-height: 24px;}
-
-	strong, b {font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;}
-
-	.tiny {font-size: 10px;}
-	small, .small {font-size: 12px;}
-	.large {font-size: 18px;}
-	.float-left {float: left; margin-right: 20px;}
-	.float-right {float: right; margin-left: 20px;}
-	.text-left {text-align: left;}
-	.text-center {text-align: center;}
-	.text-right {text-align: right;}
-	
-	.pad-top {margin-top: 20px;}
-	.pad-bottom {margin-bottom: 20px;}
-	
-
-	h1, h2, h3, h4, h5, h6 {font: 16px/1.5 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; margin: 0; margin-bottom: 5px; text-transform: uppercase;}
-	h1 {font-size: 60px; line-height: 60px;}
-	h2 {font-size: 48px; line-height: 48px;}
-	h3 {font-size: 36px; line-height: 36px;}
-	h4 {font-size: 24px; line-height: 24px;}
-	h5 {font-size: 18px; line-height: 18px;}
-	h6 {font-size: 12px; line-height: 12px;}
-	h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {opacity: .5; line-height: 12px; font-size: 12px; display: block;}
-	h3 i {font-size: 80%;}
-	
-	ul, ol {margin: 0 0 10px 24px;}
-	ul ul, ol ol, ul ol, ol ul {margin-bottom: 0;}
-	ul.unstyled {list-style: none; margin-left: 0px;}
-	ul.pad li {margin-bottom: 20px;}
-	ul.lined li {padding: 3px;}
-	ul.lined li:nth-child(even) {background: rgba(0,0,0,.1);}
-
-	.content {
-		margin: 0 auto; padding: 0; min-width: 760px; max-width: 1000px;
-		*width: 760px;
-		*word-spacing: -0.43em;
-		text-rendering: auto;
+	/* -------------------------------------------------
+		Reset
+	------------------------------------------------- */
+	*, *:before, *:after {
+		text-rendering: optimizeLegibility;
+		margin: 0; padding: 0;
+		-moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 	}
 
-	.content.sizer div[class*='span'] {background: #eee;}
+		html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; }
+		[hidden] { display: none; }
 
-
-	div[class*='span'] {
-		border: 10px solid transparent;
-		*border-left: 0;
-		*border-right: 0;
-		display: inline-block;
-		zoom: 1; *display: inline;
-		letter-spacing: normal;
-		word-spacing: normal;
-		vertical-align: top;
-		text-rendering: auto;
-		margin-left: -0.4%;
-	}
-
-	div[class*='span'] div[class*='span'] {border-right: none;}
-	div[class*='span'] div[class*='span']:first-child {margin-left: -10px;}
-
-	.hide {display: none !important;}
-
-	.span1-5 {width: 20%;}
-	.span2-5 {width: 40%;}
-	.span3-5 {width: 60%;}
-	.span4-5 {width: 80%;}
-	.span5-5 {width: 100%;}
-
-	.span1-8 {width: 12.5%;}
-	.span2-8 {width: 25%;}
-	.span3-8 {width: 37.5%;}
-	.span4-8 {width: 50%;}
-	.span5-8 {width: 62.5%;}
-	.span6-8 {width: 75%;}
-	.span7-8 {width: 87.5%;}
-	.span8-8 {width: 100%;}
-
-	.span1-12 {width: 8.33333333333%;}
-	.span2-12 {width: 16.6666666667%;}
-	.span3-12 {width: 25%;}
-	.span4-12 {width: 33.3333333333%;}
-	.span5-12 {width: 41.6666666667%;}
-	.span6-12 {width: 50%;}
-	.span7-12 {width: 58.3333333333%;}
-	.span8-12 {width: 66.6666666666%;}
-	.span9-12 {width: 75%;}
-	.span10-12 {width: 83.3333333333%;}
-	.span11-12 {width: 91.6666666666%;}
-	.span12-12 {width: 100%;}
-
-	.only-mobile {display: none;}
+		img {border: 0;}
+		html {font-size: 100.01%}
+		html, body {min-height: 100%;}
+		body, ul, ol, dl {margin: 0;}
+		textarea {resize: vertical;}
+		article, aside, audio, footer, header, nav, section, video {display: block;}
+		html { font-size: 100%;}
+		html, button, input, select, textarea { font-family: sans-serif; color: #000; }
+		body { margin: 0; font-size: 1em; line-height: 1.4; }
 	
-	body.dark, body {background: #fff !important; color: #000 !important;}
-	body, strong, h1, h2, h3, h4, h5, h6 {color: #000 !important;}
-	header, footer, nav {display: none !important;}
+		/*@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);*/
+		@import url(http://fonts.googleapis.com/css?family=Muli|Montserrat);
+
+		body, input, button {color: #000; font-family: 'Muli', Helvetica, Arial, sans-serif;}
+		body {font-size: 14px; line-height: 20px;}
+
+		p + p {margin-top: 10px;}
+		p.lead {font-size: 18px; line-height: 24px;}
+
+		strong, b {font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400;}
+
+		.tiny {font-size: 10px;}
+		small, .small {font-size: 12px;}
+		.large {font-size: 18px;}
+		.float-left {float: left; margin-right: 20px;}
+		.float-right {float: right; margin-left: 20px;}
+		.text-left {text-align: left;}
+		.text-center {text-align: center;}
+		.text-right {text-align: right;}
 	
-	li {padding: 0; margin: 0;}
-	li {padding: 10px 10px 10px 10px; border-top: 1px solid #000 !important;}
+		.pad-top {margin-top: 20px;}
+		.pad-bottom {margin-bottom: 20px;}
 	
-	li, .nobreak {page-break-inside: avoid;}
+
+		h1, h2, h3, h4, h5, h6 {font: 16px/1.5 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 400; margin: 0; margin-bottom: 5px; text-transform: uppercase;}
+		h1 {font-size: 60px; line-height: 60px;}
+		h2 {font-size: 48px; line-height: 48px;}
+		h3 {font-size: 36px; line-height: 36px;}
+		h4 {font-size: 24px; line-height: 24px;}
+		h5 {font-size: 18px; line-height: 18px;}
+		h6 {font-size: 12px; line-height: 12px;}
+		h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {opacity: .5; line-height: 12px; font-size: 12px; display: block;}
+		h3 i {font-size: 80%;}
 	
-	</style>
-<style type="text/css" media="print">
-      div.nobreak
-      {
-        page-break-inside: avoid;
-      }
-    </style>
+		ul, ol {margin: 0 0 10px 24px;}
+		ul ul, ol ol, ul ol, ol ul {margin-bottom: 0;}
+		ul.unstyled {list-style: none; margin-left: 0px;}
+		ul.pad li {margin-bottom: 20px;}
+		ul.lined li {padding: 3px;}
+		ul.lined li:nth-child(even) {background: rgba(0,0,0,.1);}
+
+		.content {
+			margin: 0 auto; padding: 0; min-width: 760px; max-width: 1000px;
+			*width: 760px;
+			*word-spacing: -0.43em;
+			text-rendering: auto;
+		}
+
+		.content.sizer div[class*='span'] {background: #eee;}
+
+
+		div[class*='span'] {
+			border: 10px solid transparent;
+			*border-left: 0;
+			*border-right: 0;
+	/*		display: inline-block;*/
+			zoom: 1; *display: inline;
+			letter-spacing: normal;
+			word-spacing: normal;
+			vertical-align: top;
+			text-rendering: auto;
+			margin-left: -0.4%;
+		}
+
+		div[class*='span'] div[class*='span'] {border-right: none;}
+		div[class*='span'] div[class*='span']:first-child {margin-left: -10px;}
+
+		.hide {display: none !important;}
+
+		.span1-5 {width: 20%;}
+		.span2-5 {width: 40%;}
+		.span3-5 {width: 60%;}
+		.span4-5 {width: 80%;}
+		.span5-5 {width: 100%;}
+
+		.span1-8 {width: 12.5%;}
+		.span2-8 {width: 25%;}
+		.span3-8 {width: 37.5%;}
+		.span4-8 {width: 50%;}
+		.span5-8 {width: 62.5%;}
+		.span6-8 {width: 75%;}
+		.span7-8 {width: 87.5%;}
+		.span8-8 {width: 100%;}
+
+		.span1-12 {width: 8.33333333333%;}
+		.span2-12 {width: 16.6666666667%;}
+		.span3-12 {width: 25%;}
+		.span4-12 {width: 33.3333333333%;}
+		.span5-12 {width: 41.6666666667%;}
+		.span6-12 {width: 50%;}
+		.span7-12 {width: 58.3333333333%;}
+		.span8-12 {width: 66.6666666666%;}
+		.span9-12 {width: 75%;}
+		.span10-12 {width: 83.3333333333%;}
+		.span11-12 {width: 91.6666666666%;}
+		.span12-12 {width: 100%;}
+
+		.only-mobile {display: none;}
+	
+		body.dark, body {background: #fff !important; color: #000 !important;}
+		body, strong, h1, h2, h3, h4, h5, h6 {color: #000 !important;}
+		header, footer, nav {display: none !important;}
+	
+		li {padding: 0; margin: 0;}
+		li {padding: 10px 40px 10px 10px; border-top: 1px solid #000 !important;}
+	
+		li, .nobreak {position: relative; page-break-inside: avoid;}
+	
+		.callout {
+			background: #60a8c0;
+			-webkit-print-color-adjust: exact;
+			color: #fff !important;
+		}
+		.callout strong {color: #fff !important;}
+		.newtype {
+			width: 30px;
+			height: 30px;
+			margin-top: 8px;
+			float: left;
+			-webkit-transform: rotate(-90deg);
+		}
+		strong.large .newtype {
+			margin-top: 15px;
+		}
+	
+		</style>
+	<style type="text/css" media="print">
+	      li, div.nobreak
+	      {
+	        page-break-inside: avoid !important;
+	      }
+	    </style>
 
 </head>
 <body class="dark" id="screen_view">	
