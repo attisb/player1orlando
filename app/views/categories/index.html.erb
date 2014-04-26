@@ -21,7 +21,7 @@
 				<% end %>
 
 				<% @drink_dispense_styles.each do |name, value| %>
-					<li><strong class="large"><%= link_to name, dispense_beverages_path(:dispense_type => value) -%></strong><% if admin_signed_in? %><%= link_to "[Printable]", printable_beverages_path(:dispense_type => value) -%><% end %></li>
+					<li><strong class="large"><%= link_to name, dispense_beverages_path(:dispense_type => value) -%></strong><% if admin_signed_in? %> <%= link_to "[Printable]", printable_beverages_path(:dispense_type => value) -%><% end %></li>
 				<% end %>
 			</ul>
 
