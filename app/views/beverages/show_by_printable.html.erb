@@ -12,7 +12,7 @@
 				<% end %>
 
 					<div class="nobreak">
-						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description</a> <a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide</a></div>
+						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
 					<% if @drinks.count >= 40 %>
 						<strong>
 					<% else %>
