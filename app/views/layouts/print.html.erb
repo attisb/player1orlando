@@ -183,7 +183,7 @@
 	        page-break-inside: avoid !important;
 	      }
 		  
-		  a {display: none !important;}
+		  a, .adminoptions {display: none !important;}
 	    </style>
 		
 		<script type="text/javascript" charset="utf-8">
@@ -194,7 +194,7 @@
 		$(document).ready(function(){
 			$('a.showdesc').click(function(e) {
 				var itemname = $(this).data("adjustitem");
-				$('#' + itemname).show();
+				$('#' + itemname).toggle();
 			    e.preventDefault();
 			});
 		
