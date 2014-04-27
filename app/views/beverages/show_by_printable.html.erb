@@ -24,7 +24,7 @@
 						<div class="newtype">NEW</div>
 					<% end %>
 					
-						<div class="float-right"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show Description</a> | <a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide Drink</a>  ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
+						<div class="float-right"><a href="#" class="showdesc small" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description</a> <a href="#" class="hideitem small" data-adjustitem="drink<%= drink.id -%>">Hide</a>  ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 						<%= drink.name -%>
 					</strong>
 					<div class="small">
