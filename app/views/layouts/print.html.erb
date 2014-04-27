@@ -174,7 +174,7 @@
 			margin-top: 15px;
 		}
 		
-		p {margin-left: 30px; text-indent: -60px; display: none;}
+		p {margin-left: 30px; text-indent: 0px; display: none;}
 	
 		</style>
 	<style type="text/css" media="print">
@@ -191,16 +191,18 @@
 		//     e.preventDefault();
 		// });
 		
-		$('a.showdesc').click(function(e) {
-			var itemname = $(this).data("adjustitem");
-			$('#' + itemname).show();
-		    e.preventDefault();
-		});
+		$(document).ready(function(){
+			$('a.showdesc').click(function(e) {
+				var itemname = $(this).data("adjustitem");
+				$('#' + itemname).show();
+			    e.preventDefault();
+			});
 		
-		$('a.hideitem').click(function(e) {
-			var itemname = $(this).data("adjustitem");
-			$('#' + itemname).hide();
-		    e.preventDefault();
+			$('a.hideitem').click(function(e) {
+				var itemname = $(this).data("adjustitem");
+				$('#' + itemname).hide();
+			    e.preventDefault();
+			});
 		});
 		
 		</script>
