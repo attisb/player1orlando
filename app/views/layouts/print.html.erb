@@ -174,7 +174,7 @@
 			margin-top: 15px;
 		}
 		
-		p {margin-left: 30px; text-indent: -30px; display: none;}
+		p {margin-left: 30px; text-indent: -60px; display: none;}
 	
 		</style>
 	<style type="text/css" media="print">
@@ -187,9 +187,22 @@
 	    </style>
 		
 		<script type="text/javascript" charset="utf-8">
-		$('a').click(function(e) {
+		// $('a').click(function(e) {
+		//     e.preventDefault();
+		// });
+		
+		$('a.showdesc').click(function(e) {
+			var itemname = $(this).data("adjustitem");
+			$('#' + itemname).show();
 		    e.preventDefault();
 		});
+		
+		$('a.hideitem').click(function(e) {
+			var itemname = $(this).data("adjustitem");
+			$('#' + itemname).hide();
+		    e.preventDefault();
+		});
+		
 		</script>
 
 </head>
