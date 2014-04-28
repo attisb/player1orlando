@@ -199,6 +199,11 @@
 			    e.preventDefault();
 			});
 		
+			$('a.showalldesc').click(function(e) {
+				$('.drink_descs').toggle();
+			    e.preventDefault();
+			});
+		
 			$('a.hideitem').click(function(e) {
 				var itemname = $(this).data("adjustitem");
 				$('#' + itemname).hide();

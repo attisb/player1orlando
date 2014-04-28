@@ -1,5 +1,5 @@
 <div class="span12-12"><img src="/includes/logo_print.png" height="60" /><h4 class="float-right"><%= @dispense_type_name[params[:dispense_type]] -%><small>Subject to Availability</small></h4></div>
-<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried.</h5></div>
+<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
 
 <div class="span12-12">
 	<ul class="unstyled pad-top showlines">
@@ -32,7 +32,7 @@
 						<div class="float-right"><%= drink.beer_style.name -%></div>
 						<%= drink.brewery -%>
 					</div>
-					<p id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
+					<p class="drink_descs" id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
 					</div>
 				</li>
 			<% end %>
