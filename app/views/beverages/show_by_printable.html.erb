@@ -1,5 +1,5 @@
 <div class="span12-12"><img src="/includes/logo_print.png" height="60" /><h4 class="float-right"><%= @dispense_type_name[params[:dispense_type]] -%><small>Subject to Availability</small></h4></div>
-<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
+<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried and liked.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
 
 <div class="span12-12">
 	<ul class="unstyled pad-top showlines">
@@ -40,3 +40,48 @@
 
 	</ul>
 </div>
+
+<% unless params[:dispense_type2].blank? %>
+<div class="span12-12">&nbsp;<h4 class="float-right"><%= @dispense_type_name[params[:dispense_type2]] -%><small>Subject to Availability</small></h4></div>
+<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried and liked.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
+
+<div class="span12-12">
+	<ul class="unstyled pad-top showlines">
+
+			<% @drinks2.order(name: :asc).each do |drink| %>
+				<% if drink.call_out? %>
+				<li class="callout" id="drink<%= drink.id -%>">
+				<% else %>
+				<li id="drink<%= drink.id -%>">
+				<% end %>
+
+					<div class="nobreak">
+						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
+					<% if @drinks2.count >= 40 %>
+						<strong>
+					<% else %>
+						<strong class="large">
+					<% end %>
+					
+					<% if drink.quick_style == "4" %>
+						<div class="newtype">&nbsp;</div>
+					<% else %>
+						<div class="newtype">NEW</div>
+					<% end %>
+					
+						<div class="float-right">ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
+						<%= drink.name -%>
+					</strong>
+					<div class="small">
+						<div class="float-right"><%= drink.beer_style.name -%></div>
+						<%= drink.brewery -%>
+					</div>
+					<p class="drink_descs" id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
+					</div>
+				</li>
+			<% end %>
+
+
+	</ul>
+</div>
+<% end %>
