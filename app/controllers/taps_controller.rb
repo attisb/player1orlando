@@ -28,7 +28,7 @@ class TapsController < ApplicationController
     @drink.tab_index = 0
     
     if @drink.save
-      redirect_to taps_path, notice: "Drink on tap line #{params[:id]} removed."
+      redirect_to taps_path, notice: "Drink on tap line removed."
     else
       redirect_to taps_path, alert: "Something went wrong."
     end

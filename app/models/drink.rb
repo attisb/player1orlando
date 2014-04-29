@@ -5,7 +5,7 @@ class Drink < ActiveRecord::Base
   has_many :ratings, dependent: :destroy
   has_many :trackers, dependent: :destroy
   
-  validates :name, :brewery, :description, :price, :beer_style_id, presence: true
+  validates :name, :brewery, :description, :price, :beer_style_id, :quick_style, :dispense_type, presence: true
   
   mount_uploader :drink_image, DrinkImageUploader
   mount_uploader :image_tv, TvgraphicUploader
