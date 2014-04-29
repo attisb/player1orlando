@@ -13,7 +13,7 @@
 
 					<div class="nobreak">
 						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
-					<% if @drinks.count >= 40 %>
+					<% if @drinks.count >= 40 || !params[:dispense_type2].blank? %>
 						<strong>
 					<% else %>
 						<strong class="large">
@@ -57,11 +57,7 @@
 
 					<div class="nobreak">
 						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
-					<% if @drinks2.count >= 40 %>
 						<strong>
-					<% else %>
-						<strong class="large">
-					<% end %>
 					
 					<% if drink.quick_style == "4" %>
 						<div class="newtype">&nbsp;</div>
