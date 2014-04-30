@@ -13,7 +13,9 @@
 
 					<div class="nobreak">
 						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
-					<% if @drinks.count >= 40 || !params[:dispense_type2].blank? %>
+					<% if params[:showsmallfont]? %>
+						<strong class="small">
+					<% elsif @drinks.count >= 40 || !params[:dispense_type2].blank? %>
 						<strong>
 					<% else %>
 						<strong class="large">
@@ -43,7 +45,6 @@
 
 <% unless params[:dispense_type2].blank? %>
 <div class="span12-12">&nbsp;<h4 class="float-right"><%= @dispense_type_name[params[:dispense_type2]] -%><small>Subject to Availability</small></h4></div>
-<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried and liked.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
 
 <div class="span12-12">
 	<ul class="unstyled pad-top showlines">
@@ -57,7 +58,11 @@
 
 					<div class="nobreak">
 						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
+					<% if params[:showsmallfont]? %>
+						<strong class="small">
+					<% else %>
 						<strong>
+					<% end %>
 					
 					<% if drink.quick_style == "4" %>
 						<div class="newtype">&nbsp;</div>
