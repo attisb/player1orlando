@@ -41,6 +41,9 @@ class BeveragesController < ApplicationController
       unless params[:dispense_type2].blank?
         @drinks2 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type2]).order(name: :asc)
       end
+      unless params[:dispense_type3].blank?
+        @drinks3 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type3]).order(name: :asc)
+      end
     end    
   end
   
