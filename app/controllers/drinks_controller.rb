@@ -30,7 +30,7 @@ class DrinksController < ApplicationController
   def create
     @drink = Drink.new(drink_params)
     @drink.average = 0
-    if @drink.category.blank?
+    if @drink.category.nil?
       @drink.category = 3
     end
 
