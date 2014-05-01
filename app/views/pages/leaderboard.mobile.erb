@@ -1,0 +1,43 @@
+<% title "Leaderboard" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-trophy"></i> Leaders<small>Number 1 is who...</small></h2></div>
+
+	<div class="span12-12">
+		<h4>VIP Members<small>You got a special card to show for it!</small></h4>
+		<div class="text-right"><%= link_to "Learn more about VIP Memberships", vips_page_path -%></div>
+		<ul class="unstyled lined">
+			<li><div class="float-right">Points</div>Name</li>
+			<% @members.each do |member| %>
+				<li style="line-height: 32px; clear: both;"><div class="float-right"><%= member.vip_membership_points -%></div><%= image_tag mini_avatar_url(member), :width => 32, :class => "float-left" %> <%= link_to member.username, user_path(member), :title => member.first_name -%></li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<!-- <div class="span6-12">
+		<h4>Player 1 Citizens<small>The web only membership.</small></h4>
+		<div class="text-right"><%= link_to "Learn more about Player 1 Citizens", rewards_page_path -%></div>
+		<ul class="unstyled lined">
+			<li><div class="float-right">Points</div>Name</li>
+			<% @citizens.each do |citizen| %>
+				<li style="line-height: 32px; clear: both;"><div class="float-right"><%= citizen.lifetime_points -%></div><%= image_tag mini_avatar_url(citizen), :width => 32, :class => "float-left" %> <%= link_to citizen.username, user_path(citizen), :title => citizen.first_name -%></li>
+			<% end %>
+		</ul>
+	</div> -->
+	
+	<% if admin_signed_in? -%>
+	<div class="span12-12">
+		<h4>Import Membership Details<small>Use Report: Aloha Loyalty Member Sales - Export</small></h4>
+		
+		<%= form_tag process_memberships_path do |f| %>
+		<div class="dq-form">
+			<div class="field10-10"><%= text_area_tag :raw_data, nil, :placeholder => "Remove lines from top and bottom that are headers.", :rows => 30 %></div>
+		</div>
+		<div class="dq-buttons">
+			<%= submit_tag "Import Data" %>
+		</div>
+		<% end %>
+	</div>
+	<% end %>
+
+</div>

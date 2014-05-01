@@ -1,0 +1,67 @@
+<% title @katy_corner.title %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-book"></i> Katy's Corner<small>A little slice of gaming.</small></h2></div>
+	<div class="span8-12">
+		<p><%= link_to "Back to Frontpage of Katy's Corner", katy_corners_path -%></p>
+		
+		<h4><%= @katy_corner.title -%><small><%= @katy_corner.created_at.to_s(:long) -%></small></h4>
+		<%= render 'shared/social', url_pass: katy_corner_url(@katy_corner), title_page: @katy_corner.title %>
+
+		<%= simple_format @katy_corner.body_document.gsub(/##IMAGE1/i, image_tag(@katy_corner.image1, :class => "fullwidth_image") ).gsub(/##IMAGE2/i, image_tag(@katy_corner.image2, :class => "fullwidth_image")).gsub(/##IMAGE3/i, image_tag(@katy_corner.image3, :class => "fullwidth_image")).gsub(/##IMAGE4/i, image_tag(@katy_corner.image4, :class => "fullwidth_image")).gsub(/##IMAGE5/i, image_tag(@katy_corner.image5, :class => "fullwidth_image")).gsub(/##IMAGE6/i, image_tag(@katy_corner.image6, :class => "fullwidth_image")).gsub(/##IMAGE7/i, image_tag(@katy_corner.image7, :class => "fullwidth_image")) %>
+		
+		<% unless @katy_corner.game_score.blank? %>
+			<h3>Beer Tap Rating</h3>
+			<h1>
+				<% 5.times do |i| %>
+					<% if i >= @katy_corner.game_score %>
+						<i class="fa fa-minus"></i>
+					<% else %>
+						<i class="fa fa-beer"></i>
+					<% end %>
+				<% end %>
+			</h1>
+		<% end %>
+		
+		<h5>Comments</h5>
+	    <div id="disqus_thread"></div>
+	    <script type="text/javascript">
+	        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+	        var disqus_shortname = 'player1orlando'; // required: replace example with your forum shortname
+
+	        /* * * DON'T EDIT BELOW THIS LINE * * */
+	        (function() {
+	            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	        })();
+	    </script>
+	    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		
+			
+	</div>
+	
+	
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Entry', new_katy_corner_path, :class => "lnk-button full" %>
+				<%= link_to 'Edit Entry', edit_katy_corner_path(@katy_corner), :class => "lnk-button full" %>
+			</div>
+		<% end %>
+		<%= render 'about' %>
+
+		<% if @katy_corners.offset(1).count > 0 %>
+			<h5>Past Issues<small>You know.</small></h5>
+			<ul class="unstyled pad">
+				<% @katy_corners.offset(1).each do |entry| %>
+					<li>
+						<strong><%= link_to entry.title, katy_corner_path(entry) -%></strong><br/>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,26 @@
+<% title "#{@event.title} Event" %>
+
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-calendar"></i> Events<small>Planning your mission sometimes will help.</small></h2></div>
+
+	<div class="span8-12">
+		<strong class="large"><%= @event.title -%></strong>
+		<%= simple_format @event.description %>
+		<%= render 'shared/social', url_pass: event_url(event), title_page: event.title %>
+	</div>
+
+	<div class="span4-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Event', new_event_path, :class => "lnk-button full" %>
+				<%= link_to 'Edit', edit_event_path(@event), :class => "lnk-button full" %>
+				<%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, :class => "lnk-button full cancel" %>
+			</div>
+		<% end %>
+		
+		<%= render "sidebar" %>
+	</div>
+
+</div>

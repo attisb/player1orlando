@@ -1,0 +1,36 @@
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-user"></i> <%= "#{@user.first_name} #{@user.last_name[0,1]}" -%> <small>aka <%= @user.username -%></small></h2></div>
+	<div class="span8-12">
+		
+		<div class="span4-12 text-center">
+			<h5>Player 1 Score</h5>
+			<h1><%= @user.points -%></h1>
+		</div>
+		
+		<div class="span4-12 text-center">
+			<h5>Drinks Tracked</h5>
+			<h1><%= @user.trackers.count -%></h1>
+		</div>
+		
+		<div class="span4-12 text-center">
+			<h5>Drinks Rated</h5>
+			<h1><%= @user.ratings.count -%></h1>
+		</div>
+
+		<% if @user.badges.count > 0 %>
+			<h4>What I've Earned<small>You know, these are my badges bro!</small></h4>
+			<ul class="unstyled badgebar pad-bottom">
+			<% @user.badges.each do |badge| %>
+				<li><%= image_tag badge.image, :alt => badge.description, :title => badge.description, :class => "fullwidth_image", :style => "border: none;" -%></li>
+			<% end %>
+			</ul>
+		<% end %>
+
+		<%= render 'shared/activity' %>
+	</div>
+
+	<div class="span4-12">
+		<%= image_tag "/includes/member_levels/#{get_user_rating(@user)}.png", :class => "fullwidth_image pad-bottom", :style => "border: none;" %>
+		<%= image_tag avatar_url(@user), :class => "fullwidth_image" %>
+	</div>
+</div>
