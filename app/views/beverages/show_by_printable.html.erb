@@ -8,7 +8,7 @@
 <% end %>
 	<ul class="unstyled pad-top showlines">
 
-			<% @drinks.order(name: :asc).each do |drink| %>
+			<% @drinks.each do |drink| %>
 				<% if drink.call_out? %>
 				<li class="callout" id="drink<%= drink.id -%>">
 				<% else %>
@@ -55,7 +55,7 @@
 <% end %>
 	<ul class="unstyled pad-top showlines">
 
-			<% @drinks2.order(name: :asc).each do |drink| %>
+			<% @drinks2.each do |drink| %>
 				<% if drink.call_out? %>
 				<li class="callout" id="drink<%= drink.id -%>">
 				<% else %>
@@ -99,7 +99,7 @@
 <% end %>
 	<ul class="unstyled pad-top showlines">
 
-			<% @drinks3.order(name: :asc).each do |drink| %>
+			<% @drinks3.each do |drink| %>
 				<% if drink.call_out? %>
 				<li class="callout" id="drink<%= drink.id -%>">
 				<% else %>
