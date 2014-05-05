@@ -26,7 +26,7 @@ class Drink < ActiveRecord::Base
     "Energy Drinks" => "energy-drinks",
     "Meads" => "meads-sakes",
     "Sakes" => "sakes",
-    "Wines" => "wines-ciders"
+    "Wines" => "wines-ciders",
     "Ciders" => "ciders"
   }
   
