@@ -24,10 +24,8 @@ class Drink < ActiveRecord::Base
     "Mixed Drinks" => "mixed-drinks",
     "Non-Alcoholic Drinks" => "non-alcoholic",
     "Energy Drinks" => "energy-drinks",
-    "MeadsO" => "meads-sakes",
     "Meads" => "meads",
     "Sakes" => "sakes",
-    "WinesO" => "wines-ciders",
     "Wines" => "wines",
     "Ciders" => "ciders"
   }
