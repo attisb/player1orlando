@@ -37,14 +37,24 @@ class BeveragesController < ApplicationController
     if @dispense_type_name[params[:dispense_type]].blank?
       redirect_to beverages_path
     else
-      @drinks = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type]).order(name: :asc)
-      unless params[:dispense_type2].blank?
-        @drinks2 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type2]).order(name: :asc)
-      end
-      unless params[:dispense_type3].blank?
-        @drinks3 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type3]).order(name: :asc)
+      if params[:group] == "true"
+        @drinks = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type]).order(quick_style: :asc, name: :asc)
+        unless params[:dispense_type2].blank?
+          @drinks2 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type2]).order(quick_style: :asc, name: :asc)
+        end
+        unless params[:dispense_type3].blank?
+          @drinks3 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type3]).order(quick_style: :asc, name: :asc)
+        end
+      else
+        @drinks = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type]).order(name: :asc)
+        unless params[:dispense_type2].blank?
+          @drinks2 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type2]).order(name: :asc)
+        end
+        unless params[:dispense_type3].blank?
+          @drinks3 = Drink.where(:visible => true).where(:dispense_type => params[:dispense_type3]).order(name: :asc)
+        end
       end
     end    
   end
-  
+    
 end
