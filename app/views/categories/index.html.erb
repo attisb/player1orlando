@@ -46,6 +46,12 @@
 					<%= link_to 'Show Call Out Drinks', hidden_beverages_path(:call_out => true), :class => "lnk-button full" %>
 					<%= link_to 'Show Tracker Drinks', hidden_beverages_path(:tracker => true), :class => "lnk-button full" %>
 					<%= link_to 'Edit All Drinks', edit_all_drinks_path, :class => "lnk-button full" %>
+					
+					<% @drink_dispense_styles.each do |name, value| %>
+						<%= link_to "Edit #{name} Drinks", edit_all_drinks_path(:limit => value), :class => "lnk-button full" %>
+					<% end %>
+					
+					
 					<%= link_to 'See All Hidden Items', hidden_beverages_path, :class => "lnk-button full" %>
 				</div>
 				

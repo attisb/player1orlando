@@ -20,7 +20,7 @@
 		<ul class="unstyled lined">
 			<% if @cat_type == "drinks" %>
 				<% @all_hidden.each do |drink| %>
-					<li><div class="float-right">In <%= drink.category.name -%></div> <strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
+					<li><div class="float-right">In <%= drink.quick_style -%></div> <strong><%= link_to drink.name, edit_drink_path(drink) -%></strong></li>
 				<% end %>
 			<% elsif @cat_type == "games" %>
 				<% @all_hidden.each do |game| %>
