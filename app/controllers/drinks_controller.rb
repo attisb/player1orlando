@@ -61,7 +61,7 @@ class DrinksController < ApplicationController
   end
   
   def edit_all
-    if params[:limit].defined?
+    unless params[:limit].nil?
       @drinks = Drink.where(:dispense_type => params[:limit]).order(:name).all
     else
       @drinks = Drink.order(:name).all
