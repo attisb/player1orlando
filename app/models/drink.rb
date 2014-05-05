@@ -24,8 +24,10 @@ class Drink < ActiveRecord::Base
     "Mixed Drinks" => "mixed-drinks",
     "Non-Alcoholic Drinks" => "non-alcoholic",
     "Energy Drinks" => "energy-drinks",
-    "Meads & Sakes" => "meads-sakes",
-    "Wines & Ciders" => "wines-ciders"
+    "Meads" => "meads",
+    "Sakes" => "sakes",
+    "Wines" => "wines"
+    "Ciders" => "ciders"
   }
   
   def to_param
