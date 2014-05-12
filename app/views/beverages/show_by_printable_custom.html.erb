@@ -43,7 +43,11 @@
 								<div class="float-right"><%= drink.beer_style.name -%></div>
 								<%= drink.brewery -%>
 							</div>
-							<p class="drink_descs" id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
+							<% if current_group[2] == "show" %>
+								<p class="drink_descs showit" id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
+							<% else %>
+								<p class="drink_descs" id="drink_desc<%= drink.id -%>" contenteditable="true"><%= drink.description -%></p>
+							<% end %>
 						</div>
 					</li>
 
