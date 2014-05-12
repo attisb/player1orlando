@@ -1,10 +1,10 @@
 <% @display_groups.each do |drink_group| %>
 	<% current_group = drink_group.split(/--/) %>
 
-	<div class="span12-12"><img src="/includes/logo_print.png" height="60" /><h4 class="float-right" contenteditable="true"><%= @dispense_type_name[current_group[0]] -%><small contenteditable="true">Subject to Availability</small></h4></div>
+	<div class="span12-12"><img src="/includes/logo_print.png" height="60" /><h4 class="float-right text-right" contenteditable="true"><%= @dispense_type_name[current_group[0]] -%><small contenteditable="true">Subject to Availability</small></h4></div>
 	<div class="span12-12"><h5 contenteditable="true">Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried and liked.</h5></div>
 
-	<% if current_group[1] == true %>
+	<% if current_group[1] == "small" %>
 	<div class="span12-12 usesmallfont">
 	<% else %>
 	<div class="span12-12">
@@ -24,7 +24,11 @@
 
 						<div class="nobreak">
 							<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
-							<strong>
+							<% if current_group[1] == "large" %>
+								<strong>
+							<% else %>
+								<strong class="large">
+							<% end %>
 					
 							<% if drink.quick_style == "4" %>
 								<div class="newtype">&nbsp;</div>
@@ -32,7 +36,7 @@
 								<div class="newtype">NEW</div>
 							<% end %>
 					
-							<div class="float-right">ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
+							<div class="float-right"><% if drink.abv > 0 -%>ABV <%= drink.abv %>% // <% end -%><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 							<%= drink.name -%>
 							</strong>
 							<div class="small">
