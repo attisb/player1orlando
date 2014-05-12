@@ -22,7 +22,7 @@ Player1orlando::Application.routes.draw do
   get '/beverages/printable/:dispense_type', to: 'beverages#show_by_printable', as: 'printable_beverages'
   get '/beverages/printable/:dispense_type/:dispense_type2', to: 'beverages#show_by_printable', as: 'printable_beverages2'
   get '/beverages/printable/:dispense_type/:dispense_type2/:dispense_type3', to: 'beverages#show_by_printable', as: 'printable_beverages3'
-  get '/beverages/printable_custom/:options', to: 'beverages#show_by_printable_custom', as: 'printable_custom'
+  get '/beverages/printable_custom/:view_options', to: 'beverages#show_by_printable_custom', as: 'printable_custom'
 
   get '/beverages/hidden', to: 'categories#allhidden', as: 'hidden_beverages', :defaults => { :area => 'drinks' }
   get '/play/', to: 'categories#index', as: 'play', :defaults => { :area => 'games' }
