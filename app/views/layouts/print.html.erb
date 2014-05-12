@@ -166,7 +166,7 @@
 		header, footer, nav {display: none !important;}
 	
 		li {padding: 0; margin: 0;}
-		li {padding: 10px 40px 10px 10px; border-top: 1px solid #000 !important;}
+		li {padding: 10px 10px 10px 10px; border-top: 1px solid #000 !important;}
 	
 		li, .nobreak {position: relative; page-break-inside: avoid;}
 	
@@ -188,6 +188,17 @@
 			margin-top: 15px;
 		}
 		
+		.specialtype {
+			width: 30px;
+			height: 30px;
+			margin-top: 8px;
+			float: right;
+			text-align: right;
+		}
+		strong.large .specialtype {
+			margin-top: 15px;
+		}
+		
 		.adminoptions {margin-left: 30px; margin-bottom: 5px;}
 		p {margin-left: 30px; text-indent: 0px; display: none;}
 		p.showit {display: inline;}
@@ -195,7 +206,7 @@
 		.usesmallfont,
 		.usesmallfont .large,
 		.usesmallfont .small {font-size: 12px; line-height: 16px;}
-		.usesmallfont li {padding: 5px 40px 5px 5px;}
+		.usesmallfont li {padding: 5px 5px 5px 5px;}
 		.usesmallfont .newtype {margin-top: 2px;}
 	
 		</style>
@@ -230,9 +241,28 @@
 				$('#' + itemname).hide();
 			    e.preventDefault();
 			});
+			
+			$('a.specialitem').click(function(e) {
+				var itemname = $(this).data("adjustitem");
+				if( $('#' + itemname + ' i').hasClass("fa") ) {
+					$('#' + itemname + ' i').removeClass("fa")
+				} else {
+					$('#' + itemname + ' i').addClass("fa")
+				}
+			    e.preventDefault();
+			});
+			
 		});
 		
 		</script>
+		
+		<% if params[:legal] == "true" %>
+		<style type="text/css">
+		@page {
+		    size: Legal portrait;
+		}
+		</style>
+		<% end %>
 
 </head>
 <body class="dark" id="screen_view">	

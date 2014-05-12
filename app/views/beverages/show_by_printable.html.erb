@@ -16,7 +16,7 @@
 				<% end %>
 
 					<div class="nobreak">
-						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
+						<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="specialitem" data-adjustitem="special<%= drink.id -%>">Toggle Special Icon</a> <a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
 					<% if @drinks.count >= 40 || !params[:dispense_type2].blank? %>
 						<strong>
 					<% else %>
@@ -28,6 +28,8 @@
 					<% else %>
 						<div class="newtype">NEW</div>
 					<% end %>
+					<div class="specialtype" id="special<%= drink.id -%>"><i class="fa-bolt"></i></div>
+					
 					
 						<div class="float-right">ABV <%= drink.abv %>% // <% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 						<%= drink.name -%>
