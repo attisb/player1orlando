@@ -56,5 +56,11 @@ class BeveragesController < ApplicationController
       end
     end    
   end
+  
+  def show_by_printable_custom
+    @dispense_type_name = Drink::DISPENSE_TYPE.invert
+    @display_groups = params[:options].split(/,/)
+    @drinks = Drink.where(:visible => true).order(quick_style: :asc, name: :asc)
+  end
     
 end

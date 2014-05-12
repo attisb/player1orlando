@@ -1,0 +1,7 @@
+<% @display_groups.each do |drink_group| %>
+	<% group = drink_group.split(/./) %>
+
+	<div class="span12-12"><img src="/includes/logo_print.png" height="60" /><h4 class="float-right"><%= @dispense_type_name[group[0]] -%><small>Subject to Availability</small></h4></div>
+	<div class="span12-12"><h5>Visit Player1Orlando.com for the most up to date drink lists and keep track of what you've tried and liked.</h5><a href="#" class="showalldesc">Show/Hide All Descriptions</a></div>
+
+<% end %>
