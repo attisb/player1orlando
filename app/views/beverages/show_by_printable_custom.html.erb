@@ -25,9 +25,9 @@
 						<div class="nobreak">
 							<div class="adminoptions"><a href="#" class="showdesc" data-adjustitem="drink_desc<%= drink.id -%>">Show/Hide Description (Inline editable)</a><div class="float-right"><a href="#" class="hideitem" data-adjustitem="drink<%= drink.id -%>">Hide this Drink</a></div></div>
 							<% if current_group[1] == "large" %>
-								<strong>
-							<% else %>
 								<strong class="large">
+							<% else %>
+								<strong>
 							<% end %>
 					
 							<% if drink.quick_style == "4" %>
