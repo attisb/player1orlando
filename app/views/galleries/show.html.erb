@@ -6,6 +6,8 @@
 		<%= image_tag @gallery.image, alt: @gallery.caption, :class => "fullwidth_image" %>
 	</div>
 	<div class="span4-12">
+		<h4><%= @gallery.caption -%></h4>
+		
 		<div class="dq-buttons">
 		<% if admin_signed_in? %>
 			<h5>Admin Options</h5>
