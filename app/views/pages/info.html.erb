@@ -1,0 +1,71 @@
+<% title "General Info" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-info"></i> General Info<small>The basics of Player 1.</small></h2></div>
+
+	<div class="span6-12">
+		<h4>Hours &amp; Location<small>Cause sometimes you need to know.</small></h4>
+			<h5 class="text-center">Open Beta Hours</h5>
+			<ul class="unstyled small link-white text-right">
+				<li><span class="float-left">Sunday</span> 4pm - 2am</li>
+				<li><span class="float-left">Monday</span> 5pm - 2am</li>
+				<li><span class="float-left">Tuesday</span> 5pm - 2am</li>
+				<li><span class="float-left">Wednesday</span> 5pm - 2am</li>
+				<li><span class="float-left">Thursday</span> 5pm - 2am</li>
+				<li><span class="float-left">Friday</span> 5pm - 2am</li>
+				<li><span class="float-left">Saturday</span> 4pm - 2am</li>
+			</ul>
+	
+			<p class="bump-top small"><a href="https://www.google.com/maps/preview#!q=Player+1+Video+Game+Bar%2C+Palm+Parkway%2C+Orlando%2C+FL&data=!4m15!2m14!1m13!1s0x88dd80166e641ad5%3A0x68e1e70c237c9923!3m8!1m3!1d3103!2d-81.5003844!3d28.3853004!3m2!1i1280!2i679!4f13.1!4m2!3d28.3847!4d-81.500008" class="link-white" style="display: block;"><i class="float-left fa fa-3x fa-map-marker"></i> 8562 Palm Pkwy<br/>Orlando, FL 32836</a><br/>Click on address for directions.</p>
+
+		<h4>Who can come in?<small>Cause sometimes you need to know.</small></h4>
+		<p>Since Player 1 is a bar we are a 21 and over location. To gain entry into Player 1 you must have a valid ID that proves your age. Invalid ID will not be accepted for entry. This includes cracked and expired IDs, out of country driver licenses, out of country IDs.</p>
+
+		<h4>How much to get in?<small>Cause sometimes you need to know.</small></h4>
+		<p>On most days there is a cover charge to get into Player 1. The cover charge is $5 per person. This will allow you to come and go all night long. Please check our Facebook page for special cover nights.</p>
+		<p>Select days there is discounted cover.
+			<ul>
+				<li><strong>Sunday:</strong> Universal, Disney, and SeaWorld employees get $3 cover.</li>
+				<li><strong>Monday:</strong> Universal, Disney, and SeaWorld employees get $3 cover. Guys recieve $2 cover on this night.</li>
+				<li><strong>Tuesday:</strong> Universal, Disney, and SeaWorld employees get $3 cover.</li>
+				<li><strong>Wednesday:</strong> Universal, Disney, and SeaWorld employees get $3 cover. Ladies receive $1 cover on this night.</li>
+				<li><strong>Thursday:</strong> Universal, Disney, and SeaWorld employees get $3 cover.</li>
+			</ul>
+		</p>
+		
+		<h4>Gamer Etiquette</h4>
+		<ul class="pad">
+			<li>No aggressive or disruptive behavior will be tolerated whatsoever.</li>
+			<li>If playing an arcade game and someone else is waiting to play, finish your game and allow them a turn.</li>
+			<li>No abusive language. Smack talk is one thing, But don’t cross the line.</li>
+		</ul>
+
+		<p>No Smoking. Drink Responsibly.</p>
+	</div>
+
+	<div class="span6-12">
+		<h4>What do we serve?</h4>
+		<p>Player 1 is crafty place which means we only serve craft beers, sakes, meads, and wines. You won't find any liquor here and you definitely won't find Bud Light and those things here. If your new to craft beers are staff is more than happy to help you make a selection.</p>
+
+		<h4>Specials</h4>
+		<p>On many days there are specials on drinks. Please check our Facebook page for the latest specials or check below if there are any events going on.</p>
+		
+		<% unless @current_events.blank? %>
+			<h4><i class="fa fa-calendar"></i> Events</h4>
+			<ul class="unstyled pad">
+				<% @current_events.each do |event| %>
+				<li>
+					<strong class="large"><%= event.title -%></strong>
+					<% if event.starts_at >= (Time.now + 1.day) %>
+						<div class="small"><%= event.starts_at.to_s(:long) -%> to <%= event.ends_at.to_s(:short) -%></div>
+					<% elsif "event.valid_#{Time.now.strftime('%A').downcase}?" %>
+						<div class="small">Every <%= Time.now.strftime('%A').capitalize -%></div>
+					<% end %>
+					<%= simple_format event.description %>
+				</li>
+				<% end %>
+			</ul>
+		<% end %>
+	</div>
+	
+</div>

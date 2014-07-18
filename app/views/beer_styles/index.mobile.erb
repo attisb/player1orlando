@@ -2,15 +2,23 @@
 
 <!-- Standard Content -->
 <div class="content">
-	<div class="span12-12"><h3><i class="fa fa-beer"></i> Beer Styles<small>Not visible to users.</small></h3></div>
+	<div class="span12-12"><h3><i class="fa fa-beer"></i> Beer Styles<small>There is more than you know.</small></h3></div>
 
 	<div class="span8-12">
 		<ul class="unstyled lined">
 			<% @beer_styles.each do |beer_style| %>
-				<li>
-					<% if admin_signed_in? -%><div class="float-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
-					<strong class="large"><%= link_to beer_style.name, beer_style -%></strong>
-				</li>
+				<% if admin_signed_in? -%>
+					<li>
+						<div class="float-right"><%= link_to 'Edit', edit_beer_style_path(beer_style) %> | <%= link_to 'Destroy', beer_style, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+						<strong class="large"><%= link_to beer_style.name, beer_style -%></strong>
+					</li>
+				<% else %>
+					<% if beer_style.drinks.where(:visible => true).count > 0 %>
+					<li>
+						<strong class="large"><%= link_to beer_style.name, beer_style -%></strong>
+					</li>
+					<% end %>
+				<% end %>
 			<% end %>
 		</ul>
 	</div>

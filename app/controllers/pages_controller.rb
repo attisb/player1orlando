@@ -49,6 +49,18 @@ class PagesController < ApplicationController
   def music
   end
   
+  def info
+    @current_events = Event.where(starts_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).limit(1)
+  
+    @generic_events = Event.where('ends_at >= :today_date', :today_date => Time.zone.now).where(
+      "valid_sunday = ? OR valid_monday = ? OR valid_tuesday = ? OR valid_wednesday = ? OR valid_thursday = ? OR valid_friday = ? OR valid_saturday = ?",
+      true, true, true, true, true, true, true
+    ).limit(1)
+
+    @day_generic_events = @generic_events.where("valid_#{Time.zone.now.strftime('%A').downcase}" => true)
+    @current_events = @current_events + @day_generic_events
+  end
+  
   def citizen_checkin
   end
   
