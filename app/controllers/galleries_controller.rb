@@ -46,7 +46,7 @@ class GalleriesController < ApplicationController
   end
   
   private
-    def :set_gallery
+    def set_gallery
       @gallery = Gallery.find(params[:id])
     end
 
