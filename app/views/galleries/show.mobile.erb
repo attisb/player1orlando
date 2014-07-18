@@ -3,7 +3,7 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-camera"></i> Gallery<small>A little slice of us.</small></h2></div>
 	<div class="span8-12">
-		<%= image_tag gallery.image, alt: gallery.caption, :class => "fullwidth_image" %>
+		<%= image_tag @gallery.image, alt: @gallery.caption, :class => "fullwidth_image" %>
 		<h5><%= @gallery.caption -%></h5>
 	</div>
 	<div class="span4-12">
