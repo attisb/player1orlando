@@ -3,6 +3,13 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-camera"></i> Gallery<small>A little slice of us.</small></h2></div>
 	<div class="span12-12">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons pad-bottom">
+				<%= link_to 'New Image', new_gallery_path, :class => "lnk-button full" %>
+			</div>
+		<% end %>
+
 		<ul class="unstyled">
 			<% @galleries.each do |gallery| %>
 			<li class="float-left"><%= link_to image_tag(gallery.image.thumb, alt: gallery.caption), gallery_path(gallery) %></li>
