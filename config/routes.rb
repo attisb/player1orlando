@@ -1,8 +1,5 @@
 Player1orlando::Application.routes.draw do
   
-  get "galleries/index"
-  get "galleries/edit"
-  get "galleries/new"
   devise_for :admins
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   
@@ -58,7 +55,7 @@ Player1orlando::Application.routes.draw do
       post 'point_track'
     end
   end
-  resources :categories, :beer_styles, :drinks, :games, :events
+  resources :categories, :beer_styles, :drinks, :games, :events, :galleries
   resources :taps
   
   
