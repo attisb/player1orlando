@@ -1,5 +1,8 @@
 Player1orlando::Application.routes.draw do
   
+  get "galleries/index"
+  get "galleries/edit"
+  get "galleries/new"
   devise_for :admins
   devise_for :users, :controllers => { :registrations => 'users/registrations' }
   

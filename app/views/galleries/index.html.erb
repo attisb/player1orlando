@@ -1,0 +1,12 @@
+<% title "Gallery" %>
+
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-camera"></i> Gallery<small>A little slice of us.</small></h2></div>
+	<div class="span12-12">
+		<ul>
+			<% @galleries.each do |gallery| %>
+			<li class="float-left"><%= image_tag gallery.image, alt: gallery.caption %></li>
+			<% end %>
+		</ul>
+	</div>
+</div>

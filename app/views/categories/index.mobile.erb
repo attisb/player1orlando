@@ -15,6 +15,8 @@
 			<%= render 'shared/drink_search_form' %>
 
 			<ul class="unstyled pad pad-top">
+				<li><strong class="large"><%= link_to "View by Beer Style", beer_styles_path -%></strong></li>
+				
 				<% @drink_update_styles.each do |name, value| %>
 					<li><strong class="large"><%= link_to name, update_beverages_path(:update_style => value) -%></strong></li>
 				<% end %>

@@ -1,0 +1,24 @@
+<%= form_for(@gallery) do |f| %>
+	<% if @gallery.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@gallery.errors.count, "error") %> prohibited this entry from being saved:</h2>
+
+	    <ul>
+	    <% @gallery.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	
+	<h4>You know what you got to do.<small>All fields are required.</small></h4>
+	<div class="dq-form">
+		<div class="field10-10"><%= f.text_field :caption, :placeholder => "Title of Image" %></div>
+		<div class="field10-10"><%= f.label :image, "Image File" -%><%= f.file_field :image %><%= f.hidden_field :image_cache %></div>
+
+		<div class="dq-buttons">
+			<%= f.submit :value => "#{params[:action].humanize} Entry" %>
+		</div>
+	</div>
+
+<% end %>
