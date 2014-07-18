@@ -35,7 +35,8 @@
 	<% else %>
 		<%= link_to '<i class="fa fa-user"></i> Sign In'.html_safe, new_user_session_path, :class => "lnk-button full" -%>
 	<% end %>
-	<a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a>
+	<!-- <a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a> -->
+	<%= link_to '<i class="fa fa-info"></i> Location Info'.html_safe, infos_page_path, :class => "lnk-button" -%>
 	<%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%>
 
 
