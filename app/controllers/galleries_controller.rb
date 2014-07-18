@@ -30,7 +30,7 @@ class GalleriesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @gallery.update(katy_corner_params)
+      if @gallery.update(gallery_params)
         format.html { redirect_to gallery_path(@gallery), notice: 'Gallery Image was successfully updated.' }
       else
         format.html { render action: 'edit' }

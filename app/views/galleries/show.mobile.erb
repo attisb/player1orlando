@@ -11,6 +11,12 @@
 	</div>
 	<div class="span4-12">
 		<div class="dq-buttons">
+		<% if admin_signed_in? %>
+			<h5>Admin Options</h5>
+			<div class="dq-buttons">
+				<%= link_to 'Edit Image', edit_gallery_path(@gallery), :class => "lnk-button full edit" %>
+			</div>
+		<% end %>
 			<%= link_to 'Go Back to Gallery', galleries_path, :class => "lnk-button full" %>
 		</div>
 	</div>

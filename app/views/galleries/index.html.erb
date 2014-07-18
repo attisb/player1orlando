@@ -5,7 +5,7 @@
 	<div class="span12-12">
 		<ul class="unstyled">
 			<% @galleries.each do |gallery| %>
-			<li class="float-left"><%= image_tag gallery.image.thumb, alt: gallery.caption %></li>
+			<li class="float-left"><%= link_to image_tag(gallery.image.thumb, alt: gallery.caption), gallery_path(gallery) %></li>
 			<% end %>
 		</ul>
 	</div>
