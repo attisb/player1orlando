@@ -1,0 +1,13 @@
+<% title "Happy Hour Cover Voucher" %>
+<!-- Standard Content -->
+<div class="content">
+	<div class="span12-12"><h2><i class="fa fa-clock-o"></i> Happy Hour<small>Awesome deals on craft beer.</small></h2></div>
+
+	<% if Time.now >= Time.parse("4pm") && Time.now <= Time.parse("11pm") %>
+	<div class="span12-12">
+		<h1 class="text-center"><i class="fa fa-ticket"></i></h1>
+		<h4 class="text-center">Happy Hour Cover<small>Valid today only between open and 8pm.</small></h4>
+	</div>
+	<% end %>
+
+</div>
