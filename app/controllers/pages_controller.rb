@@ -49,6 +49,9 @@ class PagesController < ApplicationController
   def music
   end
   
+  def happyhour
+  end
+  
   def info
     @current_events = Event.where(starts_at: (Time.zone.now.midnight - 1.day)..(Time.zone.now.midnight + 1.day)).limit(1)
   
