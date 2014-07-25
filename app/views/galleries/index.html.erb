@@ -3,17 +3,20 @@
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-camera"></i> Gallery<small>A little slice of us.</small></h2></div>
 	<div class="span12-12">
+		<h4>Want to get your picture here at Player 1? Tag your photos with #player1orlando.</h4>
 		<% if admin_signed_in? %>
 			<h5>Admin Options</h5>
 			<div class="dq-buttons pad-bottom">
 				<%= link_to 'New Image', new_gallery_path, :class => "lnk-button full" %>
 			</div>
 		<% end %>
-
-		<ul class="unstyled">
-			<% @galleries.each do |gallery| %>
-			<li class="float-left"><%= link_to image_tag(gallery.image.thumb, alt: gallery.caption), gallery_path(gallery) %></li>
-			<% end %>
-		</ul>
 	</div>
+
+	<% @galleries.each do |gallery| %>
+	<div class="span4-12">
+	<%= link_to image_tag(gallery.image.thumb, alt: gallery.caption, :class => "fullwidth_image"), gallery_path(gallery) %></li>
+	</div>
+	<% end %>
+
+	<div class="span12-12">&nbsp;</div>
 </div>

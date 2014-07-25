@@ -2,11 +2,17 @@
 
 <div class="content">
 	<div class="span12-12"><h2><i class="fa fa-camera"></i> Gallery<small>A little slice of us.</small></h2></div>
+
 	<div class="span12-12">
-		<ul class="unstyled">
-			<% @galleries.each do |gallery| %>
-			<li><%= link_to image_tag(gallery.image.thumb, alt: gallery.caption), gallery_path(gallery) %></li>
-			<% end %>
-		</ul>
+		<p>Want to get your picture here at Player 1? Tag your photos with #player1orlando.</p>
 	</div>
+
+
+	<% @galleries.each do |gallery| %>
+	<div class="span12-12">
+	<%= link_to image_tag(gallery.image.thumb, alt: gallery.caption, :class => "fullwidth_image"), gallery_path(gallery) %></li>
+	</div>
+	<% end %>
+
+	<div class="span12-12">&nbsp;</div>
 </div>

@@ -37,7 +37,8 @@
 	<% end %>
 	<!-- <a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a> -->
 	<%= link_to '<i class="fa fa-info"></i> Location Info'.html_safe, infos_page_path, :class => "lnk-button" -%>
-	<%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%>
+	<%= link_to '<i class="fa fa-camera-retro"></i> Gallery'.html_safe, galleries_path, :class => "lnk-button" -%>
+	<!-- <%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%> -->
 
 
 	<% if user_signed_in? -%>
