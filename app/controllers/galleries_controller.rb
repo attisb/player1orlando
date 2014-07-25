@@ -41,7 +41,7 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery.destroy
     respond_to do |format|
-      format.html { redirect_to gallery_path }
+      format.html { redirect_to galleries_path }
     end
   end
   

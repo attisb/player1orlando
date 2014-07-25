@@ -13,7 +13,7 @@
 	</div>
 
 	<% @galleries.each do |gallery| %>
-	<div class="span4-12">
+	<div class="span3-12">
 	<%= link_to image_tag(gallery.image.thumb, alt: gallery.caption, :class => "fullwidth_image"), gallery_path(gallery) %></li>
 	</div>
 	<% end %>
