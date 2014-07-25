@@ -29,17 +29,22 @@
 
 
 <div class="dq-buttons small">
+	<%= link_to '<i class="fa fa-info"></i> Location Info'.html_safe, infos_page_path, :class => "lnk-button" -%>
+	<%= link_to '<i class="fa fa-camera-retro"></i> Gallery'.html_safe, galleries_path, :class => "lnk-button" -%>
+
 	<% if user_signed_in? -%>
 		<%= link_to '<i class="fa fa-bullhorn"></i> Try A New Drink'.html_safe, bartender_choice_page_path, :class => "lnk-button" %>
 		<%= link_to '<i class="fa fa-beer"></i> Drink Tracker'.html_safe, trackers_path, :class => "lnk-button" -%>
 	<% else %>
 		<%= link_to '<i class="fa fa-user"></i> Sign In'.html_safe, new_user_session_path, :class => "lnk-button full" -%>
 	<% end %>
-	<!-- <a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a> -->
-	<%= link_to '<i class="fa fa-info"></i> Location Info'.html_safe, infos_page_path, :class => "lnk-button" -%>
-	<%= link_to '<i class="fa fa-camera-retro"></i> Gallery'.html_safe, galleries_path, :class => "lnk-button" -%>
-	<!-- <%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%> -->
 
+	<h5>Want to take a bottle home?</h5>
+	<p>Player 1 now has a To-Go option for those on the run or wanting to continue the party at home! Order by phone or with our lovely game tenders located in the front of the bar! You can order as few as one beer, or as many as you want, create your own sick pack, we've got you covered! All to-go orders will receive an additional 10% off their entire order!As an added bonus, Members who have reached new levels in our membership program will use their discount perks instead!</p>
+	<p>Call 407.778.4815 to order a bottle and come pick it up.</p>
+
+	<!-- <a class="lnk-button" href="/food"><i class="fa fa-cutlery"></i> Food</a> -->
+	<!-- <%= link_to '<i class="fa fa-gamepad"></i> Games'.html_safe, play_path, :class => "lnk-button" -%> -->
 
 	<% if user_signed_in? -%>
 		<%= link_to 'View Full Site', root_path(:mobile => 0), :class => "lnk-button transparent" -%>
