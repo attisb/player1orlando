@@ -60,7 +60,11 @@ class BeveragesController < ApplicationController
   def show_by_printable_custom
     @dispense_type_name = Drink::DISPENSE_TYPE.invert
     @display_groups = params[:view_options].split(/,/)
-    @drinks = Drink.where(:visible => true).order(name: :asc)
+    if params[:group] == "true"
+      @drinks = Drink.where(:visible => true).order(beer_style_id: :asc, name: :asc)
+    else
+      @drinks = Drink.where(:visible => true).order(name: :asc)
+    end
   end
     
 end
