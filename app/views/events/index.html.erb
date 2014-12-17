@@ -31,6 +31,7 @@
 				<li>
 					<strong><%= event.title -%></strong>
 					<%= simple_format event.description %>
+					<div class="small"><%= event.starts_at.to_s(:long) -%> to <%= event.ends_at.to_s(:short) -%></div>
 					<%= render 'shared/social', url_pass: event_url(event), title_page: event.title %>
 					<% if admin_signed_in? -%><div class="text-right"><%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></div><% end -%>
 				</li>
