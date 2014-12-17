@@ -9,8 +9,12 @@ class EventsController < ApplicationController
       "valid_sunday = ? OR valid_monday = ? OR valid_tuesday = ? OR valid_wednesday = ? OR valid_thursday = ? OR valid_friday = ? OR valid_saturday = ?",
       true, true, true, true, true, true, true
     )
-
-    @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 14.days)).order(:starts_at).limit(3)
+    
+    if admin_signed_in?
+      @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 30.days)).order(:starts_at)
+    else
+      @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 14.days)).order(:starts_at).limit(3)
+    end
     
     @day_generic_events = @generic_events.where("valid_#{Time.zone.now.strftime('%A').downcase}" => true)
     @current_events = @current_events + @day_generic_events
