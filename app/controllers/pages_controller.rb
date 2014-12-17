@@ -60,6 +60,8 @@ class PagesController < ApplicationController
       true, true, true, true, true, true, true
     ).limit(1)
 
+    @upcoming_events = Event.where(starts_at: (Time.zone.now.midnight + 1.day)..(Time.zone.now.midnight + 14.days)).order(:starts_at).limit(3)
+
     @day_generic_events = @generic_events.where("valid_#{Time.zone.now.strftime('%A').downcase}" => true)
     @current_events = @current_events + @day_generic_events
   end
