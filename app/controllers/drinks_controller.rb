@@ -30,6 +30,10 @@ class DrinksController < ApplicationController
   def create
     @drink = Drink.new(drink_params)
     @drink.average = 0
+    
+    if @drink.abv.blank?
+      @drink.abv = 0
+    end
 
     respond_to do |format|
       if @drink.save
