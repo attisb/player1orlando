@@ -42,6 +42,7 @@ Player1orlando::Application.routes.draw do
   get '/leaderboard', to: 'pages#leaderboard', as: 'leaderboard_page'
 
   get '/tvboards/draft', to: 'taps#tvboard', as: 'tvboard_draft_page'
+  get '/tvboards_hor/draft', to: 'taps#tvboard_hor', as: 'tvboard_hor_draft_page'
   get '/tvboards/bottle/:id', to: 'drinks#tvscreen', as: 'tvboard_bottle_page'
 
   get '/drinks/all/edit', to: 'drinks#edit_all', as: 'edit_all_drinks'

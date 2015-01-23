@@ -12,6 +12,10 @@ class TapsController < ApplicationController
     @drinks = Drink.where(:visible => true)
   end
   
+  def tvboard_hor
+    @drinks = Drink.where(:visible => true)
+  end
+  
   def create
     @drink = Drink.find(params[:drink_id].to_i)
     @drink.tab_index = params[:tap_index].to_i
@@ -43,6 +47,8 @@ class TapsController < ApplicationController
       case action_name
       when "tvboard"
         "tvscreen"
+      when "tvboard_hor"
+        "tvscreen_hor"
       else
         "application"
       end
