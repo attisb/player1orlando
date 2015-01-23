@@ -10,8 +10,8 @@
 		</div>
 		<div class="screen_column">
 
-<% running_counter = 1 %>
-<% running_counter_page = 1 %>
+<% running_counter = 0 %>
+<% running_counter_page = 0 %>
 <% (1..@total_taps.to_i).each do |i| %>
 
 		<% if @drinks.where(:tab_index => i).count > 0 %>
@@ -29,7 +29,7 @@
 			<% if running_counter == 9 %>
 				</div>
 				<div class="screen_column column2">
-				<% running_counter = 1 %>
+				<% running_counter = 0 %>
 			<% end %>
 
 			<% if running_counter_page == 18 %>
@@ -40,7 +40,7 @@
 					<h1>Draft List</h1>
 				</div>
 				<div class="screen_column">
-				<% running_counter_page = 1 %>
+				<% running_counter_page = 0 %>
 			<% end %>
 		<% end %>
 
