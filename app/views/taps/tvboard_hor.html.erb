@@ -1,0 +1,76 @@
+<% title "What's on Tap" %>
+
+
+<div id="screen_liner">
+
+
+	<div class="slide">
+		<div class="screen_header">
+			<h1>Draft List</h1>
+		</div>
+		<div class="screen_column">
+
+<% running_counter = 1 %>
+<% running_counter_page = 1 %>
+<% (1..@total_taps.to_i).each do |i| %>
+
+		<% if @drinks.where(:tab_index => i).count > 0 %>
+			<% drink = @drinks.where(:tab_index => i).first %>
+
+			<ul>
+				<li class="screen_price"><%= number_to_currency drink.price -%></li>
+				<%= raw "<li class=\"screen_abv\">#{number_to_percentage drink.abv, precision: 2}</li>" unless drink.abv.blank? %>
+				<li class="screen_name"><h4><%= drink.name -%></h4><%= drink.beer_style.name -%></li>
+			</ul>
+			
+			<% running_counter = running_counter+1 %>
+			<% running_counter_page = running_counter_page+1 %>
+			
+			<% if running_counter == 9 %>
+				</div>
+				<div class="screen_column column2">
+				<% running_counter = 1 %>
+			<% end %>
+
+			<% if running_counter_page == 18 %>
+						</div>
+					</div>
+			<div class="slide">
+				<div class="screen_header">
+					<h1>Draft List</h1>
+				</div>
+				<div class="screen_column">
+				<% running_counter_page = 1 %>
+			<% end %>
+		<% end %>
+
+<% end %>
+
+		</div>
+	</div>
+
+
+			
+			
+
+
+</div>
+
+
+<script>
+		$(function() {
+		
+			$("#screen_liner > .slide:gt(0)").hide();
+	
+			setInterval(function() { 
+			  $('#screen_liner > .slide:first')
+			    .hide()
+			    .next()
+			    .show()
+			    .end()
+			    .appendTo('#screen_liner');
+			},  6000);
+			
+		});
+	</script>
+
