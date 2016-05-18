@@ -245,9 +245,10 @@
 			$('a.specialitem').click(function(e) {
 				var itemname = $(this).data("adjustitem");
 				if( $('#' + itemname + ' i').hasClass("fa") ) {
-					$('#' + itemname + ' i').removeClass("fa")
+					$('#' + itemname + ' i').removeClass("fa").css('opacity', '0')
+					
 				} else {
-					$('#' + itemname + ' i').addClass("fa")
+					$('#' + itemname + ' i').addClass("fa").css('opacity', '1')
 				}
 			    e.preventDefault();
 			});
