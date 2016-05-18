@@ -35,7 +35,7 @@
 							<% else %>
 								<div class="newtype">NEW</div>
 							<% end %>
-							<div class="specialtype" id="special<%= drink.id -%>"><i class="fa-glass"></i></div>
+							<div class="specialtype" id="special<%= drink.id -%>"><i class="fa-glass" style="opacity: 0;"></i></div>
 							
 							<div class="float-right"><% if drink.abv > 0 -%>ABV <%= drink.abv %>% // <% end -%><% if drink.price > 0 -%><%= number_to_currency drink.price -%><% end -%></div>
 							<%= drink.name -%>
